@@ -1,0 +1,119 @@
+{
+  "head": {
+    "type": "check-run@1.0.0",
+    "name": "octocoders-linter",
+    "slug": "check-run-128620228",
+    "active": true,
+    "capabilities": [],
+    "requires": [],
+    "tags": [],
+    "version": "1.0.0",
+    "data": {
+      "owner": "Codertocat",
+      "repo": "Codertocat/Hello-World",
+      "head_sha": "ec26c3e57ca3a959ca5aad62de7213c562f8c821",
+      "details_url": "https://octocoders.io",
+      "status": "completed",
+      "started_at": "2019-05-15T15:21:12Z",
+      "conclusion": null,
+      "completed_at": null,
+      "check_run_id": "128620228"
+    }
+  },
+  "tail": [
+    {
+      "type": "create@1.0.0",
+      "active": true,
+      "version": "1.0.0",
+      "tags": [],
+      "requires": [],
+      "capabilities": [],
+      "data": {
+        "timestamp": "2019-05-15T15:20:31.000Z",
+        "actor": {
+          "active": true,
+          "slug": "user-nazrhom"
+        },
+        "payload": {
+          "type": "check-run@1.0.0",
+          "active": true,
+          "capabilities": [],
+          "requires": [],
+          "tags": [],
+          "version": "1.0.0",
+          "name": "octocoders-linter",
+          "data": {
+            "owner": "Codertocat",
+            "repo": "Codertocat/Hello-World",
+            "head_sha": "ec26c3e57ca3a959ca5aad62de7213c562f8c821",
+            "details_url": "https://octocoders.io",
+            "status": "queued",
+            "started_at": "2019-05-15T15:21:12Z",
+            "conclusion": null,
+            "completed_at": null,
+            "check_run_id": "128620228"
+          }
+        }
+      }
+    },
+    {
+      "type": "update@1.0.0",
+      "active": true,
+      "version": "1.0.0",
+      "tags": [],
+      "requires": [],
+      "capabilities": [],
+      "data": {
+        "timestamp": "2019-05-15T15:20:31.000Z",
+        "actor": {
+          "active": true,
+          "slug": "user-nazrhom"
+        },
+        "payload": [
+          {
+            "op": "replace",
+            "path": "/data/completed_at",
+            "value": "2019-05-15T15:23:12Z"
+          },
+          {
+           "op": "replace",
+           "path": "/data/conclusion",
+           "value": "success"
+         },
+         {
+           "op": "replace",
+           "path": "/data/status",
+           "value": "completed"
+         }
+        ]
+      }
+    },
+    {
+      "type": "update@1.0.0",
+      "active": true,
+      "version": "1.0.0",
+      "tags": [],
+      "requires": [],
+      "capabilities": [],
+      "data": {
+        "timestamp": "2019-05-15T15:20:31.000Z",
+        "actor": {
+          "active": true,
+          "slug": "user-nazrhom"
+        },
+        "payload": [
+          {
+            "op": "replace",
+            "path": "/data/completed_at",
+            "value": null
+          },
+          {
+           "op": "replace",
+           "path": "/data/conclusion",
+           "value": null
+         }
+        ]
+      }
+    }
+  ]
+}
