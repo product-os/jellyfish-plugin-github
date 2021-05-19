@@ -21,6 +21,12 @@ services:
       - REDIS_HOST=redis
       - REDIS_PASSWORD=
       - REDIS_PORT=6379
+      - OAUTH_REDIRECT_BASE_URL=https://jel.ly.fish
+      - INTEGRATION_DEFAULT_USER
+      - INTEGRATION_GITHUB_APP_ID
+      - INTEGRATION_GITHUB_PRIVATE_KEY
+      - INTEGRATION_GITHUB_SIGNATURE_KEY
+      - INTEGRATION_TOKEN
       - CI=1
       - NPM_TOKEN
     networks:

@@ -47,6 +47,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.1.17",
     "@balena/jellyfish-plugin-base": "^2.1.88",
+    "@balena/jellyfish-plugin-default": "10.0.0-remove-github-3f6c5ea7bd5c35e26b95f349ef2387c80d72c4a7",
     "@octokit/auth-app": "^3.4.0",
     "@octokit/plugin-retry": "^3.0.7",
     "@octokit/plugin-throttling": "^3.4.1",
@@ -62,7 +63,6 @@
     "@balena/jellyfish-action-library": "^10.0.28",
     "@balena/jellyfish-core": "^2.13.107",
     "@balena/jellyfish-environment": "^4.1.13",
-    "@balena/jellyfish-plugin-default": "^9.4.14",
     "@balena/jellyfish-test-harness": "^2.0.205",
     "@balena/jellyfish-types": "^0.5.116",
     "@balena/lint": "^5.4.2",
