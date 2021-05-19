@@ -4,5 +4,5 @@
  * Proprietary and confidential.
  */
 
-// tslint:disable: no-var-requires
+// tslint:disable-next-line: no-var-requires
 export default [require('./github')];

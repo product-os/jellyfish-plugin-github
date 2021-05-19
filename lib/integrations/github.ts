@@ -3,49 +3,28 @@
  * Unauthorized copying of this file, via any medium is strictly prohibited.
  * Proprietary and confidential.
  */
-// tslint:disable: no-var-requires
 
 import * as assert from '@balena/jellyfish-assert';
 import { Integration } from '@balena/jellyfish-plugin-base';
 import type { EventContract } from '@balena/jellyfish-types/build/core';
 import { createAppAuth } from '@octokit/auth-app';
-// import { Octokit } from '@octokit/rest';
+import { Octokit as OctokitRest } from '@octokit/rest';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import Bluebird from 'bluebird';
 import crypto from 'crypto';
 import _ from 'lodash';
-import clone from 'lodash/clone';
-import cloneDeep from 'lodash/cloneDeep';
-import each from 'lodash/each';
-import find from 'lodash/find';
-import findIndex from 'lodash/findIndex';
-import first from 'lodash/first';
-import get from 'lodash/get';
-import isEmpty from 'lodash/isEmpty';
-import isEqual from 'lodash/isEqual';
-import isNaN from 'lodash/isNaN';
-import isNumber from 'lodash/isNumber';
-import last from 'lodash/last';
-import map from 'lodash/map';
-import merge from 'lodash/merge';
-import sortBy from 'lodash/sortBy';
-import split from 'lodash/split';
-import startsWith from 'lodash/startsWith';
-import trim from 'lodash/trim';
-import without from 'lodash/without';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
-
-const packageJSON = require('../../package.json');
-const Octokit = require('@octokit/rest').Octokit.plugin(retry, throttling);
+import packageJSON from '../../package.json';
 
 // const octokit = Octokit.plugin(retry, throttling);
 const GITHUB_API_REQUEST_LOG_TITLE = 'GitHub API Request';
 const GITHUB_API_RETRY_COUNT = 5;
 const SLUG = 'github';
+const Octokit = OctokitRest.plugin(retry, throttling);
 
 async function githubRequest(
 	fn: any,
@@ -95,8 +74,8 @@ function getCommentMirrorIdFromEvent(event: any): string {
 }
 
 function revertEventChanges(event: any, object: any): any {
-	const previousEvent = cloneDeep(event);
-	each(event.data.payload.changes, (value, key) => {
+	const previousEvent = _.cloneDeep(event);
+	_.each(event.data.payload.changes, (value, key) => {
 		previousEvent.data.payload[object][key] = value.from;
 	});
 
@@ -105,8 +84,8 @@ function revertEventChanges(event: any, object: any): any {
 }
 
 function updateCardFromSequence(sequence: any, index: any, changes: any): any {
-	const card = cloneDeep(sequence[index].card);
-	merge(card, changes);
+	const card = _.cloneDeep(sequence[index].card);
+	_.merge(card, changes);
 	card.id = {
 		$eval: `cards[${index}].id`,
 	};
@@ -297,8 +276,8 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const githubUrl = find(card.data.mirrors, (mirror) => {
-			return startsWith(mirror, 'https://github.com');
+		const githubUrl = _.find(card.data.mirrors, (mirror) => {
+			return _.startsWith(mirror, 'https://github.com');
 		});
 
 		this.context.log.info('Mirroring GitHub', {
@@ -307,7 +286,10 @@ module.exports = class GitHubIntegration implements Integration {
 		});
 
 		const actorCard = await this.context.getElementById(options.actor);
-		const username = get(actorCard, ['slug'], 'unknown').replace(/^user-/, '');
+		const username = _.get(actorCard, ['slug'], 'unknown').replace(
+			/^user-/,
+			'',
+		);
 		const prefix = `[${username}]`;
 		const baseType = card.type.split('@')[0];
 
@@ -403,11 +385,11 @@ module.exports = class GitHubIntegration implements Integration {
 			});
 
 			const urlFragments = githubUrl.split('/');
-			const entityNumber = _.parseInt(last(urlFragments) || '');
+			const entityNumber = _.parseInt(_.last(urlFragments) || '');
 
 			assert.INTERNAL(
 				null,
-				isNumber(entityNumber) && !isNaN(entityNumber),
+				_.isNumber(entityNumber) && !_.isNaN(entityNumber),
 				this.options.errors.SyncInvalidEvent,
 				`No entity number in GitHub URL: ${githubUrl}`,
 			);
@@ -427,12 +409,12 @@ module.exports = class GitHubIntegration implements Integration {
 				result.data.state !== card.data.status ||
 				result.data.body !== `${prefix} ${card.data.description}` ||
 				result.data.title !== card.name ||
-				!isEqual(map(result.data.labels, 'name'), card.tags)
+				!_.isEqual(_.map(result.data.labels, 'name'), card.tags)
 			) {
 				const updateOptions = {
 					owner: getOptions.owner,
 					repo: getOptions.repo,
-					issue_number: _.parseInt(last(githubUrl.split('/')) || ''),
+					issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
 					title: card.name,
 					body: card.data.description,
 					state: card.data.status,
@@ -479,8 +461,8 @@ module.exports = class GitHubIntegration implements Integration {
 				return [];
 			}
 
-			const issueGithubUrl = find(issue.data.mirrors, (mirror) => {
-				return startsWith(mirror, 'https://github.com');
+			const issueGithubUrl = _.find(issue.data.mirrors, (mirror) => {
+				return _.startsWith(mirror, 'https://github.com');
 			});
 
 			const repoDetails = issueGithubUrl
@@ -489,8 +471,8 @@ module.exports = class GitHubIntegration implements Integration {
 						repository: issueGithubUrl.split('/')[4],
 				  }
 				: {
-						owner: first(issue.data.repository.split('/')),
-						repository: last(issue.data.repository.split('/')),
+						owner: _.first(issue.data.repository.split('/')),
+						repository: _.last(issue.data.repository.split('/')),
 				  };
 
 			if (!githubUrl) {
@@ -505,7 +487,8 @@ module.exports = class GitHubIntegration implements Integration {
 						owner: repoDetails.owner,
 						repo: repoDetails.repository,
 						issue_number: _.parseInt(
-							last((issueGithubUrl || issue.data.repository).split('/')) || '',
+							_.last((issueGithubUrl || issue.data.repository).split('/')) ||
+								'',
 						),
 						body: `${prefix} ${card.data.payload.message}`,
 					},
@@ -529,7 +512,7 @@ module.exports = class GitHubIntegration implements Integration {
 					{
 						owner: repoDetails.owner,
 						repo: repoDetails.repository,
-						comment_id: _.parseInt(last(githubUrl.split('-')) || ''),
+						comment_id: _.parseInt(_.last(githubUrl.split('-')) || ''),
 					},
 					this.options,
 				);
@@ -637,7 +620,7 @@ module.exports = class GitHubIntegration implements Integration {
 			tags: root.labels.map((label: any) => {
 				return label.name;
 			}),
-			data: merge(
+			data: _.merge(
 				{
 					repository: event.data.payload.repository.full_name,
 					git_url: event.data.payload.repository.git_url,
@@ -742,7 +725,7 @@ module.exports = class GitHubIntegration implements Integration {
 			'pull-request@1.0.0',
 		);
 
-		if (isEmpty(result)) {
+		if (_.isEmpty(result)) {
 			return [];
 		}
 		const headPayload = event.data.payload.pull_request.head.repo;
@@ -766,7 +749,7 @@ module.exports = class GitHubIntegration implements Integration {
 		});
 
 		if (base.card) {
-			if (isEqual(base.card, head.card)) {
+			if (_.isEqual(base.card, head.card)) {
 				base.repoInfo.target.id.$eval = `cards[${--index}].id`;
 			} else {
 				result.push(base.card);
@@ -830,7 +813,7 @@ module.exports = class GitHubIntegration implements Integration {
 	): Promise<any> {
 		const mirrorID = getEventMirrorId(event);
 		const cards = await this.createPRIfNotExists(github, event, actor);
-		if (isEmpty(cards)) {
+		if (_.isEmpty(cards)) {
 			return [];
 		}
 		const pr = cards[0].card;
@@ -838,13 +821,13 @@ module.exports = class GitHubIntegration implements Integration {
 		const connectedIssue = _.chain(pr.data.description)
 			.split('\n')
 			.map((line: string) => {
-				return trim(line, ' \n');
+				return _.trim(line, ' \n');
 			})
 			.filter((line: string) => {
 				return /^[\w-]+:/.test(line);
 			})
 			.map((line: string) => {
-				return split(line, /\s*:\s*/);
+				return _.split(line, /\s*:\s*/);
 			})
 			.fromPairs()
 			.get(['Connects-to'])
@@ -908,7 +891,7 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 		const root = getEventRoot(event);
 
-		if (isEmpty(existingPR)) {
+		if (_.isEmpty(existingPR)) {
 			return this.createPRIfNotExists(github, event, actor);
 		}
 
@@ -1115,7 +1098,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const commentMirrorId = getCommentMirrorIdFromEvent(event);
 		const comment = await this.getCommentByMirrorId(commentMirrorId);
 		if (comment) {
-			return [makeCard(merge(comment, changes), actor, updateTime)];
+			return [makeCard(_.merge(comment, changes), actor, updateTime)];
 		}
 
 		const issueMirrorId = getEventMirrorId(event);
@@ -1150,8 +1133,8 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 
 		for (const item of result) {
-			const githubUrl = find(item.card.data.mirrors, (mirror) => {
-				return startsWith(mirror, 'https://github.com');
+			const githubUrl = _.find(item.card.data.mirrors, (mirror) => {
+				return _.startsWith(mirror, 'https://github.com');
 			});
 
 			if (!githubUrl) {
@@ -1163,7 +1146,7 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 		}
 
-		const index = findIndex(sequence, (element) => {
+		const index = _.findIndex(sequence, (element) => {
 			return element.card.data.mirrors.includes(commentMirrorId);
 		});
 
@@ -1177,7 +1160,7 @@ module.exports = class GitHubIntegration implements Integration {
 				targetCard: issue || sequence[0].card,
 			});
 
-			merge(upserts[0].card, changes);
+			_.merge(upserts[0].card, changes);
 			sequence.push(...upserts);
 		} else {
 			const time = event.data.payload.comment.updated_at;
@@ -1344,7 +1327,7 @@ module.exports = class GitHubIntegration implements Integration {
 				status: root.state,
 			});
 
-			if (!isEqual(sortBy(cardFromEvent.tags), sortBy(issue.tags))) {
+			if (!_.isEqual(_.sortBy(cardFromEvent.tags), _.sortBy(issue.tags))) {
 				cardFromEvent.id = issue.id;
 				return [makeCard(cardFromEvent, actor, root.updated_at)];
 			}
@@ -1357,14 +1340,14 @@ module.exports = class GitHubIntegration implements Integration {
 			status: 'open',
 		});
 
-		const originalTags = clone(card.tags);
+		const originalTags = _.clone(card.tags);
 
 		if (action === 'labeled') {
 			if (root.created_at === root.updated_at) {
 				return [makeCard(card, actor, root.created_at)];
 			}
 
-			card.tags = without(card.tags, event.data.payload.label.name);
+			card.tags = _.without(card.tags, event.data.payload.label.name);
 
 			sequence.push(makeCard(card, actor, root.created_at));
 
@@ -1658,8 +1641,8 @@ module.exports = class GitHubIntegration implements Integration {
 				const date = new Date(payload.updated_at);
 				const card = await this.getCommentByMirrorId(mirrorId);
 				const data = {
-					mirrors: get(card, ['data', 'mirrors']) || [mirrorId],
-					actor: get(card, ['data', 'actor']) || options.actor,
+					mirrors: _.get(card, ['data', 'mirrors']) || [mirrorId],
+					actor: _.get(card, ['data', 'actor']) || options.actor,
 					target,
 					timestamp: date.toISOString(),
 					payload: {
