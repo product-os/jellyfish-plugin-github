@@ -4,13 +4,16 @@
  * Proprietary and confidential.
  */
 
-import checkRun from './check-run';
-import issue from './issue';
-import pullRequest from './pull-request';
-import push from './push.json';
-import repository from './repository';
-import triggeredActionGitHubIssueLink from './triggered-action-github-issue-link.json';
-import triggeredActionIntegrationGitHubMirrorEvent from './triggered-action-integration-github-mirror-event.json';
+import viewAllIssues from './balena/view-all-issues.json';
+import checkRun from './contrib/check-run';
+import issue from './contrib/issue';
+import pullRequest from './contrib/pull-request';
+import push from './contrib/push.json';
+import repository from './contrib/repository';
+import triggeredActionGitHubIssueLink from './contrib/triggered-action-github-issue-link.json';
+import triggeredActionIntegrationGitHubMirrorEvent from './contrib/triggered-action-integration-github-mirror-event.json';
+import triggeredActionSupportClosedIssueReopen from './contrib/triggered-action-support-closed-issue-reopen.json';
+import triggeredActionSupportClosedPullRequestReopen from './contrib/triggered-action-support-closed-pull-request-reopen.json';
 
 export default [
 	checkRun,
@@ -20,4 +23,7 @@ export default [
 	repository,
 	triggeredActionGitHubIssueLink,
 	triggeredActionIntegrationGitHubMirrorEvent,
+	triggeredActionSupportClosedIssueReopen,
+	triggeredActionSupportClosedPullRequestReopen,
+	viewAllIssues,
 ];
