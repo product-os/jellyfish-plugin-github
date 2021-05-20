@@ -6,6 +6,7 @@
 
 // tslint:disable: no-var-requires
 import { JellyfishPluginBase } from '@balena/jellyfish-plugin-base';
+import actions from './actions';
 import cards from './cards';
 import integrations from './integrations';
 
@@ -21,13 +22,14 @@ export class GitHubPlugin extends JellyfishPluginBase {
 			slug: 'jellyfish-plugin-github',
 			name: 'GitHub Plugin',
 			version: '1.0.0',
+			actions,
 			cards,
 			mixins: defaultPluginMixins,
 			integrations,
 			requires: [
 				{
 					slug: 'jellyfish-plugin-default',
-					version: '>=5.x',
+					version: '>=10.x',
 				},
 			],
 		});
