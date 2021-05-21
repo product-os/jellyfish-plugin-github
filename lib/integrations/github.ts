@@ -8,9 +8,9 @@ import * as assert from '@balena/jellyfish-assert';
 import { Integration } from '@balena/jellyfish-plugin-base';
 import type { EventContract } from '@balena/jellyfish-types/build/core';
 import { createAppAuth } from '@octokit/auth-app';
-import { Octokit as OctokitRest } from '@octokit/rest';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
+import { Octokit as OctokitRest } from '@octokit/rest';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import Bluebird from 'bluebird';
 import crypto from 'crypto';
@@ -18,7 +18,9 @@ import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
-import packageJSON from '../../package.json';
+
+// tslint:disable-next-line: no-var-requires
+const packageJSON = require('../../package.json');
 
 // const octokit = Octokit.plugin(retry, throttling);
 const GITHUB_API_REQUEST_LOG_TITLE = 'GitHub API Request';
