@@ -37,8 +37,6 @@ syncIntegrationScenario.run(
 		],
 		integration: GitHubIntegration,
 		scenarios: webhooks,
-		// beforeEach: localBeforeEach,
-		// afterEach: localAfterEach,
 		baseUrl: 'https://api.github.com',
 		stubRegex: /.*/,
 		source: 'github',

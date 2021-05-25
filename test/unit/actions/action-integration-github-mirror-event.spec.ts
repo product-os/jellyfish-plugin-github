@@ -49,7 +49,7 @@ function makeContract(type: string, data = {}, slug = ''): Contract {
  * @param data - optional contract data object
  * @returns message contract
  */
-export function makeMessage(ctx: Context, data = {}): Contract {
+function makeMessage(ctx: Context, data = {}): Contract {
 	return makeContract(
 		'message',
 		Object.assign(
@@ -74,10 +74,7 @@ export function makeMessage(ctx: Context, data = {}): Contract {
  * @param requestArguments - optional request arguments
  * @returns action request object
  */
-export function makeRequest(
-	ctx: Context,
-	requestArguments = {},
-): ActionRequestData {
+function makeRequest(ctx: Context, requestArguments = {}): ActionRequestData {
 	return {
 		context: {
 			id: `TEST-${uuidv4()}`,

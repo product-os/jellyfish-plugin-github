@@ -28,6 +28,10 @@ export class GitHubPlugin extends JellyfishPluginBase {
 			integrations,
 			requires: [
 				{
+					slug: 'action-library',
+					version: '>=11.x',
+				},
+				{
 					slug: 'jellyfish-plugin-default',
 					version: '>=10.x',
 				},

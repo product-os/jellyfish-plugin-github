@@ -4,7 +4,6 @@
  * Proprietary and confidential.
  */
 
-// TODO: Not sure if we should be importing mirror from action-library, dep loop?
 import { mirror } from '@balena/jellyfish-action-library/build/actions/mirror';
 import type { ActionFile } from '@balena/jellyfish-plugin-base';
 
