@@ -7,6 +7,8 @@
 import ActionLibrary from '@balena/jellyfish-action-library';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { syncIntegrationScenario } from '@balena/jellyfish-test-harness';
+import jwt from 'jsonwebtoken';
+import nock from 'nock';
 import { GitHubPlugin } from '../../lib';
 import GitHubIntegration from '../../lib/integrations';
 import webhooks from './webhooks/github';
@@ -15,6 +17,42 @@ import webhooks from './webhooks/github';
 const DefaultPlugin = require('@balena/jellyfish-plugin-default');
 
 const TOKEN = defaultEnvironment.integration.github;
+
+const accessTokenNock = async () => {
+	if (TOKEN.api && TOKEN.key) {
+		await nock('https://api.github.com')
+			.persist()
+			.post(/^\/app\/installations\/\d+\/access_tokens$/)
+			.reply(function (_uri: string, _request: any, callback: any) {
+				const token = this.req.headers.authorization[0].split(' ')[1];
+				jwt.verify(
+					token,
+					TOKEN.key,
+					{
+						algorithms: ['RS256'],
+					},
+					(error) => {
+						if (error) {
+							return callback(error);
+						}
+
+						return callback(null, [
+							201,
+							{
+								token: TOKEN.api,
+								expires_at: '2056-07-11T22:14:10Z',
+								permissions: {
+									issues: 'write',
+									contents: 'read',
+								},
+								repositories: [],
+							},
+						]);
+					},
+				);
+			});
+	}
+};
 
 syncIntegrationScenario.run(
 	{
@@ -39,6 +77,7 @@ syncIntegrationScenario.run(
 		scenarios: webhooks,
 		baseUrl: 'https://api.github.com',
 		stubRegex: /.*/,
+		beforeEach: accessTokenNock,
 		source: 'github',
 		options: {
 			token: TOKEN,
