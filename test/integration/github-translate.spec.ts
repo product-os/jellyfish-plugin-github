@@ -25,9 +25,10 @@ const accessTokenNock = async () => {
 			.post(/^\/app\/installations\/\d+\/access_tokens$/)
 			.reply(function (_uri: string, _request: any, callback: any) {
 				const token = this.req.headers.authorization[0].split(' ')[1];
+				const privateKey = Buffer.from(TOKEN.key, 'base64').toString();
 				jwt.verify(
 					token,
-					TOKEN.key,
+					privateKey,
 					{
 						algorithms: ['RS256'],
 					},

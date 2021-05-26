@@ -4,25 +4,6 @@
  * Proprietary and confidential.
  */
 
-/*
-export default {
-	'check-run': {
-		expected: require('./check-run/expected.json'),
-		steps: [
-			require('./check-run/01.json'),
-			require('./check-run/02.json'),
-			require('./check-run/03.json')
-		]
-	},
-	'push-to-master-with-installation-id': {
-		expected: require('./push-to-master-with-installation-id/expected.json'),
-		steps: [
-			require('./push-to-master-with-installation-id/01.json')
-		]
-	}
-}
-*/
-
 export default {
 	'check-run': {
 		expected: require('./check-run/expected.json'),

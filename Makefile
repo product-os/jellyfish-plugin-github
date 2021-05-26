@@ -58,7 +58,7 @@ test-unit:
 
 .PHONY: test-integration
 test-integration:
-	INTEGRATION_GITHUB_APP_ID= npx jest --runInBand --bail test/integration
+	npx jest --runInBand --bail test/integration
 
 .PHONY: doc
 doc:
