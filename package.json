@@ -45,10 +45,10 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@balena/jellyfish-action-library": "11.0.0-remove-github-61228fed57e91a1988ebdd8959a4fce1555506d8",
+    "@balena/jellyfish-action-library": "^11.0.0",
     "@balena/jellyfish-assert": "^1.1.17",
     "@balena/jellyfish-plugin-base": "^2.1.88",
-    "@balena/jellyfish-plugin-default": "10.0.0-remove-github-15fc42c185f9557d72537f6a18ead31fe35b461a",
+    "@balena/jellyfish-plugin-default": "^10.0.0",
     "@octokit/auth-app": "^3.4.0",
     "@octokit/plugin-retry": "^3.0.7",
     "@octokit/plugin-throttling": "^3.4.1",
