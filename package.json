@@ -1,0 +1,87 @@
+{
+  "name": "@balena/jellyfish-plugin-github",
+  "description": "GitHub Jellyfish Plugin",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/product-os/jellyfish-plugin-github"
+  },
+  "engines": {
+    "node": ">=12.15.0"
+  },
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build/"
+  ],
+  "directories": {
+    "lib": "lib"
+  },
+  "deplint": {
+    "files": [
+      "lib/**/*.{ts}"
+    ],
+    "modules": [
+      "lib"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "npm run lint-fix",
+      "git add ."
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "npm run clean && tsc -p tsconfig.build.json",
+    "lint": "balena-lint --typescript lib test && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest",
+    "lint-fix": "balena-lint --typescript --fix lib test",
+    "unit": "jest test/unit",
+    "test": "catch-uncommitted --skip-node-versionbot-changes && npm run lint && npm run unit",
+    "doc": "typedoc lib/ && touch docs/.nojekyll",
+    "prepack": "npm run build",
+    "check": "jellycheck"
+  },
+  "author": "Balena.io. <hello@balena.io>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@balena/jellyfish-action-library": "^11.0.0",
+    "@balena/jellyfish-assert": "^1.1.17",
+    "@balena/jellyfish-plugin-base": "^2.1.88",
+    "@balena/jellyfish-plugin-default": "^10.0.0",
+    "@octokit/auth-app": "^3.4.0",
+    "@octokit/plugin-retry": "^3.0.7",
+    "@octokit/plugin-throttling": "^3.4.1",
+    "@octokit/rest": "^18.5.3",
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.21",
+    "uuid": "^8.3.2",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "@balena/ci-task-runner": "^0.2.143",
+    "@balena/jellycheck": "^0.1.1",
+    "@balena/jellyfish-core": "^2.13.107",
+    "@balena/jellyfish-environment": "^4.1.13",
+    "@balena/jellyfish-test-harness": "^2.0.205",
+    "@balena/jellyfish-types": "^0.5.116",
+    "@balena/lint": "^5.4.2",
+    "@types/bluebird": "^3.5.34",
+    "@types/jest": "^26.0.23",
+    "@types/uuid": "^8.3.0",
+    "catch-uncommitted": "^2.0.0",
+    "depcheck": "^1.4.1",
+    "deplint": "^1.1.3",
+    "jest": "^26.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "lint-staged": "^11.0.0",
+    "nock": "^13.0.11",
+    "rimraf": "^3.0.2",
+    "simple-git-hooks": "^2.4.1",
+    "ts-jest": "^26.5.6",
+    "typedoc": "^0.20.36"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  }
+}
