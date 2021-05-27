@@ -4,6 +4,11 @@
 * Add/update tests [Josh Bowling]
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
+
+## 1.0.1 - 2021-05-27
+
+* Use jellyfish-config [Josh Bowling]
+
 * Update deps [Josh Bowling]
 * Update package.json import [Josh Bowling]
 * Add github action [Josh Bowling]
