@@ -272,7 +272,7 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const github = await this.getOctokit(this.context);
+		const github: any = await this.getOctokit(this.context);
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');
 			return [];
