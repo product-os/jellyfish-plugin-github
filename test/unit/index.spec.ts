@@ -8,7 +8,7 @@
 import { GitHubPlugin } from '../../lib';
 
 // TS-TODO: Update import after core is converted to TypeScript
-const coreMixins = require('@balena/jellyfish-core/lib/cards/mixins');
+import { cardMixins as coreMixins } from '@balena/jellyfish-core';
 
 const context = {
 	id: 'jellyfish-plugin-github-test',
