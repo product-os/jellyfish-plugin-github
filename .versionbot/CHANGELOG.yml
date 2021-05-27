@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 73d2391146b6e7b859ce07b5215885ff037eaed9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.6
+  date: 2021-05-27T16:41:39.986Z
+- commits:
     - subject: >-
         Update to latest package version that support typescript version of
         jellyfish-core
