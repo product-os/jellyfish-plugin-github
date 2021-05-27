@@ -1,4 +1,19 @@
 - commits:
+    - subject: >-
+        Update to latest package version that support typescript version of
+        jellyfish-core
+      hash: 6738e62117600f13c13dd975cebed853a4cb0f63
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.5
+  date: 2021-05-27T16:21:55.226Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 79e32c7f80ea16d566ccb328c9d2130f6af93862
       body: ''

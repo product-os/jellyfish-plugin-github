@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.5 - 2021-05-27
+
+* Update to latest package version that support typescript version of jellyfish-core [Lucian Buzzo]
+
 ## 1.0.4 - 2021-05-27
 
 * patch: Update internal-patch [Renovate Bot]
