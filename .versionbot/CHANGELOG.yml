@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add missing typescript dep
+      hash: 45e717126270cee245789c75f08a76dcdbf3f0a3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.8
+  date: 2021-05-28T01:23:20.271Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^11.0.8'
       hash: 0520d4860ae320a60ab0fd0e26c45dee62ec710a
       body: ''
