@@ -1,4 +1,17 @@
 - commits:
+    - subject: Downgrade TypeScript for TypeDoc
+      hash: 46a20ee60752cd4d57a7f8a1c0887d162b88d2a0
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.10
+  date: 2021-05-28T03:08:00.162Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^11.0.1'
       hash: 1adcc047462306a2701c8bda3c4e98b30a5cb6f1
       body: ''
