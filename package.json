@@ -45,9 +45,9 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@balena/jellyfish-action-library": "^11.0.11",
+    "@balena/jellyfish-action-library": "^11.0.12",
     "@balena/jellyfish-assert": "^1.1.35",
-    "@balena/jellyfish-plugin-base": "^2.1.115",
+    "@balena/jellyfish-plugin-base": "^2.1.117",
     "@balena/jellyfish-plugin-default": "^11.0.4",
     "@octokit/auth-app": "^3.4.0",
     "@octokit/plugin-retry": "^3.0.7",
@@ -59,7 +59,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@balena/ci-task-runner": "^0.2.154",
+    "@balena/ci-task-runner": "^0.2.155",
     "@balena/jellycheck": "^0.1.1",
     "@balena/jellyfish-config": "^1.2.1",
     "@balena/jellyfish-core": "^3.0.0",
