@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.11 - 2021-05-29
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.0.10 - 2021-05-28
 
 * Downgrade TypeScript for TypeDoc [Josh Bowling]
