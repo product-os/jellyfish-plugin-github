@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.42 - 2021-06-03
+
+* Remove unnecessary catch-uncommitted [Josh Bowling]
+
 ## 1.0.41 - 2021-05-31
 
 * patch: Update external-major [Renovate Bot]
