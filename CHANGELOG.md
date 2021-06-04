@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.44 - 2021-06-04
+
+* Update to latest Jellyfish package versions [Lucian Buzzo]
+
 ## 1.0.43 - 2021-06-04
 
 * Improve lint-staged config [Josh Bowling]

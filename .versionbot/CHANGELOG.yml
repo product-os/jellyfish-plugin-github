@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update to latest Jellyfish package versions
+      hash: ced645af0f724d07aaa14603ffe29c5e0be75b71
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.44
+  date: 2021-06-04T07:53:26.844Z
+- commits:
     - subject: Improve lint-staged config
       hash: 69bf8c74c00d1b25ab1195f3aabd2292a3892e4e
       body: ''
