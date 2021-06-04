@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.43 - 2021-06-04
+
+* Improve lint-staged config [Josh Bowling]
+
 ## 1.0.42 - 2021-06-03
 
 * Remove unnecessary catch-uncommitted [Josh Bowling]
