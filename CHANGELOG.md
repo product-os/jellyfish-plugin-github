@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.46 - 2021-06-05
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.0.45 - 2021-06-05
 
 * Bump ws from 7.4.5 to 7.4.6 [dependabot[bot]]

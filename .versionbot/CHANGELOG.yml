@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: a3196797cc57684ca8a3a2d4efab951368628722
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.46
+  date: 2021-06-05T07:38:09.124Z
+- commits:
     - subject: Bump ws from 7.4.5 to 7.4.6
       hash: 35fe9b516fd259e7d133435d62b3fc57d9a8566b
       body: |
