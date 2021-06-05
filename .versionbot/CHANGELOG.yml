@@ -1,4 +1,20 @@
 - commits:
+    - subject: Bump ws from 7.4.5 to 7.4.6
+      hash: 35fe9b516fd259e7d133435d62b3fc57d9a8566b
+      body: |
+        Bumps [ws](https://github.com/websockets/ws) from 7.4.5 to 7.4.6.
+        - [Release notes](https://github.com/websockets/ws/releases)
+        - [Commits](https://github.com/websockets/ws/compare/7.4.5...7.4.6)
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 'dependabot[bot] <support@github.com>'
+        signed-off-by: 'dependabot[bot] <support@github.com>'
+      author: 'dependabot[bot]'
+      nested: []
+  version: 1.0.45
+  date: 2021-06-05T04:12:26.875Z
+- commits:
     - subject: Update to latest Jellyfish package versions
       hash: ced645af0f724d07aaa14603ffe29c5e0be75b71
       body: ''
