@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.55 - 2021-06-05
+
+* patch: Update dependency @balena/jellyfish-action-library to ^11.0.47 [Renovate Bot]
+
 ## 1.0.54 - 2021-06-05
 
 * patch: Update dependency @balena/jellyfish-action-library to ^11.0.46 [Renovate Bot]
