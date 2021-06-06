@@ -47,7 +47,7 @@
     "@balena/jellyfish-action-library": "^11.0.51",
     "@balena/jellyfish-assert": "^1.1.42",
     "@balena/jellyfish-plugin-base": "^2.1.138",
-    "@balena/jellyfish-plugin-default": "^12.0.4",
+    "@balena/jellyfish-plugin-default": "^12.0.5",
     "@octokit/auth-app": "^3.4.1",
     "@octokit/plugin-retry": "^3.0.7",
     "@octokit/plugin-throttling": "^3.4.2",
