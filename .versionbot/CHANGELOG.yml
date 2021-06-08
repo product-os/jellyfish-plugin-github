@@ -1,4 +1,17 @@
 - commits:
+    - subject: Preserve issue prefixing when updating an issue
+      hash: 31265862e8fd03c71df89be5047c2279ce44ba6f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.83
+  date: 2021-06-08T14:17:26.124Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^11.0.86'
       hash: bef30708f056c7bc1102e5011192be8c5b7b5c6e
       body: ''
