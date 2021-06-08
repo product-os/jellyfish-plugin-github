@@ -28,6 +28,13 @@ const GITHUB_API_RETRY_COUNT = 5;
 const SLUG = 'github';
 const Octokit = OctokitRest.plugin(retry, throttling);
 
+// Matches the prefix used when posting to GitHub on behalf of a user
+const PREFIX_RE = /^\[.*\] /;
+
+const withoutPrefix = (body) => {
+	return body.replace(PREFIX_RE, '');
+};
+
 async function githubRequest(
 	fn: any,
 	arg: any,
@@ -409,16 +416,21 @@ module.exports = class GitHubIntegration implements Integration {
 
 			if (
 				result.data.state !== card.data.status ||
-				result.data.body !== `${prefix} ${card.data.description}` ||
+				withoutPrefix(result.data.body) !==
+					withoutPrefix(card.data.description) ||
 				result.data.title !== card.name ||
 				!_.isEqual(_.map(result.data.labels, 'name'), card.tags)
 			) {
+				const prefixMatch = result.data.body.match(PREFIX_RE);
+				const body = prefixMatch
+					? `${prefixMatch[0]}${card.data.description}`
+					: card.data.description;
 				const updateOptions = {
 					owner: getOptions.owner,
 					repo: getOptions.repo,
 					issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
 					title: card.name,
-					body: card.data.description,
+					body,
 					state: card.data.status,
 					labels: card.tags,
 				};
