@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.84 - 2021-06-09
+
+* patch: Update dependency @balena/jellyfish-plugin-default to ^12.0.13 [Renovate Bot]
+
 ## 1.0.83 - 2021-06-08
 
 * Preserve issue prefixing when updating an issue [Lucian Buzzo]
