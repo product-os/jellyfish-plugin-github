@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^11.1.3'
+      hash: 5ff930d81c261428b9eeaf5e8c4afacd34228c86
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.88
+  date: 2021-06-09T06:45:17.911Z
+- commits:
     - subject: Simplify development setup
       hash: 39c054ee224d03948d40119912bc13299d315dda
       body: ''
