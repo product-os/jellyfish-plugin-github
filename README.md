@@ -8,7 +8,7 @@ Below is an example how to use this library:
 
 ```js
 import { cardMixins } from '@balena/jellyfish-core';
-import GitHubPlugin from '@balena/jellyfish-plugin-github';
+import { GitHubPlugin } from '@balena/jellyfish-plugin-github';
 
 const plugin = new GitHubPlugin();
 
