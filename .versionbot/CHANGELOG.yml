@@ -1,4 +1,17 @@
 - commits:
+    - subject: Optimize Dockerfile
+      hash: 757bbce5cafb675be81f39dfedbcba5cb6336171
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.94
+  date: 2021-06-10T08:23:03.659Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^12.0.17'
       hash: e619358ac07551b4166bab0b896f488a811ab406
       body: ''
