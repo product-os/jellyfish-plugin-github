@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.95 - 2021-06-10
+
+* patch: Update dependency @balena/jellyfish-action-library to v13 [Renovate Bot]
+
 ## 1.0.94 - 2021-06-10
 
 * Optimize Dockerfile [Josh Bowling]

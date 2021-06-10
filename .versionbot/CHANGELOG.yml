@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to v13'
+      hash: cc5e9cabf910a9c01ee5558b0a89ea119a1d148d
+      body: |
+        Update @balena/jellyfish-action-library from 12.0.2 to 13.0.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.95
+  date: 2021-06-10T11:47:41.132Z
+- commits:
     - subject: Optimize Dockerfile
       hash: 757bbce5cafb675be81f39dfedbcba5cb6336171
       body: ''
