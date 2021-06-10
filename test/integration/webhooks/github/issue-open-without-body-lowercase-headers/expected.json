@@ -3,6 +3,7 @@
     "name": "Issue without body",
     "type": "issue@1.0.0",
     "active": true,
+    "loop": null,
     "version": "1.0.0",
     "tags": [],
     "requires": [],
@@ -23,6 +24,7 @@
     {
       "type": "create@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],
