@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.97 - 2021-06-10
+
+* Fix readme, docker compose files [Josh Bowling]
+
 ## 1.0.96 - 2021-06-10
 
 * patch: Update dependency @balena/jellyfish-plugin-default to v13 [Renovate Bot]

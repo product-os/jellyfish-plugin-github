@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'Fix readme, docker compose files'
+      hash: 9a725476acc8a29ae994b1c7e6cf435ab80c632c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.97
+  date: 2021-06-10T23:40:01.218Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v13'
       hash: feb728b3d7d285a7b405f1a8804bf92fae617b18
       body: |
