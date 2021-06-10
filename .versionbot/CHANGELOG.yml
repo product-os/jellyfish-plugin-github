@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^13.0.6'
+      hash: 7bc2501f7f92c71a09ce77fad2b95f9e5afe5a53
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.98
+  date: 2021-06-10T23:49:38.092Z
+- commits:
     - subject: 'Fix readme, docker compose files'
       hash: 9a725476acc8a29ae994b1c7e6cf435ab80c632c
       body: ''
