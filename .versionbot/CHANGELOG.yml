@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add missing GET contents balena.yml test stubs
+      hash: d0c039b9d9ef0ba987aefb5278dba31b9ae1f7e0
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.99
+  date: 2021-06-11T01:45:00.672Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^13.0.6'
       hash: 7bc2501f7f92c71a09ce77fad2b95f9e5afe5a53
       body: ''

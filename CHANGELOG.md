@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.99 - 2021-06-11
+
+* Add missing GET contents balena.yml test stubs [Josh Bowling]
+
 ## 1.0.98 - 2021-06-10
 
 * patch: Update dependency @balena/jellyfish-action-library to ^13.0.6 [Renovate Bot]
