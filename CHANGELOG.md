@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.100 - 2021-06-11
+
+* Reduce CI task attempt count to 1 [Josh Bowling]
+
 ## 1.0.99 - 2021-06-11
 
 * Add missing GET contents balena.yml test stubs [Josh Bowling]
