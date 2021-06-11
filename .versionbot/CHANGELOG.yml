@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^13.0.7'
+      hash: 8685ceb191a70c1f2368cae0ec04387ed168e789
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.101
+  date: 2021-06-11T02:51:07.671Z
+- commits:
     - subject: Reduce CI task attempt count to 1
       hash: cbd5b29cb1c15ae8e3c75cb07f006d6578a85974
       body: ''
