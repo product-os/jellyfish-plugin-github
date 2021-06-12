@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/ci-task-runner to ^0.2.161'
+      hash: f9f84d2e33a1555df8470c036160a4263657ffe5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.115
+  date: 2021-06-12T08:49:11.719Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v14'
       hash: f4e70d779bb2019e84376dc9b7cc44d8b48276c0
       body: |
