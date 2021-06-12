@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^13.0.24'
+      hash: 897d057384a36a2866fc9585f226149b8d866314
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.119
+  date: 2021-06-12T16:11:21.115Z
+- commits:
     - subject: 'patch: Update dependency @balena/ci-task-runner to ^0.2.162'
       hash: a397b3be24f2bbe14a02e5ed8842f9877f4768a1
       body: ''
