@@ -1,4 +1,19 @@
 - commits:
+    - subject: Remove redundant meta relationships
+      hash: 399f85aa7b0c4728f3d0026b229291f4f1273743
+      body: >
+        hese are now materialized automatically on the front-end using link
+        constraints.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Graham McCulloch <graham@balena.io>
+        signed-off-by: Graham McCulloch <graham@balena.io>
+      author: Graham McCulloch
+      nested: []
+  version: 1.0.127
+  date: 2021-06-15T01:21:00.645Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-assert to ^1.1.47'
       hash: 2ec12f0c6fa0e73777656d0e7350a5a389becf52
       body: ''

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.127 - 2021-06-15
+
+* Remove redundant meta relationships [Graham McCulloch]
+
 ## 1.0.126 - 2021-06-15
 
 * patch: Update dependency @balena/jellyfish-assert to ^1.1.47 [Renovate Bot]
