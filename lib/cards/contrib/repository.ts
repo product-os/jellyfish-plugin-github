@@ -6,19 +6,13 @@
 
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
-const SLUG = 'repository';
-
 export default function ({
-	mixin,
-	withRelationships,
 	uiSchemaDef,
 }: {
-	mixin: any;
-	withRelationships?: any;
 	uiSchemaDef?: any;
 }): ContractDefinition {
-	return mixin(withRelationships(SLUG, ['thread']))({
-		slug: SLUG,
+	return {
+		slug: 'repository',
 		name: 'Github Repository',
 		type: 'type@1.0.0',
 		markers: [],
@@ -65,5 +59,5 @@ export default function ({
 			},
 			indexed_fields: [['data.name']],
 		},
-	});
+	};
 }

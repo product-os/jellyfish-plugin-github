@@ -6,24 +6,17 @@
 
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
-const SLUG = 'issue';
-
 export default function ({
 	mixin,
 	withEvents,
-	withRelationships,
 	uiSchemaDef,
 }: {
 	mixin: any;
 	withEvents?: any;
-	withRelationships?: any;
 	uiSchemaDef?: any;
 }): ContractDefinition {
-	return mixin(
-		withEvents,
-		withRelationships(SLUG),
-	)({
-		slug: SLUG,
+	return mixin(withEvents)({
+		slug: 'issue',
 		name: 'GitHub Issue',
 		type: 'type@1.0.0',
 		data: {
