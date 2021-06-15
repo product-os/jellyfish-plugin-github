@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.128 - 2021-06-15
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.0.127 - 2021-06-15
 
 * Remove redundant meta relationships [Graham McCulloch]
