@@ -201,8 +201,26 @@ async function getCommentFromEvent(
 	];
 }
 
-module.exports = class GitHubIntegration implements Integration {
-	public slug = SLUG;
+export class GitHubIntegration implements Integration {
+	public static slug = SLUG;
+	public static whoami = () => null;
+	public static isEventValid = (
+		token: any,
+		rawEvent: any,
+		headers: any,
+		_context: any,
+	): boolean => {
+		const signature = headers['x-hub-signature'];
+		if (!signature || !token || !token.signature) {
+			return false;
+		}
+
+		const hash = crypto
+			.createHmac('sha1', token.signature)
+			.update(rawEvent)
+			.digest('hex');
+		return signature === `sha1=${hash}`;
+	};
 
 	// TS-TODO: Use proper types
 	public context: any;
@@ -1714,26 +1732,4 @@ module.exports = class GitHubIntegration implements Integration {
 			company: remoteUser.data.company,
 		});
 	}
-};
-
-// TS-TODO: Don't export with module.exports
-module.exports.slug = SLUG;
-
-// TS-TODO: Don't export with module.exports44
-// See https://developer.github.com/webhooks/securing/
-module.exports.isEventValid = (
-	token: any,
-	rawEvent: any,
-	headers: any,
-): boolean => {
-	const signature = headers['x-hub-signature'];
-	if (!signature || !token || !token.signature) {
-		return false;
-	}
-
-	const hash = crypto
-		.createHmac('sha1', token.signature)
-		.update(rawEvent)
-		.digest('hex');
-	return signature === `sha1=${hash}`;
-};
+}

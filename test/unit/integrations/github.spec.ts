@@ -4,16 +4,15 @@
  * Proprietary and confidential.
  */
 
-import * as integration from '../../../lib/integrations/github';
+import { GitHubIntegration } from '../../../lib/integrations/github';
 
-const isEventValid = integration['isEventValid'];
 const context = {
 	id: 'jellyfish-plugin-github-test',
 };
 
 describe('isEventValid()', () => {
 	test('should return false given no signature header', async () => {
-		const result = isEventValid(
+		const result = GitHubIntegration.isEventValid(
 			{
 				api: 'xxxxx',
 				signature: 'secret',
@@ -26,7 +25,7 @@ describe('isEventValid()', () => {
 	});
 
 	test('should return false given a signature but no key', async () => {
-		const result = isEventValid(
+		const result = GitHubIntegration.isEventValid(
 			null,
 			'....',
 			{ 'x-hub-signature': 'sha1=aaaabbbbcccc' },
@@ -36,7 +35,7 @@ describe('isEventValid()', () => {
 	});
 
 	test('should return false given a signature mismatch', async () => {
-		const result = isEventValid(
+		const result = GitHubIntegration.isEventValid(
 			{
 				api: 'xxxxx',
 				signature: 'secret',
@@ -49,7 +48,7 @@ describe('isEventValid()', () => {
 	});
 
 	test('should return true given a signature match', async () => {
-		const result = isEventValid(
+		const result = GitHubIntegration.isEventValid(
 			{
 				api: 'xxxxx',
 				signature: 'secret',

@@ -4,5 +4,7 @@
  * Proprietary and confidential.
  */
 
-// tslint:disable-next-line: no-var-requires
-export default [require('./github')];
+import { IntegrationClass } from '@balena/jellyfish-plugin-base';
+import { GitHubIntegration } from './github';
+
+export const integrations: IntegrationClass[] = [GitHubIntegration];
