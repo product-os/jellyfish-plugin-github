@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.136 - 2021-06-18
+
+* patch: Update dependency @balena/ci-task-runner to ^0.2.165 [Renovate Bot]
+
 ## 1.0.135 - 2021-06-16
 
 * patch: Update dependency @balena/jellyfish-action-library to ^13.0.41 [Renovate Bot]
