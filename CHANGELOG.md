@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.157 - 2021-06-22
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.0.156 - 2021-06-22
 
 * patch: Update dependency @balena/ci-task-runner to ^0.3.1 [Renovate Bot]
