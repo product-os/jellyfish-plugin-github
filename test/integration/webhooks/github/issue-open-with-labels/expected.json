@@ -4,6 +4,7 @@
     "type": "issue@1.0.0",
     "version": "1.0.0",
     "active": true,
+    "loop": null,
     "tags": [
       "core",
       "good first issue"
@@ -26,6 +27,7 @@
     {
       "type": "create@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],

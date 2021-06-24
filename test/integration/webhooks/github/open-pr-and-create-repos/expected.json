@@ -4,6 +4,7 @@
     "type":  "repository@1.0.0",
     "slug":  "repository-resin-io-jellyfish",
     "active": true,
+    "loop": null,
     "capabilities": [ ],
     "data": {
       "git_url":  "git://github.com/resin-io/jellyfish.git",
@@ -20,6 +21,7 @@
     {
       "type": "create@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],

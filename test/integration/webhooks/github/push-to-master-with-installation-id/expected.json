@@ -3,6 +3,7 @@
     "type": "gh-push@1.0.0",
     "version": "1.0.0",
     "active": true,
+    "loop": null,
     "tags": [],
     "requires": [],
     "capabilities": [],
@@ -68,6 +69,7 @@
     {
       "type": "create@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],

@@ -4,6 +4,7 @@
     "name": "octocoders-linter",
     "slug": "check-run-128620228",
     "active": true,
+    "loop": null,
     "capabilities": [],
     "requires": [],
     "tags": [],
@@ -24,6 +25,7 @@
     {
       "type": "create@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],
@@ -59,6 +61,7 @@
     {
       "type": "update@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],
@@ -91,6 +94,7 @@
     {
       "type": "update@1.0.0",
       "active": true,
+      "loop": null,
       "version": "1.0.0",
       "tags": [],
       "requires": [],
