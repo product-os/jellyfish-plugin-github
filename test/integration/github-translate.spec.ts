@@ -10,7 +10,6 @@ import { syncIntegrationScenario } from '@balena/jellyfish-test-harness';
 import jwt from 'jsonwebtoken';
 import nock from 'nock';
 import { GitHubPlugin } from '../../lib';
-import GitHubIntegration from '../../lib/integrations';
 import webhooks from './webhooks/github';
 
 // tslint:disable-next-line: no-var-requires
@@ -74,7 +73,6 @@ syncIntegrationScenario.run(
 			'gh-push',
 			'check-run',
 		],
-		integration: GitHubIntegration,
 		scenarios: webhooks,
 		baseUrl: 'https://api.github.com',
 		stubRegex: /.*/,
