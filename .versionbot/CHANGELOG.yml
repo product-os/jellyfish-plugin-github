@@ -1,4 +1,27 @@
 - commits:
+    - subject: Add JF peer dependencies
+      hash: 4cf75bc69819f85808ae215cc9706acd86813069
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Update test-harness call
+      hash: 1185ce80a79a0588d4d23bf6eca115132476f61e
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.171
+  date: 2021-06-24T03:12:21.337Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 8cac0483917303e6305d4afec6835f0bb385632d
       body: ''

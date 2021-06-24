@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.171 - 2021-06-24
+
+* Add JF peer dependencies [Josh Bowling]
+* Update test-harness call [Josh Bowling]
+
 ## 1.0.170 - 2021-06-24
 
 * patch: Update internal-patch [Renovate Bot]
