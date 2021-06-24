@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.172 - 2021-06-24
+
+* Bump jellyfish-core dev dependency [Graham McCulloch]
+* Update expected test results [Graham McCulloch]
+
 ## 1.0.171 - 2021-06-24
 
 * Add JF peer dependencies [Josh Bowling]
