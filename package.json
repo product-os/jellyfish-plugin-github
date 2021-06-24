@@ -64,7 +64,7 @@
     "@balena/jellyfish-config": "^1.2.1",
     "@balena/jellyfish-core": "^3.0.19",
     "@balena/jellyfish-environment": "^4.1.13",
-    "@balena/jellyfish-test-harness": "^3.0.38",
+    "@balena/jellyfish-test-harness": "^4.0.0",
     "@balena/jellyfish-types": "^0.5.116",
     "@balena/lint": "^6.1.1",
     "@types/bluebird": "^3.5.35",
