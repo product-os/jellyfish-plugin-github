@@ -47,7 +47,7 @@
   "dependencies": {
     "@balena/jellyfish-action-library": "^14.0.11",
     "@balena/jellyfish-assert": "^1.1.51",
-    "@balena/jellyfish-plugin-base": "^2.1.164",
+    "@balena/jellyfish-plugin-base": "^2.1.165",
     "@balena/jellyfish-plugin-default": "^15.0.8",
     "@octokit/auth-app": "^3.5.0",
     "@octokit/plugin-retry": "^3.0.8",
