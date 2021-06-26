@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @octokit/rest to ^18.6.3'
+      hash: 5dd8d7f39c92a00bd847efe96e1e8fa7e9bed3f3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.186
+  date: 2021-06-26T22:02:20.628Z
+- commits:
     - subject: 'patch: Update dependency @octokit/plugin-throttling to ^3.5.1'
       hash: fe624124ce15e001ffca52cd7cf95eaf0aaf8547
       body: ''
