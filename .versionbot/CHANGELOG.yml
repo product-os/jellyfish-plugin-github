@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: b8c0975f73dd44080ac6c83e97c7a106e36e7f4d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.190
+  date: 2021-06-27T21:34:58.552Z
+- commits:
     - subject: 'patch: Update dependency simple-git-hooks to ^2.5.1'
       hash: 97cb83edf1a9170d33a7f6a53f0bc1f270931df8
       body: ''
