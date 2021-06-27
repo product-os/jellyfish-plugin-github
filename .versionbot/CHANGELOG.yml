@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency simple-git-hooks to ^2.5.1'
+      hash: 97cb83edf1a9170d33a7f6a53f0bc1f270931df8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.189
+  date: 2021-06-27T20:16:52.060Z
+- commits:
     - subject: 'patch: Update dependency typedoc to ^0.21.2'
       hash: a0d4ab71c94ff63a1290190d29edff89bc5ba1b9
       body: ''
