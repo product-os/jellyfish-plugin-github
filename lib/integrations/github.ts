@@ -1513,6 +1513,17 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request':
+				// Create commit contract if open
+				switch (action) {
+					case 'opened':
+					case 'edited':
+						if (event.data.payload.pull_request.state === 'open') {
+							// TODO: Create contract card
+							makeCard({}, actor);
+						}
+					default:
+						break;
+				}
 				switch (action) {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
@@ -1529,6 +1540,7 @@ module.exports = class GitHubIntegration implements Integration {
 					default:
 						return [];
 				}
+
 			case 'issues':
 				switch (action) {
 					case 'opened':
