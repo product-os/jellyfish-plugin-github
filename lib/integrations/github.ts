@@ -14,7 +14,7 @@ import { Octokit as OctokitRest } from '@octokit/rest';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import Bluebird from 'bluebird';
 import crypto from 'crypto';
-import _ from 'lodash';
+import _, { create } from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
@@ -1517,8 +1517,76 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
 					case 'opened':
+					case 'edited':
 					case 'assigned':
-						return this.createPRWithConnectedIssues(github, event, actor);
+						const sequence = await this.createPRWithConnectedIssues(
+							github,
+							event,
+							actor,
+						);
+						// Create commit contract if open
+						if (event.data.payload.pull_request.state === 'open') {
+							sequence.push(
+								makeCard(
+									{
+										slug: `commit-${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)}`,
+										name: `Commit ${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)} for PR ${event.data.payload.pull_request.title}`,
+										type: 'commit@1.0.0',
+										data: {
+											org: event.data.payload.pull_request.head.repo.full_name.split(
+												'/',
+											)[0],
+											repo: event.data.payload.pull_request.head.repo.name,
+											head_sha: event.data.payload.pull_request.head.sha,
+											pull_request_title: event.data.payload.pull_request.title,
+											pull_request_url: event.data.payload.pull_request.url,
+										},
+										artifact_ready: true,
+									},
+									actor,
+								),
+							);
+
+							sequence.push(
+								makeCard(
+									{
+										slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)}-${event.data.payload.pull_request.title}`,
+										type: 'link@1.0.0',
+										name: 'is attached to PR',
+										data: {
+											inverseName: 'has attached commit',
+											from: {
+												id: {
+													$eval: `cards[${sequence.length - 1}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 1}].type`,
+												},
+											},
+											to: {
+												id: {
+													$eval: 'cards[0].id',
+												},
+												type: {
+													$eval: 'cards[0].type',
+												},
+											},
+										},
+									},
+									actor,
+								),
+							);
+						}
+						return sequence;
 					case 'closed':
 						return this.closePR(github, event, actor);
 					case 'labeled':
@@ -1529,6 +1597,7 @@ module.exports = class GitHubIntegration implements Integration {
 					default:
 						return [];
 				}
+
 			case 'issues':
 				switch (action) {
 					case 'opened':
