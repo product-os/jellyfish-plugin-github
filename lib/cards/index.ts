@@ -6,6 +6,7 @@
 
 import viewAllIssues from './balena/view-all-issues.json';
 import checkRun from './contrib/check-run';
+import commit from './contrib/commit';
 import issue from './contrib/issue';
 import pullRequest from './contrib/pull-request';
 import push from './contrib/push.json';
@@ -17,6 +18,7 @@ import triggeredActionSupportClosedPullRequestReopen from './contrib/triggered-a
 
 export default [
 	checkRun,
+	commit,
 	issue,
 	pullRequest,
 	push,
