@@ -44,6 +44,9 @@ export default function ({
 							pull_request_url: {
 								type: 'string',
 							},
+							artifact_ready: {
+								type: 'boolean',
+							},
 						},
 					},
 				},
