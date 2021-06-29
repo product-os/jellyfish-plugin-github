@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.3.0'
+      hash: dac776eaf54d6220f041088f94f7acfa5651c915
+      body: |
+        Update @balena/jellyfish-plugin-default from 15.2.0 to 15.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.195
+  date: 2021-06-29T10:16:03.343Z
+- commits:
     - subject: Remove package-lock.json from Dockerfile
       hash: b0e0df96c6788db4232b42d53aad0e747fb3ebcd
       body: ''
