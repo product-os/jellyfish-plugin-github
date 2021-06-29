@@ -14,7 +14,7 @@ import { Octokit as OctokitRest } from '@octokit/rest';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import Bluebird from 'bluebird';
 import crypto from 'crypto';
-import _ from 'lodash';
+import _, { create } from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
@@ -301,6 +301,45 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 		const prefix = `[${username}]`;
 		const baseType = card.type.split('@')[0];
+
+		if (baseType === 'commit') {
+			const newCard = makeCard(
+				{
+					name: `Check-Run ${card.head_sha}`,
+					type: 'check-run@1.0.0',
+					data: {
+						owner: card.org,
+						repo: `${card.org}/${card.repo}`,
+						head_sha: card.head_sha,
+						details_url: '',
+						status: 'queued', // TODO: Don't know this for sure
+						started_at: new Date().toISOString(),
+						check_run_id: uuidv4(),
+					},
+				},
+				options.actor,
+			);
+
+			makeCard(
+				{
+					slug: `link-commit-check-run-${card.data.head_sha}-${newCard.id}`,
+					type: 'link@1.0.0',
+					name: 'is attached to Commit',
+					data: {
+						inverseName: 'has attached check run',
+						from: {
+							id: newCard.id,
+							type: newCard.type,
+						},
+						to: {
+							id: card.data.id,
+							type: card.data.type,
+						},
+					},
+				},
+				options.actor,
+			);
+		}
 
 		if (baseType === 'check-run') {
 			switch (card.data.status) {
