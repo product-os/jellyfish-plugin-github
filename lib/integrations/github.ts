@@ -1508,10 +1508,12 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'opened':
 					case 'edited':
 						if (event.data.payload.pull_request.state === 'open') {
-							// TODO: Create contract card
 							makeCard(
 								{
-									name: 'hi',
+									name: `Commit ${event.data.payload.pull_request.head.sha.substring(
+										0,
+										8,
+									)} for PR ${event.data.payload.pull_request.title}`,
 									type: 'commit@1.0.0',
 									data: {
 										org: event.data.payload.pull_request.head.repo.full_name.split(
