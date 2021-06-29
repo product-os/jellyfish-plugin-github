@@ -38,7 +38,10 @@ export default function ({
 							head_sha: {
 								type: 'string',
 							},
-							pull_request: {
+							pull_request_title: {
+								type: 'string',
+							},
+							pull_request_url: {
 								type: 'string',
 							},
 						},

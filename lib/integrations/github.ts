@@ -1519,7 +1519,22 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'edited':
 						if (event.data.payload.pull_request.state === 'open') {
 							// TODO: Create contract card
-							makeCard({}, actor);
+							makeCard(
+								{
+									name: 'hi',
+									type: 'commit@1.0.0',
+									data: {
+										org: event.data.payload.pull_request.head.repo.full_name.split(
+											'/',
+										)[0],
+										repo: event.data.payload.pull_request.head.repo.name,
+										head_sha: event.data.payload.pull_request.head.sha,
+										pull_request_title: event.data.payload.pull_request.title,
+										pull_request_url: event.data.payload.pull_request.url,
+									},
+								},
+								actor,
+							);
 						}
 					default:
 						break;
