@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.194 - 2021-06-29
+
+* Remove package-lock.json from Dockerfile [Josh Bowling]
+* Bump node engines specification [Josh Bowling]
+* Remove package-lock.json [Josh Bowling]
+
 ## 1.0.193 - 2021-06-29
 
 * patch: Update dependency @balena/jellyfish-plugin-default to ^15.2.0 [Renovate Bot]

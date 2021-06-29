@@ -1,4 +1,37 @@
 - commits:
+    - subject: Remove package-lock.json from Dockerfile
+      hash: b0e0df96c6788db4232b42d53aad0e747fb3ebcd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Bump node engines specification
+      hash: f090c246ef0191c7c247a73e8ad1b8b92b1b27f9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Remove package-lock.json
+      hash: 727999b35610523e2724bd0db648fe6553675250
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.194
+  date: 2021-06-29T08:52:51.248Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.2.0'
       hash: 5a3e9c0d3140761209dd2c1d4f29516aba79d146
       body: |
