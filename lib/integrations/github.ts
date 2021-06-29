@@ -1508,8 +1508,12 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'opened':
 					case 'edited':
 						if (event.data.payload.pull_request.state === 'open') {
-							makeCard(
+							const commitCard = makeCard(
 								{
+									slug: `commit-${event.data.payload.pull_request.head.sha.substring(
+										0,
+										8,
+									)}`,
 									name: `Commit ${event.data.payload.pull_request.head.sha.substring(
 										0,
 										8,
@@ -1523,6 +1527,36 @@ module.exports = class GitHubIntegration implements Integration {
 										head_sha: event.data.payload.pull_request.head.sha,
 										pull_request_title: event.data.payload.pull_request.title,
 										pull_request_url: event.data.payload.pull_request.url,
+									},
+									artifact_ready: true,
+								},
+								actor,
+							);
+
+							const headPayload = event.data.payload.pull_request.head.repo;
+							const headCard = await this.getRepoCard(headPayload, {
+								actor,
+								index: 1,
+							});
+
+							makeCard(
+								{
+									slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
+										0,
+										8,
+									)}-${event.data.payload.pull_request.title}`,
+									type: 'link@1.0.0',
+									name: 'is attached to PR',
+									data: {
+										inverseName: 'has attached commit',
+										from: {
+											id: commitCard.id,
+											type: commitCard.type,
+										},
+										to: {
+											id: headCard.id,
+											type: headCard.type,
+										},
 									},
 								},
 								actor,
