@@ -307,6 +307,7 @@ module.exports = class GitHubIntegration implements Integration {
 				{
 					name: `Check-Run ${card.head_sha}`,
 					type: 'check-run@1.0.0',
+					slug: `check-run-${card.head_sha}`,
 					data: {
 						owner: card.org,
 						repo: `${card.org}/${card.repo}`,
