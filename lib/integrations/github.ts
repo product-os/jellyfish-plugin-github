@@ -313,7 +313,6 @@ module.exports = class GitHubIntegration implements Integration {
 						repo: `${card.org}/${card.repo}`,
 						head_sha: card.head_sha,
 						details_url: '',
-						status: 'in_progress', // TODO: Don't know this for sure
 						started_at: new Date().toISOString(),
 						check_run_id: uuidv4(),
 					},
@@ -325,7 +324,7 @@ module.exports = class GitHubIntegration implements Integration {
 				{
 					slug: `link-commit-check-run-${card.data.head_sha}-${newCard.id}`,
 					type: 'link@1.0.0',
-					name: 'is attached to Commit',
+					name: 'is attached to commit',
 					data: {
 						inverseName: 'has attached check run',
 						from: {
