@@ -312,7 +312,7 @@ module.exports = class GitHubIntegration implements Integration {
 						repo: `${card.org}/${card.repo}`,
 						head_sha: card.head_sha,
 						details_url: '',
-						status: 'queued', // TODO: Don't know this for sure
+						status: 'in_progress', // TODO: Don't know this for sure
 						started_at: new Date().toISOString(),
 						check_run_id: uuidv4(),
 					},
