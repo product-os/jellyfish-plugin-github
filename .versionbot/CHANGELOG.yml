@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update to latest worker that always re-enqueues requests from triggers
+      hash: d1a3944061663ad9cbdd55c441e4a0a62e753c77
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.205
+  date: 2021-06-30T10:00:05.646Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: dc9e1a7107548bae6daebfb23b2781fa4a4c1411
       body: ''

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.205 - 2021-06-30
+
+* Update to latest worker that always re-enqueues requests from triggers [Lucian Buzzo]
+
 ## 1.0.204 - 2021-06-30
 
 * patch: Update internal-patch [Renovate Bot]
