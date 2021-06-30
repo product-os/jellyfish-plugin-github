@@ -29,7 +29,7 @@
       "status": "closed",
       "archived": false,
       "merged_at": null,
-      "closed_at": null,
+      "closed_at": "2018-12-18T10:34:55Z",
       "contract": null,
       "$transformer": {
         "artifactReady": "61c13a539195aece8506f4f7eb1c01765e935891"
@@ -98,7 +98,24 @@
       "requires": [],
       "capabilities": [],
       "data": {
-        "timestamp": "2018-12-18T10:34:55.000Z",
+        "timestamp": "2018-12-18T10:30:19.000Z",
+        "actor": {
+          "active": true,
+          "slug": "user-nazrhom"
+        },
+        "payload": [
+          {
+            "op": "replace",
+            "path": "/data/closed_at",
+            "value": "2018-12-18T10:34:55Z"
+          }
+        ]
+      }
+    },
+    {
+      "active": true,
+      "capabilities": [],
+      "data": {
         "actor": {
           "active": true,
           "slug": "user-nazrhom"
@@ -109,8 +126,16 @@
             "path": "/data/status",
             "value": "closed"
           }
-        ]
-      }
+        ],
+        "target": "c99d4dd9-8623-4e3c-bb2c-12e49c02dd8c",
+        "timestamp": "2018-12-18T10:34:55.000Z"
+      },
+      "loop": null,
+      "name": null,
+      "requires": [],
+      "tags": [],
+      "type": "update@1.0.0",
+      "version": "1.0.0"
     }
   ]
 }

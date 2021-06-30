@@ -627,6 +627,8 @@ module.exports = class GitHubIntegration implements Integration {
 		const pullRequest =
 			event.data.payload.pull_request || event.data.payload.issue.pull_request;
 
+		const existingContractData = options.existingContract?.data || {};
+
 		const pr: any = {
 			name: root.title,
 			slug: `pull-request-${normaliseRootID(root.node_id)}`,
@@ -645,8 +647,11 @@ module.exports = class GitHubIntegration implements Integration {
 					description: root.body || '',
 					status: options.status,
 					archived: false,
-					closed_at: pullRequest.closed_at || null,
-					merged_at: pullRequest.merged_at || null,
+					// Once merged_at or closed_at are set, they cannot be unset
+					closed_at:
+						existingContractData.closed_at || pullRequest.closed_at || null,
+					merged_at:
+						existingContractData.merged_at || pullRequest.merged_at || null,
 					contract: contractData,
 					$transformer: {
 						artifactReady: prData.head.sha,
@@ -1262,22 +1267,26 @@ module.exports = class GitHubIntegration implements Integration {
 		actor: string,
 		type: string,
 	): Promise<any> {
-		const issueMirrorId = getEventMirrorId(event);
-		const issue = await this.getCardByMirrorId(issueMirrorId, type);
+		const contractMirrorId = getEventMirrorId(event);
+		const existingContract = await this.getCardByMirrorId(
+			contractMirrorId,
+			type,
+		);
 		const root = getEventRoot(event);
 
-		if (issue) {
-			if (issue.data.status === 'closed') {
+		if (type === 'issue@1.0.0' && existingContract) {
+			if (existingContract.data.status === 'closed') {
 				return [];
 			}
 
-			issue.data.status = 'closed';
+			existingContract.data.status = 'closed';
 
-			return [makeCard(issue, actor, root.closed_at)];
+			return [makeCard(existingContract, actor, root.closed_at)];
 		}
 
 		const prOpened = await this.getCardFromEvent(github, event, {
 			status: 'open',
+			existingContract,
 		});
 
 		const prClosed = await this.getCardFromEvent(github, event, {
@@ -1285,6 +1294,7 @@ module.exports = class GitHubIntegration implements Integration {
 			id: {
 				$eval: 'cards[0].id',
 			},
+			existingContract,
 		});
 		return [makeCard(prOpened, actor, root.created_at)]
 			.concat(

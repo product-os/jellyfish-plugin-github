@@ -28,8 +28,8 @@
       "description": "Signed-off-by: Juan Cruz Viotti <juan@resin.io>",
       "status": "closed",
       "archived": false,
-      "merged_at": null,
-      "closed_at": null,
+      "closed_at": "2018-10-10T10:44:15Z",
+      "merged_at": "2018-10-10T10:44:15Z",
       "contract": null,
       "$transformer": {
         "artifactReady": "803d0ccc315e606fe8d00cf52138de654c3f35aa"
@@ -98,7 +98,29 @@
       "requires": [],
       "capabilities": [],
       "data": {
-        "timestamp": "2018-10-10T10:44:15.000Z",
+        "timestamp": "2018-10-10T10:34:00.000Z",
+        "actor": {
+          "active": true,
+          "slug": "user-jviotti"
+        },
+        "payload": [
+          {
+            "op": "replace",
+            "path": "/data/merged_at",
+            "value": "2018-10-10T10:44:15Z"
+          },
+          {
+            "op": "replace",
+            "path": "/data/closed_at",
+            "value": "2018-10-10T10:44:15Z"
+          }
+        ]
+      }
+    },
+    {
+      "active": true,
+      "capabilities": [],
+      "data": {
         "actor": {
           "active": true,
           "slug": "user-jviotti"
@@ -109,8 +131,17 @@
             "path": "/data/status",
             "value": "closed"
           }
-        ]
-      }
+        ],
+        "target": "52518fd8-3065-479a-bbf4-a37df5f2a6ff",
+        "timestamp": "2018-10-10T10:44:15.000Z"
+      },
+      "id": "1161128f-faaa-479f-9a62-2c18115c00d0",
+      "loop": null,
+      "name": null,
+      "requires": [],
+      "tags": [],
+      "type": "update@1.0.0",
+      "version": "1.0.0"
     }
   ]
 }
