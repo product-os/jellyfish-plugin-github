@@ -1,4 +1,19 @@
 - commits:
+    - subject: Fix bug where closing a PR would not sync data correctly
+      hash: 96cc32694d07c44d8ac31329eb9fff315d2878ed
+      body: |
+        When closing a PR, the codepath taken would exit early, and not fill in
+        important information such as `merged_at` and `closed_at`.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.207
+  date: 2021-06-30T11:50:21.281Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^14.1.0'
       hash: 95fe859d60fc62ad800dca6942b4cf782e5945a0
       body: |

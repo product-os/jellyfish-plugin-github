@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.207 - 2021-06-30
+
+* Fix bug where closing a PR would not sync data correctly [Lucian Buzzo]
+
 ## 1.0.206 - 2021-06-30
 
 * patch: Update dependency @balena/jellyfish-action-library to ^14.1.0 [Renovate Bot]
