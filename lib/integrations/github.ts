@@ -14,7 +14,7 @@ import { Octokit as OctokitRest } from '@octokit/rest';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import Bluebird from 'bluebird';
 import crypto from 'crypto';
-import _, { create } from 'lodash';
+import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
