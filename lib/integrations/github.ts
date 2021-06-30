@@ -302,45 +302,6 @@ module.exports = class GitHubIntegration implements Integration {
 		const prefix = `[${username}]`;
 		const baseType = card.type.split('@')[0];
 
-		if (baseType === 'commit') {
-			const newCard = makeCard(
-				{
-					name: `Check-Run ${card.head_sha}`,
-					type: 'check-run@1.0.0',
-					slug: `check-run-${card.head_sha}`,
-					data: {
-						owner: card.org,
-						repo: `${card.org}/${card.repo}`,
-						head_sha: card.head_sha,
-						details_url: '',
-						started_at: new Date().toISOString(),
-						check_run_id: uuidv4(),
-					},
-				},
-				options.actor,
-			);
-
-			makeCard(
-				{
-					slug: `link-commit-check-run-${card.data.head_sha}-${newCard.id}`,
-					type: 'link@1.0.0',
-					name: 'is attached to commit',
-					data: {
-						inverseName: 'has attached check run',
-						from: {
-							id: newCard.id,
-							type: newCard.type,
-						},
-						to: {
-							id: card.data.id,
-							type: card.data.type,
-						},
-					},
-				},
-				options.actor,
-			);
-		}
-
 		if (baseType === 'check-run') {
 			switch (card.data.status) {
 				case 'queued': {
@@ -1552,68 +1513,6 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request':
-				// Create commit contract if open
-				switch (action) {
-					case 'opened':
-					case 'edited':
-						if (event.data.payload.pull_request.state === 'open') {
-							const commitCard = makeCard(
-								{
-									slug: `commit-${event.data.payload.pull_request.head.sha.substring(
-										0,
-										8,
-									)}`,
-									name: `Commit ${event.data.payload.pull_request.head.sha.substring(
-										0,
-										8,
-									)} for PR ${event.data.payload.pull_request.title}`,
-									type: 'commit@1.0.0',
-									data: {
-										org: event.data.payload.pull_request.head.repo.full_name.split(
-											'/',
-										)[0],
-										repo: event.data.payload.pull_request.head.repo.name,
-										head_sha: event.data.payload.pull_request.head.sha,
-										pull_request_title: event.data.payload.pull_request.title,
-										pull_request_url: event.data.payload.pull_request.url,
-									},
-									artifact_ready: true,
-								},
-								actor,
-							);
-
-							const headPayload = event.data.payload.pull_request.head.repo;
-							const headCard = await this.getRepoCard(headPayload, {
-								actor,
-								index: 1,
-							});
-
-							makeCard(
-								{
-									slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
-										0,
-										8,
-									)}-${event.data.payload.pull_request.title}`,
-									type: 'link@1.0.0',
-									name: 'is attached to PR',
-									data: {
-										inverseName: 'has attached commit',
-										from: {
-											id: commitCard.id,
-											type: commitCard.type,
-										},
-										to: {
-											id: headCard.id,
-											type: headCard.type,
-										},
-									},
-								},
-								actor,
-							);
-						}
-					default:
-						break;
-				}
 				switch (action) {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
@@ -1627,6 +1526,12 @@ module.exports = class GitHubIntegration implements Integration {
 						);
 						// Create commit contract if open
 						if (event.data.payload.pull_request.state === 'open') {
+							const headSha =
+								event.data.payload.pull_request.head.sha.substring(0, 8);
+							const org =
+								event.data.payload.pull_request.head.repo.full_name.split(
+									'/',
+								)[0];
 							sequence.push(
 								makeCard(
 									{
@@ -1640,9 +1545,7 @@ module.exports = class GitHubIntegration implements Integration {
 										)} for PR ${event.data.payload.pull_request.title}`,
 										type: 'commit@1.0.0',
 										data: {
-											org: event.data.payload.pull_request.head.repo.full_name.split(
-												'/',
-											)[0],
+											org,
 											repo: event.data.payload.pull_request.head.repo.name,
 											head_sha: event.data.payload.pull_request.head.sha,
 											pull_request_title: event.data.payload.pull_request.title,
@@ -1679,6 +1582,60 @@ module.exports = class GitHubIntegration implements Integration {
 												},
 												type: {
 													$eval: 'cards[0].type',
+												},
+											},
+										},
+									},
+									actor,
+								),
+							);
+
+							// Create a check run for the commit
+							sequence.push(
+								makeCard(
+									{
+										name: `Check-Run ${headSha}`,
+										type: 'check-run@1.0.0',
+										slug: `check-run-${headSha}`,
+										data: {
+											owner: org,
+											repo: `${org}/${event.data.payload.pull_request.head.repo.name}`,
+											head_sha: headSha,
+											details_url: '',
+											started_at: new Date().toISOString(),
+											check_run_id: uuidv4(),
+										},
+									},
+									actor,
+								),
+							);
+
+							sequence.push(
+								makeCard(
+									{
+										slug: {
+											$eval: `'link-commit-check-run-${headSha}-' + cards[${
+												sequence.length - 1
+											}].id`,
+										},
+										type: 'link@1.0.0',
+										name: 'is attached to commit',
+										data: {
+											inverseName: 'has attached check run',
+											from: {
+												id: {
+													$eval: `cards[${sequence.length - 1}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 1}].type`,
+												},
+											},
+											to: {
+												id: {
+													$eval: `cards[${sequence.length - 3}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 3}].type`,
 												},
 											},
 										},

@@ -43,7 +43,8 @@ export default function ({
 							},
 							status: {
 								type: 'string',
-								pattern: '^(queued|in_progress|completed)$',
+								enum: ['queued', 'in_progress', 'completed'],
+								default: 'queued',
 							},
 							started_at: {
 								type: 'string',
@@ -54,13 +55,22 @@ export default function ({
 								oneOf: [
 									{
 										type: 'string',
-										pattern:
-											'^(action_required|cancelled|failure|netural|success|skipped|stale|timed_out)$',
+										pattern: [
+											'action_required',
+											'cancelled',
+											'failure',
+											'netural',
+											'success',
+											'skipped',
+											'stale',
+											'timed_out',
+										],
 									},
 									{
 										type: 'null',
 									},
 								],
+								default: null,
 							},
 							completed_at: {
 								oneOf: [
