@@ -1,13 +1,13 @@
 {
   "name": "@balena/jellyfish-plugin-github",
   "description": "GitHub Jellyfish Plugin",
-  "version": "1.0.191",
+  "version": "1.0.207",
   "repository": {
     "type": "git",
     "url": "https://github.com/product-os/jellyfish-plugin-github"
   },
   "engines": {
-    "node": ">=12.15.0"
+    "node": ">=14.2.0"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -45,10 +45,9 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@balena/jellyfish-action-library": "^14.0.15",
-    "@balena/jellyfish-assert": "^1.1.51",
-    "@balena/jellyfish-plugin-base": "^2.1.168",
-    "@balena/jellyfish-plugin-default": "^15.1.7",
+    "@balena/jellyfish-action-library": "^14.1.0",
+    "@balena/jellyfish-assert": "^1.1.55",
+    "@balena/jellyfish-plugin-base": "^2.1.175",
     "@octokit/auth-app": "^3.5.2",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.1",
@@ -64,7 +63,8 @@
     "@balena/jellyfish-config": "^1.3.3",
     "@balena/jellyfish-core": "^4.0.0",
     "@balena/jellyfish-environment": "^4.2.8",
-    "@balena/jellyfish-test-harness": "^4.0.1",
+    "@balena/jellyfish-plugin-default": "^16.0.0",
+    "@balena/jellyfish-test-harness": "^5.0.2",
     "@balena/jellyfish-types": "^0.7.0",
     "@balena/lint": "^6.1.1",
     "@types/bluebird": "^3.5.35",
@@ -84,7 +84,8 @@
   },
   "peerDependencies": {
     "@balena/jellyfish-core": "^4.0.0",
-    "@balena/jellyfish-environment": "^4.2.8"
+    "@balena/jellyfish-environment": "^4.2.8",
+    "@balena/jellyfish-plugin-default": "^16.0.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"

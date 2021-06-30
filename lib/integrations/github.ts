@@ -666,6 +666,8 @@ module.exports = class GitHubIntegration implements Integration {
 		const pullRequest =
 			event.data.payload.pull_request || event.data.payload.issue.pull_request;
 
+		const existingContractData = options.existingContract?.data || {};
+
 		const pr: any = {
 			name: root.title,
 			slug: `pull-request-${normaliseRootID(root.node_id)}`,
@@ -684,8 +686,11 @@ module.exports = class GitHubIntegration implements Integration {
 					description: root.body || '',
 					status: options.status,
 					archived: false,
-					closed_at: pullRequest.closed_at || null,
-					merged_at: pullRequest.merged_at || null,
+					// Once merged_at or closed_at are set, they cannot be unset
+					closed_at:
+						existingContractData.closed_at || pullRequest.closed_at || null,
+					merged_at:
+						existingContractData.merged_at || pullRequest.merged_at || null,
 					contract: contractData,
 					$transformer: {
 						artifactReady: prData.head.sha,
@@ -1301,22 +1306,26 @@ module.exports = class GitHubIntegration implements Integration {
 		actor: string,
 		type: string,
 	): Promise<any> {
-		const issueMirrorId = getEventMirrorId(event);
-		const issue = await this.getCardByMirrorId(issueMirrorId, type);
+		const contractMirrorId = getEventMirrorId(event);
+		const existingContract = await this.getCardByMirrorId(
+			contractMirrorId,
+			type,
+		);
 		const root = getEventRoot(event);
 
-		if (issue) {
-			if (issue.data.status === 'closed') {
+		if (type === 'issue@1.0.0' && existingContract) {
+			if (existingContract.data.status === 'closed') {
 				return [];
 			}
 
-			issue.data.status = 'closed';
+			existingContract.data.status = 'closed';
 
-			return [makeCard(issue, actor, root.closed_at)];
+			return [makeCard(existingContract, actor, root.closed_at)];
 		}
 
 		const prOpened = await this.getCardFromEvent(github, event, {
 			status: 'open',
+			existingContract,
 		});
 
 		const prClosed = await this.getCardFromEvent(github, event, {
@@ -1324,6 +1333,7 @@ module.exports = class GitHubIntegration implements Integration {
 			id: {
 				$eval: 'cards[0].id',
 			},
+			existingContract,
 		});
 		return [makeCard(prOpened, actor, root.created_at)]
 			.concat(
@@ -1608,8 +1618,76 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
 					case 'opened':
+					case 'edited':
 					case 'assigned':
-						return this.createPRWithConnectedIssues(github, event, actor);
+						const sequence = await this.createPRWithConnectedIssues(
+							github,
+							event,
+							actor,
+						);
+						// Create commit contract if open
+						if (event.data.payload.pull_request.state === 'open') {
+							sequence.push(
+								makeCard(
+									{
+										slug: `commit-${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)}`,
+										name: `Commit ${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)} for PR ${event.data.payload.pull_request.title}`,
+										type: 'commit@1.0.0',
+										data: {
+											org: event.data.payload.pull_request.head.repo.full_name.split(
+												'/',
+											)[0],
+											repo: event.data.payload.pull_request.head.repo.name,
+											head_sha: event.data.payload.pull_request.head.sha,
+											pull_request_title: event.data.payload.pull_request.title,
+											pull_request_url: event.data.payload.pull_request.url,
+										},
+										artifact_ready: true,
+									},
+									actor,
+								),
+							);
+
+							sequence.push(
+								makeCard(
+									{
+										slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
+											0,
+											8,
+										)}-${event.data.payload.pull_request.title}`,
+										type: 'link@1.0.0',
+										name: 'is attached to PR',
+										data: {
+											inverseName: 'has attached commit',
+											from: {
+												id: {
+													$eval: `cards[${sequence.length - 1}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 1}].type`,
+												},
+											},
+											to: {
+												id: {
+													$eval: 'cards[0].id',
+												},
+												type: {
+													$eval: 'cards[0].type',
+												},
+											},
+										},
+									},
+									actor,
+								),
+							);
+						}
+						return sequence;
 					case 'closed':
 						return this.closePR(github, event, actor);
 					case 'labeled':

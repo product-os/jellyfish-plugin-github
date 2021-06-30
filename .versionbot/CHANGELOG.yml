@@ -1,4 +1,212 @@
 - commits:
+    - subject: Fix bug where closing a PR would not sync data correctly
+      hash: 96cc32694d07c44d8ac31329eb9fff315d2878ed
+      body: |
+        When closing a PR, the codepath taken would exit early, and not fill in
+        important information such as `merged_at` and `closed_at`.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.207
+  date: 2021-06-30T11:50:21.281Z
+- commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^14.1.0'
+      hash: 95fe859d60fc62ad800dca6942b4cf782e5945a0
+      body: |
+        Update @balena/jellyfish-action-library from 14.0.27 to 14.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.206
+  date: 2021-06-30T10:44:00.609Z
+- commits:
+    - subject: Update to latest worker that always re-enqueues requests from triggers
+      hash: d1a3944061663ad9cbdd55c441e4a0a62e753c77
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.0.205
+  date: 2021-06-30T10:00:05.646Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: dc9e1a7107548bae6daebfb23b2781fa4a4c1411
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.204
+  date: 2021-06-30T07:25:42.155Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 2f9a6bc6945b49e06f2971ab20c189b1d717482e
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.203
+  date: 2021-06-30T04:43:32.339Z
+- commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/jellyfish-config"
+      hash: 2e4277d6613431e328a1a81348a8095b054295ec
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: jellyfish-bot
+      nested: []
+  version: 1.0.202
+  date: 2021-06-30T03:14:22.945Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 6fd8f07f268fb529a19f76c4c64c234776c35d63
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.201
+  date: 2021-06-30T02:58:51.320Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 5e168a81637955d8b1b447de63ff2886913e3fe6
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.200
+  date: 2021-06-30T01:32:23.225Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 5736e8ff3b9e517f691adf6ce0b4e5d8f0adf487
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.199
+  date: 2021-06-30T00:02:11.347Z
+- commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-test-harness to v5'
+      hash: 1bed1e3a9bb2391c064d83ee0d67ca110e17516f
+      body: |
+        Update @balena/jellyfish-test-harness from 4.0.1 to 5.0.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.198
+  date: 2021-06-29T14:50:55.713Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 2d8a6a1441b6f188aba2ef2449b1cf69be6866b6
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.197
+  date: 2021-06-29T13:14:21.952Z
+- commits:
+    - subject: 'patch: Update internal-patch'
+      hash: f6c0080cdfa9bacc617b685563ee7a9f57dd315b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.196
+  date: 2021-06-29T11:20:20.689Z
+- commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.3.0'
+      hash: dac776eaf54d6220f041088f94f7acfa5651c915
+      body: |
+        Update @balena/jellyfish-plugin-default from 15.2.0 to 15.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.195
+  date: 2021-06-29T10:16:03.343Z
+- commits:
+    - subject: Remove package-lock.json from Dockerfile
+      hash: b0e0df96c6788db4232b42d53aad0e747fb3ebcd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Bump node engines specification
+      hash: f090c246ef0191c7c247a73e8ad1b8b92b1b27f9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Remove package-lock.json
+      hash: 727999b35610523e2724bd0db648fe6553675250
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.0.194
+  date: 2021-06-29T08:52:51.248Z
+- commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.2.0'
+      hash: 5a3e9c0d3140761209dd2c1d4f29516aba79d146
+      body: |
+        Update @balena/jellyfish-plugin-default from 15.1.8 to 15.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.193
+  date: 2021-06-29T07:59:30.889Z
+- commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.1.8'
+      hash: 2a1eb56bb1c72b35910be35aacd8b54ed56eac70
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.192
+  date: 2021-06-29T05:03:58.918Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to ^15.1.7'
       hash: a185f422b6a2ae968191901a79b2497520d7484b
       body: ''

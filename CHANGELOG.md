@@ -5,6 +5,72 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.207 - 2021-06-30
+
+* Fix bug where closing a PR would not sync data correctly [Lucian Buzzo]
+
+## 1.0.206 - 2021-06-30
+
+* patch: Update dependency @balena/jellyfish-action-library to ^14.1.0 [Renovate Bot]
+
+## 1.0.205 - 2021-06-30
+
+* Update to latest worker that always re-enqueues requests from triggers [Lucian Buzzo]
+
+## 1.0.204 - 2021-06-30
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.203 - 2021-06-30
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.202 - 2021-06-30
+
+* 🔄 Synced file(s) with product-os/jellyfish-config [jellyfish-bot]
+
+## 1.0.201 - 2021-06-30
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.200 - 2021-06-30
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.199 - 2021-06-30
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.198 - 2021-06-29
+
+* patch: Update dependency @balena/jellyfish-test-harness to v5 [Renovate Bot]
+
+## 1.0.197 - 2021-06-29
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.196 - 2021-06-29
+
+* patch: Update internal-patch [Renovate Bot]
+
+## 1.0.195 - 2021-06-29
+
+* patch: Update dependency @balena/jellyfish-plugin-default to ^15.3.0 [Renovate Bot]
+
+## 1.0.194 - 2021-06-29
+
+* Remove package-lock.json from Dockerfile [Josh Bowling]
+* Bump node engines specification [Josh Bowling]
+* Remove package-lock.json [Josh Bowling]
+
+## 1.0.193 - 2021-06-29
+
+* patch: Update dependency @balena/jellyfish-plugin-default to ^15.2.0 [Renovate Bot]
+
+## 1.0.192 - 2021-06-29
+
+* patch: Update dependency @balena/jellyfish-plugin-default to ^15.1.8 [Renovate Bot]
+
 ## 1.0.191 - 2021-06-27
 
 * patch: Update dependency @balena/jellyfish-plugin-default to ^15.1.7 [Renovate Bot]
