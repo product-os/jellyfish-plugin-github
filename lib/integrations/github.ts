@@ -1526,6 +1526,13 @@ module.exports = class GitHubIntegration implements Integration {
 						);
 						// Create commit contract if open
 						if (event.data.payload.pull_request.state === 'open') {
+							const headSha =
+								event.data.payload.pull_request.head.sha.substring(0, 8);
+							const org =
+								event.data.payload.pull_request.head.repo.full_name.split(
+									'/',
+								)[0];
+
 							sequence.push(
 								makeCard(
 									{
@@ -1585,7 +1592,62 @@ module.exports = class GitHubIntegration implements Integration {
 									actor,
 								),
 							);
+
+							// Create a check run for the commit
+							sequence.push(
+								makeCard(
+									{
+										name: `Check-Run ${headSha}`,
+										type: 'check-run@1.0.0',
+										slug: `check-run-${headSha}`,
+										data: {
+											owner: org,
+											repo: `${org}/${event.data.payload.pull_request.head.repo.name}`,
+											head_sha: headSha,
+											details_url: '',
+											started_at: new Date().toISOString(),
+											check_run_id: uuidv4(),
+										},
+									},
+									actor,
+								),
+							);
+
+							sequence.push(
+								makeCard(
+									{
+										slug: {
+											$eval: `'link-commit-check-run-${headSha}-' + cards[${
+												sequence.length - 1
+											}].id`,
+										},
+										type: 'link@1.0.0',
+										name: 'is attached to commit',
+										data: {
+											inverseName: 'has attached check run',
+											from: {
+												id: {
+													$eval: `cards[${sequence.length - 1}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 1}].type`,
+												},
+											},
+											to: {
+												id: {
+													$eval: `cards[${sequence.length - 3}].id`,
+												},
+												type: {
+													$eval: `cards[${sequence.length - 3}].type`,
+												},
+											},
+										},
+									},
+									actor,
+								),
+							);
 						}
+
 						return sequence;
 					case 'closed':
 						return this.closePR(github, event, actor);
