@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^14.1.1'
+      hash: f31ba4f90f76f42669be1d55fdf92dc193c8addd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.0.208
+  date: 2021-06-30T23:54:55.458Z
+- commits:
     - subject: Fix bug where closing a PR would not sync data correctly
       hash: 96cc32694d07c44d8ac31329eb9fff315d2878ed
       body: |
