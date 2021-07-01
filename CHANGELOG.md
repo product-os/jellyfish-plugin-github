@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.0 - 2021-07-01
+
+* Create and link check run [Dan Goodman]
+
 ## 1.0.209 - 2021-07-01
 
 * Proper linking of pull requests to commit [Dan Goodman]

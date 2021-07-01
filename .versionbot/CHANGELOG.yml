@@ -1,4 +1,15 @@
 - commits:
+    - subject: Create and link check run
+      hash: da6ae7418d0c7687390bfc42d3b473172c06d9f5
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Dan Goodman
+      nested: []
+  version: 1.1.0
+  date: 2021-07-01T13:20:49.040Z
+- commits:
     - subject: Proper linking of pull requests to commit
       hash: 638690bbba50f3061915d74135ecbe7bd158208f
       body: ''
