@@ -72,6 +72,7 @@ syncIntegrationScenario.run(
 			'repository',
 			'gh-push',
 			'check-run',
+			'commit',
 		],
 		scenarios: webhooks,
 		baseUrl: 'https://api.github.com',
