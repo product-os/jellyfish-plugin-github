@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.0.209 - 2021-07-01
+
+* Proper linking of pull requests to commit [Dan Goodman]
+
 ## 1.0.208 - 2021-06-30
 
 * patch: Update dependency @balena/jellyfish-action-library to ^14.1.1 [Renovate Bot]

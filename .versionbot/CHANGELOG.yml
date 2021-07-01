@@ -1,4 +1,15 @@
 - commits:
+    - subject: Proper linking of pull requests to commit
+      hash: 638690bbba50f3061915d74135ecbe7bd158208f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+  version: 1.0.209
+  date: 2021-07-01T12:08:54.268Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^14.1.1'
       hash: f31ba4f90f76f42669be1d55fdf92dc193c8addd
       body: ''
