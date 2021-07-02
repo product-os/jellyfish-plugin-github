@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.2 - 2021-07-02
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.1.1 - 2021-07-02
 
 * Bump jellyfish-test-harness to v5.1.0 [Josh Bowling]
