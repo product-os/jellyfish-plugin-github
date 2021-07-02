@@ -1,4 +1,27 @@
 - commits:
+    - subject: Bump jellyfish-test-harness to v5.1.0
+      hash: 0ddaa753ba9adbc7f2961a5ba6246eba067fbb06
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Replace ci-task-runner with go-task
+      hash: 2129803f99f227982aaf03afdf2cf9387949fc7b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.1.1
+  date: 2021-07-02T03:29:11.652Z
+- commits:
     - subject: Create and link check run
       hash: da6ae7418d0c7687390bfc42d3b473172c06d9f5
       body: ''

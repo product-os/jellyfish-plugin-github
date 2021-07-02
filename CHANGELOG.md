@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.1 - 2021-07-02
+
+* Bump jellyfish-test-harness to v5.1.0 [Josh Bowling]
+* Replace ci-task-runner with go-task [Josh Bowling]
+
 ## 1.1.0 - 2021-07-01
 
 * Create and link check run [Dan Goodman]
