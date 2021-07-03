@@ -46,8 +46,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@balena/jellyfish-action-library": "^14.1.2",
-    "@balena/jellyfish-assert": "^1.1.58",
-    "@balena/jellyfish-plugin-base": "^2.1.182",
+    "@balena/jellyfish-assert": "^1.1.59",
+    "@balena/jellyfish-plugin-base": "^2.1.183",
     "@octokit/auth-app": "^3.5.3",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.1",
