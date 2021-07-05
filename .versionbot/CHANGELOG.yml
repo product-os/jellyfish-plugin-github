@@ -1,4 +1,26 @@
 - commits:
+    - subject: Bump other jellyfish lib dependencies
+      hash: 05a55cb17aad288f7760219c0a6e16d584c17b87
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Graham McCulloch <graham@balena.io>
+        signed-off-by: Graham McCulloch <graham@balena.io>
+      author: Graham McCulloch
+      nested: []
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v17'
+      hash: 71d00919a6a7e357edef8997537dde8d2b24eea8
+      body: |
+        Update @balena/jellyfish-plugin-default from 16.0.0 to 17.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.1.14
+  date: 2021-07-05T02:54:06.961Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 2f77635f9717bac97c6b2a709854cef0e6913e31
       body: ''
