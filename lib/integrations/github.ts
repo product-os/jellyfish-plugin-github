@@ -6,7 +6,10 @@
 
 import * as assert from '@balena/jellyfish-assert';
 import { Integration } from '@balena/jellyfish-plugin-base';
-import type { EventContract } from '@balena/jellyfish-types/build/core';
+import type {
+	ContractDefinition,
+	EventContract,
+} from '@balena/jellyfish-types/build/core';
 import { createAppAuth } from '@octokit/auth-app';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
@@ -128,7 +131,18 @@ function eventToCardType(event: any): any {
 		: 'issue@1.0.0';
 }
 
-function makeCard(card: any, actor: string, time?: string): any {
+/**
+ * creates a contract creation request
+ * @param contract a ContractDefinition to be created, after being processed by JSON-e (that's why "|any")
+ * @param actor
+ * @param time
+ * @returns a contract creation request
+ */
+function makeCard(
+	contract: ContractDefinition | any,
+	actor: string,
+	time?: string,
+) {
 	let date = new Date();
 	if (time) {
 		date = new Date(time);
@@ -136,7 +150,7 @@ function makeCard(card: any, actor: string, time?: string): any {
 
 	return {
 		time: date,
-		card,
+		card: contract,
 		actor,
 	};
 }
@@ -569,7 +583,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return [];
 	}
 
-	async getRepoCard(repo: any, options: any): Promise<any> {
+	async getRepoCard(repo: any, options: any) {
 		const mirrorID = repo.html_url;
 		const existingCard = await this.getCardByMirrorId(
 			mirrorID,
@@ -618,7 +632,7 @@ module.exports = class GitHubIntegration implements Integration {
 		};
 	}
 
-	async getPRFromEvent(github: any, event: any, options: any): Promise<any> {
+	async getPRFromEvent(github: any, event: any, options: any) {
 		const root = getEventRoot(event);
 		const prData: any = await this.generatePRDataFromEvent(github, event);
 		const contractData = await this.loadContractFromPR(github, event, prData);
@@ -629,7 +643,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const existingContractData = options.existingContract?.data || {};
 
-		const pr: any = {
+		const pr: ContractDefinition = {
 			name: root.title,
 			slug: `pull-request-${normaliseRootID(root.node_id)}`,
 			type,
@@ -736,7 +750,7 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
-	async createPRIfNotExists(github: any, event: any, actor: any): Promise<any> {
+	async createPRIfNotExists(github: any, event: any, actor: any) {
 		const result = await this.createPRorIssueIfNotExists(
 			github,
 			event,
@@ -825,11 +839,7 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async createPRWithConnectedIssues(
-		github: any,
-		event: any,
-		actor: any,
-	): Promise<any> {
+	async createPRWithConnectedIssues(github: any, event: any, actor: any) {
 		const mirrorID = getEventMirrorId(event);
 		const cards = await this.createPRIfNotExists(github, event, actor);
 		if (_.isEmpty(cards)) {
@@ -925,7 +935,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const root = getEventRoot(event);
 		const type = 'issue@1.0.0';
 
-		const issue: any = {
+		const issue: ContractDefinition = {
 			name: root.title,
 			slug: `issue-${normaliseRootID(root.node_id)}`,
 			type,
@@ -1319,7 +1329,7 @@ module.exports = class GitHubIntegration implements Integration {
 		event: any,
 		actor: string,
 		type: string,
-	): Promise<any> {
+	) {
 		const mirrorID = getEventMirrorId(event);
 		const existingCard = await this.getCardByMirrorId(mirrorID, type);
 		const root = getEventRoot(event);
@@ -1406,7 +1416,7 @@ module.exports = class GitHubIntegration implements Integration {
 			sequence.push(
 				makeCard(
 					updateCardFromSequence(sequence, 0, {
-						tags: card.tags.concat(event.data.payload.label.name),
+						tags: (card.tags || []).concat(event.data.payload.label.name),
 					}),
 					actor,
 					(new Date(root.updated_at).getTime() - 1).toString(),
@@ -1722,7 +1732,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return this.context.getElementByMirrorId('message@1.0.0', id);
 	}
 
-	async getCardFromEvent(github: any, event: any, options: any): Promise<any> {
+	async getCardFromEvent(github: any, event: any, options: any) {
 		switch (eventToCardType(event)) {
 			case 'issue@1.0.0':
 				return this.getIssueFromEvent(event, options);
