@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.23 - 2021-07-07
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.1.22 - 2021-07-07
 
 * patch: Update dependency @balena/jellyfish-test-harness to v6 [Renovate Bot]
