@@ -47,6 +47,15 @@ export default function ({
 							artifact_ready: {
 								type: 'boolean',
 							},
+							mergeable: {
+								description: 'all downstream contracts are mergeable',
+								type: 'boolean',
+								$$formula:
+									'this.links["was built into"].length > 0' +
+									'&& EVERY(this.links["was built into"], "data.$transformer.mergeable")',
+								readOnly: true,
+								default: false,
+							},
 						},
 					},
 				},
