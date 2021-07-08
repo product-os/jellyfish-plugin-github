@@ -1,4 +1,68 @@
 - commits:
+    - subject: make PR "synchronize" create commits and check-runs
+      hash: d249f633c5adfb7307cd2ed45c625700dc82845b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: add `npm run compose-test` for easy CI-like validation
+      hash: fd542a372f0017b4a32943e35574c5fb1eada533
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: load source contract into commit contract
+      hash: e8aeb9567a572e25e0eab1c49c634bff2c6bae17
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: use complete commit sha's to ensure no conflicts happen
+      hash: 4c9a79e0d10542cb1817871dec3edf1d5b905de2
+      body: |
+        also fixed artifactReady
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: ensure Check-Run is created in correct state
+      hash: f821e0136a2c3bb8b8416c691aac3243a8d1322b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: improve TS typing
+      hash: 2cc80cdb702ffcbfc774053b85747f41acbb725b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.1.25
+  date: 2021-07-08T16:24:20.890Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.13'
       hash: c89809d44ad44cc1791607113bab06851222e22a
       body: ''

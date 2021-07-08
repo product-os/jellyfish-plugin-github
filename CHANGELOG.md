@@ -5,6 +5,15 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.25 - 2021-07-08
+
+* make PR "synchronize" create commits and check-runs [Martin Rauscher]
+* add `npm run compose-test` for easy CI-like validation [Martin Rauscher]
+* load source contract into commit contract [Martin Rauscher]
+* use complete commit sha's to ensure no conflicts happen [Martin Rauscher]
+* ensure Check-Run is created in correct state [Martin Rauscher]
+* improve TS typing [Martin Rauscher]
+
 ## 1.1.24 - 2021-07-07
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.0.13 [Renovate Bot]
