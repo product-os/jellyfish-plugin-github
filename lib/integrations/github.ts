@@ -751,14 +751,14 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async createPRIfNotExists(github: any, event: any, actor: any) {
-		const result = await this.createPRorIssueIfNotExists(
+		const contractsToCreate = await this.createPRorIssueIfNotExists(
 			github,
 			event,
 			actor,
 			'pull-request@1.0.0',
 		);
 
-		if (_.isEmpty(result)) {
+		if (_.isEmpty(contractsToCreate)) {
 			return [];
 		}
 		const headPayload = event.data.payload.pull_request.head.repo;
@@ -773,7 +773,7 @@ module.exports = class GitHubIntegration implements Integration {
 		// If we created the repository, increment the index for links and add
 		// the card to the result
 		if (head.card) {
-			result.push(head.card);
+			contractsToCreate.push(head.card);
 			index++;
 		}
 		const base = await this.getRepoCard(basePayload, {
@@ -785,15 +785,15 @@ module.exports = class GitHubIntegration implements Integration {
 			if (_.isEqual(base.card, head.card)) {
 				base.repoInfo.target.id.$eval = `cards[${--index}].id`;
 			} else {
-				result.push(base.card);
+				contractsToCreate.push(base.card);
 			}
 		}
 
-		return result.concat([
+		return contractsToCreate.concat([
 			makeCard(
 				{
 					name: 'has head at',
-					slug: `link-${result[0].card.slug}-head-at-${head.repoInfo.slug}`.replace(
+					slug: `link-${contractsToCreate[0].card.slug}-head-at-${head.repoInfo.slug}`.replace(
 						/[@.]/g,
 						'-',
 					),
@@ -816,7 +816,7 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					name: 'has base at',
-					slug: `link-${result[0].card.slug}-base-at-${base.repoInfo.slug}`.replace(
+					slug: `link-${contractsToCreate[0].card.slug}-base-at-${base.repoInfo.slug}`.replace(
 						/[@.]/g,
 						'-',
 					),
