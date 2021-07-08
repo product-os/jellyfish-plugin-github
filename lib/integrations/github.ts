@@ -1607,16 +1607,16 @@ module.exports = class GitHubIntegration implements Integration {
 							sequence.push(
 								makeCard(
 									{
-										name: `Check-Run ${headSha}`,
+										name: `Check-Run ${headShaShort}`,
 										type: 'check-run@1.0.0',
 										slug: `check-run-${headSha}`,
 										data: {
 											owner: org,
 											repo: `${org}/${event.data.payload.pull_request.head.repo.name}`,
 											head_sha: headSha,
-											details_url: '',
+											details_url: 'https://jel.ly.fish',
 											started_at: new Date().toISOString(),
-											check_run_id: uuidv4(),
+											status: 'queued',
 										},
 									},
 									actor,
