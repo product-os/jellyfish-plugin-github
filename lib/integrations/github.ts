@@ -1543,27 +1543,28 @@ module.exports = class GitHubIntegration implements Integration {
 							const headShaShort = headSha.substring(0, 8);
 							const org = pullRequest.head.repo.full_name.split('/')[0];
 
-							sequence.push(
-								makeCard(
-									{
-										slug: `commit-${headSha}`,
-										name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
-										type: 'commit@1.0.0',
-										data: {
-											org: pullRequest.head.repo.full_name.split('/')[0],
-											repo: pullRequest.head.repo.name,
-											head_sha: pullRequest.head.sha,
-											pull_request_title: pullRequest.title,
-											pull_request_url: pullRequest.url,
-											contract: sourceContract,
-											$transformer: {
-												artifact_ready: true,
+							const commitCardIdx =
+								sequence.push(
+									makeCard(
+										{
+											slug: `commit-${headSha}`,
+											name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
+											type: 'commit@1.0.0',
+											data: {
+												org: pullRequest.head.repo.full_name.split('/')[0],
+												repo: pullRequest.head.repo.name,
+												head_sha: pullRequest.head.sha,
+												pull_request_title: pullRequest.title,
+												pull_request_url: pullRequest.url,
+												contract: sourceContract,
+												$transformer: {
+													artifact_ready: true,
+												},
 											},
 										},
-									},
-									actor,
-								),
-							);
+										actor,
+									),
+								) - 1;
 
 							sequence.push(
 								makeCard(
@@ -1575,10 +1576,10 @@ module.exports = class GitHubIntegration implements Integration {
 											inverseName: 'has attached commit',
 											from: {
 												id: {
-													$eval: `cards[${sequence.length - 1}].id`,
+													$eval: `cards[${commitCardIdx}].id`,
 												},
 												type: {
-													$eval: `cards[${sequence.length - 1}].type`,
+													$eval: `cards[${commitCardIdx}].type`,
 												},
 											},
 											to: {
@@ -1596,32 +1597,31 @@ module.exports = class GitHubIntegration implements Integration {
 							);
 
 							// Create a check run for the commit
-							sequence.push(
-								makeCard(
-									{
-										name: `Check-Run ${headShaShort}`,
-										type: 'check-run@1.0.0',
-										slug: `check-run-${headSha}`,
-										data: {
-											owner: org,
-											repo: `${org}/${pullRequest.head.repo.name}`,
-											head_sha: headSha,
-											details_url: 'https://jel.ly.fish',
-											started_at: new Date().toISOString(),
-											status: 'queued',
+							const checkRunCardIdx =
+								sequence.push(
+									makeCard(
+										{
+											name: `Check-Run ${headShaShort}`,
+											type: 'check-run@1.0.0',
+											slug: `check-run-${headSha}`,
+											data: {
+												owner: org,
+												repo: `${org}/${pullRequest.head.repo.name}`,
+												head_sha: headSha,
+												details_url: 'https://jel.ly.fish',
+												started_at: new Date().toISOString(),
+												status: 'queued',
+											},
 										},
-									},
-									actor,
-								),
-							);
+										actor,
+									),
+								) - 1;
 
 							sequence.push(
 								makeCard(
 									{
 										slug: {
-											$eval: `'link-commit-check-run-${headSha}-' + cards[${
-												sequence.length - 1
-											}].id`,
+											$eval: `'link-commit-check-run-${headSha}-' + cards[${commitCardIdx}].id`,
 										},
 										type: 'link@1.0.0',
 										name: 'is attached to commit',
@@ -1629,18 +1629,18 @@ module.exports = class GitHubIntegration implements Integration {
 											inverseName: 'has attached check run',
 											from: {
 												id: {
-													$eval: `cards[${sequence.length - 1}].id`,
+													$eval: `cards[${commitCardIdx}].id`,
 												},
 												type: {
-													$eval: `cards[${sequence.length - 1}].type`,
+													$eval: `cards[${commitCardIdx}].type`,
 												},
 											},
 											to: {
 												id: {
-													$eval: `cards[${sequence.length - 3}].id`,
+													$eval: `cards[${checkRunCardIdx}].id`,
 												},
 												type: {
-													$eval: `cards[${sequence.length - 3}].type`,
+													$eval: `cards[${checkRunCardIdx}].type`,
 												},
 											},
 										},
