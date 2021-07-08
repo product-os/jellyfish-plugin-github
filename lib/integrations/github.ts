@@ -6,7 +6,10 @@
 
 import * as assert from '@balena/jellyfish-assert';
 import { Integration } from '@balena/jellyfish-plugin-base';
-import type { EventContract } from '@balena/jellyfish-types/build/core';
+import type {
+	ContractDefinition,
+	EventContract,
+} from '@balena/jellyfish-types/build/core';
 import { createAppAuth } from '@octokit/auth-app';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
@@ -128,7 +131,18 @@ function eventToCardType(event: any): any {
 		: 'issue@1.0.0';
 }
 
-function makeCard(card: any, actor: string, time?: string): any {
+/**
+ * creates a contract creation request
+ * @param contract a ContractDefinition to be created, after being processed by JSON-e (that's why "|any")
+ * @param actor
+ * @param time
+ * @returns a contract creation request
+ */
+function makeCard(
+	contract: ContractDefinition | any,
+	actor: string,
+	time?: string,
+) {
 	let date = new Date();
 	if (time) {
 		date = new Date(time);
@@ -136,7 +150,7 @@ function makeCard(card: any, actor: string, time?: string): any {
 
 	return {
 		time: date,
-		card,
+		card: contract,
 		actor,
 	};
 }
@@ -569,7 +583,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return [];
 	}
 
-	async getRepoCard(repo: any, options: any): Promise<any> {
+	async getRepoCard(repo: any, options: any) {
 		const mirrorID = repo.html_url;
 		const existingCard = await this.getCardByMirrorId(
 			mirrorID,
@@ -618,7 +632,7 @@ module.exports = class GitHubIntegration implements Integration {
 		};
 	}
 
-	async getPRFromEvent(github: any, event: any, options: any): Promise<any> {
+	async getPRFromEvent(github: any, event: any, options: any) {
 		const root = getEventRoot(event);
 		const prData: any = await this.generatePRDataFromEvent(github, event);
 		const contractData = await this.loadContractFromPR(github, event, prData);
@@ -629,7 +643,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const existingContractData = options.existingContract?.data || {};
 
-		const pr: any = {
+		const pr: ContractDefinition = {
 			name: root.title,
 			slug: `pull-request-${normaliseRootID(root.node_id)}`,
 			type,
@@ -736,15 +750,15 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
-	async createPRIfNotExists(github: any, event: any, actor: any): Promise<any> {
-		const result = await this.createPRorIssueIfNotExists(
+	async createPRIfNotExists(github: any, event: any, actor: any) {
+		const contractsToCreate = await this.createPRorIssueIfNotExists(
 			github,
 			event,
 			actor,
 			'pull-request@1.0.0',
 		);
 
-		if (_.isEmpty(result)) {
+		if (_.isEmpty(contractsToCreate)) {
 			return [];
 		}
 		const headPayload = event.data.payload.pull_request.head.repo;
@@ -759,7 +773,7 @@ module.exports = class GitHubIntegration implements Integration {
 		// If we created the repository, increment the index for links and add
 		// the card to the result
 		if (head.card) {
-			result.push(head.card);
+			contractsToCreate.push(head.card);
 			index++;
 		}
 		const base = await this.getRepoCard(basePayload, {
@@ -771,15 +785,15 @@ module.exports = class GitHubIntegration implements Integration {
 			if (_.isEqual(base.card, head.card)) {
 				base.repoInfo.target.id.$eval = `cards[${--index}].id`;
 			} else {
-				result.push(base.card);
+				contractsToCreate.push(base.card);
 			}
 		}
 
-		return result.concat([
+		return contractsToCreate.concat([
 			makeCard(
 				{
 					name: 'has head at',
-					slug: `link-${result[0].card.slug}-head-at-${head.repoInfo.slug}`.replace(
+					slug: `link-${contractsToCreate[0].card.slug}-head-at-${head.repoInfo.slug}`.replace(
 						/[@.]/g,
 						'-',
 					),
@@ -802,7 +816,7 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					name: 'has base at',
-					slug: `link-${result[0].card.slug}-base-at-${base.repoInfo.slug}`.replace(
+					slug: `link-${contractsToCreate[0].card.slug}-base-at-${base.repoInfo.slug}`.replace(
 						/[@.]/g,
 						'-',
 					),
@@ -825,11 +839,7 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async createPRWithConnectedIssues(
-		github: any,
-		event: any,
-		actor: any,
-	): Promise<any> {
+	async createPRWithConnectedIssues(github: any, event: any, actor: any) {
 		const mirrorID = getEventMirrorId(event);
 		const cards = await this.createPRIfNotExists(github, event, actor);
 		if (_.isEmpty(cards)) {
@@ -902,7 +912,7 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 	}
 
-	async updatePR(github: any, event: any, actor: string): Promise<any> {
+	async updatePR(github: any, event: any, actor: string) {
 		const mirrorID = getEventMirrorId(event);
 		const existingPR = await this.getCardByMirrorId(
 			mirrorID,
@@ -925,7 +935,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const root = getEventRoot(event);
 		const type = 'issue@1.0.0';
 
-		const issue: any = {
+		const issue: ContractDefinition = {
 			name: root.title,
 			slug: `issue-${normaliseRootID(root.node_id)}`,
 			type,
@@ -1319,7 +1329,7 @@ module.exports = class GitHubIntegration implements Integration {
 		event: any,
 		actor: string,
 		type: string,
-	): Promise<any> {
+	) {
 		const mirrorID = getEventMirrorId(event);
 		const existingCard = await this.getCardByMirrorId(mirrorID, type);
 		const root = getEventRoot(event);
@@ -1343,17 +1353,22 @@ module.exports = class GitHubIntegration implements Integration {
 		type: string,
 	): Promise<any> {
 		const issueMirrorId = getEventMirrorId(event);
-		const issue = await this.getCardByMirrorId(issueMirrorId, type);
+		const existingContract = await this.getCardByMirrorId(issueMirrorId, type);
 		const root = getEventRoot(event);
 
-		if (issue) {
-			const cardFromEvent = await this.getCardFromEvent(github, event, {
+		if (existingContract) {
+			const contractFromEvent = await this.getCardFromEvent(github, event, {
 				status: root.state,
 			});
 
-			if (!_.isEqual(_.sortBy(cardFromEvent.tags), _.sortBy(issue.tags))) {
-				cardFromEvent.id = issue.id;
-				return [makeCard(cardFromEvent, actor, root.updated_at)];
+			if (
+				!_.isEqual(
+					_.sortBy(contractFromEvent.tags),
+					_.sortBy(existingContract.tags),
+				)
+			) {
+				contractFromEvent.id = existingContract.id;
+				return [makeCard(contractFromEvent, actor, root.updated_at)];
 			}
 
 			return [];
@@ -1406,7 +1421,7 @@ module.exports = class GitHubIntegration implements Integration {
 			sequence.push(
 				makeCard(
 					updateCardFromSequence(sequence, 0, {
-						tags: card.tags.concat(event.data.payload.label.name),
+						tags: (card.tags || []).concat(event.data.payload.label.name),
 					}),
 					actor,
 					(new Date(root.updated_at).getTime() - 1).toString(),
@@ -1513,149 +1528,41 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request':
+				const pullRequest = event.data.payload.pull_request;
 				switch (action) {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
 					case 'opened':
 					case 'edited':
-					case 'assigned':
+					case 'assigned': {
 						const sequence = await this.createPRWithConnectedIssues(
 							github,
 							event,
 							actor,
 						);
-						// Create commit contract if open
-						if (event.data.payload.pull_request.state === 'open') {
-							const headSha =
-								event.data.payload.pull_request.head.sha.substring(0, 8);
-							const org =
-								event.data.payload.pull_request.head.repo.full_name.split(
-									'/',
-								)[0];
-
-							sequence.push(
-								makeCard(
-									{
-										slug: `commit-${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)}`,
-										name: `Commit ${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)} for PR ${event.data.payload.pull_request.title}`,
-										type: 'commit@1.0.0',
-										data: {
-											org: event.data.payload.pull_request.head.repo.full_name.split(
-												'/',
-											)[0],
-											repo: event.data.payload.pull_request.head.repo.name,
-											head_sha: event.data.payload.pull_request.head.sha,
-											pull_request_title: event.data.payload.pull_request.title,
-											pull_request_url: event.data.payload.pull_request.url,
-										},
-										artifact_ready: true,
-									},
-									actor,
-								),
-							);
-
-							sequence.push(
-								makeCard(
-									{
-										slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)}-${sequence[0].card.slug}`,
-										type: 'link@1.0.0',
-										name: 'is attached to PR',
-										data: {
-											inverseName: 'has attached commit',
-											from: {
-												id: {
-													$eval: `cards[${sequence.length - 1}].id`,
-												},
-												type: {
-													$eval: `cards[${sequence.length - 1}].type`,
-												},
-											},
-											to: {
-												id: {
-													$eval: 'cards[0].id',
-												},
-												type: {
-													$eval: 'cards[0].type',
-												},
-											},
-										},
-									},
-									actor,
-								),
-							);
-
-							// Create a check run for the commit
-							sequence.push(
-								makeCard(
-									{
-										name: `Check-Run ${headSha}`,
-										type: 'check-run@1.0.0',
-										slug: `check-run-${headSha}`,
-										data: {
-											owner: org,
-											repo: `${org}/${event.data.payload.pull_request.head.repo.name}`,
-											head_sha: headSha,
-											details_url: '',
-											started_at: new Date().toISOString(),
-											check_run_id: uuidv4(),
-										},
-									},
-									actor,
-								),
-							);
-
-							sequence.push(
-								makeCard(
-									{
-										slug: {
-											$eval: `'link-commit-check-run-${headSha}-' + cards[${
-												sequence.length - 1
-											}].id`,
-										},
-										type: 'link@1.0.0',
-										name: 'is attached to commit',
-										data: {
-											inverseName: 'has attached check run',
-											from: {
-												id: {
-													$eval: `cards[${sequence.length - 1}].id`,
-												},
-												type: {
-													$eval: `cards[${sequence.length - 1}].type`,
-												},
-											},
-											to: {
-												id: {
-													$eval: `cards[${sequence.length - 3}].id`,
-												},
-												type: {
-													$eval: `cards[${sequence.length - 3}].type`,
-												},
-											},
-										},
-									},
-									actor,
-								),
-							);
-						}
-
+						this.createCommitForOpenPR(
+							pullRequest,
+							sequence[0].card,
+							sequence,
+							actor,
+						);
 						return sequence;
+					}
 					case 'closed':
 						return this.closePR(github, event, actor);
 					case 'labeled':
 					case 'unlabeled':
 						return this.labelEventPR(github, event, actor, action);
-					case 'synchronize':
-						return this.updatePR(github, event, actor);
+					case 'synchronize': {
+						const sequence = await this.updatePR(github, event, actor);
+						this.createCommitForOpenPR(
+							pullRequest,
+							sequence[0].card,
+							sequence,
+							actor,
+						);
+						return sequence;
+					}
 					default:
 						return [];
 				}
@@ -1714,6 +1621,128 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
+	private createCommitForOpenPR(
+		pullRequest: any,
+		pullRequestContract: any,
+		sequence: Array<{ time: Date; card: any; actor: string }>,
+		actor: any,
+	) {
+		if (pullRequest.state !== 'open') {
+			return;
+		}
+		// replace this with a call to GH once we don't need the data in the PR itself anymore
+		const sourceContract = pullRequestContract.data?.contract;
+		const headSha = pullRequest.head.sha;
+		const headShaShort = headSha.substring(0, 8);
+		const org = pullRequest.head.repo.full_name.split('/')[0];
+
+		const commitCardIdx =
+			sequence.push(
+				makeCard(
+					{
+						slug: `commit-${headSha}`,
+						name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
+						type: 'commit@1.0.0',
+						data: {
+							org: pullRequest.head.repo.full_name.split('/')[0],
+							repo: pullRequest.head.repo.name,
+							head_sha: pullRequest.head.sha,
+							pull_request_title: pullRequest.title,
+							pull_request_url: pullRequest.url,
+							contract: sourceContract,
+							$transformer: {
+								artifact_ready: true,
+							},
+						},
+					},
+					actor,
+				),
+			) - 1;
+
+		sequence.push(
+			makeCard(
+				{
+					slug: `link-commit-pr-${headSha}-${sequence[0].card.slug}`,
+					type: 'link@1.0.0',
+					name: 'is attached to PR',
+					data: {
+						inverseName: 'has attached commit',
+						from: {
+							id: {
+								$eval: `cards[${commitCardIdx}].id`,
+							},
+							type: {
+								$eval: `cards[${commitCardIdx}].type`,
+							},
+						},
+						to: {
+							id: {
+								$eval: 'cards[0].id',
+							},
+							type: {
+								$eval: 'cards[0].type',
+							},
+						},
+					},
+				},
+				actor,
+			),
+		);
+
+		// Create a check run for the commit
+		const checkRunCardIdx =
+			sequence.push(
+				makeCard(
+					{
+						name: `Check-Run ${headShaShort}`,
+						type: 'check-run@1.0.0',
+						slug: `check-run-${headSha}`,
+						data: {
+							owner: org,
+							repo: `${org}/${pullRequest.head.repo.name}`,
+							head_sha: headSha,
+							details_url: 'https://jel.ly.fish',
+							started_at: new Date().toISOString(),
+							status: 'queued',
+						},
+					},
+					actor,
+				),
+			) - 1;
+
+		sequence.push(
+			makeCard(
+				{
+					slug: {
+						$eval: `'link-commit-check-run-${headSha}-' + cards[${commitCardIdx}].id`,
+					},
+					type: 'link@1.0.0',
+					name: 'is attached to commit',
+					data: {
+						inverseName: 'has attached check run',
+						from: {
+							id: {
+								$eval: `cards[${commitCardIdx}].id`,
+							},
+							type: {
+								$eval: `cards[${commitCardIdx}].type`,
+							},
+						},
+						to: {
+							id: {
+								$eval: `cards[${checkRunCardIdx}].id`,
+							},
+							type: {
+								$eval: `cards[${checkRunCardIdx}].type`,
+							},
+						},
+					},
+				},
+				actor,
+			),
+		);
+	}
+
 	async getCardByMirrorId(id: string, type: string): Promise<any> {
 		return this.context.getElementByMirrorId(type, id);
 	}
@@ -1722,7 +1751,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return this.context.getElementByMirrorId('message@1.0.0', id);
 	}
 
-	async getCardFromEvent(github: any, event: any, options: any): Promise<any> {
+	async getCardFromEvent(github: any, event: any, options: any) {
 		switch (eventToCardType(event)) {
 			case 'issue@1.0.0':
 				return this.getIssueFromEvent(event, options);
