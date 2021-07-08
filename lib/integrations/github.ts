@@ -1536,8 +1536,8 @@ module.exports = class GitHubIntegration implements Integration {
 						);
 						// Create commit contract if open
 						if (event.data.payload.pull_request.state === 'open') {
-							const headSha =
-								event.data.payload.pull_request.head.sha.substring(0, 8);
+							const headSha = event.data.payload.pull_request.head.sha;
+							const headShaShort = headSha.substring(0, 8);
 							const org =
 								event.data.payload.pull_request.head.repo.full_name.split(
 									'/',
@@ -1546,14 +1546,8 @@ module.exports = class GitHubIntegration implements Integration {
 							sequence.push(
 								makeCard(
 									{
-										slug: `commit-${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)}`,
-										name: `Commit ${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)} for PR ${event.data.payload.pull_request.title}`,
+										slug: `commit-${headSha}`,
+										name: `Commit ${headShaShort} for PR ${event.data.payload.pull_request.title}`,
 										type: 'commit@1.0.0',
 										data: {
 											org: event.data.payload.pull_request.head.repo.full_name.split(
@@ -1563,8 +1557,10 @@ module.exports = class GitHubIntegration implements Integration {
 											head_sha: event.data.payload.pull_request.head.sha,
 											pull_request_title: event.data.payload.pull_request.title,
 											pull_request_url: event.data.payload.pull_request.url,
+											$transformer: {
+												artifact_ready: true,
+											},
 										},
-										artifact_ready: true,
 									},
 									actor,
 								),
@@ -1573,10 +1569,7 @@ module.exports = class GitHubIntegration implements Integration {
 							sequence.push(
 								makeCard(
 									{
-										slug: `link-commit-pr-${event.data.payload.pull_request.head.sha.substring(
-											0,
-											8,
-										)}-${sequence[0].card.slug}`,
+										slug: `link-commit-pr-${headSha}-${sequence[0].card.slug}`,
 										type: 'link@1.0.0',
 										name: 'is attached to PR',
 										data: {
