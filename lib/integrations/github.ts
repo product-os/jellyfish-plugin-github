@@ -1523,6 +1523,7 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request':
+				const pullRequest = event.data.payload.pull_request;
 				switch (action) {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
@@ -1535,28 +1536,23 @@ module.exports = class GitHubIntegration implements Integration {
 							actor,
 						);
 						// Create commit contract if open
-						if (event.data.payload.pull_request.state === 'open') {
-							const headSha = event.data.payload.pull_request.head.sha;
+						if (pullRequest.state === 'open') {
+							const headSha = pullRequest.head.sha;
 							const headShaShort = headSha.substring(0, 8);
-							const org =
-								event.data.payload.pull_request.head.repo.full_name.split(
-									'/',
-								)[0];
+							const org = pullRequest.head.repo.full_name.split('/')[0];
 
 							sequence.push(
 								makeCard(
 									{
 										slug: `commit-${headSha}`,
-										name: `Commit ${headShaShort} for PR ${event.data.payload.pull_request.title}`,
+										name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
 										type: 'commit@1.0.0',
 										data: {
-											org: event.data.payload.pull_request.head.repo.full_name.split(
-												'/',
-											)[0],
-											repo: event.data.payload.pull_request.head.repo.name,
-											head_sha: event.data.payload.pull_request.head.sha,
-											pull_request_title: event.data.payload.pull_request.title,
-											pull_request_url: event.data.payload.pull_request.url,
+											org: pullRequest.head.repo.full_name.split('/')[0],
+											repo: pullRequest.head.repo.name,
+											head_sha: pullRequest.head.sha,
+											pull_request_title: pullRequest.title,
+											pull_request_url: pullRequest.url,
 											$transformer: {
 												artifact_ready: true,
 											},
@@ -1605,7 +1601,7 @@ module.exports = class GitHubIntegration implements Integration {
 										slug: `check-run-${headSha}`,
 										data: {
 											owner: org,
-											repo: `${org}/${event.data.payload.pull_request.head.repo.name}`,
+											repo: `${org}/${pullRequest.head.repo.name}`,
 											head_sha: headSha,
 											details_url: 'https://jel.ly.fish',
 											started_at: new Date().toISOString(),
