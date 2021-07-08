@@ -1537,6 +1537,8 @@ module.exports = class GitHubIntegration implements Integration {
 						);
 						// Create commit contract if open
 						if (pullRequest.state === 'open') {
+							// replace this with a call to GH once we don't need the data in the PR itself anymore
+							const sourceContract = sequence[0].card.data?.contract;
 							const headSha = pullRequest.head.sha;
 							const headShaShort = headSha.substring(0, 8);
 							const org = pullRequest.head.repo.full_name.split('/')[0];
@@ -1553,6 +1555,7 @@ module.exports = class GitHubIntegration implements Integration {
 											head_sha: pullRequest.head.sha,
 											pull_request_title: pullRequest.title,
 											pull_request_url: pullRequest.url,
+											contract: sourceContract,
 											$transformer: {
 												artifact_ready: true,
 											},
