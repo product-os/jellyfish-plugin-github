@@ -78,7 +78,7 @@ function getEventRoot(event: EventContract): any {
 }
 
 function getEventMirrorId(event: EventContract): string {
-	return getEventRoot(event).html_url;
+	return getEventRoot(event)?.html_url;
 }
 
 function getCommentMirrorIdFromEvent(event: any): string {
@@ -1464,6 +1464,12 @@ module.exports = class GitHubIntegration implements Integration {
 			return `No actor id for ${JSON.stringify(event)}`;
 		});
 
+		this.context.log.info('syncing GH event', {
+			id: getEventMirrorId(event),
+			type,
+			action,
+		});
+
 		switch (type) {
 			case 'check_run': {
 				const { repository } = event.data.payload;
@@ -1540,7 +1546,7 @@ module.exports = class GitHubIntegration implements Integration {
 							event,
 							actor,
 						);
-						this.createCommitForOpenPR(
+						this.createTransformerCommitAndCheckRunForOpenPR(
 							pullRequest,
 							sequence[0].card,
 							sequence,
@@ -1555,7 +1561,7 @@ module.exports = class GitHubIntegration implements Integration {
 						return this.labelEventPR(github, event, actor, action);
 					case 'synchronize': {
 						const sequence = await this.updatePR(github, event, actor);
-						this.createCommitForOpenPR(
+						this.createTransformerCommitAndCheckRunForOpenPR(
 							pullRequest,
 							sequence[0].card,
 							sequence,
@@ -1621,13 +1627,21 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
-	private createCommitForOpenPR(
+	private createTransformerCommitAndCheckRunForOpenPR(
 		pullRequest: any,
 		pullRequestContract: any,
 		sequence: Array<{ time: Date; card: any; actor: string }>,
 		actor: any,
 	) {
-		if (pullRequest.state !== 'open') {
+		// No need to handle closed PRs or PRs that don't want to be transformed
+		if (
+			pullRequest.state !== 'open' ||
+			!pullRequestContract?.data?.contract?.data?.$transformer
+		) {
+			this.context.log.info(
+				'Not creating commit/check-run for closed and non transformer-aware PRs',
+				{ prId: pullRequest.id },
+			);
 			return;
 		}
 		// replace this with a call to GH once we don't need the data in the PR itself anymore
