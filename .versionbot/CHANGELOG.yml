@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 702d0b5c81f558e610453805fb51ea2f41e1a430
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.1.27
+  date: 2021-07-09T12:43:01.518Z
+- commits:
     - subject: don't create commits for legacy repos
       hash: 4e1e8e659c584de450a879c8cd516356f8f25898
       body: ''

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.27 - 2021-07-09
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.1.26 - 2021-07-09
 
 * don't create commits for legacy repos [Martin Rauscher]
