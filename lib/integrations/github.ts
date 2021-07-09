@@ -477,11 +477,11 @@ module.exports = class GitHubIntegration implements Integration {
 
 		if (baseType === 'message') {
 			const issue = await this.context.getElementById(card.data.target);
+			if (!issue) {
+				return [];
+			}
 			const issueBaseType = issue.type.split('@')[0];
-			if (
-				!issue ||
-				(issueBaseType !== 'issue' && issueBaseType !== 'pull-request')
-			) {
+			if (issueBaseType !== 'issue' && issueBaseType !== 'pull-request') {
 				return [];
 			}
 
