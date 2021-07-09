@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'fix: message could be received before issue could create NPE'
+      hash: fea866b0da393666e5ac608196d07fd80ec787f9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.1.28
+  date: 2021-07-09T14:54:47.875Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 702d0b5c81f558e610453805fb51ea2f41e1a430
       body: ''
