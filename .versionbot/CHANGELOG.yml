@@ -1,4 +1,27 @@
 - commits:
+    - subject: don't create commits for legacy repos
+      hash: 4e1e8e659c584de450a879c8cd516356f8f25898
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: enable use of check-run contracts
+      hash: c607d0b9ddd5f3b2c6947c847299faa02a8598c3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.1.26
+  date: 2021-07-09T12:30:10.864Z
+- commits:
     - subject: make PR "synchronize" create commits and check-runs
       hash: d249f633c5adfb7307cd2ed45c625700dc82845b
       body: ''

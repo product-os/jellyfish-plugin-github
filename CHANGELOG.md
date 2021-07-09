@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.26 - 2021-07-09
+
+* don't create commits for legacy repos [Martin Rauscher]
+* enable use of check-run contracts [Martin Rauscher]
+
 ## 1.1.25 - 2021-07-08
 
 * make PR "synchronize" create commits and check-runs [Martin Rauscher]
