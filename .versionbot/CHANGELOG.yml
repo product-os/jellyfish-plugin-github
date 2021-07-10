@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v18'
+      hash: 97e61a2c5f2e7f12812361ff72580a3cf69f6f22
+      body: |
+        Update @balena/jellyfish-plugin-default from 17.0.0 to 18.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.1.29
+  date: 2021-07-09T15:06:15.255Z
+- commits:
     - subject: 'fix: message could be received before issue could create NPE'
       hash: fea866b0da393666e5ac608196d07fd80ec787f9
       body: ''

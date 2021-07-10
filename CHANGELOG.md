@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.1.29 - 2021-07-09
+
+* patch: Update dependency @balena/jellyfish-plugin-default to v18 [Renovate Bot]
+
 ## 1.1.28 - 2021-07-09
 
 * fix: message could be received before issue could create NPE [Martin Rauscher]
