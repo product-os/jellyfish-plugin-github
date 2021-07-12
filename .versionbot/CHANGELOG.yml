@@ -1,4 +1,19 @@
 - commits:
+    - subject: Add mergeable
+      hash: 5518cffa8bd6d7aa6154eca47a81bac8c5d8b69a
+      body: >
+        Add a mergeable formula that becomes true when all downstream contracts
+        are mergeable.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Stathis Moraitidis <stathis@balena.io>
+        signed-off-by: Stathis Moraitidis <stathis@balena.io>
+      author: Stathis
+      nested: []
+  version: 1.2.0
+  date: 2021-07-12T08:02:29.266Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.194'
       hash: 1c081b957c944b8fc180a25fb3cf9e08deaca5bc
       body: ''

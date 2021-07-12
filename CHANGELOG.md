@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.2.0 - 2021-07-12
+
+* Add mergeable [Stathis]
+
 ## 1.1.40 - 2021-07-11
 
 * patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.194 [Renovate Bot]
