@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.2.4 - 2021-07-13
+
+* fix broken PR translation [Martin Rauscher]
+
 ## 1.2.3 - 2021-07-13
 
 * fix parameters to GH API for check-run creation and unify data structure [Martin Rauscher]

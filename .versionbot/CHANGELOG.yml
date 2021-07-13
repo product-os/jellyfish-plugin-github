@@ -1,4 +1,17 @@
 - commits:
+    - subject: fix broken PR translation
+      hash: 22c23e7f0c90e478f31c0102f09f066044e137a8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.2.4
+  date: 2021-07-13T15:11:41.780Z
+- commits:
     - subject: fix parameters to GH API for check-run creation and unify data structure
       hash: 3be0049418e684951a270bb2f3509ab9018cb5a4
       body: ''
