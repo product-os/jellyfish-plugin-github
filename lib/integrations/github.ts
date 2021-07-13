@@ -1666,6 +1666,7 @@ module.exports = class GitHubIntegration implements Integration {
 								sha: pullRequest.head.sha,
 								branch: pullRequest.head.branch,
 							},
+							ssh_url: pullRequest.ssh_url,
 							contract: sourceContract,
 							$transformer: {
 								artifactReady: true,
