@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.2.2 - 2021-07-13
+
+* fix commit<->check-run link dir [Martin Rauscher]
+
 ## 1.2.1 - 2021-07-13
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.0.30 [Renovate Bot]

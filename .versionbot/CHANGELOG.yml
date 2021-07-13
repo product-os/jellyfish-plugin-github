@@ -1,4 +1,17 @@
 - commits:
+    - subject: fix commit<->check-run link dir
+      hash: 1a91f1bb60c89a0eacc2be8dc30084b5b92be23d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.2.2
+  date: 2021-07-13T08:34:12.219Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.30'
       hash: 2a37baffdace8e7c0a30f11d75d1a2938d12d2c4
       body: ''
