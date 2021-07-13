@@ -1,4 +1,17 @@
 - commits:
+    - subject: add ssh_url to commit contract to not break existing reflector
+      hash: 41e53d9dbc457e1e051253b71fc81987da612fe6
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.2.5
+  date: 2021-07-13T16:44:41.158Z
+- commits:
     - subject: fix broken PR translation
       hash: 22c23e7f0c90e478f31c0102f09f066044e137a8
       body: ''
