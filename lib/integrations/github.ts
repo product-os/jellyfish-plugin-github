@@ -1731,9 +1731,9 @@ module.exports = class GitHubIntegration implements Integration {
 						$eval: `'link-commit-check-run-${headSha}-' + cards[${commitCardIdx}].id`,
 					},
 					type: 'link@1.0.0',
-					name: 'is attached to commit',
+					name: 'has attached check run',
 					data: {
-						inverseName: 'has attached check run',
+						inverseName: 'is attached to commit',
 						from: {
 							id: {
 								$eval: `cards[${commitCardIdx}].id`,
