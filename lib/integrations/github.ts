@@ -293,7 +293,16 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const github: any = await this.getOctokit(this.context);
+		const installationOrg = card.data.org || card.data.owner;
+		const installation =
+			this.options.token.appId &&
+			(await this.context.getElementBySlug(
+				`gh-app-installation-${this.options.token.appId}-${installationOrg}`,
+			));
+		const github: any = await this.getOctokit(
+			this.context,
+			installation?.data?.installation_id,
+		);
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');
 			return [];
