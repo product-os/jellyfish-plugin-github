@@ -324,7 +324,7 @@ module.exports = class GitHubIntegration implements Integration {
 					// Create check run, store id from github back in card
 					const results = await githubRequest(github.checks.create, {
 						owner: card.data.owner,
-						repo: card.data.repository,
+						repo: card.data.repo,
 						name: card.name,
 						head_sha: card.data.head_sha,
 						status: card.data.status,
@@ -343,7 +343,7 @@ module.exports = class GitHubIntegration implements Integration {
 					// Update check run
 					await githubRequest(github.checks.update, {
 						owner: card.data.owner,
-						repo: card.data.repository,
+						repo: card.data.repo,
 						check_run_id: card.data.check_run_id,
 						status: card.data.status,
 						details_url: card.data.details_url,
@@ -356,7 +356,7 @@ module.exports = class GitHubIntegration implements Integration {
 					// Update check run
 					await githubRequest(github.checks.update, {
 						owner: card.data.owner,
-						repo: card.data.repository,
+						repo: card.data.repo,
 						check_run_id: card.data.check_run_id,
 						status: card.data.status,
 						details_url: card.data.details_url,
@@ -1513,14 +1513,14 @@ module.exports = class GitHubIntegration implements Integration {
 				) {
 					newStatus = currentContract.data.status;
 				}
-
+				const [owner, repo] = repository.full_name.split('/');
 				card = {
 					...card,
 					name: checkRun.app.name,
 					type: 'check-run@1.0.0',
 					data: {
-						owner: repository.owner.login,
-						repo: repository.full_name,
+						owner,
+						repo,
 						head_sha: checkRun.head_sha,
 						details_url: checkRun.details_url,
 						status: newStatus,
@@ -1648,24 +1648,27 @@ module.exports = class GitHubIntegration implements Integration {
 		const sourceContract = pullRequestContract.data?.contract;
 		const headSha = pullRequest.head.sha;
 		const headShaShort = headSha.substring(0, 8);
-		const org = pullRequest.head.repo.full_name.split('/')[0];
+		const [org, repo] = pullRequest.head.repo.full_name.split('/')[0];
 
 		const commitCardIdx =
 			sequence.push(
 				makeCard(
 					{
-						slug: `commit-${headSha}`,
+						slug: {
+							$eval: `'commit-${headSha}-' + cards[0].slug`,
+						},
 						name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
 						type: 'commit@1.0.0',
 						data: {
-							org: pullRequest.head.repo.full_name.split('/')[0],
-							repo: pullRequest.head.repo.name,
-							head_sha: pullRequest.head.sha,
-							pull_request_title: pullRequest.title,
-							pull_request_url: pullRequest.url,
+							org,
+							repo,
+							head: {
+								sha: pullRequest.head.sha,
+								branch: pullRequest.data.head.branch,
+							},
 							contract: sourceContract,
 							$transformer: {
-								artifact_ready: true,
+								artifactReady: true,
 							},
 						},
 					},
@@ -1713,7 +1716,8 @@ module.exports = class GitHubIntegration implements Integration {
 						slug: `check-run-${headSha}`,
 						data: {
 							owner: org,
-							repo: `${org}/${pullRequest.head.repo.name}`,
+							org,
+							repo,
 							head_sha: headSha,
 							details_url: 'https://jel.ly.fish',
 							started_at: new Date().toISOString(),

@@ -26,7 +26,7 @@ export default function ({
 						fullTextSearch: true,
 					},
 					data: {
-						required: ['repo'],
+						required: ['org', 'repo', 'head'],
 						type: 'object',
 						properties: {
 							org: {
@@ -35,16 +35,19 @@ export default function ({
 							repo: {
 								type: 'string',
 							},
-							head_sha: {
-								type: 'string',
+							head: {
+								type: 'object',
+								required: ['sha', 'branch'],
+								properties: {
+									sha: {
+										type: 'string',
+									},
+									branch: {
+										type: 'string',
+									},
+								},
 							},
-							pull_request_title: {
-								type: 'string',
-							},
-							pull_request_url: {
-								type: 'string',
-							},
-							artifact_ready: {
+							artifactReady: {
 								type: 'boolean',
 							},
 							mergeable: {

@@ -11,7 +11,7 @@
     "version": "1.0.0",
     "data": {
       "owner": "Codertocat",
-      "repo": "Codertocat/Hello-World",
+      "repo": "Hello-World",
       "head_sha": "ec26c3e57ca3a959ca5aad62de7213c562f8c821",
       "details_url": "https://octocoders.io",
       "status": "completed",
@@ -46,7 +46,7 @@
           "name": "octocoders-linter",
           "data": {
             "owner": "Codertocat",
-            "repo": "Codertocat/Hello-World",
+            "repo": "Hello-World",
             "head_sha": "ec26c3e57ca3a959ca5aad62de7213c562f8c821",
             "details_url": "https://octocoders.io",
             "status": "queued",
