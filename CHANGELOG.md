@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.3.0 - 2021-07-13
+
+* Add GH App installation contract and use it to use app authentication whenever possible [Martin Rauscher]
+
 ## 1.2.5 - 2021-07-13
 
 * add ssh_url to commit contract to not break existing reflector [Martin Rauscher]
