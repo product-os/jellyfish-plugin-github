@@ -1,4 +1,17 @@
 - commits:
+    - subject: fix parameters to GH API for check-run creation and unify data structure
+      hash: 3be0049418e684951a270bb2f3509ab9018cb5a4
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.2.3
+  date: 2021-07-13T12:16:01.916Z
+- commits:
     - subject: fix commit<->check-run link dir
       hash: 1a91f1bb60c89a0eacc2be8dc30084b5b92be23d
       body: ''
