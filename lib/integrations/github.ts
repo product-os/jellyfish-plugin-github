@@ -1664,7 +1664,7 @@ module.exports = class GitHubIntegration implements Integration {
 							repo,
 							head: {
 								sha: pullRequest.head.sha,
-								branch: pullRequest.data.head.branch,
+								branch: pullRequest.head.branch,
 							},
 							contract: sourceContract,
 							$transformer: {
