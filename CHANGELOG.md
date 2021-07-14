@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.3.4 - 2021-07-14
+
+* Add installation logging [Dan Goodman]
+
 ## 1.3.3 - 2021-07-14
 
 * fix ssh_url in commit contract [Martin Rauscher]

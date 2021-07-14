@@ -1,4 +1,15 @@
 - commits:
+    - subject: Add installation logging
+      hash: e730773e0d9bb4e975b0883c34700dc89c3fa81d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+  version: 1.3.4
+  date: 2021-07-14T16:54:31.597Z
+- commits:
     - subject: fix ssh_url in commit contract
       hash: c4bd3210c742b768d4397994b634951628791709
       body: ''
