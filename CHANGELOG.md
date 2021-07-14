@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.3.3 - 2021-07-14
+
+* fix ssh_url in commit contract [Martin Rauscher]
+* fix GH app name pluralization [Martin Rauscher]
+
 ## 1.3.2 - 2021-07-14
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.0.32 [Renovate Bot]
