@@ -294,12 +294,19 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 
 		const installationOrg = card.data.org || card.data.owner;
+		this.context.log.info(`Found installation org: ${installationOrg}`);
+
 		const installation =
 			this.options.token.appId &&
 			installationOrg &&
 			(await this.context.getElementBySlug(
 				`gh-app-installation-${this.options.token.appId}-${installationOrg}@1.0.0`,
 			));
+
+		this.context.log.info(
+			`Found installation: ${JSON.stringify(installation)}`,
+		);
+
 		const github: any = await this.getOctokit(
 			this.context,
 			installation?.data?.installation_id,
