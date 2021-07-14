@@ -15,7 +15,7 @@ export default function ({
 }): ContractDefinition {
 	return mixin(withEvents)({
 		slug: 'gh-app-installation',
-		name: 'GitHub App Installations',
+		name: 'GitHub App Installation',
 		type: 'type@1.0.0',
 		data: {
 			schema: {
