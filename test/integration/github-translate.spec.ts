@@ -6,14 +6,12 @@
 
 import ActionLibrary from '@balena/jellyfish-action-library';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
+import { DefaultPlugin } from '@balena/jellyfish-plugin-default';
 import { syncIntegrationScenario } from '@balena/jellyfish-test-harness';
 import jwt from 'jsonwebtoken';
 import nock from 'nock';
 import { GitHubPlugin } from '../../lib';
 import webhooks from './webhooks/github';
-
-// tslint:disable-next-line: no-var-requires
-const DefaultPlugin = require('@balena/jellyfish-plugin-default');
 
 const TOKEN = defaultEnvironment.integration.github;
 
