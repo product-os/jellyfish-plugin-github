@@ -296,8 +296,9 @@ module.exports = class GitHubIntegration implements Integration {
 		const installationOrg = card.data.org || card.data.owner;
 		const installation =
 			this.options.token.appId &&
+			installationOrg &&
 			(await this.context.getElementBySlug(
-				`gh-app-installation-${this.options.token.appId}-${installationOrg}`,
+				`gh-app-installation-${this.options.token.appId}-${installationOrg}@1.0.0`,
 			));
 		const github: any = await this.getOctokit(
 			this.context,
@@ -1543,7 +1544,6 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request':
-				const pullRequest = event.data.payload.pull_request;
 				switch (action) {
 					case 'review_requested':
 						return this.createPRIfNotExists(github, event, actor);
@@ -1556,7 +1556,6 @@ module.exports = class GitHubIntegration implements Integration {
 							actor,
 						);
 						this.createTransformerCommitAndCheckRunForOpenPR(
-							pullRequest,
 							sequence[0].card,
 							sequence,
 							actor,
@@ -1571,7 +1570,6 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'synchronize': {
 						const sequence = await this.updatePR(github, event, actor);
 						this.createTransformerCommitAndCheckRunForOpenPR(
-							pullRequest,
 							sequence[0].card,
 							sequence,
 							actor,
@@ -1637,27 +1635,27 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	private createTransformerCommitAndCheckRunForOpenPR(
-		pullRequest: any,
 		pullRequestContract: any,
 		sequence: Array<{ time: Date; card: any; actor: string }>,
 		actor: any,
 	) {
 		// No need to handle closed PRs or PRs that don't want to be transformed
 		if (
-			pullRequest.state !== 'open' ||
-			!pullRequestContract?.data?.contract?.data?.$transformer
+			pullRequestContract.data.state !== 'open' ||
+			!pullRequestContract.data.contract?.data?.$transformer
 		) {
 			this.context.log.info(
 				'Not creating commit/check-run for closed and non transformer-aware PRs',
-				{ prId: pullRequest.id },
+				{ prId: pullRequestContract.id },
 			);
 			return;
 		}
 		// replace this with a call to GH once we don't need the data in the PR itself anymore
-		const sourceContract = pullRequestContract.data?.contract;
-		const headSha = pullRequest.head.sha;
+		const sourceContract = pullRequestContract.data.contract;
+		const headSha = pullRequestContract.data.head.sha;
 		const headShaShort = headSha.substring(0, 8);
-		const [org, repo] = pullRequest.head.repo.full_name.split('/')[0];
+		const [org, repo] =
+			pullRequestContract.data?.head.repo.full_name.split('/')[0];
 
 		const commitCardIdx =
 			sequence.push(
@@ -1666,16 +1664,13 @@ module.exports = class GitHubIntegration implements Integration {
 						slug: {
 							$eval: `'commit-${headSha}-' + cards[0].slug`,
 						},
-						name: `Commit ${headShaShort} for PR ${pullRequest.title}`,
+						name: `Commit ${headShaShort} for PR ${pullRequestContract.name}`,
 						type: 'commit@1.0.0',
 						data: {
 							org,
 							repo,
-							head: {
-								sha: pullRequest.head.sha,
-								branch: pullRequest.head.branch,
-							},
-							ssh_url: pullRequest.ssh_url,
+							head: pullRequestContract.data.head,
+							ssh_url: pullRequestContract.data.ssh_url,
 							contract: sourceContract,
 							$transformer: {
 								artifactReady: true,
