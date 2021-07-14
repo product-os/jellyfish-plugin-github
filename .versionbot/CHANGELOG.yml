@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: f0098cb42037d1accf4842d2b01da323ab1fc15c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.3.1
+  date: 2021-07-14T04:53:46.143Z
+- commits:
     - subject: >-
         Add GH App installation contract and use it to use app authentication
         whenever possible
