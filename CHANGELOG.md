@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.3.5 - 2021-07-14
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.3.4 - 2021-07-14
 
 * Add installation logging [Dan Goodman]
