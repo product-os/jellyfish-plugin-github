@@ -1661,8 +1661,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const sourceContract = pullRequestContract.data.contract;
 		const headSha = pullRequestContract.data.head.sha;
 		const headShaShort = headSha.substring(0, 8);
-		const [org, repo] =
-			pullRequestContract.data?.head.repo.full_name.split('/')[0];
+		const [org, repo] = pullRequestContract.data.repository.split('/');
 
 		const commitCardIdx =
 			sequence.push(
