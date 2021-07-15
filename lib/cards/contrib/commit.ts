@@ -54,8 +54,18 @@ export default function ({
 								description: 'all downstream contracts are mergeable',
 								type: 'boolean',
 								$$formula:
-									'this.links["was built into"].length > 0' +
-									'&& EVERY(this.links["was built into"], "data.$transformer.mergeable")',
+									'this.links["was built into"].length > 0 && ' +
+									'EVERY(this.links["was built into"], "data.$transformer.mergeable")',
+								readOnly: true,
+								default: false,
+							},
+							merged: {
+								description: 'PR is merged',
+								type: 'boolean',
+								$$formula:
+									'this.links["is attached to PR"].length > 0 && ' +
+									'this.links["is attached to PR"][0].data.merged_at &&' +
+									'this.links["is attached to PR"][0].data.head.sha === this.data.head.sha',
 								readOnly: true,
 								default: false,
 							},
