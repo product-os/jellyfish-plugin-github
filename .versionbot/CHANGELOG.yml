@@ -1,4 +1,21 @@
 - commits:
+    - subject: Commit merged formula
+      hash: 5caaf161121b1425616c1b36707d1b2bc50e158b
+      body: >
+        Add a new merged field in commit contract that becomes true when its PR
+        gets merged
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Stathis Moraitidis <stathis@balena.io>
+        signed-off-by: Stathis Moraitidis <stathis@balena.io>
+        Co-authored-by: Martin Rauscher <martin@balena.io>
+        co-authored-by: Martin Rauscher <martin@balena.io>
+      author: Stathis
+      nested: []
+  version: 1.4.0
+  date: 2021-07-15T08:35:41.582Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 3cfb15661b9fcd6ce838617de5d7a5070577b28b
       body: ''

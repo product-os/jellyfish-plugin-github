@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.4.0 - 2021-07-15
+
+* Commit merged formula [Stathis]
+
 ## 1.3.5 - 2021-07-14
 
 * patch: Update internal-patch [Renovate Bot]
