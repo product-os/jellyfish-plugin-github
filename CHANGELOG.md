@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.4.1 - 2021-07-15
+
+* add missing index entry for gh-app-installs [Martin Rauscher]
+* Fixed state -> status [Dan Goodman]
+
 ## 1.4.0 - 2021-07-15
 
 * Commit merged formula [Stathis]

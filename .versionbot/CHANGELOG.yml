@@ -1,4 +1,25 @@
 - commits:
+    - subject: add missing index entry for gh-app-installs
+      hash: 1ddc2fa5500a1806422b59267fa4afff8aa57cfc
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: Fixed state -> status
+      hash: 438fd344a25d93fb7e7392290fbca9e611756443
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Dan Goodman
+      nested: []
+  version: 1.4.1
+  date: 2021-07-15T09:06:43.125Z
+- commits:
     - subject: Commit merged formula
       hash: 5caaf161121b1425616c1b36707d1b2bc50e158b
       body: >
