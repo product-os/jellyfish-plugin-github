@@ -1648,7 +1648,7 @@ module.exports = class GitHubIntegration implements Integration {
 	) {
 		// No need to handle closed PRs or PRs that don't want to be transformed
 		if (
-			pullRequestContract.data.state !== 'open' ||
+			pullRequestContract.data.status !== 'open' ||
 			!pullRequestContract.data.contract?.data?.$transformer
 		) {
 			this.context.log.info(
