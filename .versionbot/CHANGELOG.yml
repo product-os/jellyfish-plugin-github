@@ -1,4 +1,18 @@
 - commits:
+    - subject: fix use of undefined field
+      hash: bd6001d6887fd7d10ac62629d831f2658bc21cbc
+      body: |
+        refactoring from using PR event to PR contract broke this
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.5.0
+  date: 2021-07-15T11:26:11.775Z
+- commits:
     - subject: add missing index entry for gh-app-installs
       hash: 1ddc2fa5500a1806422b59267fa4afff8aa57cfc
       body: ''

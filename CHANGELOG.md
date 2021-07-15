@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.5.0 - 2021-07-15
+
+* fix use of undefined field [Martin Rauscher]
+
 ## 1.4.1 - 2021-07-15
 
 * add missing index entry for gh-app-installs [Martin Rauscher]
