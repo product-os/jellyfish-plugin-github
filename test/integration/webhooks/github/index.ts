@@ -42,7 +42,7 @@ export default {
 	'open-pr-and-create-repos': {
 		expected: require('./open-pr-and-create-repos/expected.json'),
 		headIndex: 1,
-		steps: [require('./pr-open-close/01-pr-opened.json')],
+		steps: [require('./pr-open-edit-close/01-pr-opened.json')],
 	},
 	'pr-open-from-fork': {
 		expected: require('./pr-open-from-fork/expected.json'),
@@ -88,11 +88,12 @@ export default {
 			require('./pr-label/03-pr-unlabel.json'),
 		],
 	},
-	'pr-open-close': {
-		expected: require('./pr-open-close/expected.json'),
+	'pr-open-edit-close': {
+		expected: require('./pr-open-edit-close/expected.json'),
 		steps: [
-			require('./pr-open-close/01-pr-opened.json'),
-			require('./pr-open-close/02-pr-closed.json'),
+			require('./pr-open-edit-close/01-pr-opened.json'),
+			require('./pr-open-edit-close/02-pr-edited.json'),
+			require('./pr-open-edit-close/03-pr-closed.json'),
 		],
 	},
 	'pr-review-request': {

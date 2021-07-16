@@ -856,65 +856,6 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async createPRWithConnectedIssues(github: any, event: any, actor: any) {
-		const mirrorID = getEventMirrorId(event);
-		const cards = await this.createPRIfNotExists(github, event, actor);
-		if (_.isEmpty(cards)) {
-			return [];
-		}
-		const pr = cards[0].card;
-
-		const connectedIssue = _.chain(pr.data.description)
-			.split('\n')
-			.map((line: string) => {
-				return _.trim(line, ' \n');
-			})
-			.filter((line: string) => {
-				return /^[\w-]+:/.test(line);
-			})
-			.map((line: string) => {
-				return _.split(line, /\s*:\s*/);
-			})
-			.fromPairs()
-			.get(['Connects-to'])
-			.value();
-
-		if (connectedIssue) {
-			const issueCard = await this.getCardByMirrorId(
-				mirrorID,
-				'pull-request@1.0.0',
-			);
-			if (issueCard) {
-				cards.push(
-					makeCard(
-						{
-							name: 'is attached to',
-							slug: `link-${pr.slug}-is-attached-to-${issueCard.slug}`,
-							type: 'link@1.0.0',
-							data: {
-								inverseName: 'has attached',
-								from: {
-									id: {
-										$eval: 'cards[0].id',
-									},
-									type: {
-										$eval: 'cards[0].type',
-									},
-								},
-								to: {
-									id: issueCard.id,
-									type: issueCard.type,
-								},
-							},
-						},
-						actor,
-					),
-				);
-			}
-		}
-		return cards;
-	}
-
 	async closePR(github: any, event: any, actor: any): Promise<any> {
 		return this.closePRorIssue(github, event, actor, 'pull-request@1.0.0');
 	}
@@ -1556,12 +1497,9 @@ module.exports = class GitHubIntegration implements Integration {
 						return this.createPRIfNotExists(github, event, actor);
 					case 'opened':
 					case 'edited':
+					case 'synchronize':
 					case 'assigned': {
-						const sequence = await this.createPRWithConnectedIssues(
-							github,
-							event,
-							actor,
-						);
+						const sequence = await this.updatePR(github, event, actor);
 						this.createTransformerCommitAndCheckRunForOpenPR(
 							sequence[0].card,
 							sequence,
@@ -1574,15 +1512,6 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'labeled':
 					case 'unlabeled':
 						return this.labelEventPR(github, event, actor, action);
-					case 'synchronize': {
-						const sequence = await this.updatePR(github, event, actor);
-						this.createTransformerCommitAndCheckRunForOpenPR(
-							sequence[0].card,
-							sequence,
-							actor,
-						);
-						return sequence;
-					}
 					default:
 						return [];
 				}
