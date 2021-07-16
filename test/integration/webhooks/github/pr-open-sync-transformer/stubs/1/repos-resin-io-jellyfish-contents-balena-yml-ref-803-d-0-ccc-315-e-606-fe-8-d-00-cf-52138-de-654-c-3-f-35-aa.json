@@ -1,0 +1,18 @@
+{
+  "name": "balena.yml",
+  "path": "balena.yml",
+  "sha": "47db3633a32ac11cf6916f21909828b978c35b0d",
+  "size": 504,
+  "url": "https://api.github.com/repos/resin-io/jellyfish/contents/balena.yml?ref=master",
+  "html_url": "https://github.com/resin-io/jellyfish/blob/master/balena.yml",
+  "git_url": "https://api.github.com/repos/resin-io/jellyfish/git/blobs/47db3633a32ac11cf6916f21909828b978c35b0d",
+  "download_url": "https://raw.githubusercontent.com/resin-io/jellyfish/master/balena.yml?token=AKZ6GNKLG3RHH4A1231324JSKHL",
+  "type": "file",
+  "content": "dHlwZTogc2VydmljZS1zb3VyY2VAMS4wLjAKbmFtZTogR2l0aHViIHNvdXJjZSByZWZsZWN0b3IKdmVyc2lvbjogMC4zLjUKZGF0YToKICAkdHJhbnNmb3JtZXI6CiAgICBiYXNlU2x1ZzogZ2l0aHViLXNvdXJjZS1yZWZsZWN0b3IKICBmcmFnbWVudDoKICAgIHR5cGU6IHRyYW5zZm9ybWVyQDEuMC4wCiAgICBkYXRhOgogICAgICBpbnB1dEZpbHRlcjoKICAgICAgICB0eXBlOiBvYmplY3QKICAgICAgICByZXF1aXJlZDoKICAgICAgICAgIC0gdHlwZQogICAgICAgIHByb3BlcnRpZXM6CiAgICAgICAgICB0eXBlOgogICAgICAgICAgICBjb25zdDogY29tbWl0QDEuMC4wCiAgICAgIHJlcXVpcmVtZW50czoge30KICAgICAgd29ya2VyRmlsdGVyOgogICAgICAgIHR5cGU6IG9iamVjdAogICAgICAgIHJlcXVpcmVkOgogICAgICAgICAgLSB0eXBlCiAgICAgICAgcHJvcGVydGllczoKICAgICAgICAgIHR5cGU6CiAgICAgICAgICAgIGNvbnN0OiB0cmFuc2Zvcm1lci13b3JrZXJAMS4wLjAK\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/resin-io/jellyfish/contents/balena.yml?ref=master",
+    "git": "https://api.github.com/repos/resin-io/jellyfish/git/blobs/47db3633a32ac11cf6916f21909828b978c35b0d",
+    "html": "https://github.com/resin-io/jellyfish/blob/master/balena.yml"
+  }
+}

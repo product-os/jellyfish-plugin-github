@@ -146,6 +146,7 @@ function makeCard(
 	contract: ContractDefinition | any,
 	actor: string,
 	time?: string,
+	skipOriginator?: boolean,
 ) {
 	let date = new Date();
 	if (time) {
@@ -156,6 +157,7 @@ function makeCard(
 		time: date,
 		card: contract,
 		actor,
+		skipOriginator,
 	};
 }
 
@@ -1676,6 +1678,8 @@ module.exports = class GitHubIntegration implements Integration {
 						},
 					},
 					actor,
+					undefined,
+					true,
 				),
 			) - 1;
 
