@@ -1,4 +1,26 @@
 - commits:
+    - subject: Bump jellyfish-plugin-default to v19.0.0
+      hash: 88f0ebf5f71a52f45a390de6b9523ad27e07be38
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v19'
+      hash: 3c9a4cddc7ea2bf8602624c693fe56b47e7c5344
+      body: |
+        Update @balena/jellyfish-plugin-default from 18.0.1 to 19.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.5.1
+  date: 2021-07-16T00:38:30.960Z
+- commits:
     - subject: fix use of undefined field
       hash: bd6001d6887fd7d10ac62629d831f2658bc21cbc
       body: |
