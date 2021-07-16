@@ -4,14 +4,11 @@
  * Proprietary and confidential.
  */
 
-// tslint:disable: no-var-requires
 import { JellyfishPluginBase } from '@balena/jellyfish-plugin-base';
+import { cardMixins } from '@balena/jellyfish-plugin-default';
 import actions from './actions';
 import cards from './cards';
 import integrations from './integrations';
-
-// TS-TODO: Update import after core is converted to TypeScript
-const defaultPluginMixins = require('@balena/jellyfish-plugin-default/lib/cards/mixins');
 
 /**
  * The GitHub Jellyfish plugin.
@@ -24,7 +21,7 @@ export class GitHubPlugin extends JellyfishPluginBase {
 			version: '1.0.0',
 			actions,
 			cards,
-			mixins: defaultPluginMixins,
+			mixins: cardMixins,
 			integrations,
 			requires: [
 				{
@@ -33,7 +30,7 @@ export class GitHubPlugin extends JellyfishPluginBase {
 				},
 				{
 					slug: 'jellyfish-plugin-default',
-					version: '>=10.x',
+					version: '>=19.x',
 				},
 			],
 		});
