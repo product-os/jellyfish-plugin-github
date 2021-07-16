@@ -43,19 +43,25 @@ export default function ({
 							},
 							status: {
 								type: 'string',
-								pattern: '^(queued|in_progress|completed)$',
+								enum: ['queued', 'in_progress', 'completed'],
 							},
 							started_at: {
 								type: 'string',
-								pattern:
-									'\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d(\\.\\d+)?([+-][0-2]\\d:[0-5]\\d|Z)',
 							},
 							conclusion: {
 								oneOf: [
 									{
 										type: 'string',
-										pattern:
-											'^(action_required|cancelled|failure|netural|success|skipped|stale|timed_out)$',
+										enum: [
+											'action_required',
+											'cancelled',
+											'failure',
+											'neutral',
+											'success',
+											'skipped',
+											'stale',
+											'timed_out',
+										],
 									},
 									{
 										type: 'null',
@@ -66,8 +72,6 @@ export default function ({
 								oneOf: [
 									{
 										type: 'string',
-										pattern:
-											'\\d{4}-[01]\\d-[0-3]\\dT[0-2]\\d:[0-5]\\d:[0-5]\\d(\\.\\d+)?([+-][0-2]\\d:[0-5]\\d|Z)',
 									},
 									{
 										type: 'null',
@@ -75,7 +79,7 @@ export default function ({
 								],
 							},
 							check_run_id: {
-								type: 'string',
+								type: 'number',
 							},
 							output: {
 								type: 'object',
@@ -103,7 +107,7 @@ export default function ({
 								type: 'object',
 								properties: {
 									id: {
-										type: 'string',
+										type: 'number',
 									},
 									pull_requests: {
 										type: 'array',

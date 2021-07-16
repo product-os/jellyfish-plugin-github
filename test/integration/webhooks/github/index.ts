@@ -96,6 +96,13 @@ export default {
 			require('./pr-open-edit-close/03-pr-closed.json'),
 		],
 	},
+	// 'pr-open-sync-transformer': {
+	// 	expected: require('./pr-open-sync-transformer/expected.json'),
+	// 	steps: [
+	// 		require('./pr-open-sync-transformer/01-pr-opened.json'),
+	// 		require('./pr-open-sync-transformer/02-pr-closed.json'),
+	// 	],
+	// },
 	'pr-review-request': {
 		expected: require('./pr-review-request/expected.json'),
 		steps: [
