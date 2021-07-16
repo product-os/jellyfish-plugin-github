@@ -1,4 +1,38 @@
 - commits:
+    - subject: Don't create commits and check runs for empty sequences
+      hash: bb92edacbcbe7e04a8df6406912e747ce343a2ff
+      body: |
+        Fixes https://github.com/product-os/jellyfish/issues/6933
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+    - subject: ensure check-runs created in translate are mirrored
+      hash: a2ee5f1ad06ed7e2477f51db874e29bab0887222
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: fix chec-runs
+      hash: b6bbc47344d2c46540a0b09fe6281cf3973461f4
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.6.0
+  date: 2021-07-16T13:37:21.694Z
+- commits:
     - subject: simplify pull-request code
       hash: 9450b66e4c05c9f47a2e9638a099f826fd3817bd
       body: >

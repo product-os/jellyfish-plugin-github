@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.6.0 - 2021-07-16
+
+* Don't create commits and check runs for empty sequences [Lucian Buzzo]
+* ensure check-runs created in translate are mirrored [Martin Rauscher]
+* fix chec-runs [Martin Rauscher]
+
 ## 1.5.3 - 2021-07-16
 
 * simplify pull-request code [Martin Rauscher]
