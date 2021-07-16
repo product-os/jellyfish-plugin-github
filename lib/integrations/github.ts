@@ -230,6 +230,7 @@ module.exports = class GitHubIntegration implements Integration {
 	// TS-TODO: Use proper types
 	public context: any;
 	public options: any;
+	private installations: Record<string, number> = {};
 
 	constructor(options: any) {
 		this.options = options;
@@ -246,7 +247,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 	async getOctokit(
 		context: any,
-		installationId?: number,
+		installationId?: number | 'app-scope',
 	): Promise<OctokitInstance | null> {
 		const octokitOptions: any = {
 			request: {
@@ -272,11 +273,17 @@ module.exports = class GitHubIntegration implements Integration {
 			};
 
 			const github = new Octokit(octokitOptions);
-			const { token } = (await github.auth({
-				type: 'installation',
-				installationId,
-			})) as any;
-
+			let token: any;
+			if (installationId === 'app-scope') {
+				({ token } = (await github.auth({
+					type: 'app',
+				})) as any);
+			} else {
+				({ token } = (await github.auth({
+					type: 'installation',
+					installationId,
+				})) as any);
+			}
 			Reflect.deleteProperty(octokitOptions, 'authStrategy');
 			octokitOptions.auth = token;
 			return new Octokit(octokitOptions);
@@ -291,6 +298,31 @@ module.exports = class GitHubIntegration implements Integration {
 		return null;
 	}
 
+	async getInstallationId(context: any, org: string) {
+		if (!this.installations[org]) {
+			const gh = await this.getOctokit(context, 'app-scope');
+			if (!gh) {
+				return;
+			}
+			const installs = await gh?.apps.listInstallations();
+			if (installs?.status !== 200) {
+				return;
+			}
+
+			this.installations = installs.data.reduce(
+				(map, i) => ({
+					...map,
+					[i.account?.login || i.account?.name || 'missing']: i.id,
+				}),
+				{},
+			);
+			context.log.info('GH installations updated', {
+				installations: this.installations,
+			});
+		}
+		return this.installations[org];
+	}
+
 	async mirror(card: any, options: any) {
 		if (!this.options.token.api) {
 			this.context.log.warn('No token set for github integration');
@@ -302,25 +334,12 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const installationOrg = card.data.org || card.data.owner;
-		this.context.log.info(`Found installation org: ${installationOrg}`);
-
-		const installation =
-			this.options.token.appId &&
-			installationOrg &&
-			(await this.context.getElementBySlug(
-				`gh-app-installation-${
-					this.options.token.appId
-				}-${installationOrg.toLowerCase()}@1.0.0`,
-			));
-
-		this.context.log.info(
-			`Found installation: ${JSON.stringify(installation)}`,
-		);
-
 		const github: any = await this.getOctokit(
 			this.context,
-			installation?.data?.installation_id,
+			await this.getInstallationId(
+				this.context,
+				card.data.org || card.data.owner,
+			),
 		);
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');

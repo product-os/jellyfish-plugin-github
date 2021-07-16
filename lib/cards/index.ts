@@ -9,7 +9,6 @@ import checkRun from './contrib/check-run';
 import commit from './contrib/commit';
 import githubOrg from './contrib/github-org';
 import issue from './contrib/issue';
-import installation from './contrib/installation';
 import pullRequest from './contrib/pull-request';
 import push from './contrib/push.json';
 import repository from './contrib/repository';
@@ -25,7 +24,6 @@ export default [
 	commit,
 	githubOrg,
 	issue,
-	installation,
 	pullRequest,
 	push,
 	repository,
