@@ -1,4 +1,19 @@
 - commits:
+    - subject: simplify pull-request code
+      hash: 9450b66e4c05c9f47a2e9638a099f826fd3817bd
+      body: >
+        unify edit and synchronize handling and allow all status to
+        create/update a PR
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.5.3
+  date: 2021-07-16T06:38:27.153Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.35'
       hash: ce6860f25d797f448d9cce2f34b12a85a68322aa
       body: ''
