@@ -73,7 +73,11 @@ async function githubRequest(
 
 function getEventRoot(event: EventContract): any {
 	if (event.data.payload) {
-		return event.data.payload.issue || event.data.payload.pull_request;
+		return (
+			event.data.payload.issue ||
+			event.data.payload.pull_request ||
+			event.data.payload.check_run
+		);
 	}
 }
 
@@ -300,7 +304,9 @@ module.exports = class GitHubIntegration implements Integration {
 			this.options.token.appId &&
 			installationOrg &&
 			(await this.context.getElementBySlug(
-				`gh-app-installation-${this.options.token.appId}-${installationOrg}@1.0.0`,
+				`gh-app-installation-${
+					this.options.token.appId
+				}-${installationOrg.toLowerCase()}@1.0.0`,
 			));
 
 		this.context.log.info(
@@ -334,10 +340,16 @@ module.exports = class GitHubIntegration implements Integration {
 		const baseType = card.type.split('@')[0];
 
 		if (baseType === 'check-run') {
+			const externalId = `jellyfish-${card.id}`;
 			switch (card.data.status) {
 				case 'queued': {
-					const uid = `jellyfish_${uuidv4()}`;
-
+					if (
+						card.data.check_run_id &&
+						card.data.mirrors &&
+						card.data.mirrors.length > 0
+					) {
+						break;
+					}
 					// Create check run, store id from github back in card
 					const results = await githubRequest(github.checks.create, {
 						owner: card.data.owner,
@@ -347,12 +359,11 @@ module.exports = class GitHubIntegration implements Integration {
 						status: card.data.status,
 						started_at: card.data.started_at,
 						details_url: card.data.details_url,
-						external_id: uid,
+						external_id: externalId,
 					});
-					card.data.check_run_id = results.check_run_id;
-
-					// Update card for idempotency in the webhook
-					card.slug = `check-run-${uid}`;
+					this.context.log.debug('Check-run created on GH', results);
+					card.data.check_run_id = results.data.id;
+					card.data.mirrors = [results.data.html_url];
 					return [makeCard(card, options.actor)];
 				}
 
@@ -364,7 +375,7 @@ module.exports = class GitHubIntegration implements Integration {
 						check_run_id: card.data.check_run_id,
 						status: card.data.status,
 						details_url: card.data.details_url,
-						external_id: card.name,
+						external_id: externalId,
 					});
 					break;
 				}
@@ -379,7 +390,7 @@ module.exports = class GitHubIntegration implements Integration {
 						details_url: card.data.details_url,
 						completed_at: card.data.completed_at,
 						conclusion: card.data.conclusion,
-						external_id: card.name,
+						external_id: externalId,
 					});
 					break;
 				}
@@ -701,8 +712,9 @@ module.exports = class GitHubIntegration implements Integration {
 
 	async generatePRDataFromEvent(github: any, event: any): Promise<any> {
 		let result = {};
-		if (event.data.payload.pull_request) {
-			result = gatherPRInfo(event.data.payload);
+		const payload = event.data.payload;
+		if (payload.pull_request) {
+			result = gatherPRInfo(payload);
 		} else {
 			this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 				category: 'pullRequests',
@@ -712,9 +724,9 @@ module.exports = class GitHubIntegration implements Integration {
 			const pr = await githubRequest(
 				github.pulls.get,
 				{
-					owner: event.data.payload.organization.login,
-					repo: event.data.payload.repository.name,
-					pull_number: event.data.payload.issue.number,
+					owner: (payload.organization || payload.sender).login,
+					repo: payload.repository.name,
+					pull_number: payload.issue.number,
 				},
 				this.options,
 			);
@@ -727,8 +739,9 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async loadContractFromPR(github: any, event: any, prData: any): Promise<any> {
-		const orgName = event.data.payload.organization.login;
-		const repoName = event.data.payload.repository.name;
+		const payload = event.data.payload;
+		const orgName = (payload.organization || payload.sender).login;
+		const repoName = payload.repository.name;
 		const commitRef = `${orgName}/${repoName}@${prData.head.sha}`;
 		try {
 			const contractFile = await githubRequest(
@@ -1422,8 +1435,9 @@ module.exports = class GitHubIntegration implements Integration {
 			return `No actor id for ${JSON.stringify(event)}`;
 		});
 
+		const mirrorId = getEventMirrorId(event);
 		this.context.log.info('syncing GH event', {
-			id: getEventMirrorId(event),
+			mirrorId,
 			type,
 			action,
 		});
@@ -1439,21 +1453,17 @@ module.exports = class GitHubIntegration implements Integration {
 
 				let card: any = {};
 
-				// Check if created in jellyfish
-				if (
-					checkRun.external_id.match(
-						/^jellyfish_[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i,
-					)
-				) {
-					card.slug = `check-run-${checkRun.external_id}`;
+				const currentContract = await this.getCardByMirrorId(
+					mirrorId,
+					'check-run@1.0.0',
+				);
+				if (currentContract) {
+					card.id = currentContract.id;
+					card.slug = currentContract.slug;
 				} else {
 					// Not created in jellyfish
-					card.slug = `check-run-${checkRun.id}`;
+					card.slug = `check-run-gh-${checkRun.id}`;
 				}
-
-				const currentContract = await this.context.getElementBySlug(
-					`${card.slug}@1.0.0`,
-				);
 
 				const statuses: any = {
 					queued: 0,
@@ -1474,9 +1484,10 @@ module.exports = class GitHubIntegration implements Integration {
 				const [owner, repo] = repository.full_name.split('/');
 				card = {
 					...card,
-					name: checkRun.app.name,
+					name: currentContract?.name || checkRun.app.name,
 					type: 'check-run@1.0.0',
 					data: {
+						mirrors: [mirrorId],
 						owner,
 						repo,
 						head_sha: checkRun.head_sha,
@@ -1485,7 +1496,7 @@ module.exports = class GitHubIntegration implements Integration {
 						started_at: checkRun.started_at,
 						conclusion: checkRun.conclusion,
 						completed_at: checkRun.completed_at,
-						check_run_id: String(checkRun.id),
+						check_run_id: checkRun.id,
 					},
 				};
 				return [makeCard(card, actor, timestamp)];
