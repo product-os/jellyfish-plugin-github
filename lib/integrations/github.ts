@@ -1513,11 +1513,13 @@ module.exports = class GitHubIntegration implements Integration {
 					case 'synchronize':
 					case 'assigned': {
 						const sequence = await this.updatePR(github, event, actor);
-						this.createTransformerCommitAndCheckRunForOpenPR(
-							sequence[0].card,
-							sequence,
-							actor,
-						);
+						if (sequence.length > 0) {
+							this.createTransformerCommitAndCheckRunForOpenPR(
+								sequence[0].card,
+								sequence,
+								actor,
+							);
+						}
 						return sequence;
 					}
 					case 'closed':
