@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.6.2 - 2021-07-17
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.6.1 - 2021-07-17
 
 * Remove whitesource config [Josh Bowling]
