@@ -1,4 +1,17 @@
 - commits:
+    - subject: Remove whitesource config
+      hash: 870f41b567c191889ab984375c599e8a8fc0c1c4
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.6.1
+  date: 2021-07-17T02:41:00.684Z
+- commits:
     - subject: Don't create commits and check runs for empty sequences
       hash: bb92edacbcbe7e04a8df6406912e747ce343a2ff
       body: |

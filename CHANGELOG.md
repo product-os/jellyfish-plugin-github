@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.6.1 - 2021-07-17
+
+* Remove whitesource config [Josh Bowling]
+
 ## 1.6.0 - 2021-07-16
 
 * Don't create commits and check runs for empty sequences [Lucian Buzzo]
