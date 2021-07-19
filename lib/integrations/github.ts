@@ -1664,19 +1664,20 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 
 		// Create a check run for the commit
+		const checkRunSlug = `check-run-${headSha}`;
 		const checkRunCardIdx =
 			sequence.push(
 				makeCard(
 					{
-						name: `Check-Run ${headShaShort}`,
+						name: `Transformers Check-Run for ${headShaShort}`,
 						type: 'check-run@1.0.0',
-						slug: `check-run-${headSha}`,
+						slug: checkRunSlug,
 						data: {
 							owner: org,
 							org,
 							repo,
 							head_sha: headSha,
-							details_url: 'https://jel.ly.fish',
+							details_url: `https://jel.ly.fish/${checkRunSlug}`,
 							started_at: new Date().toISOString(),
 							status: 'queued',
 						},
