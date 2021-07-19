@@ -1,4 +1,17 @@
 - commits:
+    - subject: fix commit to evaluate transfomer data at right place
+      hash: 4b6f38925045b43b57dc76220d6446a8e4f522da
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.6.4
+  date: 2021-07-19T15:04:11.066Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: 4d8ccf0af6a87789d566f0cfb1fb0e4ff6c4192f
       body: ''

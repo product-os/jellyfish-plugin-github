@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.6.4 - 2021-07-19
+
+* fix commit to evaluate transfomer data at right place [Martin Rauscher]
+
 ## 1.6.3 - 2021-07-18
 
 * patch: Update internal-patch [Renovate Bot]
