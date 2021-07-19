@@ -7,6 +7,7 @@
 import viewAllIssues from './balena/view-all-issues.json';
 import checkRun from './contrib/check-run';
 import commit from './contrib/commit';
+import githubOrg from './contrib/github-org';
 import issue from './contrib/issue';
 import installation from './contrib/installation';
 import pullRequest from './contrib/pull-request';
@@ -20,6 +21,7 @@ import triggeredActionSupportClosedPullRequestReopen from './contrib/triggered-a
 export default [
 	checkRun,
 	commit,
+	githubOrg,
 	issue,
 	installation,
 	pullRequest,
