@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add new github-org contract type
+      hash: 7fff97f26993f0fafa1b0d141a995a276dc5690c
+      body: >
+        In due course this type will be used to sync GitHub orgs with JF. But
+        for now we just need this type to be defined and we can manually create
+        instances of this type.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Graham McCulloch <graham@balena.io>
+        signed-off-by: Graham McCulloch <graham@balena.io>
+      author: Graham McCulloch
+      nested: []
+  version: 1.7.0
+  date: 2021-07-19T23:35:10.830Z
+- commits:
     - subject: fix commit to evaluate transfomer data at right place
       hash: 4b6f38925045b43b57dc76220d6446a8e4f522da
       body: ''

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.7.0 - 2021-07-19
+
+* Add new github-org contract type [Graham McCulloch]
+
 ## 1.6.4 - 2021-07-19
 
 * fix commit to evaluate transfomer data at right place [Martin Rauscher]
