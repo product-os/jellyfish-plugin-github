@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.7.2 - 2021-07-20
+
+* add real JF URL to check-run [Martin Rauscher]
+
 ## 1.7.1 - 2021-07-20
 
 * use constant check-run name as identifier for GitHub [Martin Rauscher]
