@@ -1,4 +1,17 @@
 - commits:
+    - subject: use constant check-run name as identifier for GitHub
+      hash: bce92664ad01382375cb8693900028ab396a24bb
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.7.1
+  date: 2021-07-20T18:46:40.897Z
+- commits:
     - subject: Add new github-org contract type
       hash: 7fff97f26993f0fafa1b0d141a995a276dc5690c
       body: >
