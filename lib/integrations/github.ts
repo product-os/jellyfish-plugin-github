@@ -29,6 +29,8 @@ const packageJSON = require('../../package.json');
 const GITHUB_API_REQUEST_LOG_TITLE = 'GitHub API Request';
 const GITHUB_API_RETRY_COUNT = 5;
 const SLUG = 'github';
+// GH uses the check name as an identifier to decide which checks are required
+const JF_CHECK_NAME = 'Transformer Run';
 const Octokit = OctokitRest.plugin(retry, throttling);
 
 // Matches the prefix used when posting to GitHub on behalf of a user
@@ -356,7 +358,7 @@ module.exports = class GitHubIntegration implements Integration {
 					const results = await githubRequest(github.checks.create, {
 						owner: card.data.owner,
 						repo: card.data.repo,
-						name: card.name,
+						name: JF_CHECK_NAME,
 						head_sha: card.data.head_sha,
 						status: card.data.status,
 						started_at: card.data.started_at,
