@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.8.0 - 2021-07-21
+
+* ensure check-runs don't get updated by old events [Martin Rauscher]
+* prevent translation for check-runs owned by JF [Martin Rauscher]
+* set status of check-runs based on mergeability of commits [Martin Rauscher]
+
 ## 1.7.2 - 2021-07-20
 
 * add real JF URL to check-run [Martin Rauscher]

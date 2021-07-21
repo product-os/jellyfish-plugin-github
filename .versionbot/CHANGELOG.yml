@@ -1,4 +1,37 @@
 - commits:
+    - subject: ensure check-runs don't get updated by old events
+      hash: 308a17bca0bb5ed04ade236359b884773abf39f3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: prevent translation for check-runs owned by JF
+      hash: f90050c082e77dac172d4d577a56cb5f5432adfa
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: set status of check-runs based on mergeability of commits
+      hash: 2821cd3e586d7eb7f4674bbbfb77cf3e2f78e39e
+      body: ''
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.8.0
+  date: 2021-07-21T15:21:51.564Z
+- commits:
     - subject: add real JF URL to check-run
       hash: 553fdc0001f0e09c2c6b1e54ebce5f954a4fa2ed
       body: ''
