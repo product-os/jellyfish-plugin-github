@@ -35,6 +35,7 @@ const Octokit = OctokitRest.plugin(retry, throttling);
 
 // Matches the prefix used when posting to GitHub on behalf of a user
 const PREFIX_RE = /^\[.*\] /;
+const JF_GH_EXTERNAL_ID_PREFIX = 'jellyfish-';
 
 const withoutPrefix = (body) => {
 	return body.replace(PREFIX_RE, '');
@@ -344,7 +345,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const baseType = card.type.split('@')[0];
 
 		if (baseType === 'check-run') {
-			const externalId = `jellyfish-${card.id}`;
+			const externalId = `${JF_GH_EXTERNAL_ID_PREFIX}${card.id}`;
 			switch (card.data.status) {
 				case 'queued': {
 					if (
@@ -1450,6 +1451,11 @@ module.exports = class GitHubIntegration implements Integration {
 			case 'check_run': {
 				const { repository } = event.data.payload;
 				const checkRun = event.data.payload.check_run;
+
+				// check runs whose source of truth is in JF, should not be translated to prevent concurrency issues
+				if (checkRun.external_id.startsWith(JF_GH_EXTERNAL_ID_PREFIX)) {
+					break;
+				}
 				const checkSuite = checkRun.check_suite;
 
 				// If the check_suite has just been created, the updated_at and created_at fields are the same
@@ -1465,26 +1471,10 @@ module.exports = class GitHubIntegration implements Integration {
 					card.id = currentContract.id;
 					card.slug = currentContract.slug;
 				} else {
-					// Not created in jellyfish
+					// ensure we merge and not re-create the contract
 					card.slug = `check-run-gh-${checkRun.id}`;
 				}
 
-				const statuses: any = {
-					queued: 0,
-					in_progress: 1,
-					completed: 2,
-				};
-
-				// Only advance status in the correct order, unless the action was re-requested
-				let newStatus = checkRun.status;
-
-				if (
-					action !== 'rerequested_action' &&
-					currentContract &&
-					statuses[checkRun.status] < statuses[currentContract.data.status]
-				) {
-					newStatus = currentContract.data.status;
-				}
 				const [owner, repo] = repository.full_name.split('/');
 				card = {
 					...card,
@@ -1496,7 +1486,7 @@ module.exports = class GitHubIntegration implements Integration {
 						repo,
 						head_sha: checkRun.head_sha,
 						details_url: checkRun.details_url,
-						status: newStatus,
+						status: checkRun.status,
 						started_at: checkRun.started_at,
 						conclusion: checkRun.conclusion,
 						completed_at: checkRun.completed_at,
