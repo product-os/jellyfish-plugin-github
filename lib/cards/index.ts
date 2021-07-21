@@ -17,6 +17,8 @@ import triggeredActionGitHubIssueLink from './contrib/triggered-action-github-is
 import triggeredActionIntegrationGitHubMirrorEvent from './contrib/triggered-action-integration-github-mirror-event.json';
 import triggeredActionSupportClosedIssueReopen from './contrib/triggered-action-support-closed-issue-reopen.json';
 import triggeredActionSupportClosedPullRequestReopen from './contrib/triggered-action-support-closed-pull-request-reopen.json';
+import triggeredActionConcludeCheckRun from './contrib/triggered-action-conclude-check-run';
+import triggeredActionInProgressCheckRun from './contrib/triggered-action-in-progress-check-run';
 
 export default [
 	checkRun,
@@ -31,5 +33,7 @@ export default [
 	triggeredActionIntegrationGitHubMirrorEvent,
 	triggeredActionSupportClosedIssueReopen,
 	triggeredActionSupportClosedPullRequestReopen,
+	triggeredActionConcludeCheckRun,
+	triggeredActionInProgressCheckRun,
 	viewAllIssues,
 ];
