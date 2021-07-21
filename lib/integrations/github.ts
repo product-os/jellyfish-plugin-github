@@ -1468,6 +1468,13 @@ module.exports = class GitHubIntegration implements Integration {
 					'check-run@1.0.0',
 				);
 				if (currentContract) {
+					const oldUpdate =
+						currentContract.data.updated_at &&
+						new Date(timestamp).getTime() <
+							new Date(currentContract.data.updated_at).getTime();
+					if (oldUpdate) {
+						return [];
+					}
 					card.id = currentContract.id;
 					card.slug = currentContract.slug;
 				} else {
@@ -1491,6 +1498,7 @@ module.exports = class GitHubIntegration implements Integration {
 						conclusion: checkRun.conclusion,
 						completed_at: checkRun.completed_at,
 						check_run_id: checkRun.id,
+						updated_at: timestamp,
 					},
 				};
 				return [makeCard(card, actor, timestamp)];
