@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.8.2 - 2021-07-22
+
+* fix check-run translate crash [Martin Rauscher]
+
 ## 1.8.1 - 2021-07-21
 
 * patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.204 [Renovate Bot]

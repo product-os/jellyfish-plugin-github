@@ -1,4 +1,16 @@
 - commits:
+    - subject: fix check-run translate crash
+      hash: 73961e9458812c90ea50ce12cc510d74b835dff4
+      body: |
+        translate must always return an array
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Martin Rauscher
+      nested: []
+  version: 1.8.2
+  date: 2021-07-22T06:26:10.950Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.204'
       hash: 88c002258f6ec4359aeaaa1705baac1d553a1a4b
       body: ''
