@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.8.3 - 2021-07-22
+
+* patch: Update dependency @balena/jellyfish-action-library to ^15.0.42 [Renovate Bot]
+
 ## 1.8.2 - 2021-07-22
 
 * fix check-run translate crash [Martin Rauscher]
