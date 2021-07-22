@@ -1454,7 +1454,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 				// check runs whose source of truth is in JF, should not be translated to prevent concurrency issues
 				if (checkRun.external_id.startsWith(JF_GH_EXTERNAL_ID_PREFIX)) {
-					break;
+					return [];
 				}
 				const checkSuite = checkRun.check_suite;
 
