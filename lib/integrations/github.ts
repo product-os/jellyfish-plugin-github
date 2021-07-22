@@ -638,7 +638,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const owner = repo.owner.login;
 		const name = repo.name;
 		const repoSlug = `repository-${owner}-${name}`.toLowerCase();
-		const repoCard = {
+		const repoCard: ContractDefinition = {
 			name: `${owner}/${name}`,
 			slug: repoSlug,
 			type: 'repository@1.0.0',
@@ -650,6 +650,18 @@ module.exports = class GitHubIntegration implements Integration {
 				html_url: mirrorID,
 			},
 		};
+
+		const githubOrg = await this.getCardByMirrorId(
+			`https://github.com/${owner}`,
+			'github-org@1.0.0',
+		);
+		if (githubOrg) {
+			repoCard.loop = githubOrg.loop;
+		} else {
+			this.context.log.warn(
+				`Cannot determine repo loop (no github-org contract found with name '${owner}')`,
+			);
+		}
 
 		return {
 			repoInfo: {
