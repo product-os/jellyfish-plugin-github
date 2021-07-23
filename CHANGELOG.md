@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.9.1 - 2021-07-23
+
+* 🔄 Synced file(s) with product-os/jellyfish-config [jellyfish-bot]
+
 ## 1.9.0 - 2021-07-22
 
 * Set repo loop field from github-org if possible [Graham McCulloch]

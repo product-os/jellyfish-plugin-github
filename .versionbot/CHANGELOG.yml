@@ -1,4 +1,15 @@
 - commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/jellyfish-config"
+      hash: 2f3704eb4b4134198cfb614f3e9834a9a0cc4e22
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: jellyfish-bot
+      nested: []
+  version: 1.9.1
+  date: 2021-07-23T01:45:40.969Z
+- commits:
     - subject: Set repo loop field from github-org if possible
       hash: 2fb31cb69c8c0e7c10f50da8ee6d5dbb9a298aed
       body: >
