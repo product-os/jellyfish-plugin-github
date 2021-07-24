@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.9.2 - 2021-07-24
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.9.1 - 2021-07-23
 
 * 🔄 Synced file(s) with product-os/jellyfish-config [jellyfish-bot]
