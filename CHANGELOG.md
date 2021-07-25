@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.0 - 2021-07-25
+
+* fetch GH installations automatically [Martin Rauscher]
+
 ## 1.9.8 - 2021-07-25
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.0.47 [Renovate Bot]

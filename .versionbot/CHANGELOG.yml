@@ -1,4 +1,21 @@
 - commits:
+    - subject: fetch GH installations automatically
+      hash: 0be14fc6ac249f24192ee69fafc4a11513138190
+      body: |
+        this removes the need for manually creating installation contracts.
+        It does update automatically if a new org gets onboarded, BUT
+        it needs a restart should the app get uninstalled and reinstalled
+        in the same app.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.10.0
+  date: 2021-07-25T01:44:51.151Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.47'
       hash: 24161532eab79d9a8e5d1be0516117e0c10d1330
       body: ''
