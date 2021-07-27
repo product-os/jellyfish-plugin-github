@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.1 - 2021-07-27
+
+* Update evaluted fields to reference 'contract' instead of 'this' [Graham McCulloch]
+
 ## 1.10.0 - 2021-07-25
 
 * fetch GH installations automatically [Martin Rauscher]

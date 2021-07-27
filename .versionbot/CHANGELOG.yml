@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update evaluted fields to reference 'contract' instead of 'this'
+      hash: e76aaf7f04bb39fc3d8290c237a5435e9c5ecd73
+      body: >
+        Also update jellyfish-test-harness dependency - pulls in latest
+        jellyscript.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Graham McCulloch <graham@balena.io>
+        signed-off-by: Graham McCulloch <graham@balena.io>
+      author: Graham McCulloch
+      nested: []
+  version: 1.10.1
+  date: 2021-07-27T03:36:33.127Z
+- commits:
     - subject: fetch GH installations automatically
       hash: 0be14fc6ac249f24192ee69fafc4a11513138190
       body: |
