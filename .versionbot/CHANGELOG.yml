@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.49'
+      hash: db9bebefb9b7f61738b3d4d95e3e0e69f0dfd041
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.10.2
+  date: 2021-07-27T04:46:51.649Z
+- commits:
     - subject: Update evaluted fields to reference 'contract' instead of 'this'
       hash: e76aaf7f04bb39fc3d8290c237a5435e9c5ecd73
       body: >
