@@ -1628,7 +1628,7 @@ module.exports = class GitHubIntegration implements Integration {
 		) {
 			this.context.log.info(
 				'Not creating commit/check-run for closed and non transformer-aware PRs',
-				{ prId: pullRequestContract.id },
+				{ pr: pullRequestContract.slug },
 			);
 			return;
 		}
