@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.4 - 2021-07-30
+
+* patch: Update dependency @balena/jellycheck to ^0.1.3 [Renovate Bot]
+
 ## 1.10.3 - 2021-07-29
 
 * patch: Update internal-patch [Renovate Bot]
