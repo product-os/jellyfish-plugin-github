@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.9 - 2021-07-31
+
+* patch: Update dependency typedoc to ^0.21.5 [Renovate Bot]
+
 ## 1.10.8 - 2021-07-31
 
 * patch: Update internal-patch [Renovate Bot]
