@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.12 - 2021-08-01
+
+* patch: Update dependency @octokit/auth-app to ^3.6.0 [Renovate Bot]
+
 ## 1.10.11 - 2021-07-31
 
 * patch: Update internal-patch [Renovate Bot]
