@@ -1,0 +1,12 @@
+{
+  "data": {
+    "roles": [
+      "loop"
+    ]
+  },
+  "loop": null,
+  "name": "balena-io",
+  "slug": "loop-balena-io",
+  "type": "loop@1.0.0",
+  "version": "1.0.0"
+}

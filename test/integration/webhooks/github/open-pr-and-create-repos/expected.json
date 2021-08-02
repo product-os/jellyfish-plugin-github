@@ -4,7 +4,7 @@
     "type":  "repository@1.0.0",
     "slug":  "repository-resin-io-jellyfish",
     "active": true,
-    "loop": null,
+    "loop": "loop-balena-io@1.0.0",
     "capabilities": [ ],
     "data": {
       "git_url":  "git://github.com/resin-io/jellyfish.git",
@@ -35,6 +35,7 @@
         "payload": {
           "name":  "resin-io/jellyfish",
           "type":  "repository@1.0.0",
+          "loop": "loop-balena-io@1.0.0",
           "active": true,
           "capabilities": [ ],
           "data": {

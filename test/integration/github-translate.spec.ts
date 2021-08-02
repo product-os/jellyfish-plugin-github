@@ -12,8 +12,33 @@ import jwt from 'jsonwebtoken';
 import nock from 'nock';
 import { GitHubPlugin } from '../../lib';
 import webhooks from './webhooks/github';
+import { createGitHubOrg, loopBalenaIo } from './fixtures';
 
 const TOKEN = defaultEnvironment.integration.github;
+
+const testGitHubOrgs = [
+	'loop-os',
+	'loop-os-staging',
+	'Codertocat',
+	'resin-io',
+	'balena-io',
+	'nazrhom',
+];
+
+const loadGithubOrgs = async (context) => {
+	await context.jellyfish.insertCard(
+		context.context,
+		context.session,
+		loopBalenaIo,
+	);
+	for (const gitHubOrgName of testGitHubOrgs) {
+		await context.jellyfish.insertCard(
+			context.context,
+			context.session,
+			createGitHubOrg(gitHubOrgName),
+		);
+	}
+};
 
 const accessTokenNock = async () => {
 	if (TOKEN.api && TOKEN.key) {
@@ -71,10 +96,12 @@ syncIntegrationScenario.run(
 			'gh-push',
 			'check-run',
 			'commit',
+			'github-org',
 		],
 		scenarios: webhooks,
 		baseUrl: 'https://api.github.com',
 		stubRegex: /.*/,
+		before: loadGithubOrgs,
 		beforeEach: accessTokenNock,
 		source: 'github',
 		options: {
