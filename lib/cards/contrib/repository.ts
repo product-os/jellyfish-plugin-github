@@ -24,6 +24,9 @@ export default function ({
 						type: 'string',
 						fullTextSearch: true,
 					},
+					loop: {
+						type: 'string',
+					},
 					data: {
 						type: 'object',
 						properties: {
@@ -43,7 +46,7 @@ export default function ({
 						},
 					},
 				},
-				required: ['data'],
+				required: ['loop', 'data'],
 			},
 			uiSchema: {
 				fields: {
