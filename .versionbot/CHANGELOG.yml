@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.57'
+      hash: d18eb2c8b53fbf89cd062471718a3e9c99216a8a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.10.13
+  date: 2021-08-02T03:42:30.923Z
+- commits:
     - subject: 'patch: Update dependency @octokit/auth-app to ^3.6.0'
       hash: 5f5dae21bb5200e09c3078e411ac66ca4cc67cb9
       body: ''
