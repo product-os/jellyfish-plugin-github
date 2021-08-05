@@ -7,6 +7,7 @@
 import * as assert from '@balena/jellyfish-assert';
 import { Integration } from '@balena/jellyfish-plugin-base';
 import type {
+	Contract,
 	ContractDefinition,
 	EventContract,
 } from '@balena/jellyfish-types/build/core';
@@ -37,8 +38,12 @@ const Octokit = OctokitRest.plugin(retry, throttling);
 const PREFIX_RE = /^\[.*\] /;
 const JF_GH_EXTERNAL_ID_PREFIX = 'jellyfish-';
 
-const withoutPrefix = (body) => {
-	return body.replace(PREFIX_RE, '');
+interface Eval {
+	$eval: string;
+}
+
+const withoutPrefix = (body?: string) => {
+	return body?.replace(PREFIX_RE, '');
 };
 
 async function githubRequest(
@@ -366,7 +371,7 @@ module.exports = class GitHubIntegration implements Integration {
 		if (baseType === 'check-run') {
 			const externalId = `${JF_GH_EXTERNAL_ID_PREFIX}${card.id}`;
 			switch (card.data.status) {
-				case 'queued': {
+				case 'created': {
 					if (
 						card.data.check_run_id &&
 						card.data.mirrors &&
@@ -375,6 +380,7 @@ module.exports = class GitHubIntegration implements Integration {
 						break;
 					}
 					// Create check run, store id from github back in card
+					card.data.status = 'queued';
 					const results = await githubRequest(github.checks.create, {
 						owner: card.data.owner,
 						repo: card.data.repo,
@@ -386,6 +392,7 @@ module.exports = class GitHubIntegration implements Integration {
 						external_id: externalId,
 					});
 					this.context.log.debug('Check-run created on GH', results);
+					card.data.check_run_id = results.data.id;
 					card.data.check_run_id = results.data.id;
 					card.data.mirrors = [results.data.html_url];
 					return [makeCard(card, options.actor)];
@@ -491,21 +498,21 @@ module.exports = class GitHubIntegration implements Integration {
 				const body = prefixMatch
 					? `${prefixMatch[0]}${card.data.description}`
 					: card.data.description;
-				const updateOptions = {
-					owner: getOptions.owner,
-					repo: getOptions.repo,
-					issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
-					title: card.name,
-					body,
-					state: card.data.status,
-					labels: card.tags,
-				};
 
 				if (baseType === 'issue') {
 					this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 						category: 'issues',
 						action: 'update',
 					});
+					const updateOptions = {
+						owner: getOptions.owner,
+						repo: getOptions.repo,
+						issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
+						title: card.name,
+						body,
+						state: card.data.status,
+						labels: card.tags,
+					};
 
 					await githubRequest(
 						github.issues.update,
@@ -519,6 +526,15 @@ module.exports = class GitHubIntegration implements Integration {
 						category: 'pulls',
 						action: 'update',
 					});
+					const updateOptions = {
+						owner: getOptions.owner,
+						repo: getOptions.repo,
+						pull_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
+						title: card.name,
+						body,
+						state: card.data.status,
+						labels: card.tags,
+					};
 
 					await githubRequest(github.pulls.update, updateOptions, this.options);
 				}
@@ -705,8 +721,6 @@ module.exports = class GitHubIntegration implements Integration {
 		const pullRequest =
 			event.data.payload.pull_request || event.data.payload.issue.pull_request;
 
-		const existingContractData = options.existingContract?.data || {};
-
 		const pr: ContractDefinition = {
 			name: root.title,
 			slug: `pull-request-${normaliseRootID(root.node_id)}`,
@@ -723,13 +737,10 @@ module.exports = class GitHubIntegration implements Integration {
 					mentionsUser: [],
 					alertsUser: [],
 					description: root.body || '',
-					status: options.status,
+					status: pullRequest.state,
 					archived: false,
-					// Once merged_at or closed_at are set, they cannot be unset
-					closed_at:
-						existingContractData.closed_at || pullRequest.closed_at || null,
-					merged_at:
-						existingContractData.merged_at || pullRequest.merged_at || null,
+					closed_at: pullRequest.closed_at,
+					merged_at: pullRequest.merged_at,
 					contract: contractData,
 					$transformer: {
 						artifactReady: prData.head.sha,
@@ -816,17 +827,16 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
-	async createPRIfNotExists(github: any, event: any, actor: any) {
-		const contractsToCreate = await this.createPRorIssueIfNotExists(
-			github,
-			event,
-			actor,
-			'pull-request@1.0.0',
-		);
+	async createPR(github: any, event: any, actor: any) {
+		const root = getEventRoot(event);
+		const contractsToCreate = [
+			makeCard(
+				await this.getCardFromEvent(github, event),
+				actor,
+				root.created_at,
+			),
+		];
 
-		if (_.isEmpty(contractsToCreate)) {
-			return [];
-		}
 		const headPayload = event.data.payload.pull_request.head.repo;
 		const basePayload = event.data.payload.pull_request.base.repo;
 
@@ -905,10 +915,6 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async closePR(github: any, event: any, actor: any): Promise<any> {
-		return this.closePRorIssue(github, event, actor, 'pull-request@1.0.0');
-	}
-
 	async labelEventPR(github: any, event: any, actor: any, action: any) {
 		return this.labelPRorIssue(
 			github,
@@ -919,20 +925,16 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 	}
 
-	async updatePR(github: any, event: any, actor: string) {
-		const mirrorID = getEventMirrorId(event);
-		const existingPR = await this.getCardByMirrorId(
-			mirrorID,
-			'pull-request@1.0.0',
-		);
+	async updatePR(
+		existingPR: Contract<any>,
+		github: any,
+		event: any,
+		actor: string,
+	) {
 		const root = getEventRoot(event);
 
-		if (_.isEmpty(existingPR)) {
-			return this.createPRIfNotExists(github, event, actor);
-		}
-
 		const pr = await this.getCardFromEvent(github, event, {
-			status: 'open',
+			id: existingPR.id,
 		});
 
 		return [makeCard(pr, actor, root.updated_at)];
@@ -972,11 +974,7 @@ module.exports = class GitHubIntegration implements Integration {
 		event: any,
 		actor: string,
 	): Promise<any> {
-		return this.createPRorIssueIfNotExists(github, event, actor, 'issue@1.0.0');
-	}
-
-	async closeIssue(github: any, event: any, actor: string): Promise<any> {
-		return this.closePRorIssue(github, event, actor, 'issue@1.0.0');
+		return this.createCardIfNotExists(github, event, actor, 'issue@1.0.0');
 	}
 
 	async updateIssue(
@@ -1278,20 +1276,15 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async closePRorIssue(
-		github: any,
-		event: any,
-		actor: string,
-		type: string,
-	): Promise<any> {
+	async closeIssue(github: any, event: any, actor: string): Promise<any> {
 		const contractMirrorId = getEventMirrorId(event);
 		const existingContract = await this.getCardByMirrorId(
 			contractMirrorId,
-			type,
+			'issue@1.0.0',
 		);
 		const root = getEventRoot(event);
 
-		if (type === 'issue@1.0.0' && existingContract) {
+		if (existingContract) {
 			if (existingContract.data.status === 'closed') {
 				return [];
 			}
@@ -1303,7 +1296,6 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const prOpened = await this.getCardFromEvent(github, event, {
 			status: 'open',
-			existingContract,
 		});
 
 		const prClosed = await this.getCardFromEvent(github, event, {
@@ -1311,7 +1303,6 @@ module.exports = class GitHubIntegration implements Integration {
 			id: {
 				$eval: 'cards[0].id',
 			},
-			existingContract,
 		});
 		return [makeCard(prOpened, actor, root.created_at)]
 			.concat(
@@ -1331,7 +1322,7 @@ module.exports = class GitHubIntegration implements Integration {
 			.concat([makeCard(prClosed, actor, root.closed_at)]);
 	}
 
-	async createPRorIssueIfNotExists(
+	async createCardIfNotExists(
 		github: any,
 		event: any,
 		actor: string,
@@ -1501,9 +1492,12 @@ module.exports = class GitHubIntegration implements Integration {
 				if (currentContract) {
 					const oldUpdate =
 						currentContract.data.updated_at &&
-						new Date(timestamp).getTime() <
-							new Date(currentContract.data.updated_at).getTime();
-					if (oldUpdate) {
+						new Date(timestamp) < new Date(currentContract.data.updated_at);
+
+					const isOwnedByJF =
+						currentContract.data.sourceOfTruth === 'jellyfish';
+
+					if (oldUpdate || isOwnedByJF) {
 						return [];
 					}
 					card.id = currentContract.id;
@@ -1535,33 +1529,54 @@ module.exports = class GitHubIntegration implements Integration {
 				return [makeCard(card, actor, timestamp)];
 			}
 
-			case 'pull_request':
+			case 'pull_request': {
+				const prMirrorID: string = event.data.payload.pull_request.html_url;
+				const existingPR: Contract<any> =
+					prMirrorID &&
+					(await this.getCardByMirrorId(prMirrorID, 'pull-request@1.0.0'));
 				switch (action) {
 					case 'review_requested':
-						return this.createPRIfNotExists(github, event, actor);
 					case 'opened':
 					case 'edited':
 					case 'synchronize':
+					case 'closed':
 					case 'assigned': {
-						const sequence = await this.updatePR(github, event, actor);
-						if (sequence.length > 0) {
+						if (existingPR) {
+							const sequence = await this.updatePR(
+								existingPR,
+								github,
+								event,
+								actor,
+							);
+							// check-run and commits for transformers must only be created when the PR was fresh
+							// or being pushed to. Otherwise we overwrite existing data
+							if (
+								existingPR.data?.head?.sha !== sequence[0].card.data?.head?.sha
+							) {
+								this.createTransformerCommitAndCheckRunForOpenPR(
+									sequence[0].card,
+									sequence,
+									actor,
+								);
+							}
+							return sequence;
+						} else {
+							const sequence = await this.createPR(github, event, actor);
 							this.createTransformerCommitAndCheckRunForOpenPR(
 								sequence[0].card,
 								sequence,
 								actor,
 							);
+							return sequence;
 						}
-						return sequence;
 					}
-					case 'closed':
-						return this.closePR(github, event, actor);
 					case 'labeled':
 					case 'unlabeled':
 						return this.labelEventPR(github, event, actor, action);
 					default:
 						return [];
 				}
-
+			}
 			case 'issues':
 				switch (action) {
 					case 'opened':
@@ -1580,12 +1595,7 @@ module.exports = class GitHubIntegration implements Integration {
 				}
 
 			case 'pull_request_review':
-				switch (action) {
-					case 'submitted':
-						return this.createPRIfNotExists(github, event, actor);
-					default:
-						return [];
-				}
+				return [];
 
 			case 'issue_comment':
 				event.data.payload.comment.deleted = action === 'deleted';
@@ -1659,6 +1669,8 @@ module.exports = class GitHubIntegration implements Integration {
 						},
 					},
 					actor,
+					undefined,
+					true,
 				),
 			) - 1;
 
@@ -1689,6 +1701,8 @@ module.exports = class GitHubIntegration implements Integration {
 					},
 				},
 				actor,
+				undefined,
+				true,
 			),
 		);
 
@@ -1708,7 +1722,8 @@ module.exports = class GitHubIntegration implements Integration {
 							head_sha: headSha,
 							details_url: `https://jel.ly.fish/${checkRunSlug}`,
 							started_at: new Date().toISOString(),
-							status: 'queued',
+							status: 'created',
+							sourceOfTruth: 'jellyfish', // this prevents overwriting by web-hooks
 						},
 					},
 					actor,
@@ -1746,6 +1761,8 @@ module.exports = class GitHubIntegration implements Integration {
 					},
 				},
 				actor,
+				undefined,
+				true,
 			),
 		);
 	}
@@ -1758,7 +1775,11 @@ module.exports = class GitHubIntegration implements Integration {
 		return this.context.getElementByMirrorId('message@1.0.0', id);
 	}
 
-	async getCardFromEvent(github: any, event: any, options: any) {
+	async getCardFromEvent(
+		github: any,
+		event: any,
+		options: { status?: string; id?: string | Eval } = {},
+	) {
 		switch (eventToCardType(event)) {
 			case 'issue@1.0.0':
 				return this.getIssueFromEvent(event, options);

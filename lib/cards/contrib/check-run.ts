@@ -43,7 +43,7 @@ export default function ({
 							},
 							status: {
 								type: 'string',
-								enum: ['queued', 'in_progress', 'completed'],
+								enum: ['created', 'queued', 'in_progress', 'completed'],
 							},
 							started_at: {
 								type: 'string',

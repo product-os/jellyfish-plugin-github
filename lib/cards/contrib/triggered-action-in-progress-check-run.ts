@@ -33,7 +33,7 @@ const triggeredActionInProgressCheckRun: ContractDefinition = {
 							properties: {
 								status: {
 									type: 'string',
-									enum: ['queued', 'in_progress'],
+									const: 'queued',
 								},
 							},
 						},

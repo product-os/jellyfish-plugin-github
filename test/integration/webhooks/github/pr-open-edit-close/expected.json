@@ -124,7 +124,7 @@
       "requires": [],
       "capabilities": [],
       "data": {
-        "timestamp": "2018-10-10T09:09:36.000Z",
+        "timestamp": "2018-10-10T09:11:51.000Z",
         "actor": {
           "active": true,
           "slug": "user-jviotti"
@@ -134,36 +134,17 @@
             "op": "replace",
             "path": "/data/closed_at",
             "value": "2018-10-10T09:11:51Z"
-          }
-        ],
-        "target": "51d731e4-693a-4456-a113-521c07000a54"
-      },
-      "id": "bbea47b7-c334-4804-a6f3-1980fe3a3bb4",
-      "name": null
-    }, {
-      "active": true,
-      "capabilities": [],
-      "data": {
-        "actor": {
-          "active": true,
-          "slug": "user-jviotti"
-        },
-        "payload": [
+          },
           {
             "op": "replace",
             "path": "/data/status",
             "value": "closed"
           }
         ],
-        "target": "51d731e4-693a-4456-a113-521c07000a54",
-        "timestamp": "2018-10-10T09:11:51.000Z"
+        "target": "51d731e4-693a-4456-a113-521c07000a54"
       },
-      "loop": null,
-      "name": null,
-      "requires": [],
-      "tags": [],
-      "type": "update@1.0.0",
-      "version": "1.0.0"
+      "id": "bbea47b7-c334-4804-a6f3-1980fe3a3bb4",
+      "name": null
     }
   ]
 }
