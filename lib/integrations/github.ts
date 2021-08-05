@@ -371,7 +371,7 @@ module.exports = class GitHubIntegration implements Integration {
 		if (baseType === 'check-run') {
 			const externalId = `${JF_GH_EXTERNAL_ID_PREFIX}${card.id}`;
 			switch (card.data.status) {
-				case 'queued': {
+				case 'created': {
 					if (
 						card.data.check_run_id &&
 						card.data.mirrors &&
@@ -380,6 +380,7 @@ module.exports = class GitHubIntegration implements Integration {
 						break;
 					}
 					// Create check run, store id from github back in card
+					card.data.status = 'queued';
 					const results = await githubRequest(github.checks.create, {
 						owner: card.data.owner,
 						repo: card.data.repo,
@@ -391,6 +392,7 @@ module.exports = class GitHubIntegration implements Integration {
 						external_id: externalId,
 					});
 					this.context.log.debug('Check-run created on GH', results);
+					card.data.check_run_id = results.data.id;
 					card.data.check_run_id = results.data.id;
 					card.data.mirrors = [results.data.html_url];
 					return [makeCard(card, options.actor)];
@@ -1481,9 +1483,12 @@ module.exports = class GitHubIntegration implements Integration {
 				if (currentContract) {
 					const oldUpdate =
 						currentContract.data.updated_at &&
-						new Date(timestamp).getTime() <
-							new Date(currentContract.data.updated_at).getTime();
-					if (oldUpdate) {
+						new Date(timestamp) < new Date(currentContract.data.updated_at);
+
+					const isOwnedByJF =
+						currentContract.data.sourceOfTruth === 'jellyfish';
+
+					if (oldUpdate || isOwnedByJF) {
 						return [];
 					}
 					card.id = currentContract.id;
@@ -1655,6 +1660,8 @@ module.exports = class GitHubIntegration implements Integration {
 						},
 					},
 					actor,
+					undefined,
+					true,
 				),
 			) - 1;
 
@@ -1685,6 +1692,8 @@ module.exports = class GitHubIntegration implements Integration {
 					},
 				},
 				actor,
+				undefined,
+				true,
 			),
 		);
 
@@ -1704,7 +1713,8 @@ module.exports = class GitHubIntegration implements Integration {
 							head_sha: headSha,
 							details_url: `https://jel.ly.fish/${checkRunSlug}`,
 							started_at: new Date().toISOString(),
-							status: 'queued',
+							status: 'created',
+							sourceOfTruth: 'jellyfish', // this prevents overwriting by web-hooks
 						},
 					},
 					actor,
@@ -1742,6 +1752,8 @@ module.exports = class GitHubIntegration implements Integration {
 					},
 				},
 				actor,
+				undefined,
+				true,
 			),
 		);
 	}
