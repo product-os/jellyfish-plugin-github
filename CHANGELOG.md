@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.0 - 2021-08-05
+
+* fix PR editing [Martin Rauscher]
+* ensure JF-owned check-runs get synced properly [Martin Rauscher]
+* prevent overwriting of check-runs by PRs [Martin Rauscher]
+
 ## 1.10.16 - 2021-08-05
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.0.60 [Renovate Bot]

@@ -1,4 +1,42 @@
 - commits:
+    - subject: fix PR editing
+      hash: 8f05ef2c74d09e5ba35c8f7eaa98e769741ea388
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: ensure JF-owned check-runs get synced properly
+      hash: fc966877a71aee4603012fca91bd5e5d02a43634
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: prevent overwriting of check-runs by PRs
+      hash: 70bc05c0154aeb8f25fbac5f6aab73a53c0e9802
+      body: |
+        this change simplifies PR handling a lot and removes any JF logic
+        that tries to interfere with what we get from GH.
+
+        We also create check-runs and commits from PRs only of the head
+        of the PR changed
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.0
+  date: 2021-08-05T09:52:12.275Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.60'
       hash: 25c0c193aa1e0b185e92bd3a73f1b75dfe236ec1
       body: ''
