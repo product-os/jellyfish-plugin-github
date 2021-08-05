@@ -42,8 +42,8 @@ interface Eval {
 	$eval: string;
 }
 
-const withoutPrefix = (body) => {
-	return body.replace(PREFIX_RE, '');
+const withoutPrefix = (body?: string) => {
+	return body?.replace(PREFIX_RE, '');
 };
 
 async function githubRequest(
@@ -498,21 +498,21 @@ module.exports = class GitHubIntegration implements Integration {
 				const body = prefixMatch
 					? `${prefixMatch[0]}${card.data.description}`
 					: card.data.description;
-				const updateOptions = {
-					owner: getOptions.owner,
-					repo: getOptions.repo,
-					issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
-					title: card.name,
-					body,
-					state: card.data.status,
-					labels: card.tags,
-				};
 
 				if (baseType === 'issue') {
 					this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 						category: 'issues',
 						action: 'update',
 					});
+					const updateOptions = {
+						owner: getOptions.owner,
+						repo: getOptions.repo,
+						issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
+						title: card.name,
+						body,
+						state: card.data.status,
+						labels: card.tags,
+					};
 
 					await githubRequest(
 						github.issues.update,
@@ -526,6 +526,15 @@ module.exports = class GitHubIntegration implements Integration {
 						category: 'pulls',
 						action: 'update',
 					});
+					const updateOptions = {
+						owner: getOptions.owner,
+						repo: getOptions.repo,
+						pull_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
+						title: card.name,
+						body,
+						state: card.data.status,
+						labels: card.tags,
+					};
 
 					await githubRequest(github.pulls.update, updateOptions, this.options);
 				}
