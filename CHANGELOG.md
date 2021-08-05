@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.10.15 - 2021-08-05
+
+* Update test command in README [Josh Bowling]
+* use balena convention for npm script names [Martin Rauscher]
+
 ## 1.10.14 - 2021-08-05
 
 * patch: Update internal-patch [Renovate Bot]
