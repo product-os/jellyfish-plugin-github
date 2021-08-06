@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'Add compose up command, more test docs'
+      hash: 4edc0b70a747f9f1cb9915d6a3e1e09286ef57ac
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.3
+  date: 2021-08-06T01:33:58.774Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.0.62'
       hash: cefdcd47d91609fb679fd593af3f35485fe6b7e6
       body: ''
