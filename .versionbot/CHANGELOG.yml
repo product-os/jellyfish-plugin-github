@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major'
+      hash: beda11cba29bf9840411d92ff19d779b8c0525b3
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.18
+  date: 2021-08-20T07:44:20.353Z
+- commits:
     - subject: Fix missing test session
       hash: 1a44a350a89562973770d2fed93fe97cfa98603b
       body: ''

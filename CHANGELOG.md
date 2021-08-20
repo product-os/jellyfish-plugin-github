@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.18 - 2021-08-20
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.11.17 - 2021-08-20
 
 * Fix missing test session [Josh Bowling]
