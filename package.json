@@ -53,7 +53,7 @@
     "@octokit/auth-app": "^3.6.0",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.1",
-    "@octokit/rest": "^18.9.0",
+    "@octokit/rest": "^18.9.1",
     "bluebird": "^3.7.2",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
@@ -78,9 +78,9 @@
     "lint-staged": "^11.1.2",
     "nock": "^13.1.1",
     "rimraf": "^3.0.2",
-    "simple-git-hooks": "^2.5.1",
-    "ts-jest": "^27.0.4",
-    "typedoc": "^0.21.5",
+    "simple-git-hooks": "^2.6.1",
+    "ts-jest": "^27.0.5",
+    "typedoc": "^0.21.6",
     "typescript": "4.3.5"
   },
   "peerDependencies": {
