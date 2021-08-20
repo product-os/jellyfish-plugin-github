@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.14 - 2021-08-20
+
+* Bump action-library and jellyfish-types [Josh Bowling]
+
 ## 1.11.13 - 2021-08-10
 
 * patch: Update internal-patch [Renovate Bot]
