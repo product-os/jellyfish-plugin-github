@@ -97,7 +97,7 @@ describe('action-integration-github-mirror-event', () => {
 	test('should return a list of cards', async () => {
 		expect.assertions(1);
 		const result = await handler(
-			context.session,
+			`test-${uuidv4()}`,
 			context as WorkerContext,
 			makeContract('user'),
 			makeRequest(),
