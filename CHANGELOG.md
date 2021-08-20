@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.17 - 2021-08-20
+
+* Fix missing test session [Josh Bowling]
+* patch: Update dependency @types/jest to v27 [Renovate Bot]
+
 ## 1.11.16 - 2021-08-20
 
 * patch: Update dependency @balena/jellyfish-environment to v5 [Renovate Bot]

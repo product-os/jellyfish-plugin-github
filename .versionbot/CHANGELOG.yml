@@ -1,4 +1,25 @@
 - commits:
+    - subject: Fix missing test session
+      hash: 1a44a350a89562973770d2fed93fe97cfa98603b
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'patch: Update dependency @types/jest to v27'
+      hash: 69848686f61f50521e15730b406537f66f220b16
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.17
+  date: 2021-08-20T07:31:00.346Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-environment to v5'
       hash: 486546edb53ad09ca9afced38db7d7211e80850b
       body: |
