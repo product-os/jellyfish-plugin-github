@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.16 - 2021-08-20
+
+* patch: Update dependency @balena/jellyfish-environment to v5 [Renovate Bot]
+
 ## 1.11.15 - 2021-08-20
 
 * Only disable internal patch bumps [Josh Bowling]
