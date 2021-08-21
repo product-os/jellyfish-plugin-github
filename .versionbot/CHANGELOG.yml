@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency nock to ^13.1.2'
+      hash: 2c82e753c07ab95bd508424815e35ed8cd852110
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.28
+  date: 2021-08-21T03:04:17.189Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-default to v20'
       hash: 87252c411b21baafc5bf929d3b24c3e935ea24ac
       body: |
