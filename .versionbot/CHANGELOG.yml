@@ -1,4 +1,25 @@
 - commits:
+    - subject: Update files to use secrets
+      hash: d19ef19f9f72d872ca4d3dadefeb0e06b40afc3f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 9fee60d7d3fafca13ba1bcf80a62dde09368c29f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.37
+  date: 2021-08-24T06:30:35.561Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.22'
       hash: f07f3072dbf58ee018b815a2a4cd308ff22c1fc9
       body: ''
