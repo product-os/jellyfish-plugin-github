@@ -5,11 +5,10 @@ version: '2.1'
 
 services:
   sut:
+    image: balena/jellyfish-plugin-github_sut:latest
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        NPM_TOKEN: $NPM_TOKEN
     depends_on:
       - postgres
       - redis
@@ -28,7 +27,20 @@ services:
       - INTEGRATION_DEFAULT_USER=admin
       - CI=1
       - NPM_TOKEN
-    env_file:
-      - test.env
+    secrets:
+      - integration_github_app_id
+      - integration_github_private_key
+      - integration_github_signature_key
+      - integration_github_token
     networks:
       - internal
+
+secrets:
+  integration_github_app_id:
+    file: ./.balena/secrets/integration_github_app_id.txt
+  integration_github_private_key:
+    file: ./.balena/secrets/integration_github_private_key.txt
+  integration_github_signature_key:
+    file: ./.balena/secrets/integration_github_signature_key.txt
+  integration_github_token:
+    file: ./.balena/secrets/integration_github_token.txt

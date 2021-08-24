@@ -1,5 +1,15 @@
 version: '3'
 
+env:
+  INTEGRATION_GITHUB_APP_ID:
+    sh: cat /run/secrets/integration_github_app_id
+  INTEGRATION_GITHUB_PRIVATE_KEY:
+    sh: cat /run/secrets/integration_github_private_key
+  INTEGRATION_GITHUB_SIGNATURE_KEY:
+    sh: cat /run/secrets/integration_github_signature_key
+  INTEGRATION_GITHUB_TOKEN:
+    sh: cat /run/secrets/integration_github_token
+
 tasks:
   test:
     cmds:
