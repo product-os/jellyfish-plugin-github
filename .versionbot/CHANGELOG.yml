@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add data.mirrors indexes
+      hash: ec3b46d66de4e876c1b29b64cb516cba665c1adc
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.38
+  date: 2021-08-29T08:02:01.032Z
+- commits:
     - subject: Update files to use secrets
       hash: d19ef19f9f72d872ca4d3dadefeb0e06b40afc3f
       body: ''

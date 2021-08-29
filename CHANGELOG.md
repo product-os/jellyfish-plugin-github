@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.38 - 2021-08-29
+
+* Add data.mirrors indexes [Josh Bowling]
+
 ## 1.11.37 - 2021-08-24
 
 * Update files to use secrets [Josh Bowling]
