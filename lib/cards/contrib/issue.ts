@@ -112,6 +112,7 @@ export default function ({
 				},
 			},
 			slices: ['properties.data.properties.status'],
+			indexed_fields: [['data.mirrors']],
 		},
 	});
 }
