@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.39 - 2021-08-30
+
+* Ignore decrypted Front and Intercom secrets [Josh Bowling]
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 1.11.38 - 2021-08-29
 
 * Add data.mirrors indexes [Josh Bowling]

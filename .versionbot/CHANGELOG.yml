@@ -1,4 +1,25 @@
 - commits:
+    - subject: Ignore decrypted Front and Intercom secrets
+      hash: 613f76b8f7f13c80fcccfb74781e4c1fcfa871c8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: fc6188235f0b970fbae3d724845dea96b9845fe8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.39
+  date: 2021-08-30T02:32:10.906Z
+- commits:
     - subject: Add data.mirrors indexes
       hash: ec3b46d66de4e876c1b29b64cb516cba665c1adc
       body: ''
