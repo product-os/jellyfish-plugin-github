@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.41 - 2021-08-31
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.40 - 2021-08-31
 
 * Ignore decrypted Discourse secrets [Josh Bowling]
