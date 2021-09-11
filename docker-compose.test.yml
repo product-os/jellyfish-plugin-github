@@ -26,7 +26,8 @@ services:
       - OAUTH_REDIRECT_BASE_URL=https://jel.ly.fish
       - INTEGRATION_DEFAULT_USER=admin
       - CI=1
-      - NPM_TOKEN
+    env_file:
+      - test.env
     secrets:
       - integration_github_app_id
       - integration_github_private_key
