@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add issue link integration test
+      hash: a22a887e13dd94a4ba44340d8e8a4d34e4aed47c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.66
+  date: 2021-09-14T23:32:05.027Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-test-harness to ^7.2.1'
       hash: 3296e804f114495f92708db266ec4c5820b0ca03
       body: |
