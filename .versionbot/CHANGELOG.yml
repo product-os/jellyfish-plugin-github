@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add integration tests for mirror functionality
+      hash: eea5152fb2414a5188412d16a5c865c5895cee32
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.63
+  date: 2021-09-14T01:51:00.596Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-core to v6'
       hash: 68c7bb5698f00334076e953a632a0ff834ccdb89
       body: |

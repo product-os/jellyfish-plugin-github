@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.63 - 2021-09-14
+
+* Add integration tests for mirror functionality [Josh Bowling]
+
 ## 1.11.62 - 2021-09-13
 
 * patch: Update dependency @balena/jellyfish-core to v6 [Renovate Bot]
