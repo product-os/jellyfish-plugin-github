@@ -14,5 +14,4 @@ tasks:
   test:
     cmds:
       - node ./scripts/close-test-issues.js
-      - npm run test:mirror
-      - npm run test:translate
+      - npm run test:integration
