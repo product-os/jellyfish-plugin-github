@@ -63,7 +63,7 @@
   "devDependencies": {
     "@balena/jellycheck": "^0.1.3",
     "@balena/jellyfish-config": "^1.4.3",
-    "@balena/jellyfish-core": "^6.0.0",
+    "@balena/jellyfish-core": "^6.1.1",
     "@balena/jellyfish-environment": "^5.0.1",
     "@balena/jellyfish-plugin-default": "^21.0.3",
     "@balena/jellyfish-plugin-product-os": "^2.7.1",
@@ -87,7 +87,7 @@
     "typescript": "4.3.5"
   },
   "peerDependencies": {
-    "@balena/jellyfish-core": "^6.0.0",
+    "@balena/jellyfish-core": "^6.1.1",
     "@balena/jellyfish-environment": "^5.0.1",
     "@balena/jellyfish-plugin-default": "^21.0.3"
   },
