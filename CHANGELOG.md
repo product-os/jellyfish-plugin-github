@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.67 - 2021-09-15
+
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 1.11.66 - 2021-09-14
 
 * Add issue link integration test [Josh Bowling]

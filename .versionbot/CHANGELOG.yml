@@ -1,4 +1,15 @@
 - commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 803ad965112433d7bea5a55ef770667c1c4de206
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.67
+  date: 2021-09-15T05:44:50.936Z
+- commits:
     - subject: Add issue link integration test
       hash: a22a887e13dd94a4ba44340d8e8a4d34e4aed47c
       body: ''
