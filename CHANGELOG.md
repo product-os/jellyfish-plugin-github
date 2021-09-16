@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.73 - 2021-09-16
+
+* patch: Update dependency @balena/jellyfish-test-harness to ^7.4.0 [Renovate Bot]
+
 ## 1.11.72 - 2021-09-16
 
 * Add support-thread  triggered action tests [Josh Bowling]

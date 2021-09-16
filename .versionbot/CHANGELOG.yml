@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-test-harness to ^7.4.0'
+      hash: 32f009f088b7f4dcbbf0ebc91d35f6a6d47647ec
+      body: |
+        Update @balena/jellyfish-test-harness from 7.3.4 to 7.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.73
+  date: 2021-09-16T10:16:29.595Z
+- commits:
     - subject: Add support-thread  triggered action tests
       hash: 21a41f67e912be128ee66721a752a80530be22ce
       body: ''
