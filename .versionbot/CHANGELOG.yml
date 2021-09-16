@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add support-thread  triggered action tests
+      hash: 21a41f67e912be128ee66721a752a80530be22ce
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.72
+  date: 2021-09-16T04:26:51.008Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.55'
       hash: 2f51824efdbf54cfa744728e70ed147ca2cbd576
       body: ''

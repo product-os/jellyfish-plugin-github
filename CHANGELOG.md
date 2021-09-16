@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.72 - 2021-09-16
+
+* Add support-thread  triggered action tests [Josh Bowling]
+
 ## 1.11.71 - 2021-09-16
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.55 [Renovate Bot]
