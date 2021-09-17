@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.74 - 2021-09-17
+
+* fix underscores in PRs [Martin Rauscher]
+
 ## 1.11.73 - 2021-09-16
 
 * patch: Update dependency @balena/jellyfish-test-harness to ^7.4.0 [Renovate Bot]

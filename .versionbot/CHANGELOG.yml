@@ -1,4 +1,17 @@
 - commits:
+    - subject: fix underscores in PRs
+      hash: f977de0e2e5a9d28c5c10113071fa593a6feea78
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.74
+  date: 2021-09-17T14:18:19.882Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-test-harness to ^7.4.0'
       hash: 32f009f088b7f4dcbbf0ebc91d35f6a6d47647ec
       body: |
