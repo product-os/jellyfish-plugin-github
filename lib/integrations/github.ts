@@ -46,6 +46,8 @@ const withoutPrefix = (body?: string) => {
 	return body?.replace(PREFIX_RE, '');
 };
 
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9-]/g, '-');
+
 async function githubRequest(
 	fn: any,
 	arg: any,
@@ -206,7 +208,7 @@ async function getCommentFromEvent(
 		),
 		makeCard(
 			{
-				slug: `link-${slug}-is-attached-to-${options.targetCard.slug}`,
+				slug: slugify(`link-${slug}-is-attached-to-${options.targetCard.slug}`),
 				type: 'link@1.0.0',
 				name: 'is attached to',
 				data: {
@@ -672,7 +674,7 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 		const owner = repo.owner.login;
 		const name = repo.name;
-		const repoSlug = `repository-${owner}-${name}`.toLowerCase();
+		const repoSlug = slugify(`repository-${owner}-${name}`);
 		const repoCard: ContractDefinition = {
 			name: `${owner}/${name}`,
 			slug: repoSlug,
@@ -723,7 +725,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const pr: ContractDefinition = {
 			name: root.title,
-			slug: `pull-request-${normaliseRootID(root.node_id)}`,
+			slug: slugify(`pull-request-${normaliseRootID(root.node_id)}`),
 			type,
 			tags: root.labels.map((label: any) => {
 				return label.name;
@@ -869,9 +871,8 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					name: 'has head at',
-					slug: `link-${contractsToCreate[0].card.slug}-head-at-${head.repoInfo.slug}`.replace(
-						/[@.]/g,
-						'-',
+					slug: slugify(
+						`link-${contractsToCreate[0].card.slug}-head-at-${head.repoInfo.slug}`,
 					),
 					type: 'link@1.0.0',
 					data: {
@@ -892,9 +893,8 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					name: 'has base at',
-					slug: `link-${contractsToCreate[0].card.slug}-base-at-${base.repoInfo.slug}`.replace(
-						/[@.]/g,
-						'-',
+					slug: slugify(
+						`link-${contractsToCreate[0].card.slug}-base-at-${base.repoInfo.slug}`,
 					),
 					type: 'link@1.0.0',
 					data: {
@@ -946,7 +946,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const issue: ContractDefinition = {
 			name: root.title,
-			slug: `issue-${normaliseRootID(root.node_id)}`,
+			slug: slugify(`issue-${normaliseRootID(root.node_id)}`),
 			type,
 			tags: root.labels.map((label: any) => {
 				return label.name;
@@ -1210,7 +1210,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const beforeSHA = event.data.payload.before;
 		const afterSHA = event.data.payload.after;
 
-		const pushSlug = `gh-push-from-${beforeSHA}-to-${afterSHA}`;
+		const pushSlug = slugify(`gh-push-from-${beforeSHA}-to-${afterSHA}`);
 		const push = await this.context.getElementBySlug(`${pushSlug}@latest`);
 
 		if (push) {
@@ -1253,10 +1253,7 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					name: 'refers to',
-					slug: `link-gh-push-${afterSHA}-to-${repo.repoInfo.slug.replace(
-						/_/g,
-						'-',
-					)}`,
+					slug: slugify(`link-gh-push-${afterSHA}-to-${repo.repoInfo.slug}`),
 					type: 'link@1.0.0',
 					data: {
 						inverseName: 'is referenced by',
@@ -1653,7 +1650,7 @@ module.exports = class GitHubIntegration implements Integration {
 				makeCard(
 					{
 						slug: {
-							$eval: `'commit-${headSha}-' + cards[0].slug`,
+							$eval: `'commit-${slugify(headSha)}-' + cards[0].slug`,
 						},
 						name: `Commit ${headShaShort} for PR ${pullRequestContract.name}`,
 						type: 'commit@1.0.0',
@@ -1664,7 +1661,7 @@ module.exports = class GitHubIntegration implements Integration {
 							ssh_url: pullRequestContract.data.ssh_url,
 							contract: sourceContract,
 							$transformer: {
-								artifactReady: true,
+								artifactReady: true, // TODO NO!
 							},
 						},
 					},
@@ -1677,7 +1674,7 @@ module.exports = class GitHubIntegration implements Integration {
 		sequence.push(
 			makeCard(
 				{
-					slug: `link-commit-pr-${headSha}-${sequence[0].card.slug}`,
+					slug: slugify(`link-commit-pr-${headSha}-${sequence[0].card.slug}`),
 					type: 'link@1.0.0',
 					name: 'is attached to PR',
 					data: {
@@ -1707,7 +1704,7 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 
 		// Create a check run for the commit
-		const checkRunSlug = `check-run-${headSha}`;
+		const checkRunSlug = slugify(`check-run-${headSha}`);
 		const checkRunCardIdx =
 			sequence.push(
 				makeCard(
@@ -1736,7 +1733,9 @@ module.exports = class GitHubIntegration implements Integration {
 			makeCard(
 				{
 					slug: {
-						$eval: `'link-commit-check-run-${headSha}-' + cards[${commitCardIdx}].id`,
+						$eval: `'link-commit-check-run-${slugify(
+							headSha,
+						)}-' + cards[${commitCardIdx}].id`,
 					},
 					type: 'link@1.0.0',
 					name: 'has attached check run',
