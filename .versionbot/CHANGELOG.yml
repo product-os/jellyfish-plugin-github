@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: a87f2c57d66b19c3f4248bbe1f827f90b6895816
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.75
+  date: 2021-09-18T04:03:20.013Z
+- commits:
     - subject: fix underscores in PRs
       hash: f977de0e2e5a9d28c5c10113071fa593a6feea78
       body: ''

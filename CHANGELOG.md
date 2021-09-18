@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.75 - 2021-09-18
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.74 - 2021-09-17
 
 * fix underscores in PRs [Martin Rauscher]
