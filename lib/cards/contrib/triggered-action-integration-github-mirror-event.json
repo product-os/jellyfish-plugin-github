@@ -19,6 +19,12 @@
             "pull-request@1.0.0",
             "check-run@1.0.0"
           ]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "data": {
+          "type": "object"
         }
       }
     },
