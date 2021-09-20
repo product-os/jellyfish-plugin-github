@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.78 - 2021-09-20
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.77 - 2021-09-20
 
 * patch: Update dependency @balena/jellyfish-types to ^1.2.0 [Renovate Bot]
