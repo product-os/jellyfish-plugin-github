@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.79 - 2021-09-20
+
+* ensure new triggered-action logic triggers [Martin Rauscher]
+
 ## 1.11.78 - 2021-09-20
 
 * patch: Update internal-patch [Renovate Bot]

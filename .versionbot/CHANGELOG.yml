@@ -1,4 +1,17 @@
 - commits:
+    - subject: ensure new triggered-action logic triggers
+      hash: 18eacf102da59eb4f58c589c2ed6d0535fc29e2c
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.79
+  date: 2021-09-20T12:46:02.196Z
+- commits:
     - subject: 'patch: Update internal-patch'
       hash: bc75fc8c133ae7995266ffb374ae799fb60951a6
       body: ''
