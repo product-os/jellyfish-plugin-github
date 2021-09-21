@@ -66,7 +66,7 @@
     "@balena/jellyfish-environment": "^5.0.1",
     "@balena/jellyfish-plugin-default": "^21.1.0",
     "@balena/jellyfish-plugin-product-os": "^2.7.1",
-    "@balena/jellyfish-test-harness": "^7.4.0",
+    "@balena/jellyfish-test-harness": "7.5.0-add-action-test-originator-9c87b3726e54c4aa8b37e5a45e1d395d2f892b1f",
     "@balena/jellyfish-types": "^1.2.0",
     "@balena/lint": "^6.1.1",
     "@types/bluebird": "^3.5.36",
