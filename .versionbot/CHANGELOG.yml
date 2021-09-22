@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 314168bcb96d5b34949606ee3b0156b80c84de9a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.80
+  date: 2021-09-22T07:38:10.981Z
+- commits:
     - subject: ensure new triggered-action logic triggers
       hash: 18eacf102da59eb4f58c589c2ed6d0535fc29e2c
       body: ''
