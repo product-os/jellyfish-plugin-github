@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.88 - 2021-09-26
+
+* Ignore decrypted mailgun and meet secrets [Josh Bowling]
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 1.11.87 - 2021-09-26
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.75 [Renovate Bot]

@@ -1,4 +1,25 @@
 - commits:
+    - subject: Ignore decrypted mailgun and meet secrets
+      hash: 63fa4ddbfaee99c0c2ee9051ae7838e85b4a5bad
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 60775ca45c1ec2bfd1204a9758f5b987a31c125d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.88
+  date: 2021-09-26T07:09:15.542Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.75'
       hash: 03b45f613a0cce7a57dda45f0903439b169c3aeb
       body: ''
