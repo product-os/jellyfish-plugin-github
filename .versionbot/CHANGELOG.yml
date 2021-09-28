@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.76'
+      hash: 87938e90a6bab5e719f84a844a5f8fd4a79d3a92
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.89
+  date: 2021-09-28T02:28:09.551Z
+- commits:
     - subject: Ignore decrypted mailgun and meet secrets
       hash: 63fa4ddbfaee99c0c2ee9051ae7838e85b4a5bad
       body: ''
