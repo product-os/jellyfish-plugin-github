@@ -632,7 +632,7 @@ module.exports = class GitHubIntegration implements Integration {
 						this.options,
 					);
 				}
-			} catch (error) {
+			} catch (error: any) {
 				if (error.name === 'HttpError' && error.status === 404) {
 					return [
 						makeCard(
