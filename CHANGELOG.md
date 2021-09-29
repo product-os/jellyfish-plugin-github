@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.92 - 2021-09-29
+
+* Give error any type [Josh Bowling]
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.11.91 - 2021-09-29
 
 * Bump typedoc to v0.22.4 [Josh Bowling]

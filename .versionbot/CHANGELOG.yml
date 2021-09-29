@@ -1,4 +1,25 @@
 - commits:
+    - subject: Give error any type
+      hash: 19239a4a84e2b4bc067ca816cff18d90693200da
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'patch: Update external-non-major'
+      hash: 58cc056cc97168d290067142a403b47f56d1f09d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.92
+  date: 2021-09-29T02:32:30.013Z
+- commits:
     - subject: Bump typedoc to v0.22.4
       hash: 8dadee6ba45955c439206c35f85065d50bde4c16
       body: ''
