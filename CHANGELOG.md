@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.90 - 2021-09-29
+
+* Bump date-fns to v2.24.0 [Josh Bowling]
+
 ## 1.11.89 - 2021-09-28
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.76 [Renovate Bot]

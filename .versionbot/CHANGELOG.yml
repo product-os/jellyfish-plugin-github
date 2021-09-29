@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump date-fns to v2.24.0
+      hash: 9d283c8a13491ae15529f771fa10454dfb53743a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.90
+  date: 2021-09-29T01:22:59.394Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.76'
       hash: 87938e90a6bab5e719f84a844a5f8fd4a79d3a92
       body: ''
