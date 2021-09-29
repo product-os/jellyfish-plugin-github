@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump typedoc to v0.22.4
+      hash: 8dadee6ba45955c439206c35f85065d50bde4c16
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.91
+  date: 2021-09-29T01:50:19.156Z
+- commits:
     - subject: Bump date-fns to v2.24.0
       hash: 9d283c8a13491ae15529f771fa10454dfb53743a
       body: ''
