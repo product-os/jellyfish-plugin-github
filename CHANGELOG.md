@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.100 - 2021-10-04
+
+* Update test:compose to match image name [Josh Bowling]
+* 🔄 Synced file(s) with product-os/jellyfish-config [joshbwlng]
+
 ## 1.11.99 - 2021-10-03
 
 * patch: Update dependency @balena/jellyfish-config to ^1.5.1 [Renovate Bot]
