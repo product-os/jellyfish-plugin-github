@@ -31,9 +31,7 @@
       "merged_at": null,
       "closed_at": null,
       "contract": null,
-      "$transformer": {
-        "artifactReady": "70b9a5f59ebf35cff5265f30c8b33ecae15ddad5"
-      }
+      "$transformer": {}
     }
   },
   "tail": [
@@ -81,9 +79,7 @@
             "merged_at": null,
             "closed_at": null,
             "contract": null,
-            "$transformer": {
-              "artifactReady": "7792c35b172a6ee7b155c471a36c3cda1ef649f6"
-            }
+            "$transformer": {}
           },
           "type": "pull-request@1.0.0"
         }
@@ -104,11 +100,6 @@
           "slug": "user-nazrhom"
         },
         "payload": [
-          {
-            "op": "replace",
-            "path": "/data/$transformer/artifactReady",
-            "value": "70b9a5f59ebf35cff5265f30c8b33ecae15ddad5"
-          },
           {
             "op": "replace",
             "path": "/data/head/sha",

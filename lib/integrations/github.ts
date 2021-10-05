@@ -744,9 +744,7 @@ module.exports = class GitHubIntegration implements Integration {
 					closed_at: pullRequest.closed_at,
 					merged_at: pullRequest.merged_at,
 					contract: contractData,
-					$transformer: {
-						artifactReady: prData.head.sha,
-					},
+					$transformer: {},
 				},
 				prData,
 			),
@@ -1660,9 +1658,7 @@ module.exports = class GitHubIntegration implements Integration {
 							head: pullRequestContract.data.head,
 							ssh_url: pullRequestContract.data.ssh_url,
 							contract: sourceContract,
-							$transformer: {
-								artifactReady: true, // TODO NO!
-							},
+							$transformer: {},
 						},
 					},
 					actor,

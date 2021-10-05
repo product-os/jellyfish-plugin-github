@@ -31,9 +31,7 @@
       "merged_at": null,
       "closed_at": "2018-12-18T10:34:55Z",
       "contract": null,
-      "$transformer": {
-        "artifactReady": "61c13a539195aece8506f4f7eb1c01765e935891"
-      }
+      "$transformer": {}
     }
   },
   "tail": [
@@ -81,9 +79,7 @@
             "merged_at": null,
             "closed_at": null,
             "contract": null,
-            "$transformer": {
-              "artifactReady": "61c13a539195aece8506f4f7eb1c01765e935891"
-            }
+            "$transformer": {}
           },
           "type": "pull-request@1.0.0"
         }
