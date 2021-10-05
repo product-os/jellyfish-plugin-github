@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.102 - 2021-10-05
+
+* Do no set artifactReady [Stathis]
+
 ## 1.11.101 - 2021-10-05
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.82 [Renovate Bot]

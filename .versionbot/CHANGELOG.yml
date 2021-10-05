@@ -1,4 +1,17 @@
 - commits:
+    - subject: Do no set artifactReady
+      hash: f7748ca72fb4b76d409a8bf1436ff4a42da33571
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Stathis Moraitidis <stathis@balena.io>
+        signed-off-by: Stathis Moraitidis <stathis@balena.io>
+      author: Stathis
+      nested: []
+  version: 1.11.102
+  date: 2021-10-05T09:31:16.248Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.82'
       hash: b4586eee68368d4daa67de944b4839d2d7a9e686
       body: ''
