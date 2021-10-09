@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.86'
+      hash: 6fd8cc870192525f8e17fb3becb7700acd9243fa
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.108
+  date: 2021-10-09T04:50:29.064Z
+- commits:
     - subject: 'patch: Update dependency lint-staged to ^11.2.1'
       hash: 974ecdd71356aa6a1e646171598c1696846a5a03
       body: ''
