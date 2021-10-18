@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.117 - 2021-10-18
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.11.116 - 2021-10-18
 
 * 🔄 Synced file(s) with product-os/secrets [joshbwlng]
