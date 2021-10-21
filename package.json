@@ -33,7 +33,7 @@
   "scripts": {
     "clean": "rimraf build",
     "build": "npm run clean && tsc -p tsconfig.build.json",
-    "lint": "balena-lint lib test && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest,typedoc",
+    "lint": "balena-lint lib test && npm run check && deplint && depcheck --ignore-bin-package --ignores=@types/jest,typedoc && npm run types",
     "lint:fix": "balena-lint --fix lib test",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest test/unit",
@@ -42,7 +42,8 @@
     "doc": "typedoc lib/ && touch docs/.nojekyll",
     "prepack": "npm run build",
     "check": "jellycheck",
-    "compose": "docker-compose up"
+    "compose": "docker-compose up",
+    "types": "npx gen-card-types ./lib/cards/index.ts && balena-lint --fix ./lib/cards/types.ts"
   },
   "author": "Balena.io. <hello@balena.io>",
   "license": "UNLICENSED",
