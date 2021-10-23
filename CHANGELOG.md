@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.124 - 2021-10-23
+
+* patch: Update external-non-major [Renovate Bot]
+
 ## 1.11.123 - 2021-10-23
 
 * patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.250 [Renovate Bot]
