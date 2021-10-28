@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.130 - 2021-10-28
+
+* Use named variables for exports [Josh Bowling]
+
 ## 1.11.129 - 2021-10-24
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.104 [Renovate Bot]
