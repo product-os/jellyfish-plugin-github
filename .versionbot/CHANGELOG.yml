@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: 78baf60f4ebb9e657ad9ca7b9ea17588d1f57430
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.131
+  date: 2021-10-28T05:33:19.669Z
+- commits:
     - subject: Use named variables for exports
       hash: 8bb872912b2e939603468dcfbc0b8ddfcfe61ef0
       body: ''
