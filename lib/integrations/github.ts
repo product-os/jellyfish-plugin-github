@@ -722,9 +722,8 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const pullRequest =
 			event.data.payload.pull_request || event.data.payload.issue.pull_request;
-
 		const pr: ContractDefinition = {
-			name: root.title,
+			name: (root.title || '').trim(),
 			slug: slugify(`pull-request-${normaliseRootID(root.node_id)}`),
 			type,
 			tags: root.labels.map((label: any) => {
@@ -943,7 +942,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const type = 'issue@1.0.0';
 
 		const issue: ContractDefinition = {
-			name: root.title,
+			name: (root.title || '').trim(),
 			slug: slugify(`issue-${normaliseRootID(root.node_id)}`),
 			type,
 			tags: root.labels.map((label: any) => {
