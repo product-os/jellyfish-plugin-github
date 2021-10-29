@@ -1,4 +1,19 @@
 - commits:
+    - subject: trim PR/issue titles
+      hash: 7c7053feb6adcf0259192905913ca4257fffd124
+      body: |
+        this fixes issues with PRs created with github.dev which always
+        have a '\r' and the end
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.134
+  date: 2021-10-29T14:29:17.566Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.257'
       hash: b3650d4e0f58e5ecd3351bb143940fdb54d21c88
       body: ''
