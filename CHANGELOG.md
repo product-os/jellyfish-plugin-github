@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.135 - 2021-10-30
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.134 - 2021-10-29
 
 * trim PR/issue titles [Martin Rauscher]
