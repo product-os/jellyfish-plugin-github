@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major'
+      hash: a6e8dcf6f2f052785d9601c1ac143b4daedc9fb1
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.147
+  date: 2021-11-10T00:22:29.076Z
+- commits:
     - subject: "\U0001F504 Synced file(s) with product-os/jellyfish-config"
       hash: 1629e354a547ebee7729bafa9a8bca1be6c7bd9a
       body: ''
