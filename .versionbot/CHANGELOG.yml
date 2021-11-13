@@ -1,4 +1,25 @@
 - commits:
+    - subject: Update secrets
+      hash: db35249ceccb1649269bb33133790fe1284d94ad
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 0537ae4b0e8cf2ec480722a966c8ccd9133fd877
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.156
+  date: 2021-11-13T10:36:54.181Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.272'
       hash: 1eef2018e131e2e4d784975d560bb6689c9b8662
       body: ''
