@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.152 - 2021-11-13
+
+* patch: Update dependency nock to ^13.2.1 [Renovate Bot]
+
 ## 1.11.151 - 2021-11-12
 
 * patch: Update internal-patch [Renovate Bot]
