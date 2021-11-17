@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.157 - 2021-11-17
+
+* Set license [Josh Bowling]
+
 ## 1.11.156 - 2021-11-13
 
 * Update secrets [Josh Bowling]
