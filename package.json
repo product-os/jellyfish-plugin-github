@@ -47,9 +47,9 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-action-library": "^15.1.119",
-    "@balena/jellyfish-assert": "^1.1.73",
-    "@balena/jellyfish-plugin-base": "^2.1.272",
+    "@balena/jellyfish-action-library": "^15.1.123",
+    "@balena/jellyfish-assert": "^1.1.80",
+    "@balena/jellyfish-plugin-base": "^2.1.285",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
@@ -60,7 +60,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@balena/jellycheck": "^0.1.5",
+    "@balena/jellycheck": "^0.1.8",
     "@balena/jellyfish-config": "^1.5.1",
     "@balena/jellyfish-core": "^8.0.1",
     "@balena/jellyfish-environment": "^5.1.0",
