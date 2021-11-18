@@ -5,6 +5,13 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.160 - 2021-11-18
+
+* Add tslint to depcheck ignore list [Josh Bowling]
+* Increase jest timeout [Josh Bowling]
+* Update compose, remove old secrets [Josh Bowling]
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 1.11.159 - 2021-11-17
 
 * patch: Update dependency lint-staged to v12 [Renovate Bot]

@@ -1,4 +1,45 @@
 - commits:
+    - subject: Add tslint to depcheck ignore list
+      hash: 3460204f6d51fb8636fcc2af9b07932fef1dea07
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: Increase jest timeout
+      hash: 7182ecbb5d5319656b4a3d3e306adeeea71b4d24
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'Update compose, remove old secrets'
+      hash: 55586a537e2bdcd1ec600aa1745d8b5e5352577f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 5b66b9eb11c3df7b0e7dcd90764f4c0c3200a944
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.160
+  date: 2021-11-18T03:14:51.539Z
+- commits:
     - subject: 'patch: Update dependency lint-staged to v12'
       hash: 908046c6a62f15285d2de68469a7f2c66d06324d
       body: ''
