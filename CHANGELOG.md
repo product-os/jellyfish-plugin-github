@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.161 - 2021-11-18
+
+* patch: Update dependency @balena/jellyfish-action-library to ^15.1.124 [Renovate Bot]
+
 ## 1.11.160 - 2021-11-18
 
 * Add tslint to depcheck ignore list [Josh Bowling]

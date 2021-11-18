@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.124'
+      hash: 0eb52082bcd530a4bbe9e917056f4d5e8164f152
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.161
+  date: 2021-11-18T08:42:55.515Z
+- commits:
     - subject: Add tslint to depcheck ignore list
       hash: 3460204f6d51fb8636fcc2af9b07932fef1dea07
       body: ''
