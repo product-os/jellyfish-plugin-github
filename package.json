@@ -60,7 +60,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@balena/jellycheck": "^0.1.8",
+    "@balena/jellycheck": "^1.0.0",
     "@balena/jellyfish-config": "^1.5.1",
     "@balena/jellyfish-core": "^8.1.0",
     "@balena/jellyfish-environment": "^5.1.0",
