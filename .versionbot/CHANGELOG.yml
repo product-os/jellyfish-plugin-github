@@ -1,4 +1,16 @@
 - commits:
+    - subject: 'patch: Update dependency @balena/jellycheck to v1'
+      hash: f2b03ac8fa93d9e6500a671a49c2eb74e925db8e
+      body: |
+        Update @balena/jellycheck from 0.1.8 to 1.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.164
+  date: 2021-11-20T01:36:00.012Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.126'
       hash: 0fbc1bf2daf243ea0cadadf4af664d7eeb1fefe4
       body: ''
