@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.166 - 2021-11-22
+
+* patch: Update internal-patch [Renovate Bot]
+* Remove license headers [Josh Bowling]
+
 ## 1.11.165 - 2021-11-20
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.128 [Renovate Bot]

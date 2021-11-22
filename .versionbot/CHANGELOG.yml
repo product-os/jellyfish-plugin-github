@@ -1,4 +1,25 @@
 - commits:
+    - subject: 'patch: Update internal-patch'
+      hash: df33356db958bd10c8dd1f2fdfa2698a7dec24a2
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Remove license headers
+      hash: f4cf1be76aa8daa2f5b8d07b7316371f8a05a869
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.166
+  date: 2021-11-22T00:01:28.186Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.128'
       hash: e6f36bca2156581a70c0fcb9b2a23fbadb96dc09
       body: ''
