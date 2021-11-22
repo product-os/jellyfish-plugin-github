@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.168 - 2021-11-22
+
+* patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.290 [Renovate Bot]
+* Bump external deps [Josh Bowling]
+
 ## 1.11.167 - 2021-11-22
 
 * patch: Update internal-patch [Renovate Bot]
