@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.172 - 2021-11-23
+
+* patch: Update dependency lint-staged to ^12.1.2 [Renovate Bot]
+
 ## 1.11.171 - 2021-11-23
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.137 [Renovate Bot]
