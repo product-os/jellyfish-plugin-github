@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.177 - 2021-11-24
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.176 - 2021-11-24
 
 * patch: Update internal-patch [Renovate Bot]
