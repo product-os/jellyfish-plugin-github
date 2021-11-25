@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.182 - 2021-11-25
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.181 - 2021-11-25
 
 * Remove jellycheck [Josh Bowling]
