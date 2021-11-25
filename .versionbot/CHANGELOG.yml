@@ -1,4 +1,17 @@
 - commits:
+    - subject: Remove jellycheck
+      hash: 6ae1a30056fc98918887a1f2f53066544d65b0ac
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.181
+  date: 2021-11-25T02:56:32.634Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.144'
       hash: c0bccadf1aca5fda03831b1d63357f409a1eaa5f
       body: ''
