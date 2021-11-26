@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.188 - 2021-11-26
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.187 - 2021-11-26
 
 * Use product-os/renovate-config [Josh Bowling]
