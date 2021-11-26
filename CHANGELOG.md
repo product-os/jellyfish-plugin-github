@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.187 - 2021-11-26
+
+* Use product-os/renovate-config [Josh Bowling]
+
 ## 1.11.186 - 2021-11-25
 
 * patch: Update dependency typescript to v4.5.2 [Renovate Bot]
