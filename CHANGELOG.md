@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.195 - 2021-11-27
+
+* patch: Update internal-patch [Renovate Bot]
+
 ## 1.11.194 - 2021-11-27
 
 * patch: Update external-non-major Docker tags [Renovate Bot]
