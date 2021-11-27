@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major Docker tags'
+      hash: 4978b178ba662347eaac6502caca8955b22e38e4
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.194
+  date: 2021-11-27T01:45:02.661Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.156'
       hash: fc2e0d27290f89357b4665b80257dbceee7daefd
       body: ''

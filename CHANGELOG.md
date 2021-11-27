@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.194 - 2021-11-27
+
+* patch: Update external-non-major Docker tags [Renovate Bot]
+
 ## 1.11.193 - 2021-11-26
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.156 [Renovate Bot]
