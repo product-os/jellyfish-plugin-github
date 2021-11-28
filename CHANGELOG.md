@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.199 - 2021-11-28
+
+* Remove old sync comments [Josh Bowling]
+* patch: Update internal-patch [Renovate Bot]
+* patch: Update dependency @balena/jellyfish-config to v2 [Renovate Bot]
+
 ## 1.11.198 - 2021-11-27
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.159 [Renovate Bot]
