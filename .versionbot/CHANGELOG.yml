@@ -1,4 +1,25 @@
 - commits:
+    - subject: Remove old secrets from gitignore
+      hash: 6c38cc54c614a164bf1d8dcde5dcd360cc90b4cd
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: 54dfe2056b37b1d3af28cdf49bf01246c98e4dc8
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.204
+  date: 2021-12-01T07:30:50.861Z
+- commits:
     - subject: "\U0001F504 Synced file(s) with product-os/secrets"
       hash: fd52bd26528b90d85bb003daef141678229a998d
       body: ''
