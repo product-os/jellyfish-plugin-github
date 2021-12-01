@@ -1,4 +1,15 @@
 - commits:
+    - subject: "\U0001F504 Synced file(s) with product-os/secrets"
+      hash: fd52bd26528b90d85bb003daef141678229a998d
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 1.11.203
+  date: 2021-12-01T00:31:19.675Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.163'
       hash: 5385b8f8e35b540c7c878d761437743cb766d383
       body: ''
