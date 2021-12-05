@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.222 - 2021-12-05
+
+* patch: Update dependency @balena/jellyfish-assert to ^1.1.101 [Renovate Bot]
+
 ## 1.11.221 - 2021-12-05
 
 * patch: Update internal-patch [Renovate Bot]
