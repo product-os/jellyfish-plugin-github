@@ -63,7 +63,7 @@
     "@balena/jellyfish-core": "^8.1.0",
     "@balena/jellyfish-environment": "^5.2.0",
     "@balena/jellyfish-plugin-default": "^21.1.0",
-    "@balena/jellyfish-plugin-product-os": "^2.8.0",
+    "@balena/jellyfish-plugin-product-os": "^2.9.0",
     "@balena/jellyfish-test-harness": "^8.1.6",
     "@balena/jellyfish-types": "^1.2.0",
     "@balena/lint": "^6.2.0",
