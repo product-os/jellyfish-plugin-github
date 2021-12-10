@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.233 - 2021-12-10
+
+* patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.321 [Renovate Bot]
+
 ## 1.11.232 - 2021-12-09
 
 * patch: Update dependency typescript to v4.5.3 [Renovate Bot]
