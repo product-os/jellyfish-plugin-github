@@ -10,7 +10,6 @@ import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
 import { Octokit as OctokitRest } from '@octokit/rest';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
-import Bluebird from 'bluebird';
 import crypto from 'crypto';
 import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
@@ -68,7 +67,9 @@ async function githubRequest(
 			retries,
 		});
 
-		await Bluebird.delay(5000);
+		await new Promise((resolve) => {
+			setTimeout(resolve, 5000);
+		});
 		return githubRequest(fn, arg, options, retries - 1);
 	}
 
@@ -239,11 +240,11 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async initialize() {
-		return Bluebird.resolve();
+		return Promise.resolve();
 	}
 
 	async destroy() {
-		return Bluebird.resolve();
+		return Promise.resolve();
 	}
 
 	async getOctokit(
@@ -1831,12 +1832,12 @@ module.exports = class GitHubIntegration implements Integration {
 			root.number,
 		);
 
-		return Bluebird.reduce(
-			response,
-			async (accumulator: any[], payload: any) => {
+		return response.reduce(
+			async (accumulator: Promise<any[]>, payload: any) => {
+				const previous = await accumulator;
 				const mirrorId = payload.html_url;
 				if (mirrorBlacklist.includes(mirrorId)) {
-					return accumulator;
+					return previous;
 				}
 
 				const date = new Date(payload.updated_at);
@@ -1866,12 +1867,11 @@ module.exports = class GitHubIntegration implements Integration {
 				if (card) {
 					comment.id = card.id;
 				}
-
-				return accumulator.concat([
+				return previous.concat([
 					makeCard(comment, options.actor, payload.updated_at),
 				]);
 			},
-			[],
+			Promise.resolve([]),
 		);
 	}
 

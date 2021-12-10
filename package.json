@@ -53,7 +53,6 @@
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
     "@octokit/rest": "^18.12.0",
-    "bluebird": "^3.7.2",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^1.10.2"
@@ -67,7 +66,6 @@
     "@balena/jellyfish-test-harness": "^8.1.189",
     "@balena/jellyfish-types": "^1.2.39",
     "@balena/lint": "^6.2.0",
-    "@types/bluebird": "^3.5.36",
     "@types/jest": "^27.0.3",
     "@types/uuid": "^8.3.3",
     "date-fns": "^2.27.0",
