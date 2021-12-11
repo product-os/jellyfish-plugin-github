@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump internal dependencies
+      hash: 8f82adc3104a2fed700e64038d44c2cdf0ce551a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.234
+  date: 2021-12-11T03:09:28.419Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-plugin-base to ^2.1.321'
       hash: 15026151897ab3e52f45d4efa92c6b17adfac575
       body: ''
