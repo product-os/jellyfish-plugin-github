@@ -42,12 +42,8 @@ export default function ({
 			uiSchema: {
 				fields: {
 					data: {
-						git_url: {
-							$ref: uiSchemaDef('externalUrl'),
-						},
-						html_url: {
-							$ref: uiSchemaDef('externalUrl'),
-						},
+						git_url: uiSchemaDef('externalUrl'),
+						html_url: uiSchemaDef('externalUrl'),
 					},
 				},
 			},

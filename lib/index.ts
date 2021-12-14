@@ -1,5 +1,4 @@
 import { JellyfishPluginBase } from '@balena/jellyfish-plugin-base';
-import { cardMixins } from '@balena/jellyfish-plugin-default';
 import { actions } from './actions';
 import { cards } from './cards';
 import integrations from './integrations';
@@ -15,7 +14,6 @@ export class GitHubPlugin extends JellyfishPluginBase {
 			version: '1.0.0',
 			actions,
 			cards,
-			mixins: cardMixins,
 			integrations,
 			requires: [
 				{

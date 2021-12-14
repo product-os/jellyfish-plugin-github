@@ -65,15 +65,11 @@ export default function ({
 							'status',
 							'archived',
 						],
-						mirrors: {
-							$ref: uiSchemaDef('mirrors'),
-						},
+						mirrors: uiSchemaDef('mirrors'),
 						status: {
 							'ui:widget': 'Badge',
 						},
-						repository: {
-							$ref: uiSchemaDef('repository'),
-						},
+						repository: uiSchemaDef('repository'),
 						archived: {
 							'ui:title': null,
 							'ui:widget': 'Badge',

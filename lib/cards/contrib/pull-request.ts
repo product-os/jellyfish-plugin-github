@@ -99,9 +99,7 @@ export default function ({
 							'created_at',
 							'merged_at',
 						],
-						mirrors: {
-							$ref: uiSchemaDef('mirrors'),
-						},
+						mirrors: uiSchemaDef('mirrors'),
 						status: {
 							'ui:widget': 'Badge',
 						},
@@ -114,9 +112,7 @@ export default function ({
 								else: null,
 							},
 						},
-						repository: {
-							$ref: uiSchemaDef('repository'),
-						},
+						repository: uiSchemaDef('repository'),
 						base: {
 							sha: null,
 							branch: {
