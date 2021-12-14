@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.238 - 2021-12-14
+
+* Drop depcheck, bump typescript [Josh Bowling]
+
 ## 1.11.237 - 2021-12-13
 
 * patch: Update external-non-major [Renovate Bot]

@@ -1,4 +1,17 @@
 - commits:
+    - subject: 'Drop depcheck, bump typescript'
+      hash: 2afad733e188f2ae6909edba589a25e84478fe1f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.238
+  date: 2021-12-14T03:07:32.046Z
+- commits:
     - subject: 'patch: Update external-non-major'
       hash: fb84853899e4129293249666b1297c4a8524532a
       body: ''
