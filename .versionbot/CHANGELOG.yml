@@ -1,4 +1,17 @@
 - commits:
+    - subject: log if GH app is not installed in org
+      hash: 82edbb7c47831308fa67ab1990c98bfea38ac6e5
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.245
+  date: 2021-12-15T11:01:05.079Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^15.1.196'
       hash: adfb64f8279beae7d2534b6d40edaf629547c1c8
       body: ''

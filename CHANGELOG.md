@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.245 - 2021-12-15
+
+* log if GH app is not installed in org [Martin Rauscher]
+
 ## 1.11.244 - 2021-12-15
 
 * patch: Update dependency @balena/jellyfish-action-library to ^15.1.196 [Renovate Bot]
