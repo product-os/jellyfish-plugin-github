@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.246 - 2021-12-15
+
+* Use built-in mixins from plugin base [Lucian Buzzo]
+
 ## 1.11.245 - 2021-12-15
 
 * log if GH app is not installed in org [Martin Rauscher]

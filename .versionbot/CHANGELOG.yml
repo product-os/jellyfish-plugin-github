@@ -1,4 +1,17 @@
 - commits:
+    - subject: Use built-in mixins from plugin base
+      hash: 386cf78ece9b777328ac740d9dfadffc6c3928f0
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 1.11.246
+  date: 2021-12-15T14:10:05.487Z
+- commits:
     - subject: log if GH app is not installed in org
       hash: 82edbb7c47831308fa67ab1990c98bfea38ac6e5
       body: ''
