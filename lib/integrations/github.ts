@@ -9,6 +9,7 @@ import { createAppAuth } from '@octokit/auth-app';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
 import { Octokit as OctokitRest } from '@octokit/rest';
+import { OctokitResponse } from '@octokit/types';
 import type { Octokit as OctokitInstance } from '@octokit/rest';
 import crypto from 'crypto';
 import _ from 'lodash';
@@ -35,18 +36,18 @@ interface Eval {
 	$eval: string;
 }
 
-const withoutPrefix = (body?: string) => {
+const withoutPrefix = (body?: string | null) => {
 	return body?.replace(PREFIX_RE, '');
 };
 
 const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9-]/g, '-');
 
-async function githubRequest(
-	fn: any,
-	arg: any,
+async function githubRequest<K, A1>(
+	fn: (arg: A1) => Promise<OctokitResponse<K>>,
+	arg: A1,
 	options?: any,
 	retries = 5,
-): Promise<any> {
+): Promise<OctokitResponse<K>> {
 	const result = await fn(arg);
 
 	if (result.status >= 500) {
@@ -166,11 +167,7 @@ function makeCard(
 	};
 }
 
-async function getCommentFromEvent(
-	_context: any,
-	event: any,
-	options: any,
-): Promise<any> {
+async function getCommentFromEvent(_context: any, event: any, options: any) {
 	const date = new Date(event.data.payload.comment.updated_at);
 
 	const data = {
@@ -343,7 +340,15 @@ module.exports = class GitHubIntegration implements Integration {
 			// TODO: tests expect to continue here, probably because the API is not properly mocked
 			// return [];
 		}
-		const github: any = await this.getOctokit(this.context, installation);
+
+		const github = await this.getOctokit(
+			this.context,
+			await this.getInstallationId(
+				this.context,
+				card.data.org || card.data.owner,
+			),
+		);
+
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');
 			return [];
@@ -433,7 +438,7 @@ module.exports = class GitHubIntegration implements Integration {
 			(baseType === 'issue' || baseType === 'pull-request') &&
 			card.data.repository
 		) {
-			const [owner, repository] = card.data.repository.split('/');
+			const [owner, repo] = card.data.repository.split('/');
 
 			if (!githubUrl) {
 				this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
@@ -445,7 +450,7 @@ module.exports = class GitHubIntegration implements Integration {
 					github.issues.create,
 					{
 						owner,
-						repo: repository,
+						repo,
 						title: card.name,
 						body: `${prefix} ${card.data.description}`,
 						labels: card.tags,
@@ -474,16 +479,26 @@ module.exports = class GitHubIntegration implements Integration {
 				`No entity number in GitHub URL: ${githubUrl}`,
 			);
 
-			const getOptions = {
-				owner: urlFragments[3],
-				repo: urlFragments[4],
-				[baseType === 'pull-request' ? 'pull_number' : 'issue_number']:
-					entityNumber,
-			};
 			const result =
 				baseType === 'pull-request'
-					? await githubRequest(github.pulls.get, getOptions, this.options)
-					: await githubRequest(github.issues.get, getOptions, this.options);
+					? await githubRequest(
+							github.pulls.get,
+							{
+								owner,
+								repo,
+								pull_number: entityNumber,
+							},
+							this.options,
+					  )
+					: await githubRequest(
+							github.issues.get,
+							{
+								owner,
+								repo,
+								issue_number: entityNumber,
+							},
+							this.options,
+					  );
 
 			if (
 				result.data.state !== card.data.status ||
@@ -492,7 +507,7 @@ module.exports = class GitHubIntegration implements Integration {
 				result.data.title !== card.name ||
 				!_.isEqual(_.map(result.data.labels, 'name'), card.tags)
 			) {
-				const prefixMatch = result.data.body.match(PREFIX_RE);
+				const prefixMatch = result.data.body?.match(PREFIX_RE);
 				const body = prefixMatch
 					? `${prefixMatch[0]}${card.data.description}`
 					: card.data.description;
@@ -503,8 +518,8 @@ module.exports = class GitHubIntegration implements Integration {
 						action: 'update',
 					});
 					const updateOptions = {
-						owner: getOptions.owner,
-						repo: getOptions.repo,
+						owner,
+						repo,
 						issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
 						title: card.name,
 						body,
@@ -525,8 +540,8 @@ module.exports = class GitHubIntegration implements Integration {
 						action: 'update',
 					});
 					const updateOptions = {
-						owner: getOptions.owner,
-						repo: getOptions.repo,
+						owner,
+						repo,
 						pull_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
 						title: card.name,
 						body,
@@ -710,7 +725,7 @@ module.exports = class GitHubIntegration implements Integration {
 		};
 	}
 
-	async getPRFromEvent(github: any, event: any, options: any) {
+	async getPRFromEvent(github: OctokitInstance, event: any, options: any) {
 		const root = getEventRoot(event);
 		const prData: any = await this.generatePRDataFromEvent(github, event);
 		const contractData = await this.loadContractFromPR(github, event, prData);
@@ -752,7 +767,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return pr;
 	}
 
-	async generatePRDataFromEvent(github: any, event: any): Promise<any> {
+	async generatePRDataFromEvent(github: OctokitInstance, event: any) {
 		let result = {};
 		const payload = event.data.payload;
 		if (payload.pull_request) {
@@ -780,7 +795,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return result;
 	}
 
-	async loadContractFromPR(github: any, event: any, prData: any): Promise<any> {
+	async loadContractFromPR(github: OctokitInstance, event: any, prData: any) {
 		const payload = event.data.payload;
 		const orgName = (payload.organization || payload.sender).login;
 		const repoName = payload.repository.name;
@@ -796,6 +811,13 @@ module.exports = class GitHubIntegration implements Integration {
 				},
 				this.options,
 			);
+
+			if (!('type' in contractFile.data && 'content' in contractFile.data)) {
+				this.context.log.warn(
+					`balena.yml in ${commitRef} was of unexpected type`,
+				);
+				return null;
+			}
 
 			if (
 				!contractFile.data ||
@@ -822,7 +844,7 @@ module.exports = class GitHubIntegration implements Integration {
 		}
 	}
 
-	async createPR(github: any, event: any, actor: any) {
+	async createPR(github: OctokitInstance, event: any, actor: any) {
 		const root = getEventRoot(event);
 		const contractsToCreate = [
 			makeCard(
@@ -908,7 +930,12 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async labelEventPR(github: any, event: any, actor: any, action: any) {
+	async labelEventPR(
+		github: OctokitInstance,
+		event: any,
+		actor: any,
+		action: any,
+	) {
 		return this.labelPRorIssue(
 			github,
 			event,
@@ -920,7 +947,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 	async updatePR(
 		existingPR: Contract<any>,
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
 	) {
@@ -963,19 +990,19 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async createIssueIfNotExists(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
-	): Promise<any> {
+	) {
 		return this.createCardIfNotExists(github, event, actor, 'issue@1.0.0');
 	}
 
 	async updateIssue(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
 		action: any,
-	): Promise<any> {
+	) {
 		const issueMirrorId = getEventMirrorId(event);
 		const issue = await this.getCardByMirrorId(issueMirrorId, 'issue@1.0.0');
 		const root = getEventRoot(event);
@@ -1029,19 +1056,15 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async labelEventIssue(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
 		action: any,
-	): Promise<any> {
+	) {
 		return this.labelPRorIssue(github, event, actor, action, 'issue@1.0.0');
 	}
 
-	async createIssueComment(
-		github: any,
-		event: any,
-		actor: string,
-	): Promise<any> {
+	async createIssueComment(github: OctokitInstance, event: any, actor: string) {
 		const issueMirrorId = getEventMirrorId(event);
 		const type = eventToCardType(event);
 
@@ -1109,7 +1132,7 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 	}
 
-	async editIssueComment(github: any, event: any, actor: any): Promise<any> {
+	async editIssueComment(github: OctokitInstance, event: any, actor: any) {
 		const updateTime = event.data.payload.comment.updated_at;
 
 		const changes = {
@@ -1199,7 +1222,7 @@ module.exports = class GitHubIntegration implements Integration {
 		return sequence;
 	}
 
-	async createPush(event: any, actor: string): Promise<any> {
+	async createPush(event: any, actor: string) {
 		const beforeSHA = event.data.payload.before;
 		const afterSHA = event.data.payload.after;
 
@@ -1266,7 +1289,7 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async closeIssue(github: any, event: any, actor: string): Promise<any> {
+	async closeIssue(github: OctokitInstance, event: any, actor: string) {
 		const contractMirrorId = getEventMirrorId(event);
 		const existingContract = await this.getCardByMirrorId(
 			contractMirrorId,
@@ -1313,7 +1336,7 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async createCardIfNotExists(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
 		type: string,
@@ -1334,12 +1357,12 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async labelPRorIssue(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		actor: string,
 		action: any,
 		type: string,
-	): Promise<any> {
+	) {
 		const issueMirrorId = getEventMirrorId(event);
 		const existingContract = await this.getCardByMirrorId(issueMirrorId, type);
 		const root = getEventRoot(event);
@@ -1428,7 +1451,7 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async translate(event: any): Promise<any> {
+	async translate(event: any) {
 		if (!this.options.token.api) {
 			this.context.log.warn('No token set for github integration');
 			return [];
@@ -1757,16 +1780,16 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 	}
 
-	async getCardByMirrorId(id: string, type: string): Promise<any> {
+	async getCardByMirrorId(id: string, type: string) {
 		return this.context.getElementByMirrorId(type, id);
 	}
 
-	async getCommentByMirrorId(id: string): Promise<any> {
+	async getCommentByMirrorId(id: string) {
 		return this.context.getElementByMirrorId('message@1.0.0', id);
 	}
 
 	async getCardFromEvent(
-		github: any,
+		github: OctokitInstance,
 		event: any,
 		options: { status?: string; id?: string | Eval } = {},
 	) {
@@ -1790,12 +1813,12 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async queryComments(
-		github: any,
+		github: OctokitInstance,
 		owner: any,
 		repository: string,
 		issue: number,
 		page = 1,
-	): Promise<any> {
+	) {
 		this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 			category: 'issues',
 			action: 'listComments',
@@ -1817,13 +1840,13 @@ module.exports = class GitHubIntegration implements Integration {
 	}
 
 	async getCommentsFromIssue(
-		github: any,
+		github: OctokitInstance,
 		_context: any,
 		event: any,
 		target: any,
 		mirrorBlacklist: any,
 		options: any,
-	): Promise<any> {
+	) {
 		const root = getEventRoot(event);
 		const response = await this.queryComments(
 			github,
@@ -1832,50 +1855,44 @@ module.exports = class GitHubIntegration implements Integration {
 			root.number,
 		);
 
-		return response.reduce(
-			async (accumulator: Promise<any[]>, payload: any) => {
-				const previous = await accumulator;
-				const mirrorId = payload.html_url;
-				if (mirrorBlacklist.includes(mirrorId)) {
-					return previous;
-				}
+		return Promise.all(
+			response
+				.filter((p) => !mirrorBlacklist.includes(p.html_url))
+				.map(async (comment) => {
+					const mirrorId = comment.html_url;
+					const date = new Date(comment.updated_at);
+					const existingContract = await this.getCommentByMirrorId(mirrorId);
+					const data = {
+						mirrors: _.get(existingContract, ['data', 'mirrors']) || [mirrorId],
+						actor: _.get(existingContract, ['data', 'actor']) || options.actor,
+						target,
+						timestamp: date.toISOString(),
+						payload: {
+							mentionsUser: [],
+							alertsUser: [],
+							mentionsGroup: [],
+							alertsGroup: [],
+							message: comment.body,
+						},
+					};
 
-				const date = new Date(payload.updated_at);
-				const card = await this.getCommentByMirrorId(mirrorId);
-				const data = {
-					mirrors: _.get(card, ['data', 'mirrors']) || [mirrorId],
-					actor: _.get(card, ['data', 'actor']) || options.actor,
-					target,
-					timestamp: date.toISOString(),
-					payload: {
-						mentionsUser: [],
-						alertsUser: [],
-						mentionsGroup: [],
-						alertsGroup: [],
-						message: payload.body,
-					},
-				};
-
-				const id = uuidv4();
-				const comment: any = {
-					slug: `message-${id}`,
-					type: 'message@1.0.0',
-					active: !payload.deleted,
-					data,
-				};
-
-				if (card) {
-					comment.id = card.id;
-				}
-				return previous.concat([
-					makeCard(comment, options.actor, payload.updated_at),
-				]);
-			},
-			Promise.resolve([]),
+					const newId = uuidv4();
+					const commentContract = {
+						id: existingContract?.id ?? newId,
+						slug: existingContract?.slug ?? `message-${newId}`,
+						type: 'message@1.0.0',
+						// this was `!payload.deleted,` before, but this doesn't exist according to https://docs.github.com/en/rest/reference/issues#list-issue-comments
+						// to know about a deleted comment we'd have to query the comment ID and check for 404.
+						// But in this moment in time we know it exists, otherwise `list` wouldn't return it.
+						active: true,
+						data,
+					};
+					return makeCard(commentContract, options.actor, comment.updated_at);
+				}),
 		);
 	}
 
-	async getLocalUser(github: any, event: any): Promise<any> {
+	async getLocalUser(github: OctokitInstance, event: any) {
 		const remoteUser = await githubRequest(
 			github.users.getByUsername,
 			{
@@ -1885,13 +1902,14 @@ module.exports = class GitHubIntegration implements Integration {
 		);
 
 		const email =
-			remoteUser.data.email &&
-			remoteUser.data.email
+			typeof remoteUser.data.email === 'string'
+				? remoteUser.data.email
 
-				// Try to deal with emails such as
-				// - "foo (at) gmail.com"
-				// - "bar (a) hotmail.com"
-				.replace(/\s*\(at?\)\s*/g, '@');
+						// Try to deal with emails such as
+						// - "foo (at) gmail.com"
+						// - "bar (a) hotmail.com"
+						.replace(/\s*\(at?\)\s*/g, '@')
+				: '';
 
 		return this.context.getActorId({
 			// This is pretty much a free-form field.
