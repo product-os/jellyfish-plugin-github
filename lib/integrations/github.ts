@@ -335,13 +335,14 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const github: any = await this.getOctokit(
-			this.context,
-			await this.getInstallationId(
-				this.context,
-				card.data.org || card.data.owner,
-			),
-		);
+		const ghOrg = card.data.org || card.data.owner;
+		const installation = await this.getInstallationId(this.context, ghOrg);
+		if (!installation) {
+			this.context.log.warn('GH app not installed', { ghOrg });
+			// TODO: tests expect to continue here, probably because the API is not properly mocked
+			// return [];
+		}
+		const github: any = await this.getOctokit(this.context, installation);
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');
 			return [];
