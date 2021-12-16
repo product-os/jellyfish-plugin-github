@@ -1,4 +1,27 @@
 - commits:
+    - subject: add types (and fix resulting issues)
+      hash: eed7d8572b435282d901d5dd78527feb676e578f
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+    - subject: Remove bluebird
+      hash: 8aba7f5c43d8a367d98966d73e739dcea0db5377
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.247
+  date: 2021-12-16T15:20:16.543Z
+- commits:
     - subject: Use built-in mixins from plugin base
       hash: 386cf78ece9b777328ac740d9dfadffc6c3928f0
       body: ''

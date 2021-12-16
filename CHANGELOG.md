@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.247 - 2021-12-16
+
+* add types (and fix resulting issues) [Martin Rauscher]
+* Remove bluebird [Josh Bowling]
+
 ## 1.11.246 - 2021-12-15
 
 * Use built-in mixins from plugin base [Lucian Buzzo]
