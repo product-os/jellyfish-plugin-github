@@ -4,7 +4,6 @@ import { DefaultPlugin } from '@balena/jellyfish-plugin-default';
 import { ProductOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { integrationHelpers } from '@balena/jellyfish-test-harness';
 import { Contract } from '@balena/jellyfish-types/build/core';
-import Bluebird from 'bluebird';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { GitHubPlugin } from '../../lib';
@@ -153,7 +152,9 @@ test('should be able to create an issue without comments', async () => {
 		archived: false,
 	});
 	const mirror = issue.data.mirrors[0];
-	await Bluebird.delay(2000);
+	await new Promise((resolve) => {
+		setTimeout(resolve, 2000);
+	});
 
 	const external: any = await github.issues.get({
 		owner: repository.owner,
