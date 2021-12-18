@@ -1,4 +1,17 @@
 - commits:
+    - subject: Bump core and test-harness
+      hash: 94c8d12b5b96f80635ea93988ae91b7a6afb1581
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 1.11.252
+  date: 2021-12-18T08:31:37.882Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-core to ^8.2.0'
       hash: d312bbe9c96d52a96952ddbf30512dcd50f64e3a
       body: |
