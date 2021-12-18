@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.257 - 2021-12-18
+
+* patch: Update dependency lint-staged to ^12.1.3 [Renovate Bot]
+
 ## 1.11.256 - 2021-12-18
 
 * patch: Update internal-patch [Renovate Bot]
