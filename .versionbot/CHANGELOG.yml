@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major'
+      hash: ae8bcdfcc50b9dd49bb2fed6372160f325374530
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.253
+  date: 2021-12-18T09:03:00.009Z
+- commits:
     - subject: Bump core and test-harness
       hash: 94c8d12b5b96f80635ea93988ae91b7a6afb1581
       body: ''
