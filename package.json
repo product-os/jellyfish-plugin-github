@@ -63,7 +63,7 @@
     "@balena/jellyfish-environment": "^6.0.1",
     "@balena/jellyfish-plugin-default": "^21.2.0",
     "@balena/jellyfish-plugin-product-os": "^2.9.4",
-    "@balena/jellyfish-test-harness": "^8.1.204",
+    "@balena/jellyfish-test-harness": "9.0.0-update-dependencies-87d9e9596a12d6326e2b715c84d546d35cb00a76",
     "@balena/jellyfish-types": "^1.2.39",
     "@balena/lint": "^6.2.0",
     "@types/jest": "^27.0.3",
