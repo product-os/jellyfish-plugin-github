@@ -1,15 +1,15 @@
-import ActionLibrary = require('@balena/jellyfish-action-library');
+import { ActionLibrary } from '@balena/jellyfish-action-library';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { DefaultPlugin } from '@balena/jellyfish-plugin-default';
 import { ProductOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { integrationHelpers } from '@balena/jellyfish-test-harness';
 import { Contract } from '@balena/jellyfish-types/build/core';
+import { retry } from '@octokit/plugin-retry';
+import { Octokit as OctokitRest } from '@octokit/rest';
+import { strict as assert } from 'assert';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { GitHubPlugin } from '../../lib';
-import { strict as assert } from 'assert';
-import { retry } from '@octokit/plugin-retry';
-import { Octokit as OctokitRest } from '@octokit/rest';
 
 let ctx: integrationHelpers.IntegrationTestContext;
 let user: any = {};
