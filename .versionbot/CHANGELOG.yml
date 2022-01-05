@@ -1,4 +1,26 @@
 - commits:
+    - subject: Update action-library imports
+      hash: 6f992c8073989cfa5bf83f672ad2efabbb1f3756
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+    - subject: 'patch: Update dependency @balena/jellyfish-action-library to v16'
+      hash: bff94c5f52e11f6e46f541a0ce047102ce3e7043
+      body: |
+        Update @balena/jellyfish-action-library from 15.1.209 to 16.1.12
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.11.277
+  date: 2022-01-05T02:35:36.575Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-core to v11'
       hash: 58a4c65fb68e38636b8fd40c61655185e46e2426
       body: |
