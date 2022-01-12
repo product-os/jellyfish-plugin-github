@@ -21,6 +21,7 @@
       "mirrors": [
         "https://api.github.com/repos/loop-os/test/pulls/3"
       ],
+      "gh_number": 3,
       "mentionsUser": [],
       "alertsUser": [],
       "description": "",
@@ -59,6 +60,7 @@
             "mirrors": [
               "https://api.github.com/repos/loop-os/test/pulls/3"
             ],
+            "gh_number": 3,
             "mentionsUser": [],
             "alertsUser": [],
             "description": "",

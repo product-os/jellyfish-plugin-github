@@ -115,7 +115,7 @@ function updateCardFromSequence(sequence: any, index: any, changes: any): any {
 	return card;
 }
 
-function gatherPRInfo(payload: any): any {
+function gatherPRInfo(payload: { pull_request: any }): any {
 	const base = payload.pull_request.base;
 	const head = payload.pull_request.head;
 	return {
@@ -127,6 +127,7 @@ function gatherPRInfo(payload: any): any {
 			branch: head.ref,
 			sha: head.sha,
 		},
+		gh_number: payload.pull_request.number,
 	};
 }
 
@@ -1675,6 +1676,7 @@ module.exports = class GitHubIntegration implements Integration {
 							repo,
 							head: pullRequestContract.data.head,
 							ssh_url: pullRequestContract.data.ssh_url,
+							pr_number: pullRequestContract.data.gh_number,
 							contract: sourceContract,
 							$transformer: {},
 						},

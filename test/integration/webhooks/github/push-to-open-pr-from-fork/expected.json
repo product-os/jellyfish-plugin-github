@@ -23,6 +23,7 @@
       "mirrors": [
         "https://github.com/balena-io/vb-test/pull/47"
       ],
+      "gh_number": 47,
       "mentionsUser": [],
       "alertsUser": [],
       "description": "",
@@ -71,6 +72,7 @@
             "mirrors": [
               "https://github.com/balena-io/vb-test/pull/47"
             ],
+            "gh_number": 47,
             "mentionsUser": [],
             "alertsUser": [],
             "description": "",

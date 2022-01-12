@@ -23,6 +23,7 @@
       "mirrors": [
         "https://github.com/balena-io/vb-test/pull/48"
       ],
+      "gh_number": 48,
       "mentionsUser": [],
       "alertsUser": [],
       "description": "Change-type: patch\r\nSigned-off-by: Giovanni Garufi <giovanni@balena.io>",
@@ -71,6 +72,7 @@
             "mirrors": [
               "https://github.com/balena-io/vb-test/pull/48"
             ],
+            "gh_number": 48,
             "mentionsUser": [],
             "alertsUser": [],
             "description": "Change-type: patch\r\nSigned-off-by: Giovanni Garufi <giovanni@balena.io>",
