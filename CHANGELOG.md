@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.286 - 2022-01-12
+
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 1.11.285 - 2022-01-11
 
 * patch: Update dependency @balena/jellyfish-core to v12 [Renovate Bot]
