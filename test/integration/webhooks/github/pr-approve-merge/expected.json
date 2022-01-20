@@ -23,6 +23,7 @@
       "mirrors": [
         "https://github.com/resin-io/jellyfish/pull/778"
       ],
+      "gh_number": 778,
       "mentionsUser": [],
       "alertsUser": [],
       "description": "Signed-off-by: Juan Cruz Viotti <juan@resin.io>",
@@ -72,6 +73,7 @@
             "mirrors": [
               "https://github.com/resin-io/jellyfish/pull/778"
             ],
+            "gh_number": 778,
             "mentionsUser": [],
             "alertsUser": [],
             "description": "Signed-off-by: Juan Cruz Viotti <juan@resin.io>",

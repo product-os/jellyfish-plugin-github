@@ -23,6 +23,7 @@
       "mirrors": [
         "https://github.com/resin-io/jellyfish/pull/777"
       ],
+      "gh_number": 777,
       "mentionsUser": [],
       "alertsUser": [],
       "description": "",
@@ -71,6 +72,7 @@
             "mirrors": [
               "https://github.com/resin-io/jellyfish/pull/777"
             ],
+            "gh_number": 777,
             "mentionsUser": [],
             "alertsUser": [],
             "description": "",
