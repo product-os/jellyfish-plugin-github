@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.11.294 - 2022-01-20
+
+* add PR number (GH relative ID) [Martin Rauscher]
+
 ## 1.11.293 - 2022-01-19
 
 * patch: Update internal-non-major [Renovate Bot]

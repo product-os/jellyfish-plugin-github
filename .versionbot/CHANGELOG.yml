@@ -1,4 +1,17 @@
 - commits:
+    - subject: add PR number (GH relative ID)
+      hash: a16bb4d6ebc81cd25b11430d3cfb59113e3e4ce6
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Martin Rauscher <martin@balena.io>
+        signed-off-by: Martin Rauscher <martin@balena.io>
+      author: Martin Rauscher
+      nested: []
+  version: 1.11.294
+  date: 2022-01-20T13:22:02.620Z
+- commits:
     - subject: 'patch: Update internal-non-major'
       hash: df5ee7aa7586ed1ef82d24e638d5df46226d272a
       body: ''
