@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.12.0 - 2022-01-21
+
+* Add failed check run triggered action [stathismor]
+
 ## 1.11.294 - 2022-01-20
 
 * add PR number (GH relative ID) [Martin Rauscher]

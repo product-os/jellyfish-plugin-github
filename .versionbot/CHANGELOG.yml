@@ -1,4 +1,19 @@
 - commits:
+    - subject: Add failed check run triggered action
+      hash: 33ec95ff68c9bfe2455da13b9acc122c3a22ccbf
+      body: |
+        1. Add new failed check run triggered action
+        2. Update existing check run actions to use new mergeable values
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Stathis Moraitidis <stathis@balena.io>
+        signed-off-by: Stathis Moraitidis <stathis@balena.io>
+      author: stathismor
+      nested: []
+  version: 1.12.0
+  date: 2022-01-21T14:13:06.208Z
+- commits:
     - subject: add PR number (GH relative ID)
       hash: a16bb4d6ebc81cd25b11430d3cfb59113e3e4ce6
       body: ''
