@@ -7,8 +7,9 @@ import pullRequest from './contrib/pull-request';
 import push from './contrib/push.json';
 import repository from './contrib/repository';
 import triggeredActionConcludeCheckRun from './contrib/triggered-action-conclude-check-run';
-import triggeredActionGitHubIssueLink from './contrib/triggered-action-github-issue-link.json';
 import triggeredActionInProgressCheckRun from './contrib/triggered-action-in-progress-check-run';
+import triggeredActionFailedCheckRun from './contrib/triggered-action-failed-check-run';
+import triggeredActionGitHubIssueLink from './contrib/triggered-action-github-issue-link.json';
 import triggeredActionIntegrationGitHubMirrorEvent from './contrib/triggered-action-integration-github-mirror-event.json';
 import triggeredActionSupportClosedIssueReopen from './contrib/triggered-action-support-closed-issue-reopen.json';
 import triggeredActionSupportClosedPullRequestReopen from './contrib/triggered-action-support-closed-pull-request-reopen.json';
@@ -27,5 +28,6 @@ export const cards = [
 	triggeredActionSupportClosedPullRequestReopen,
 	triggeredActionConcludeCheckRun,
 	triggeredActionInProgressCheckRun,
+	triggeredActionFailedCheckRun,
 	viewAllIssues,
 ];

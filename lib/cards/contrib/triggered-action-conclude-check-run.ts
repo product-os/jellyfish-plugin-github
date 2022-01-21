@@ -54,8 +54,8 @@ const triggeredActionConcludeCheckRun: ContractDefinition = {
 							required: ['mergeable'],
 							properties: {
 								mergeable: {
-									type: 'boolean',
-									const: true,
+									type: 'string',
+									const: 'mergeable',
 								},
 							},
 						},
