@@ -1,4 +1,15 @@
 - commits:
+    - subject: 'patch: Update external-non-major'
+      hash: dd5ce490d600807722964c583d10c0e5667e129a
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.12.1
+  date: 2022-01-22T00:23:09.679Z
+- commits:
     - subject: Add failed check run triggered action
       hash: 33ec95ff68c9bfe2455da13b9acc122c3a22ccbf
       body: |
