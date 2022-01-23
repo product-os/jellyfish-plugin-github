@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.12.5 - 2022-01-23
+
+* patch: Update dependency lint-staged to ^12.3.0 [Renovate Bot]
+
 ## 1.12.4 - 2022-01-23
 
 * patch: Update dependency @balena/jellyfish-assert to ^1.2.10 [Renovate Bot]
