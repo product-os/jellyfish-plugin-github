@@ -1,4 +1,24 @@
 - commits:
+    - subject: Update dependencies (external non-major bumps)
+      hash: a310c69db70a59b01f4b37619894ee5f379a9699
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: 'patch: Update resinci/jellyfish-test Docker tag to v1.4.21'
+      hash: c4706a03c18159922f3e3b8d1aed3a37ee622921
+      body: |
+        Update resinci/jellyfish-test from v1.4.20 to v1.4.21
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 1.12.12
+  date: 2022-01-26T18:56:11.126Z
+- commits:
     - subject: 'patch: Update dependency @balena/jellyfish-action-library to ^16.2.18'
       hash: f7b12ad7349fa6cbadf834e281659ab6669f0729
       body: ''
