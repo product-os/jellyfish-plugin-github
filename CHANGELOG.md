@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 1.12.13 - 2022-01-28
+
+* Update balena/balena-redis Docker tag to v0.0.4 [Renovate Bot]
+
 ## 1.12.12 - 2022-01-26
 
 * Update dependencies (external non-major bumps) [Renovate Bot]
