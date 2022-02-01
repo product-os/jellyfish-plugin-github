@@ -1,10 +1,15 @@
 import * as assert from '@balena/jellyfish-assert';
-import { Integration } from '@balena/jellyfish-plugin-base';
 import type {
 	Contract,
 	ContractDefinition,
 	EventContract,
 } from '@balena/jellyfish-types/build/core';
+import {
+	Integration,
+	IntegrationDefinition,
+	SequenceItem,
+	syncErrors,
+} from '@balena/jellyfish-worker';
 import { createAppAuth } from '@octokit/auth-app';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
@@ -51,18 +56,13 @@ async function githubRequest<K, A1>(
 	const result = await fn(arg);
 
 	if (result.status >= 500) {
-		assert.USER(
-			null,
-			retries > 0,
-			options.errors.SyncExternalRequestError,
-			() => {
-				return `GitHub unavailable ${result.status}: ${JSON.stringify(
-					result.data,
-					null,
-					2,
-				)}`;
-			},
-		);
+		assert.USER(null, retries > 0, syncErrors.SyncExternalRequestError, () => {
+			return `GitHub unavailable ${result.status}: ${JSON.stringify(
+				result.data,
+				null,
+				2,
+			)}`;
+		});
 
 		options.context.log.warn('GitHub unavailable retry', {
 			retries,
@@ -224,24 +224,21 @@ async function getCommentFromEvent(_context: any, event: any, options: any) {
 	];
 }
 
-module.exports = class GitHubIntegration implements Integration {
+export class GithubIntegration implements Integration {
 	public slug = SLUG;
+	private installations: Record<string, number> = {};
 
 	// TS-TODO: Use proper types
 	public context: any;
 	public options: any;
-	private installations: Record<string, number> = {};
 
+	// TS-TODO: Use proper types
 	constructor(options: any) {
 		this.options = options;
 		this.context = this.options.context;
 	}
 
-	async initialize() {
-		return Promise.resolve();
-	}
-
-	async destroy() {
+	public async destroy() {
 		return Promise.resolve();
 	}
 
@@ -323,7 +320,10 @@ module.exports = class GitHubIntegration implements Integration {
 		return this.installations[org];
 	}
 
-	async mirror(card: any, options: any) {
+	public async mirror(
+		card: Contract,
+		options: { actor: string },
+	): Promise<SequenceItem[]> {
 		if (!this.options.token.api) {
 			this.context.log.warn('No token set for github integration');
 			return [];
@@ -334,7 +334,8 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const ghOrg = card.data.org || card.data.owner;
+		// TS-TODO: Stop casting
+		const ghOrg = (card.data.org as string) || (card.data.owner as string);
 		const installation = await this.getInstallationId(this.context, ghOrg);
 		if (!installation) {
 			this.context.log.warn('GH app not installed', { ghOrg });
@@ -344,10 +345,7 @@ module.exports = class GitHubIntegration implements Integration {
 
 		const github = await this.getOctokit(
 			this.context,
-			await this.getInstallationId(
-				this.context,
-				card.data.org || card.data.owner,
-			),
+			await this.getInstallationId(this.context, ghOrg),
 		);
 
 		if (!github) {
@@ -355,9 +353,13 @@ module.exports = class GitHubIntegration implements Integration {
 			return [];
 		}
 
-		const githubUrl = _.find(card.data.mirrors, (mirror) => {
-			return _.startsWith(mirror, 'https://github.com');
-		});
+		// TS-TODO: Stop casting
+		const githubUrl = _.find(
+			card.data.mirrors as string[],
+			(mirror: string) => {
+				return _.startsWith(mirror, 'https://github.com');
+			},
+		) as string;
 
 		this.context.log.info('Mirroring GitHub', {
 			url: githubUrl,
@@ -372,6 +374,7 @@ module.exports = class GitHubIntegration implements Integration {
 		const prefix = `[${username}]`;
 		const baseType = card.type.split('@')[0];
 
+		// TS-TODO: Stop casting
 		if (baseType === 'check-run') {
 			const externalId = `${JF_GH_EXTERNAL_ID_PREFIX}${card.id}`;
 			switch (card.data.status) {
@@ -379,7 +382,7 @@ module.exports = class GitHubIntegration implements Integration {
 					if (
 						card.data.check_run_id &&
 						card.data.mirrors &&
-						card.data.mirrors.length > 0
+						(card.data.mirrors as string[]).length > 0
 					) {
 						break;
 					}
@@ -439,7 +442,8 @@ module.exports = class GitHubIntegration implements Integration {
 			(baseType === 'issue' || baseType === 'pull-request') &&
 			card.data.repository
 		) {
-			const [owner, repo] = card.data.repository.split('/');
+			// TS-TODO: Stop casting
+			const [owner, repo] = (card.data.repository as string).split('/');
 
 			if (!githubUrl) {
 				this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
@@ -452,7 +456,7 @@ module.exports = class GitHubIntegration implements Integration {
 					{
 						owner,
 						repo,
-						title: card.name,
+						title: card.name || card.slug,
 						body: `${prefix} ${card.data.description}`,
 						labels: card.tags,
 					},
@@ -460,7 +464,9 @@ module.exports = class GitHubIntegration implements Integration {
 				);
 
 				card.data.mirrors = card.data.mirrors || [];
-				card.data.mirrors.push(githubResult.data.html_url);
+
+				// TS-TODO: Stop casting
+				(card.data.mirrors as string[]).push(githubResult.data.html_url);
 
 				return [makeCard(card, options.actor)];
 			}
@@ -476,7 +482,7 @@ module.exports = class GitHubIntegration implements Integration {
 			assert.INTERNAL(
 				null,
 				_.isNumber(entityNumber) && !_.isNaN(entityNumber),
-				this.options.errors.SyncInvalidEvent,
+				syncErrors.SyncInvalidEvent,
 				`No entity number in GitHub URL: ${githubUrl}`,
 			);
 
@@ -501,30 +507,33 @@ module.exports = class GitHubIntegration implements Integration {
 							this.options,
 					  );
 
+			// TS-TODO: Stop casting
 			if (
 				result.data.state !== card.data.status ||
 				withoutPrefix(result.data.body) !==
-					withoutPrefix(card.data.description) ||
+					withoutPrefix(card.data.description as string) ||
 				result.data.title !== card.name ||
 				!_.isEqual(_.map(result.data.labels, 'name'), card.tags)
 			) {
 				const prefixMatch = result.data.body?.match(PREFIX_RE);
-				const body = prefixMatch
+				// TS-TODO: Stop casting
+				const body: string = prefixMatch
 					? `${prefixMatch[0]}${card.data.description}`
-					: card.data.description;
+					: (card.data.description as string);
 
 				if (baseType === 'issue') {
 					this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 						category: 'issues',
 						action: 'update',
 					});
+					// TS-TODO: Stop casting
 					const updateOptions = {
 						owner,
 						repo,
 						issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
 						title: card.name,
 						body,
-						state: card.data.status,
+						state: card.data.status as 'open' | 'closed',
 						labels: card.tags,
 					};
 
@@ -540,13 +549,14 @@ module.exports = class GitHubIntegration implements Integration {
 						category: 'pulls',
 						action: 'update',
 					});
+					// TS-TODO: Stop casting
 					const updateOptions = {
 						owner,
 						repo,
 						pull_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
-						title: card.name,
+						title: card.name || card.slug,
 						body,
-						state: card.data.status,
+						state: card.data.status as 'open' | 'closed',
 						labels: card.tags,
 					};
 
@@ -571,7 +581,7 @@ module.exports = class GitHubIntegration implements Integration {
 				return [];
 			}
 
-			const issueGithubUrl = _.find(issue.data.mirrors, (mirror) => {
+			const issueGithubUrl = _.find(issue.data.mirrors, (mirror: string) => {
 				return _.startsWith(mirror, 'https://github.com');
 			});
 
@@ -591,6 +601,7 @@ module.exports = class GitHubIntegration implements Integration {
 					action: 'createComment',
 				});
 
+				// TS-TODO: Stop casting
 				const result = await githubRequest(
 					github.issues.createComment,
 					{
@@ -600,13 +611,15 @@ module.exports = class GitHubIntegration implements Integration {
 							_.last((issueGithubUrl || issue.data.repository).split('/')) ||
 								'',
 						),
-						body: `${prefix} ${card.data.payload.message}`,
+						body: `${prefix} ${(card.data.payload as any).message}`,
 					},
 					this.options,
 				);
 
 				card.data.mirrors = card.data.mirrors || [];
-				card.data.mirrors.push(result.data.html_url);
+
+				// TS-TODO: Stop casting
+				(card.data.mirrors as string[]).push(result.data.html_url);
 
 				return [makeCard(card, options.actor)];
 			}
@@ -627,19 +640,23 @@ module.exports = class GitHubIntegration implements Integration {
 					this.options,
 				);
 
-				if (result.data.body !== `${prefix} ${card.data.payload.message}`) {
+				// TS-TODO: Stop casting
+				if (
+					result.data.body !== `${prefix} ${(card.data.payload as any).message}`
+				) {
 					this.context.log.debug(GITHUB_API_REQUEST_LOG_TITLE, {
 						category: 'issues',
 						action: 'updateComment',
 					});
 
+					// TS-TODO: Stop casting
 					await githubRequest(
 						github.issues.updateComment,
 						{
 							owner: repoDetails.owner,
 							repo: repoDetails.repository,
 							comment_id: result.data.id,
-							body: card.data.payload.message,
+							body: (card.data.payload as any).message,
 						},
 						this.options,
 					);
@@ -1452,31 +1469,35 @@ module.exports = class GitHubIntegration implements Integration {
 		]);
 	}
 
-	async translate(event: any) {
+	public async translate(event: Contract): Promise<SequenceItem[]> {
 		if (!this.options.token.api) {
 			this.context.log.warn('No token set for github integration');
 			return [];
 		}
 
+		// TS-TODO: Stop casting
 		const github = await this.getOctokit(
 			this.context,
-			event.data.payload.installation && event.data.payload.installation.id,
+			(event.data.payload as any).installation &&
+				(event.data.payload as any).installation.id,
 		);
 		if (!github) {
 			this.context.log.warn('Could not authenticate with GitHub');
 			return [];
 		}
 
+		// TS-TODO: Stop casting
 		const type =
-			event.data.headers['X-GitHub-Event'] ||
-			event.data.headers['x-github-event'];
-		const action = event.data.payload.action;
+			(event.data as any).headers['X-GitHub-Event'] ||
+			(event.data as any).headers['x-github-event'];
+		const action = (event.data.payload as any).action;
 		const actor = await this.getLocalUser(github, event);
-		assert.INTERNAL(null, actor, this.options.errors.SyncNoActor, () => {
+		assert.INTERNAL(null, actor, syncErrors.SyncNoActor, () => {
 			return `No actor id for ${JSON.stringify(event)}`;
 		});
 
-		const mirrorId = getEventMirrorId(event);
+		// TS-TODO: Stop casting
+		const mirrorId = getEventMirrorId(event as EventContract);
 		this.context.log.info('syncing GH event', {
 			mirrorId,
 			type,
@@ -1485,8 +1506,9 @@ module.exports = class GitHubIntegration implements Integration {
 
 		switch (type) {
 			case 'check_run': {
-				const { repository } = event.data.payload;
-				const checkRun = event.data.payload.check_run;
+				// TS-TODO: Stop casting
+				const { repository } = event.data.payload as any;
+				const checkRun = (event.data.payload as any).check_run;
 
 				// check runs whose source of truth is in JF, should not be translated to prevent concurrency issues
 				if (checkRun.external_id.startsWith(JF_GH_EXTERNAL_ID_PREFIX)) {
@@ -1544,7 +1566,9 @@ module.exports = class GitHubIntegration implements Integration {
 			}
 
 			case 'pull_request': {
-				const prMirrorID: string = event.data.payload.pull_request.html_url;
+				// TS-TODO: Stop casting
+				const prMirrorID: string = (event.data.payload as any).pull_request
+					.html_url;
 				const existingPR: Contract<any> =
 					prMirrorID &&
 					(await this.getCardByMirrorId(prMirrorID, 'pull-request@1.0.0'));
@@ -1612,14 +1636,15 @@ module.exports = class GitHubIntegration implements Integration {
 				return [];
 
 			case 'issue_comment':
-				event.data.payload.comment.deleted = action === 'deleted';
+				// TS-TODO: Stop casting
+				(event.data.payload as any).comment.deleted = action === 'deleted';
 				switch (action) {
 					case 'created':
 						return this.createIssueComment(github, event, actor);
 					case 'deleted':
-						// Refactor a delete event to look like an edit on a
-						// "deleted" property
-						event.data.payload.comment.changes = {
+						// Refactor a delete event to look like an edit on a "deleted" property
+						// TS-TODO: Stop casting
+						(event.data.payload as any).comment.changes = {
 							deleted: {
 								from: false,
 							},
@@ -1921,26 +1946,20 @@ module.exports = class GitHubIntegration implements Integration {
 			company: remoteUser.data.company,
 		});
 	}
-};
+}
 
-// TS-TODO: Don't export with module.exports
-module.exports.slug = SLUG;
+export const githubIntegrationDefinition: IntegrationDefinition = {
+	initialize: async (options) => new GithubIntegration(options),
+	isEventValid: (_logContext, token, rawEvent, headers): boolean => {
+		const signature = headers['x-hub-signature'];
+		if (!signature || !token || !token.signature) {
+			return false;
+		}
 
-// TS-TODO: Don't export with module.exports44
-// See https://developer.github.com/webhooks/securing/
-module.exports.isEventValid = (
-	token: any,
-	rawEvent: any,
-	headers: any,
-): boolean => {
-	const signature = headers['x-hub-signature'];
-	if (!signature || !token || !token.signature) {
-		return false;
-	}
-
-	const hash = crypto
-		.createHmac('sha1', token.signature)
-		.update(rawEvent)
-		.digest('hex');
-	return signature === `sha1=${hash}`;
+		const hash = crypto
+			.createHmac('sha1', token.signature)
+			.update(rawEvent)
+			.digest('hex');
+		return signature === `sha1=${hash}`;
+	},
 };

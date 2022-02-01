@@ -1,30 +1,20 @@
-// tslint:disable: no-var-requires
-import { GitHubPlugin } from '../../lib';
+import { defaultPlugin } from '@balena/jellyfish-plugin-default';
+import { PluginManager } from '@balena/jellyfish-worker';
+import { githubPlugin } from '../../lib';
 
-// TS-TODO: Update import after core is converted to TypeScript
-import { cardMixins as coreMixins } from '@balena/jellyfish-core';
+const pluginManager = new PluginManager([defaultPlugin(), githubPlugin()]);
 
-const context = {
-	id: 'jellyfish-plugin-github-test',
-};
-
-const plugin = new GitHubPlugin();
-
-test('Expected cards are loaded', () => {
-	const cards = plugin.getCards(context, coreMixins);
-
-	// Sanity check
-	expect(cards['triggered-action-github-issue-link'].name).toEqual(
+test('Expected contracts are loaded', () => {
+	const contracts = pluginManager.getCards();
+	expect(contracts['triggered-action-github-issue-link'].name).toEqual(
 		'Triggered action for broadcasting links from a support thread to GitHub issue or pull request',
 	);
 	expect(
-		cards['triggered-action-integration-github-mirror-event'].name,
+		contracts['triggered-action-integration-github-mirror-event'].name,
 	).toEqual('Triggered action for GitHub mirrors');
 });
 
 test('Expected integrations are loaded', () => {
-	const integrations = plugin.getSyncIntegrations(context);
-
-	// Sanity check
-	expect(integrations.github.slug).toEqual('github');
+	const integrations = pluginManager.getSyncIntegrations();
+	expect(Object.keys(integrations).includes('github')).toBeTruthy();
 });
