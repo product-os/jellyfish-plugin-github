@@ -48,7 +48,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.12",
     "@balena/jellyfish-core": "^14.2.0",
-    "@balena/jellyfish-worker": "^18.2.1",
+    "@balena/jellyfish-worker": "19.0.0-joshbwlng-translate-mirror-event-f9808a116b254d456061b040c959eb27b2868d50",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
