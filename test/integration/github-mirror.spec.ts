@@ -1,10 +1,10 @@
+import { strict as assert } from 'assert';
 import { testUtils as coreTestUtils } from '@balena/jellyfish-core';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { retry } from '@octokit/plugin-retry';
 import { Octokit as OctokitRest } from '@octokit/rest';
-import { strict as assert } from 'assert';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { githubPlugin, testUtils } from '../../lib';

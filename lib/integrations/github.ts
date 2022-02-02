@@ -13,9 +13,11 @@ import {
 import { createAppAuth } from '@octokit/auth-app';
 import { retry } from '@octokit/plugin-retry';
 import { throttling } from '@octokit/plugin-throttling';
-import { Octokit as OctokitRest } from '@octokit/rest';
-import { OctokitResponse } from '@octokit/types';
-import type { Octokit as OctokitInstance } from '@octokit/rest';
+import {
+	Octokit as OctokitRest,
+	Octokit as OctokitInstance,
+} from '@octokit/rest';
+import type { OctokitResponse } from '@octokit/types';
 import crypto from 'crypto';
 import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';

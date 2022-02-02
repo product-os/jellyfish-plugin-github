@@ -1,4 +1,4 @@
-import { ContractDefinition } from '@balena/jellyfish-types/build/core';
+import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
 export const push: ContractDefinition = {
 	slug: 'gh-push',

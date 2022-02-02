@@ -3,9 +3,9 @@ import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { testUtils as workerTestUtils } from '@balena/jellyfish-worker';
 import jwt from 'jsonwebtoken';
-import path from 'path';
 import _ from 'lodash';
 import nock from 'nock';
+import path from 'path';
 import { githubPlugin } from '../../lib';
 import webhooks from './webhooks';
 

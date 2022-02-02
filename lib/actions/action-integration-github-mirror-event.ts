@@ -1,4 +1,4 @@
-import { mirror } from '@balena/jellyfish-plugin-default/build/actions/mirror';
+import { mirror } from '@balena/jellyfish-plugin-default';
 import type { ActionDefinition } from '@balena/jellyfish-worker';
 
 const handler: ActionDefinition['handler'] = async (
