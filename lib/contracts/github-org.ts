@@ -1,6 +1,6 @@
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
-const githubOrg: ContractDefinition = {
+export const githubOrg: ContractDefinition = {
 	slug: 'github-org',
 	name: 'GitHub Organization',
 	type: 'type@1.0.0',
@@ -26,5 +26,3 @@ const githubOrg: ContractDefinition = {
 		},
 	},
 };
-
-export default githubOrg;

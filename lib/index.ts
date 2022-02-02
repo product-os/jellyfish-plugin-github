@@ -1,30 +1,28 @@
-import { JellyfishPluginBase } from '@balena/jellyfish-plugin-base';
+import { PluginDefinition } from '@balena/jellyfish-worker';
 import { actions } from './actions';
-import { cards } from './cards';
-import integrations from './integrations';
+import { contracts } from './contracts';
+import { integrations } from './integrations';
+export * as testUtils from './test-utils';
+
+// tslint:disable-next-line: no-var-requires
+const { version } = require('../package.json');
 
 /**
  * The GitHub Jellyfish plugin.
  */
-export class GitHubPlugin extends JellyfishPluginBase {
-	constructor() {
-		super({
-			slug: 'jellyfish-plugin-github',
-			name: 'GitHub Plugin',
-			version: '1.0.0',
-			actions,
-			cards,
-			integrations,
-			requires: [
-				{
-					slug: 'action-library',
-					version: '>=11.x',
-				},
-				{
-					slug: 'jellyfish-plugin-default',
-					version: '>=19.x',
-				},
-			],
-		});
-	}
-}
+export const githubPlugin = (): PluginDefinition => {
+	return {
+		slug: 'plugin-github',
+		name: 'GitHub Plugin',
+		version,
+		actions,
+		contracts,
+		integrationMap: integrations,
+		requires: [
+			{
+				slug: 'plugin-default',
+				version: '>=23.x',
+			},
+		],
+	};
+};

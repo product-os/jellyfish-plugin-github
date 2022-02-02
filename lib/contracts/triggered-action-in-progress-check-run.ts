@@ -1,9 +1,9 @@
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
-const triggeredActionConcludeCheckRun: ContractDefinition = {
-	slug: 'triggered-action-conclude-check-run',
+export const triggeredActionInProgressCheckRun: ContractDefinition = {
+	slug: 'triggered-action-in-progress-check-run',
 	type: 'triggered-action@1.0.0',
-	name: 'Triggered action for resolving transformer check runs',
+	name: 'Triggered action for marking transformer check runs as in progress',
 	markers: [],
 	data: {
 		schedule: 'sync',
@@ -27,7 +27,7 @@ const triggeredActionConcludeCheckRun: ContractDefinition = {
 							properties: {
 								status: {
 									type: 'string',
-									enum: ['queued', 'in_progress'],
+									const: 'queued',
 								},
 							},
 						},
@@ -55,7 +55,7 @@ const triggeredActionConcludeCheckRun: ContractDefinition = {
 							properties: {
 								mergeable: {
 									type: 'string',
-									const: 'mergeable',
+									const: 'pending',
 								},
 							},
 						},
@@ -73,18 +73,9 @@ const triggeredActionConcludeCheckRun: ContractDefinition = {
 			},
 		},
 		arguments: {
-			reason: 'Check-Run succeeded as its commit has become mergeable',
-			patch: [
-				{ op: 'replace', path: '/data/status', value: 'completed' },
-				{ op: 'add', path: '/data/conclusion', value: 'success' },
-				{
-					op: 'add',
-					path: '/data/completed_at',
-					value: { $eval: 'now' },
-				},
-			],
+			reason:
+				'Check-Run started as its commit has an undetermined mergeable status',
+			patch: [{ op: 'replace', path: '/data/status', value: 'in_progress' }],
 		},
 	},
 };
-
-export default triggeredActionConcludeCheckRun;

@@ -1,9 +1,9 @@
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
-const triggeredActionFailedCheckRun: ContractDefinition = {
-	slug: 'triggered-action-failed-check-run',
+export const triggeredActionConcludeCheckRun: ContractDefinition = {
+	slug: 'triggered-action-conclude-check-run',
 	type: 'triggered-action@1.0.0',
-	name: 'Triggered action for failing transformer check runs',
+	name: 'Triggered action for resolving transformer check runs',
 	markers: [],
 	data: {
 		schedule: 'sync',
@@ -55,7 +55,7 @@ const triggeredActionFailedCheckRun: ContractDefinition = {
 							properties: {
 								mergeable: {
 									type: 'string',
-									const: 'never',
+									const: 'mergeable',
 								},
 							},
 						},
@@ -73,10 +73,10 @@ const triggeredActionFailedCheckRun: ContractDefinition = {
 			},
 		},
 		arguments: {
-			reason: 'Check-Run failed as its commit is never mergeable',
+			reason: 'Check-Run succeeded as its commit has become mergeable',
 			patch: [
 				{ op: 'replace', path: '/data/status', value: 'completed' },
-				{ op: 'add', path: '/data/conclusion', value: 'failure' },
+				{ op: 'add', path: '/data/conclusion', value: 'success' },
 				{
 					op: 'add',
 					path: '/data/completed_at',
@@ -86,5 +86,3 @@ const triggeredActionFailedCheckRun: ContractDefinition = {
 		},
 	},
 };
-
-export default triggeredActionFailedCheckRun;

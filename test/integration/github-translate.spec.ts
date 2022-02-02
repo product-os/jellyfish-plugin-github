@@ -1,17 +1,40 @@
-import { ActionLibrary } from '@balena/jellyfish-action-library';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import { DefaultPlugin } from '@balena/jellyfish-plugin-default';
-import { syncIntegrationScenario } from '@balena/jellyfish-test-harness';
+import { defaultPlugin } from '@balena/jellyfish-plugin-default';
+import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
+import { testUtils as workerTestUtils } from '@balena/jellyfish-worker';
 import jwt from 'jsonwebtoken';
+import path from 'path';
+import _ from 'lodash';
 import nock from 'nock';
-import { GitHubPlugin } from '../../lib';
-import webhooks from './webhooks/github';
+import { githubPlugin } from '../../lib';
+import webhooks from './webhooks';
 
 const TOKEN = defaultEnvironment.integration.github;
+let ctx: workerTestUtils.TestContext;
+
+beforeAll(async () => {
+	ctx = await workerTestUtils.newContext({
+		plugins: [productOsPlugin(), defaultPlugin(), githubPlugin()],
+	});
+
+	await workerTestUtils.translateBeforeAll(ctx);
+});
+
+beforeEach(async () => {
+	accessTokenNock();
+});
+
+afterEach(async () => {
+	await workerTestUtils.translateAfterEach(ctx);
+});
+
+afterAll(() => {
+	return workerTestUtils.destroyContext(ctx);
+});
 
 const accessTokenNock = async () => {
 	if (TOKEN.api && TOKEN.key) {
-		await nock('https://api.github.com')
+		nock('https://api.github.com')
 			.persist()
 			.post(/^\/app\/installations\/\d+\/access_tokens$/)
 			.reply(function (_uri: string, _request: any, callback: any) {
@@ -23,7 +46,7 @@ const accessTokenNock = async () => {
 					{
 						algorithms: ['RS256'],
 					},
-					(error) => {
+					(error: any) => {
 						if (error) {
 							return callback(error);
 						}
@@ -46,39 +69,57 @@ const accessTokenNock = async () => {
 	}
 };
 
-syncIntegrationScenario.run(
-	{
-		test,
-		before: beforeAll,
-		beforeEach,
-		after: afterAll,
-		afterEach,
-	},
-	{
-		basePath: __dirname,
-		plugins: [ActionLibrary, DefaultPlugin, GitHubPlugin],
-		cards: [
-			'issue',
-			'pull-request',
-			'message',
-			'repository',
-			'gh-push',
-			'check-run',
-			'commit',
-		],
-		scenarios: webhooks,
-		baseUrl: 'https://api.github.com',
-		stubRegex: /.*/,
-		beforeEach: accessTokenNock,
-		source: 'github',
-		options: {
-			token: TOKEN,
-		},
-		isAuthorized: (self: any, request: any) => {
-			return (
-				request.headers.authorization &&
-				request.headers.authorization[0] === `token ${self.options.token.api}`
-			);
-		},
-	},
-);
+describe('github-translate', () => {
+	for (const testCaseName of Object.keys(webhooks)) {
+		const testCase = webhooks[testCaseName];
+		const expected = {
+			head: testCase.expected.head,
+			tail: _.sortBy(testCase.expected.tail, workerTestUtils.tailSort),
+		};
+		for (const variation of workerTestUtils.getVariations(testCase.steps, {
+			permutations: false,
+		})) {
+			if (variation.combination.length !== testCase.steps.length) {
+				continue;
+			}
+
+			test(`(${variation.name}) ${testCaseName}`, async () => {
+				await workerTestUtils.webhookScenario(
+					ctx,
+					{
+						steps: variation.combination,
+						prepareEvent: async (event: any): Promise<any> => {
+							return event;
+						},
+						offset:
+							_.findIndex(testCase.steps, _.first(variation.combination)) + 1,
+						headIndex: testCase.headIndex || 0,
+						original: testCase.steps,
+						ignoreUpdateEvents: true,
+						expected: _.cloneDeep(expected),
+						name: testCaseName,
+						variant: variation.name,
+					},
+					{
+						source: 'github',
+						baseUrl: 'https://api.github.com',
+						uriPath: /.*/,
+						basePath: path.join(__dirname, 'webhooks'),
+						isAuthorized: (request: any) => {
+							return (
+								request.headers.authorization &&
+								request.headers.authorization[0] === `token ${TOKEN.api}`
+							);
+						},
+						head: {
+							ignore: {
+								issue: ['data.participants'],
+								'pull-request': ['data.participants'],
+							},
+						},
+					},
+				);
+			});
+		}
+	}
+});

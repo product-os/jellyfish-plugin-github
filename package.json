@@ -37,7 +37,7 @@
     "lint:fix": "balena-lint --fix lib test",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest test/unit",
-    "test:integration": "jest --runInBand --bail test/integration",
+    "test:integration": "jest test/integration",
     "test:compose": "docker build -t balena/jellyfish-sut:latest . && docker-compose -f docker-compose.test.yml -f docker-compose.yml up --exit-code-from=sut",
     "doc": "typedoc lib/ && touch docs/.nojekyll",
     "prepack": "npm run build",
@@ -46,9 +46,9 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-action-library": "^16.2.18",
     "@balena/jellyfish-assert": "^1.2.12",
-    "@balena/jellyfish-plugin-base": "^2.2.26",
+    "@balena/jellyfish-core": "^14.2.0",
+    "@balena/jellyfish-worker": "^18.2.0",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
@@ -59,11 +59,9 @@
   },
   "devDependencies": {
     "@balena/jellyfish-config": "^2.0.2",
-    "@balena/jellyfish-core": "^14.2.0",
     "@balena/jellyfish-environment": "^6.0.1",
-    "@balena/jellyfish-plugin-default": "^21.2.0",
-    "@balena/jellyfish-plugin-product-os": "^2.9.4",
-    "@balena/jellyfish-test-harness": "^8.1.204",
+    "@balena/jellyfish-plugin-default": "^23.0.2",
+    "@balena/jellyfish-plugin-product-os": "^4.0.1",
     "@balena/jellyfish-types": "^2.0.2",
     "@balena/lint": "^6.2.0",
     "@types/jest": "^27.4.0",
@@ -79,11 +77,6 @@
     "ts-jest": "^27.1.3",
     "typedoc": "^0.22.11",
     "typescript": "4.5.5"
-  },
-  "peerDependencies": {
-    "@balena/jellyfish-core": "^14.2.0",
-    "@balena/jellyfish-environment": "^6.0.1",
-    "@balena/jellyfish-plugin-default": "^21.2.0"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
