@@ -1,4 +1,19 @@
 - commits:
+    - subject: Use worker
+      hash: 49197da5f57869cf69a762d7588e3b02f122817d
+      body: |
+        Switch from plugin-base and test-harness to worker
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.0.0
+  title: Use worker
+  date: 2022-02-02T05:15:15.427Z
+- commits:
     - subject: Update @balena/jellyfish-core from 14.1.0 to 14.2.0
       hash: cc56628a30bfb9b9ea21749db9e4d8a3ac9601a7
       body: ""
