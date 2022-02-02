@@ -1,4 +1,18 @@
 - commits:
+    - subject: Minor fixes
+      hash: a56ecd0483dd68330ea341c544e17710e37874f5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Carol Schulze <carol@ereski.org>
+        signed-off-by: Carol Schulze <carol@ereski.org>
+      author: Carol Schulze
+      nested: []
+  version: 2.0.4
+  title: Minor fixes
+  date: 2022-02-02T18:30:57.723Z
+- commits:
     - subject: Update @balena/jellyfish-plugin-default from 23.0.2 to 23.1.0
       hash: d32c4dd4d48f548e3fd7f9c2a25bc443e25652e8
       body: ""
