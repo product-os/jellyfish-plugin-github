@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.0.2 - 2022-02-02
+
+* Update @balena/jellyfish-worker from 18.2.1 to 18.3.0 [Renovate Bot]
+
 ## 2.0.1 - 2022-02-02
 
 * Update dependencies (internal patch bumps) [Renovate Bot]
