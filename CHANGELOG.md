@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.0.7 - 2022-02-06
+
+* Optimize postgres for tests [Josh Bowling]
+
 ## 2.0.6 - 2022-02-04
 
 * Update internal-patch [Renovate Bot]
