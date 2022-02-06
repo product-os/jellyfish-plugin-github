@@ -17,6 +17,9 @@ beforeAll(async () => {
 		plugins: [productOsPlugin(), defaultPlugin(), githubPlugin()],
 	});
 
+	// TODO: Improve translate test suite/protocol to avoid this
+	ctx.worker.setTriggers(ctx.logContext, []);
+
 	await workerTestUtils.translateBeforeAll(ctx);
 });
 
@@ -29,10 +32,11 @@ afterEach(async () => {
 });
 
 afterAll(() => {
+	workerTestUtils.translateAfterAll();
 	return workerTestUtils.destroyContext(ctx);
 });
 
-const accessTokenNock = async () => {
+const accessTokenNock = () => {
 	if (TOKEN.api && TOKEN.key) {
 		nock('https://api.github.com')
 			.persist()
