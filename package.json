@@ -37,7 +37,7 @@
     "lint:fix": "balena-lint --fix lib test",
     "test": "npm run lint && npm run test:unit",
     "test:unit": "jest test/unit",
-    "test:integration": "jest test/integration",
+    "test:integration": "jest --bail --runInBand test/integration",
     "test:compose": "docker build -t balena/jellyfish-sut:latest . && docker-compose -f docker-compose.test.yml -f docker-compose.yml up --exit-code-from=sut",
     "doc": "typedoc lib/ && touch docs/.nojekyll",
     "prepack": "npm run build",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.12",
     "@balena/jellyfish-core": "^14.2.1",
-    "@balena/jellyfish-worker": "^18.4.3",
+    "@balena/jellyfish-worker": "^18.5.2",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
