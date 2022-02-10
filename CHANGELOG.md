@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.0.12 - 2022-02-10
+
+* Update @balena/jellyfish-core from 14.2.4 to 14.3.0 [Renovate Bot]
+
 ## 2.0.11 - 2022-02-09
 
 * Update resinci/jellyfish-test Docker tag to v1.4.24 [Renovate Bot]
