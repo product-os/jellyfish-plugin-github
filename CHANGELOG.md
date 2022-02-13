@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.0.16 - 2022-02-13
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.0.15 - 2022-02-11
 
 * Update resinci/jellyfish-test Docker tag to v1.4.25 [Renovate Bot]
