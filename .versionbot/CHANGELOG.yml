@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: e4c3c3f4bcda09a1839a434e8e02efebcb9dfb7c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.1
+  title: "'Update internal-patch'"
+  date: 2022-02-14T17:14:15.991Z
+- commits:
     - subject: "issue: Display status in snippet mode"
       hash: 268a237f7cd5a4ba0c6bc6cb57057a6bff2f4f31
       body: |
