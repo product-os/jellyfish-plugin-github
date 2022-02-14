@@ -78,6 +78,14 @@ export const issue: ContractDefinition = cardMixins.mixin(
 					},
 				},
 			},
+			snippet: {
+				data: {
+					status: {
+						'ui:title': null,
+						'ui:widget': 'Badge',
+					},
+				},
+			},
 			edit: {
 				$ref: '#/data/uiSchema/definitions/form',
 			},
