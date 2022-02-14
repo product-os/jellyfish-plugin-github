@@ -1,4 +1,19 @@
 - commits:
+    - subject: "issue: Display status in snippet mode"
+      hash: 268a237f7cd5a4ba0c6bc6cb57057a6bff2f4f31
+      body: |
+        Fixes https://github.com/product-os/jellyfish-plugin-github/issues/693
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 2.1.0
+  title: "'issue: Display status in snippet mode'"
+  date: 2022-02-14T11:39:36.574Z
+- commits:
     - subject: Update external-non-major
       hash: 5e09414eccb66824de476b5a5e01bceb385531d3
       body: ""

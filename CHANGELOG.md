@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.0 - 2022-02-14
+
+* issue: Display status in snippet mode [Lucian Buzzo]
+
 ## 2.0.17 - 2022-02-13
 
 * Update external-non-major [Renovate Bot]
