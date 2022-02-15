@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.2 - 2022-02-15
+
+* Update @balena/jellyfish-plugin-default from 23.1.0 to 23.2.1 [Renovate Bot]
+* Update resinci/jellyfish-test from v1.4.25 to v1.4.26 [Renovate Bot]
+
 ## 2.1.1 - 2022-02-14
 
 * Update internal-patch [Renovate Bot]
