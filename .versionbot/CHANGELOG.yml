@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: 0e45c1d94cade664407ae2a7631f7df29fc4b753
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.11
+  title: "'Update internal-patch'"
+  date: 2022-02-18T20:09:17.008Z
+- commits:
     - subject: "patch: Remove `artifactReady` schema from `commit` contract.
         `artifactReady` can be set to a string by transformer worker."
       hash: dbd6c5ea51e30d0eb104da615828b175c4e5c325

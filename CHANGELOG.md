@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.11 - 2022-02-18
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.1.10 - 2022-02-18
 
 * patch: Remove `artifactReady` schema from `commit` contract. `artifactReady` can be set to a string by transformer worker. [Thomas Manning]
