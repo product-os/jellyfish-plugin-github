@@ -44,9 +44,6 @@ export const commit: ContractDefinition = cardMixins.mixin(
 						$transformer: {
 							type: 'object',
 							properties: {
-								artifactReady: {
-									type: 'boolean',
-								},
 								mergeable: {
 									description: 'all downstream contracts are mergeable',
 									type: 'string',
