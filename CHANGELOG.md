@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.8 - 2022-02-18
+
+* Update balena/open-balena-db from v5.0.2 to v5.0.3 [Renovate Bot]
+* Update @balena/jellyfish-core from 14.3.8 to 14.4.0 [Renovate Bot]
+
 ## 2.1.7 - 2022-02-17
 
 * 🔄 Synced file(s) with product-os/secrets [joshbwlng]
