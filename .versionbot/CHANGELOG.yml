@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update dependencies (internal patch bumps)
+      hash: f5a1783a397eccffcbef43a7c0581ec85ed8d33c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.17
+  title: "'Update dependencies (internal patch bumps)'"
+  date: 2022-02-24T10:41:16.983Z
+- commits:
     - subject: Bump internal deps, transform serialize-error
       hash: bc05f16c7ea9398cb92d1d904deb56b05431ab2a
       body: ""

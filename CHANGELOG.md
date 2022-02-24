@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.17 - 2022-02-24
+
+* Update dependencies (internal patch bumps) [Renovate Bot]
+
 ## 2.1.16 - 2022-02-24
 
 * Bump internal deps, transform serialize-error [Josh Bowling]
