@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.16 - 2022-02-24
+
+* Bump internal deps, transform serialize-error [Josh Bowling]
+
 ## 2.1.15 - 2022-02-23
 
 * Update @balena/jellyfish-environment from 7.0.0 to 8.0.0 [Renovate Bot]

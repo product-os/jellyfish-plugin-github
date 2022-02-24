@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump internal deps, transform serialize-error
+      hash: bc05f16c7ea9398cb92d1d904deb56b05431ab2a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.16
+  title: "'Bump internal deps, transform serialize-error'"
+  date: 2022-02-24T04:13:10.721Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 7.0.0 to 8.0.0
       hash: bfeb488bbb0f75fc893081e947974aa612c3bdaf
       body: ""
