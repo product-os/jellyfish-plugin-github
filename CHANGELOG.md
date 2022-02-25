@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.19 - 2022-02-25
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.1.18 - 2022-02-25
 
 * Update @balena/jellyfish-environment from 8.0.0 to 9.1.0 [Renovate Bot]
