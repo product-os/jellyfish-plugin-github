@@ -46,9 +46,9 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-assert": "^1.2.15",
-    "@balena/jellyfish-core": "^15.0.3",
-    "@balena/jellyfish-worker": "^18.8.6",
+    "@balena/jellyfish-assert": "^1.2.16",
+    "@balena/jellyfish-core": "^15.0.4",
+    "@balena/jellyfish-worker": "^18.8.8",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.5.2",
