@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.24 - 2022-02-28
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.1.23 - 2022-02-27
 
 * 🔄 Synced file(s) with product-os/secrets [joshbwlng]
