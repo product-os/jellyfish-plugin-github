@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump core and worker
+      hash: cba4e3b7175eb793635a7d141e64dd39d77801e8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.26
+  title: "'Bump core and worker'"
+  date: 2022-03-01T06:32:41.582Z
+- commits:
     - subject: Update internal-patch
       hash: 460978175018b2413c5db9d796258fbfd59dfc4b
       body: ""

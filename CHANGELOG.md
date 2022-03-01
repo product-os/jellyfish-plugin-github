@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.26 - 2022-03-01
+
+* Bump core and worker [Josh Bowling]
+
 ## 2.1.25 - 2022-02-28
 
 * Update internal-patch [Renovate Bot]
