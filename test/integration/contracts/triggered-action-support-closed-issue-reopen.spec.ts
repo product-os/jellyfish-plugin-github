@@ -49,7 +49,7 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			supportThread,

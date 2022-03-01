@@ -74,7 +74,7 @@ describe('triggered-action-failed-check-run', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			commit,
@@ -121,7 +121,7 @@ describe('triggered-action-failed-check-run', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			commit,
@@ -168,7 +168,7 @@ describe('triggered-action-failed-check-run', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			commit,
@@ -215,7 +215,7 @@ describe('triggered-action-failed-check-run', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			commit,
@@ -262,7 +262,7 @@ describe('triggered-action-failed-check-run', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			commit,
