@@ -44,7 +44,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			supportThread,

@@ -52,7 +52,7 @@ describe('triggered-action-github-issue-link', () => {
 			},
 		);
 
-		await ctx.createLink(
+		await ctx.createLinkThroughWorker(
 			user.id,
 			session.id,
 			supportThread,
