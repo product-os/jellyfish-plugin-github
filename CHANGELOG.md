@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.27 - 2022-03-01
+
+* Remove jest esm transforms [Josh Bowling]
+
 ## 2.1.26 - 2022-03-01
 
 * Bump core and worker [Josh Bowling]
