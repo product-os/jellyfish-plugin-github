@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.31 - 2022-03-04
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.1.30 - 2022-03-04
 
 * Stop ignoring internal bumps [Josh Bowling]
