@@ -1,4 +1,18 @@
 - commits:
+    - subject: Stop ignoring internal bumps
+      hash: 3b6f997343bc417a476183dd41dbc0b5300652c2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.30
+  title: "'Stop ignoring internal bumps'"
+  date: 2022-03-04T10:58:51.310Z
+- commits:
     - subject: Bump core and worker
       hash: 377e89ff9981eea64a38c3b1fdba0feda29279e3
       body: ""
