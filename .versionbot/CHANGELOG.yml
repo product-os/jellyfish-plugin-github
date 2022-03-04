@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-core from 15.1.0 to 16.0.0
+      hash: 02e5c0cad1c2d9b760893b5aec5019c7bc7e70d9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.28
+  title: "'Update @balena/jellyfish-core from 15.1.0 to 16.0.0'"
+  date: 2022-03-01T16:05:05.419Z
+- commits:
     - subject: Remove jest esm transforms
       hash: ed3d0ff7f79dc3940689a0ca95e4da7bf4236337
       body: ""
