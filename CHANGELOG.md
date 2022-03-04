@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.29 - 2022-03-04
+
+* Bump core and worker [Josh Bowling]
+
 ## 2.1.28 - 2022-03-01
 
 * Update @balena/jellyfish-core from 15.1.0 to 16.0.0 [Renovate Bot]
