@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump external packages
+      hash: 2ef11798bcb660291ba15c7a80b4aa13fb96bee9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.34
+  title: "'Bump external packages'"
+  date: 2022-03-05T08:51:22.762Z
+- commits:
     - subject: Update internal-patch
       hash: 79e0e0582a7bc6937f02d995a7033af9aabeaaa1
       body: ""
