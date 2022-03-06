@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update lint-staged from 12.3.4 to 12.3.5
+      hash: 3917d378a7fec3935d49e44b752ca415ad94be54
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.38
+  title: "'Update lint-staged from 12.3.4 to 12.3.5'"
+  date: 2022-03-06T03:24:00.974Z
+- commits:
     - subject: Update internal-patch
       hash: da694284df696db358c2c293d842ef40c172b39f
       body: ""
