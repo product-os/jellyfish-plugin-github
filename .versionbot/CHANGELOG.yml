@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: a2c2b3c068c935b30728312eacaee6737882890e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.39
+  title: "'Update internal-patch'"
+  date: 2022-03-06T05:27:14.296Z
+- commits:
     - subject: Update lint-staged from 12.3.4 to 12.3.5
       hash: 3917d378a7fec3935d49e44b752ca415ad94be54
       body: ""

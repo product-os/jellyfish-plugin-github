@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.39 - 2022-03-06
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.1.38 - 2022-03-06
 
 * Update lint-staged from 12.3.4 to 12.3.5 [Josh Bowling]
