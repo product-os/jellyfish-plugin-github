@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update @balena/jellyfish-plugin-default from 23.3.26 to 24.0.0
+      hash: 9c2f5d364efff9dee1f6cb81b3d5445d5c4a48f8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.40
+  title: "'Update @balena/jellyfish-plugin-default from 23.3.26 to 24.0.0'"
+  date: 2022-03-06T11:34:54.955Z
+- commits:
     - subject: Update internal-patch
       hash: a2c2b3c068c935b30728312eacaee6737882890e
       body: ""
