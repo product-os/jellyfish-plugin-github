@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typescript from 4.5.5 to 4.6.2
+      hash: badafd7fd4576427b6cb3a8192865390eed021bd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.43
+  title: "'Update typescript from 4.5.5 to 4.6.2'"
+  date: 2022-03-07T05:08:28.562Z
+- commits:
     - subject: Update internal-patch
       hash: 137603f3bf8b45a392b6af285c208385e5fc8c99
       body: ""
