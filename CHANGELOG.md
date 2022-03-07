@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.42 - 2022-03-07
+
+* Update internal-patch [Renovate Bot]
+* Update typedoc from 0.22.12 to 0.22.13 [Renovate Bot]
+
 ## 2.1.41 - 2022-03-07
 
 * Update internal-patch [Renovate Bot]
