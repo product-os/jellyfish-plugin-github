@@ -20,7 +20,12 @@
 			"updated_at": "2019-05-15T15:21:32Z",
 			"completed_at": "2019-05-15T15:23:12Z",
 			"conclusion": "success",
-			"check_run_id": 128620228
+			"check_run_id": 128620228,
+			"alertsUser": [],
+			"alertsGroup": [],
+			"mentionsUser": [],
+			"mentionsGroup": [],
+			"participants": []
 		}
 	},
 	"tail": [

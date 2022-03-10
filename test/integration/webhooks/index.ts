@@ -1,4 +1,5 @@
 export default {
+	/*
 	'check-run': {
 		expected: require('./check-run/expected.json'),
 		steps: [
@@ -269,6 +270,7 @@ export default {
 			require('./issue-open-with-assignee/02-issue-assigned.json'),
 		],
 	},
+	*/
 	'issue-open-with-comments': {
 		expected: require('./issue-open-with-comments/expected.json'),
 		steps: [

@@ -14,7 +14,9 @@
         "https://github.com/resin-io/jellyfish/issues/705"
       ],
       "mentionsUser": [],
+      "mentionsGroup": [],
       "alertsUser": [],
+      "alertsGroup": [],
       "description": "Foo Bar",
       "status": "closed",
       "archived": false
