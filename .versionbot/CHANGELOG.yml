@@ -1,4 +1,16 @@
 - commits:
+    - subject: 🔄 Synced file(s) with product-os/secrets
+      hash: 4f24088cdb6c161e5b7b34f95e45bae6a652d0e4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: joshbwlng
+      nested: []
+  version: 2.1.47
+  title: "'🔄 Synced file(s) with product-os/secrets'"
+  date: 2022-03-12T09:01:31.094Z
+- commits:
     - subject: Update internal-patch
       hash: 2c786a7645430d2067227109e11003ac28d5380d
       body: ""
