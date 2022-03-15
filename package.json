@@ -48,7 +48,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.18",
     "@balena/jellyfish-core": "^16.0.13",
-    "@balena/jellyfish-worker": "^19.0.23",
+    "@balena/jellyfish-worker": "19.0.24-joshbwlng-fix-contract-export-8da84bac2a6f705ddf32c60ff2f188cc5afffb0b",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.6.1",
