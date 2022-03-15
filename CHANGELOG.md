@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.51 - 2022-03-15
+
+* Bump internal deps [Josh Bowling]
+
 ## 2.1.50 - 2022-03-14
 
 * Update internal-patch [Renovate Bot]
