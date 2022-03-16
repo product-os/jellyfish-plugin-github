@@ -1,4 +1,4 @@
-import { cardMixins } from '@balena/jellyfish-core';
+import { cardMixins } from 'autumndb';
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 
 export const repository: ContractDefinition = {

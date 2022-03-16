@@ -1,4 +1,4 @@
-import { testUtils as coreTestUtils } from '@balena/jellyfish-core';
+import { testUtils as coreTestUtils } from 'autumndb';
 import { testUtils as pluginDefaultTestUtils } from '@balena/jellyfish-plugin-default';
 import type { Contract } from '@balena/jellyfish-types/build/core';
 import type {
