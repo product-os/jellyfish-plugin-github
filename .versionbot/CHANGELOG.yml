@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: 82d9938217f72747d405e0e175862f3ff25946ef
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.54
+  title: "'Update internal-patch'"
+  date: 2022-03-17T00:40:30.701Z
+- commits:
     - subject: Use autumndb instead of jellyfish-core
       hash: 8d6ff107dbff5d2acb9c8af5b2e6592feea252fb
       body: ""
