@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.53 - 2022-03-17
+
+* Use autumndb instead of jellyfish-core [Lucian Buzzo]
+
 ## 2.1.52 - 2022-03-16
 
 * Update internal-patch [Renovate Bot]
