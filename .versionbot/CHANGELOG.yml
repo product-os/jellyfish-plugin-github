@@ -1,4 +1,18 @@
 - commits:
+    - subject: Use worker contract mixins
+      hash: f031ebf65717a70e62cf014178fc6873e9fa0512
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.1.58
+  title: "'Use worker contract mixins'"
+  date: 2022-03-18T05:58:05.054Z
+- commits:
     - subject: Replace cardMixins with contractMixins
       hash: a094513e1de5134b0e7571684ca96186ded76971
       body: ""
