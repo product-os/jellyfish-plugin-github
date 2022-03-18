@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.57 - 2022-03-18
+
+* Replace cardMixins with contractMixins [Josh Bowling]
+
 ## 2.1.56 - 2022-03-17
 
 * Update internal-patch [Renovate Bot]
