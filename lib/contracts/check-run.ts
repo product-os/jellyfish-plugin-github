@@ -1,11 +1,11 @@
-import { cardMixins } from 'autumndb';
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
+import { contractMixins } from 'autumndb';
 
 const slug = 'check-run';
 const type = 'type@1.0.0';
 
-export const checkRun: ContractDefinition = cardMixins.mixin(
-	cardMixins.withEvents(slug, type),
+export const checkRun: ContractDefinition = contractMixins.mixin(
+	contractMixins.withEvents(slug, type),
 )({
 	slug: 'check-run',
 	name: 'Check Run',
