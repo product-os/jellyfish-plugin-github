@@ -1,11 +1,12 @@
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
-import { contractMixins } from 'autumndb';
+import { contractMixins as workerContractMixins } from '@balena/jellyfish-worker';
+import { contractMixins as autumndbContractMixins } from 'autumndb';
 
 const slug = 'pull-request';
 const type = 'type@1.0.0';
 
-export const pullRequest: ContractDefinition = contractMixins.mixin(
-	contractMixins.withEvents(slug, type),
+export const pullRequest: ContractDefinition = workerContractMixins.mixin(
+	workerContractMixins.withEvents(slug, type),
 )({
 	slug,
 	name: 'Pull Request',
@@ -96,7 +97,7 @@ export const pullRequest: ContractDefinition = contractMixins.mixin(
 						'created_at',
 						'merged_at',
 					],
-					mirrors: contractMixins.uiSchemaDef('mirrors'),
+					mirrors: autumndbContractMixins.uiSchemaDef('mirrors'),
 					status: {
 						'ui:widget': 'Badge',
 					},
@@ -109,7 +110,7 @@ export const pullRequest: ContractDefinition = contractMixins.mixin(
 							else: null,
 						},
 					},
-					repository: contractMixins.uiSchemaDef('repository'),
+					repository: autumndbContractMixins.uiSchemaDef('repository'),
 					base: {
 						sha: null,
 						branch: {
