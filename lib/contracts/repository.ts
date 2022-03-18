@@ -1,5 +1,5 @@
-import { cardMixins } from 'autumndb';
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
+import { contractMixins } from 'autumndb';
 
 export const repository: ContractDefinition = {
 	slug: 'repository',
@@ -38,8 +38,8 @@ export const repository: ContractDefinition = {
 		uiSchema: {
 			fields: {
 				data: {
-					git_url: cardMixins.uiSchemaDef('externalUrl'),
-					html_url: cardMixins.uiSchemaDef('externalUrl'),
+					git_url: contractMixins.uiSchemaDef('externalUrl'),
+					html_url: contractMixins.uiSchemaDef('externalUrl'),
 				},
 			},
 		},
