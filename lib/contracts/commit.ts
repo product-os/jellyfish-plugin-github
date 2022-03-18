@@ -1,5 +1,5 @@
 import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
-import { contractMixins } from 'autumndb';
+import { contractMixins } from '@balena/jellyfish-worker';
 
 const slug = 'commit';
 const type = 'type@1.0.0';
