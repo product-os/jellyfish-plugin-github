@@ -1,7 +1,7 @@
 {
   "name": "@balena/jellyfish-plugin-github",
   "description": "GitHub Jellyfish Plugin",
-  "version": "2.1.62",
+  "version": "2.1.63",
   "repository": {
     "type": "git",
     "url": "https://github.com/product-os/jellyfish-plugin-github"
@@ -82,6 +82,6 @@
     "pre-commit": "npx lint-staged"
   },
   "versionist": {
-    "publishedAt": "2022-03-19T03:59:11.279Z"
+    "publishedAt": "2022-03-19T05:23:25.056Z"
   }
 }
