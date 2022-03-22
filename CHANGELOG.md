@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.65 - 2022-03-22
+
+* Update upstreams in repo.yml [Josh Bowling]
+
 ## 2.1.64 - 2022-03-19
 
 * Update internal-patch [Renovate Bot]
