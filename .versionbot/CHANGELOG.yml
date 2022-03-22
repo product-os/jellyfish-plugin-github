@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: 380fdf90ca8feb77192b38a75688e5897a8d2539
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.1.66
+  title: "'Update internal-patch'"
+  date: 2022-03-22T05:08:51.766Z
+- commits:
     - subject: Update upstreams in repo.yml
       hash: 5a794491312a8dad451862ad76b1cba379ae4ac2
       body: ""
