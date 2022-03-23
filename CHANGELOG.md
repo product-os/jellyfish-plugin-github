@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.68 - 2022-03-23
+
+* Update balena/open-balena-db from v5.0.3 to v5.1.0 [Renovate Bot]
+* Update autumndb from 19.0.3 to 19.1.0 [Renovate Bot]
+
 ## 2.1.67 - 2022-03-22
 
 * Update internal-patch [Renovate Bot]
