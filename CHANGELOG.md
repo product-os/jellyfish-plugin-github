@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.1.76 - 2022-03-25
+
+* Bump internal deps [Josh Bowling]
+
 ## 2.1.75 - 2022-03-25
 
 * Update @balena/jellyfish-worker from 20.2.10 to 21.0.0 [Renovate Bot]
