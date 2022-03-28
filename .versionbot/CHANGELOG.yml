@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add a view that shows all repositories
+      hash: 2c784671cde03bd315f6c544c1af2b9df8f2888c
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 2.2.0
+  title: "'Add a view that shows all repositories'"
+  date: 2022-03-28T11:00:59.986Z
+- commits:
     - subject: Update internal-patch
       hash: 012a763d56ed821aa808c3b3dd00738d433e2747
       body: ""
