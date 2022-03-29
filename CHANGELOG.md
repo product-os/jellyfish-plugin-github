@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.1 - 2022-03-29
+
+* Import repo view in contracts list [Lucian Buzzo]
+
 ## 2.2.0 - 2022-03-28
 
 * Add a view that shows all repositories [Lucian Buzzo]

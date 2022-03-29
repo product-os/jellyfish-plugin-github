@@ -1,4 +1,18 @@
 - commits:
+    - subject: Import repo view in contracts list
+      hash: b3eeaaecaa03c563dfe3a8ed044e3758f9a1a30c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 2.2.1
+  title: "'Import repo view in contracts list'"
+  date: 2022-03-29T10:00:39.965Z
+- commits:
     - subject: Add a view that shows all repositories
       hash: 2c784671cde03bd315f6c544c1af2b9df8f2888c
       body: ""
