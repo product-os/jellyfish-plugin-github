@@ -14,6 +14,7 @@ import { triggeredActionIntegrationGitHubMirrorEvent } from './triggered-action-
 import { triggeredActionSupportClosedIssueReopen } from './triggered-action-support-closed-issue-reopen';
 import { triggeredActionSupportClosedPullRequestReopen } from './triggered-action-support-closed-pull-request-reopen';
 import { viewAllIssues } from './view-all-issues';
+import { viewAllRepositories } from './view-all-repositories';
 
 export const contracts: ContractDefinition[] = [
 	checkRun,
@@ -31,4 +32,5 @@ export const contracts: ContractDefinition[] = [
 	triggeredActionSupportClosedIssueReopen,
 	triggeredActionSupportClosedPullRequestReopen,
 	viewAllIssues,
+	viewAllRepositories,
 ];
