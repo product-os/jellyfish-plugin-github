@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.6 - 2022-04-06
+
+* Update internal-patch [Renovate Bot]
+* Update resinci/jellyfish-test from v3.0.4 to v3.0.5 [Renovate Bot]
+
 ## 2.2.5 - 2022-04-05
 
 * Update internal-patch [Renovate Bot]
