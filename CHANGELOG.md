@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.13 - 2022-04-12
+
+* Update @balena/jellyfish-worker from 21.1.11 to 21.2.3 [Renovate Bot]
+
 ## 2.2.12 - 2022-04-11
 
 * Update typedoc from 0.22.14 to 0.22.15 [Renovate Bot]

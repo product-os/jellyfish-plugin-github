@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-worker from 21.1.11 to 21.2.3
+      hash: 9f9b6ea5fe6f445062eb1b107c27ec5789f764e3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.2.13
+  title: "'Update @balena/jellyfish-worker from 21.1.11 to 21.2.3'"
+  date: 2022-04-12T03:01:20.171Z
+- commits:
     - subject: Update typedoc from 0.22.14 to 0.22.15
       hash: 53a970e191d1bcfdcc3b56de722e04c7b86672c5
       body: ""
