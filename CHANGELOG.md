@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.20 - 2022-04-13
+
+* 🔄 Synced file(s) with product-os/secrets [joshbwlng]
+
 ## 2.2.19 - 2022-04-13
 
 * Update secrets [Josh Bowling]
