@@ -14,7 +14,6 @@ services:
     secrets:
       - integration_github_app_id
       - integration_github_private_key
-      - integration_github_signature_key
       - integration_github_token
     networks:
       - internal
@@ -24,7 +23,5 @@ secrets:
     file: ./.balena/secrets/integration_github_app_id
   integration_github_private_key:
     file: ./.balena/secrets/integration_github_private_key
-  integration_github_signature_key:
-    file: ./.balena/secrets/integration_github_signature_key
   integration_github_token:
     file: ./.balena/secrets/integration_github_token
