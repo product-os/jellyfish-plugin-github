@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.23 - 2022-04-14
+
+* Update secrets [Josh Bowling]
+
 ## 2.2.22 - 2022-04-14
 
 * Update secrets [Josh Bowling]
