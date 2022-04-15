@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.24 - 2022-04-15
+
+* Bring secrets in as submodule [Josh Bowling]
+
 ## 2.2.23 - 2022-04-14
 
 * Update secrets [Josh Bowling]

@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bring secrets in as submodule
+      hash: cde2873d4e043e1404b66eabef82ef7d5886809a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.2.24
+  title: "'Bring secrets in as submodule'"
+  date: 2022-04-15T01:30:32.946Z
+- commits:
     - subject: Update secrets
       hash: e29c6f1ef1d780c1a68c4e00585820da9e32b3ee
       body: ""
