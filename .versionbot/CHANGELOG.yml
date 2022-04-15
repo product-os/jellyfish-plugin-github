@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update secrets submodule
+      hash: 34af6c0871ff5db61416dbbe6c980144e1ef7b75
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.2.27
+  title: "'Update secrets submodule'"
+  date: 2022-04-15T06:27:47.577Z
+- commits:
     - subject: 🔄 Synced file(s) with product-os/jellyfish-config
       hash: c368733c030631d2af0a5762d3c79dfaaf72ff9d
       body: ""
