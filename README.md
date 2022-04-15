@@ -30,12 +30,14 @@ Unit tests can be easily run with the command `npm test`.
 The integration tests require Postgres and Redis instances. The simplest way to run the tests locally is with `docker-compose`.
 
 ```
+git submodule update --init
 git secret reveal -f
 npm run test:compose
 ```
 
 You can also run tests locally against Postgres and Redis instances running in `docker-compose`:
 ```
+git submodule update --init
 git secret reveal -f
 npm run compose
 export INTEGRATION_GITHUB_APP_ID=$(cat .balena/secrets/integration_github_app_id)
