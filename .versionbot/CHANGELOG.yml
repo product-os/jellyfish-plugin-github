@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump internal deps
+      hash: 6a21871f7f9f96cdcd59920dc40b66a32fa7a3eb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.2.36
+  title: "'Bump internal deps'"
+  date: 2022-04-19T05:56:37.109Z
+- commits:
     - subject: Update resinci/jellyfish-test from v3.0.7 to v3.0.8
       hash: 086c8ff6d4c7c96544633ac62a86f412cab78667
       body: ""
