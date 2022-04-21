@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.37 - 2022-04-21
+
+* Bump internal [Josh Bowling]
+
 ## 2.2.36 - 2022-04-19
 
 * Bump internal deps [Josh Bowling]
