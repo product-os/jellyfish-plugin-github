@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.44 - 2022-04-29
+
+* Update internal-patch [Renovate Bot]
+* Update typescript from 4.6.3 to 4.6.4 [Renovate Bot]
+
 ## 2.2.43 - 2022-04-28
 
 * Update internal-patch [Renovate Bot]
