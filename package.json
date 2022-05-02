@@ -46,13 +46,13 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-assert": "^1.2.26",
-    "@balena/jellyfish-worker": "^23.0.1",
+    "@balena/jellyfish-assert": "^1.2.27",
+    "@balena/jellyfish-worker": "^23.0.9",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.6.2",
     "@octokit/rest": "^18.12.0",
-    "autumndb": "^19.1.32",
+    "autumndb": "^19.1.33",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^1.10.2"
@@ -60,8 +60,8 @@
   "devDependencies": {
     "@balena/jellyfish-config": "^2.0.6",
     "@balena/jellyfish-environment": "^11.0.1",
-    "@balena/jellyfish-plugin-default": "^24.0.93",
-    "@balena/jellyfish-plugin-product-os": "^5.0.11",
+    "@balena/jellyfish-plugin-default": "^24.0.95",
+    "@balena/jellyfish-plugin-product-os": "^5.0.13",
     "@balena/jellyfish-types": "^2.0.5",
     "@balena/lint": "^6.2.0",
     "@types/jest": "^27.4.1",
