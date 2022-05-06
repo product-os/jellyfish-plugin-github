@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.57 - 2022-05-06
+
+* Update jest dependencies [Josh Bowling]
+
 ## 2.2.56 - 2022-05-05
 
 * Update resinci/jellyfish-test from v3.0.9 to v3.0.10 [Renovate Bot]

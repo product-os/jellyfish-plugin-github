@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update jest dependencies
+      hash: 0dfcebae9961101072ece1d079d2257dfe128ed7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 2.2.57
+  title: "'Update jest dependencies'"
+  date: 2022-05-06T15:17:09.634Z
+- commits:
     - subject: Update resinci/jellyfish-test from v3.0.9 to v3.0.10
       hash: 95c11fcc8bca16159a014eeed438c4a2fabab9d1
       body: ""
