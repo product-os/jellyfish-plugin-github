@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 2.2.58 - 2022-05-07
+
+* Update internal-patch [Renovate Bot]
+
 ## 2.2.57 - 2022-05-06
 
 * Update jest dependencies [Josh Bowling]

@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update internal-patch
+      hash: 0ce0896be0350620ff0062389434b1621e40953b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 2.2.58
+  title: "'Update internal-patch'"
+  date: 2022-05-07T02:19:21.757Z
+- commits:
     - subject: Update jest dependencies
       hash: 0dfcebae9961101072ece1d079d2257dfe128ed7
       body: ""
