@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update autumndb from 19.1.41 to 19.3.1
+      hash: 082f0231449886609c72b3e2345339ab387d2efa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 3.0.1
+  title: "'Update autumndb from 19.1.41 to 19.3.1'"
+  date: 2022-05-11T09:16:39.025Z
+- commits:
     - subject: Update to worker 24
       hash: 792ffe54b91ff7cdb16cf0d6ec7bac4a4328aaa8
       body: ""
