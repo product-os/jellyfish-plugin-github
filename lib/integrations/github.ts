@@ -1951,6 +1951,8 @@ export class GithubIntegration implements Integration {
 }
 
 export const githubIntegrationDefinition: IntegrationDefinition = {
+	slug: SLUG,
+
 	initialize: async (options) => new GithubIntegration(options),
 	isEventValid: (_logContext, token, rawEvent, headers): boolean => {
 		const signature = headers['x-hub-signature'];
