@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 3.0.2 - 2022-05-11
+
+* Add relationship definitions [Ramiro González Maciel]
+
 ## 3.0.1 - 2022-05-11
 
 * Update autumndb from 19.1.41 to 19.3.1 [Josh Bowling]
