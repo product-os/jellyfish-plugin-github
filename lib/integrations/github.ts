@@ -264,7 +264,9 @@ export class GithubIntegration implements Integration {
 		};
 
 		if (installationId && this.options.token.key && this.options.token.appId) {
-			context.log.info('Using GitHub App based authentication');
+			context.log.info('Using GitHub App based authentication', {
+				installationId,
+			});
 			octokitOptions.authStrategy = createAppAuth;
 			octokitOptions.auth = {
 				appId: _.parseInt(this.options.token.appId),
@@ -273,15 +275,26 @@ export class GithubIntegration implements Integration {
 
 			const github = new Octokit(octokitOptions);
 			let token: any;
-			if (installationId === 'app-scope') {
-				({ token } = (await github.auth({
-					type: 'app',
-				})) as any);
-			} else {
-				({ token } = (await github.auth({
-					type: 'installation',
-					installationId,
-				})) as any);
+			try {
+				if (installationId === 'app-scope') {
+					({ token } = (await github.auth({
+						type: 'app',
+					})) as any);
+				} else {
+					({ token } = (await github.auth({
+						type: 'installation',
+						installationId,
+					})) as any);
+				}
+			} catch (error) {
+				context.log.error(
+					'Failed to authenticate with GitHub based authentication',
+					{
+						installationId,
+						auth: octokitOptions.auth,
+					},
+				);
+				throw error;
 			}
 			Reflect.deleteProperty(octokitOptions, 'authStrategy');
 			octokitOptions.auth = token;
