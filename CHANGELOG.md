@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 3.0.3 - 2022-05-12
+
+* Add GitHub app auth logs [Josh Bowling]
+
 ## 3.0.2 - 2022-05-11
 
 * Add relationship definitions [Ramiro González Maciel]
