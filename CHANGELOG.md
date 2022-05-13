@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 3.0.4 - 2022-05-12
+
+* Update autumndb from 19.3.1 to 20.0.0 [Renovate Bot]
+
 ## 3.0.3 - 2022-05-12
 
 * Add GitHub app auth logs [Josh Bowling]
