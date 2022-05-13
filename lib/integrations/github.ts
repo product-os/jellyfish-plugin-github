@@ -292,6 +292,8 @@ export class GithubIntegration implements Integration {
 					{
 						installationId,
 						auth: octokitOptions.auth,
+						appId: this.options.token.appId,
+						key: this.options.token.key,
 					},
 				);
 				throw error;
