@@ -1,5 +1,19 @@
 - commits:
     - subject: Update auth failure log
+      hash: 0fcca9e09e848a3c84189ef8d722946f2499028e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 3.0.6
+  title: "'Update auth failure log'"
+  date: 2022-05-13T05:20:57.272Z
+- commits:
+    - subject: Update auth failure log
       hash: 13f59c23963bb0ca8d0e16c8124b0b18d1d15819
       body: ""
       footer:
