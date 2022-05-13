@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 3.0.5 - 2022-05-13
+
+* Update auth failure log [Josh Bowling]
+
 ## 3.0.4 - 2022-05-12
 
 * Update autumndb from 19.3.1 to 20.0.0 [Renovate Bot]
