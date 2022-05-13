@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 4.0.0 - 2022-05-13
+
+* Update worker to v26 [karaxuna]
+
 ## 3.0.6 - 2022-05-13
 
 * Update auth failure log [Josh Bowling]

@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update worker to v26
+      hash: 57d1686f79685e013c71549628270afa3f2c9498
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: karaxuna
+      nested: []
+  version: 4.0.0
+  title: "'Update worker to v26'"
+  date: 2022-05-13T17:09:11.674Z
+- commits:
     - subject: Update auth failure log
       hash: 0fcca9e09e848a3c84189ef8d722946f2499028e
       body: ""
