@@ -287,15 +287,10 @@ export class GithubIntegration implements Integration {
 					})) as any);
 				}
 			} catch (error) {
-				context.log.error(
-					'Failed to authenticate with GitHub based authentication',
-					{
-						installationId,
-						auth: octokitOptions.auth,
-						appId: this.options.token.appId,
-						key: this.options.token.key,
-					},
-				);
+				context.log.error('Failed to authenticate with GitHub', {
+					installationId,
+					error,
+				});
 				throw error;
 			}
 			Reflect.deleteProperty(octokitOptions, 'authStrategy');
