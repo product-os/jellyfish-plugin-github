@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 4.0.1 - 2022-05-14
+
+* Update internal-patch [Renovate Bot]
+
 ## 4.0.0 - 2022-05-13
 
 * Update worker to v26 [karaxuna]
