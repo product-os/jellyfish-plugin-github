@@ -2,7 +2,7 @@ import type { RelationshipContractDefinition } from 'autumndb';
 
 export const relationshipPullRequestHasBaseAtRepository: RelationshipContractDefinition =
 	{
-		slug: 'relationship-pull-request-has-head-at-repository',
+		slug: 'relationship-pull-request-has-base-at-repository',
 		type: 'relationship@1.0.0',
 		name: 'has base at',
 		data: {
