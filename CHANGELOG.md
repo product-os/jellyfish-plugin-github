@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 5.0.7 - 2022-05-23
+
+* Update internal-patch [Renovate Bot]
+
 ## 5.0.6 - 2022-05-21
 
 * Update resinci/jellyfish-test from v3.0.12 to v3.0.13 [Renovate Bot]
