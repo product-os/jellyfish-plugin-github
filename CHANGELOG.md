@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 5.0.8 - 2022-05-27
+
+* Update internal-patch (internal patch bumps) [Renovate Bot]
+* Update @balena/jellyfish-worker from 27.0.3 to 27.1.0 [Renovate Bot]
+
 ## 5.0.7 - 2022-05-23
 
 * Update internal-patch [Renovate Bot]
