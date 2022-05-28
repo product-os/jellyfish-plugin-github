@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add missing relationships
+      hash: 8b212f1487b2593608bf832469ec9b94587fcc9a
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 5.1.0
+  title: "'Add missing relationships'"
+  date: 2022-05-28T09:04:04.346Z
+- commits:
     - subject: Update external-non-major (external non-major bumps)
       hash: 07446878127ee3062f24cfb1bd8f6be8d62404ec
       body: ""

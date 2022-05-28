@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 5.1.0 - 2022-05-28
+
+* Add missing relationships [Josh Bowling]
+
 ## 5.0.9 - 2022-05-28
 
 * Update external-non-major (external non-major bumps) [Renovate Bot]
