@@ -15,9 +15,13 @@ import { relationshipIssueIsAttachedToUserFeedback } from './relationship-issue-
 import { relationshipIssueIsOwnedByUser } from './relationship-issue-is-owned-by-user';
 import { relationshipLoopHasRepository } from './relationship-loop-has-repository';
 import { relationshipMessageIsAttachedToIssue } from './relationship-message-is-attached-to-issue';
+import { relationshipMessageIsAttachedToPullRequest } from './relationship-message-is-attached-to-pull-request';
 import { relationshipMilestoneIsAttachedToIssue } from './relationship-milestone-is-attached-to-issue';
 import { relationshipMilestoneIsAttachedToPullRequest } from './relationship-milestone-is-attached-to-pull-request';
 import { relationshipPullRequestHasAttachedPattern } from './relationship-pull-request-has-attached-pattern';
+import { relationshipPullRequestHasBaseAtRepository } from './relationship-pull-request-has-base-at-repository';
+import { relationshipPullRequestHasHeadAtRepository } from './relationship-pull-request-has-head-at-repository';
+import { relationshipPushRefersToRepository } from './relationship-push-refers-to-repository';
 import { relationshipRepositoryHasThread } from './relationship-repository-has-thread';
 import { relationshipRepositoryUsesRepository } from './relationship-repository-uses-repository';
 import { relationshipSalesThreadIsAttachedToIssue } from './relationship-sales-thread-is-attached-to-issue';
@@ -51,9 +55,13 @@ export const contracts: ContractDefinition[] = [
 	relationshipIssueIsOwnedByUser,
 	relationshipLoopHasRepository,
 	relationshipMessageIsAttachedToIssue,
+	relationshipMessageIsAttachedToPullRequest,
 	relationshipMilestoneIsAttachedToIssue,
 	relationshipMilestoneIsAttachedToPullRequest,
 	relationshipPullRequestHasAttachedPattern,
+	relationshipPullRequestHasBaseAtRepository,
+	relationshipPullRequestHasHeadAtRepository,
+	relationshipPushRefersToRepository,
 	relationshipRepositoryHasThread,
 	relationshipRepositoryUsesRepository,
 	relationshipSalesThreadIsAttachedToIssue,
