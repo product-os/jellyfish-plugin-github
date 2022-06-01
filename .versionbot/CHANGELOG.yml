@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typedoc from 0.22.16 to 0.22.17
+      hash: 4bf1dbf52a6cb2600ef85220f01a5474d24f169a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 5.1.4
+  title: "'Update typedoc from 0.22.16 to 0.22.17'"
+  date: 2022-06-01T08:04:26.115Z
+- commits:
     - subject: Update @balena/jellyfish-plugin-default from 27.3.1 to 27.4.2
       hash: 33f1a18616e4dab216d123c7d10bc4cac7acabb7
       body: ""
