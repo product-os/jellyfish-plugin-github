@@ -1,4 +1,18 @@
 - commits:
+    - subject: Bump internal deps
+      hash: 56ccad6a67e4a522b9c1ad744367fa4a2ee2ed76
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 5.1.2
+  title: "'Bump internal deps'"
+  date: 2022-06-01T03:32:00.675Z
+- commits:
     - subject: Update typedoc from 0.22.15 to 0.22.16
       hash: 3a44025db752ea0c2d3b010b786cdd0d2d91cfc8
       body: ""
