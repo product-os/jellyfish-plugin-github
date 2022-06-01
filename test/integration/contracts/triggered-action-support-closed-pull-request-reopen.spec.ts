@@ -49,8 +49,8 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 			session.id,
 			supportThread,
 			pullRequest,
-			'support thread is attached to pull request',
-			'pull request has attached support thread',
+			'is attached to',
+			'has attached',
 		);
 
 		// Update issue status to closed

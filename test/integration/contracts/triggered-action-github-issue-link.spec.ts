@@ -57,8 +57,8 @@ describe('triggered-action-github-issue-link', () => {
 			session.id,
 			supportThread,
 			issue,
-			'support thread is attached to issue',
-			'issue has attached support thread',
+			'is attached to',
+			'has attached',
 		);
 
 		await ctx.waitForMatch({
@@ -78,7 +78,7 @@ describe('triggered-action-github-issue-link', () => {
 							properties: {
 								message: {
 									regexp: {
-										pattern: 'This issue has attached support thread',
+										pattern: '^This has attached',
 									},
 								},
 							},

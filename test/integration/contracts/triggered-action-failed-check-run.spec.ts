@@ -12,8 +12,35 @@ beforeAll(async () => {
 		plugins: [productOsPlugin(), defaultPlugin(), githubPlugin()],
 	});
 
+	// Prepare test user and session
 	user = await ctx.createUser(coreTestUtils.generateRandomId());
 	session = await ctx.createSession(user);
+
+	// Add relationship for tests
+	await ctx.worker.insertCard(
+		ctx.logContext,
+		ctx.session,
+		ctx.worker.typeContracts['relationship@1.0.0'],
+		{
+			attachEvents: false,
+		},
+		{
+			slug: 'relationship-commit-was-built-into-card',
+			type: 'relationship@1.0.0',
+			name: 'was built into',
+			data: {
+				inverseName: 'was built from',
+				title: 'Commit',
+				inverseTitle: 'Card',
+				from: {
+					type: 'commit',
+				},
+				to: {
+					type: 'card',
+				},
+			},
+		},
+	);
 });
 
 afterAll(() => {

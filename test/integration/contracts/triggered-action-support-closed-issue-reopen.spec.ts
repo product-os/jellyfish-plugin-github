@@ -54,8 +54,8 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 			session.id,
 			supportThread,
 			issue,
-			'support thread is attached to issue',
-			'issue has attached support thread',
+			'is attached to',
+			'has attached',
 		);
 
 		// Update issue status to closed
