@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typedoc from 0.22.15 to 0.22.16
+      hash: 3a44025db752ea0c2d3b010b786cdd0d2d91cfc8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 5.1.1
+  title: "'Update typedoc from 0.22.15 to 0.22.16'"
+  date: 2022-05-30T18:05:54.081Z
+- commits:
     - subject: Add missing relationships
       hash: 8b212f1487b2593608bf832469ec9b94587fcc9a
       body: ""

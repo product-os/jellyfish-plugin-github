@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 5.1.1 - 2022-05-30
+
+* Update typedoc from 0.22.15 to 0.22.16 [Renovate Bot]
+
 ## 5.1.0 - 2022-05-28
 
 * Add missing relationships [Josh Bowling]
