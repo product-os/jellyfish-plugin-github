@@ -11,7 +11,7 @@ export const triggeredActionSupportClosedIssueReopen: ContractDefinition = {
 			$$links: {
 				'is attached to': {
 					$$links: {
-						'issue has attached support thread': {
+						'has attached': {
 							type: 'object',
 							required: ['type', 'data'],
 							properties: {
@@ -101,8 +101,7 @@ export const triggeredActionSupportClosedIssueReopen: ContractDefinition = {
 		action: 'action-update-card@1.0.0',
 		target: {
 			$map: {
-				$eval:
-					"source.links['is attached to'][0].links['issue has attached support thread'][0:]",
+				$eval: "source.links['is attached to'][0].links['has attached'][0:]",
 			},
 			'each(link)': {
 				$eval: 'link.id',
