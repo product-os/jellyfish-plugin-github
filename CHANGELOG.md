@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 5.1.5 - 2022-06-01
+
+* Update typescript from 4.6.4 to 4.7.2 [Renovate Bot]
+
 ## 5.1.4 - 2022-06-01
 
 * Update typedoc from 0.22.16 to 0.22.17 [Renovate Bot]
