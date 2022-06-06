@@ -1729,9 +1729,9 @@ export class GithubIntegration implements Integration {
 				{
 					slug: slugify(`link-commit-pr-${headSha}-${sequence[0].card.slug}`),
 					type: 'link@1.0.0',
-					name: 'is attached to PR',
+					name: 'is attached to',
 					data: {
-						inverseName: 'has attached commit',
+						inverseName: 'has attached',
 						from: {
 							id: {
 								$eval: `cards[${commitCardIdx}].id`,
@@ -1791,9 +1791,9 @@ export class GithubIntegration implements Integration {
 						)}-' + cards[${commitCardIdx}].id`,
 					},
 					type: 'link@1.0.0',
-					name: 'has attached check run',
+					name: 'has attached',
 					data: {
-						inverseName: 'is attached to commit',
+						inverseName: 'is attached to',
 						from: {
 							id: {
 								$eval: `cards[${commitCardIdx}].id`,
