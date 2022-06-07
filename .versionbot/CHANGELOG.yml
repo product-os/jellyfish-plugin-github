@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add/update relationships
+      hash: a2a249a1a84ad2c2f3e52143eaa38dcef53c4daa
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 6.0.0
+  title: "'Add/update relationships'"
+  date: 2022-06-06T07:48:23.061Z
+- commits:
     - subject: Update typescript from 4.7.2 to 4.7.3
       hash: d8af64e6905307cf3a3e1d9415585d3ce759badc
       body: ""
