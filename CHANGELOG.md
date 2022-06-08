@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.2 - 2022-06-08
+
+* Update internal packages [Josh Bowling]
+
 ## 6.0.1 - 2022-06-07
 
 * Update @balena/jellyfish-plugin-default from 27.4.2 to 27.5.0 [Renovate Bot]
