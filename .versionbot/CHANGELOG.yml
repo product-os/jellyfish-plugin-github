@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update resinci/jellyfish-test from v3.0.13 to v3.0.14
+      hash: daac422dec40ed5fb05780d0187e02753fcbf594
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 6.0.3
+  title: "'Update resinci/jellyfish-test from v3.0.13 to v3.0.14'"
+  date: 2022-06-08T21:52:57.275Z
+- commits:
     - subject: Update internal packages
       hash: 7f6ada940f608b2b1749479c4a0ae73b6b3e0e23
       body: ""
