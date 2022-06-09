@@ -161,6 +161,7 @@ function makeCard(
 	if (time) {
 		date = new Date(time);
 	}
+	contract.data.integration_source = SLUG;
 
 	return {
 		time: date,

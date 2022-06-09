@@ -26,7 +26,8 @@
       "alertsUser": [],
       "description": "",
       "status": "open",
-      "archived": false
+      "archived": false,
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -65,7 +66,8 @@
             "alertsUser": [],
             "description": "",
             "status": "open",
-            "archived": false
+            "archived": false,
+            "integration_source": "github"
           },
           "type": "pull-request@1.0.0"
         }

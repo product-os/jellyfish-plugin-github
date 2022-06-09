@@ -62,7 +62,8 @@
             "README.md"
           ]
         }
-      ]
+      ],
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -142,7 +143,8 @@
                   "README.md"
                 ]
               }
-            ]
+            ],
+            "integration_source": "github"
           }
         }
       }

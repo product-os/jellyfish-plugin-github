@@ -10,7 +10,8 @@
       "git_url":  "git://github.com/resin-io/jellyfish.git",
       "html_url": "https://github.com/resin-io/jellyfish",
       "name":  "jellyfish",
-      "owner":  "resin-io"
+      "owner":  "resin-io",
+      "integration_source": "github"
     },
     "requires": [ ],
     "tags": [ ],
@@ -41,7 +42,8 @@
             "git_url":  "git://github.com/resin-io/jellyfish.git",
             "html_url": "https://github.com/resin-io/jellyfish",
             "name":  "jellyfish",
-            "owner":  "resin-io"
+            "owner":  "resin-io",
+            "integration_source": "github"
           },
           "requires": [ ],
           "tags": [ ],
