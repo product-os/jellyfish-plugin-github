@@ -1,4 +1,18 @@
 - commits:
+    - subject: Set data.integration_source on synced contracts
+      hash: 57918fd881ca1d7f3da6ffc7d39faecce48e2360
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 6.0.5
+  title: "'Set data.integration_source on synced contracts'"
+  date: 2022-06-09T23:27:40.418Z
+- commits:
     - subject: Improve matching of mirror triggers
       hash: f68d1da0eb3475c92e587a2e0540c1c6b219f3f5
       body: >

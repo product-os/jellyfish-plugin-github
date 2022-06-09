@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.5 - 2022-06-09
+
+* Set data.integration_source on synced contracts [Josh Bowling]
+
 ## 6.0.4 - 2022-06-09
 
 * Improve matching of mirror triggers [Lucian Buzzo]
