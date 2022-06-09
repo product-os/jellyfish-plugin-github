@@ -32,6 +32,7 @@ import { triggeredActionConcludeCheckRun } from './triggered-action-conclude-che
 import { triggeredActionFailedCheckRun } from './triggered-action-failed-check-run';
 import { triggeredActionGitHubIssueLink } from './triggered-action-github-issue-link';
 import { triggeredActionInProgressCheckRun } from './triggered-action-in-progress-check-run';
+import { triggeredActionIntegrationGitHubMirrorEntities } from './triggered-action-integration-github-mirror-entities';
 import { triggeredActionIntegrationGitHubMirrorEvent } from './triggered-action-integration-github-mirror-event';
 import { triggeredActionSupportClosedIssueReopen } from './triggered-action-support-closed-issue-reopen';
 import { triggeredActionSupportClosedPullRequestReopen } from './triggered-action-support-closed-pull-request-reopen';
@@ -72,6 +73,7 @@ export const contracts: ContractDefinition[] = [
 	triggeredActionFailedCheckRun,
 	triggeredActionGitHubIssueLink,
 	triggeredActionInProgressCheckRun,
+	triggeredActionIntegrationGitHubMirrorEntities,
 	triggeredActionIntegrationGitHubMirrorEvent,
 	triggeredActionSupportClosedIssueReopen,
 	triggeredActionSupportClosedPullRequestReopen,
