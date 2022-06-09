@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.4 - 2022-06-09
+
+* Improve matching of mirror triggers [Lucian Buzzo]
+
 ## 6.0.3 - 2022-06-08
 
 * Update resinci/jellyfish-test from v3.0.13 to v3.0.14 [Renovate Bot]

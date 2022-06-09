@@ -1,4 +1,22 @@
 - commits:
+    - subject: Improve matching of mirror triggers
+      hash: f68d1da0eb3475c92e587a2e0540c1c6b219f3f5
+      body: >
+        Brings in the changes originally proposed in
+        https://github.com/product-os/jellyfish-plugin-github/pull/923
+
+        but omits the `integration_source` change and keeps the existing triggered action slug the same so that no manual migration is needed
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.0.4
+  title: "'Improve matching of mirror triggers'"
+  date: 2022-06-09T13:44:45.424Z
+- commits:
     - subject: Update resinci/jellyfish-test from v3.0.13 to v3.0.14
       hash: daac422dec40ed5fb05780d0187e02753fcbf594
       body: ""
