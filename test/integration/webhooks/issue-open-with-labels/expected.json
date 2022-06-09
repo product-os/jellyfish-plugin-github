@@ -20,7 +20,8 @@
       "alertsUser": [],
       "description": "Foo Bar",
       "status": "open",
-      "archived": false
+      "archived": false,
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -57,7 +58,8 @@
             "alertsUser": [],
             "description": "Foo Bar",
             "status": "open",
-            "archived": false
+            "archived": false,
+            "integration_source": "github"
           },
           "type": "issue@1.0.0"
         }

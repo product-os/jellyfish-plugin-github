@@ -17,7 +17,8 @@
       "alertsUser": [],
       "description": "",
       "status": "open",
-      "archived": false
+      "archived": false,
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -80,7 +81,8 @@
           "mentionsGroup": [],
           "alertsGroup": [],
           "message": "First comment"
-        }
+        },
+        "integration_source": "github"
       }
     },
     {
@@ -106,7 +108,8 @@
           "mentionsGroup": [],
           "alertsGroup": [],
           "message": "Second comment"
-        }
+        },
+        "integration_source": "github"
       }
     }
   ]

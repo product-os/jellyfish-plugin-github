@@ -32,7 +32,8 @@
       "merged_at": null,
       "closed_at": null,
       "contract": null,
-      "$transformer": {}
+      "$transformer": {},
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -81,7 +82,8 @@
             "merged_at": null,
             "closed_at": null,
             "contract": null,
-            "$transformer": {}
+            "$transformer": {},
+            "integration_source": "github"
           },
           "type": "pull-request@1.0.0"
         }
@@ -110,7 +112,8 @@
           "mentionsGroup": [],
           "alertsGroup": [],
           "message": "First comment"
-        }
+        },
+        "integration_source": "github"
       }
     }
   ]

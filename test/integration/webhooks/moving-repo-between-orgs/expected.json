@@ -15,7 +15,8 @@
       "html_url": "https://github.com/loop-os-staging/to-be-moved",
       "mirrors": [
         "https://api.github.com/repos/loop-os-staging/to-be-moved"
-      ]
+      ],
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -50,7 +51,8 @@
               "https://api.github.com/repos/loop-os-staging/to-be-moved"
             ]
           }
-        }
+        },
+        "integration_source": "github"
       }
     }
   ]

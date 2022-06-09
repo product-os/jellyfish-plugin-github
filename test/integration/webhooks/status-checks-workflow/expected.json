@@ -29,7 +29,8 @@
       "alertsUser": [],
       "description": "Signed-off-by: Marios Balamatsias <mbalamatsias@gmail.com>",
       "status": "open",
-      "archived": false
+      "archived": false,
+      "integration_source": "github"
     }
   },
   "tail": [
@@ -69,7 +70,8 @@
             "alertsUser": [],
             "description": "",
             "status": "open",
-            "archived": false
+            "archived": false,
+            "integration_source": "github"
           }
         }
       }
