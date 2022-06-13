@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update to latest jellyfish-worker@30.0.11
+      hash: 7104451dcba97415b6e181402d1175d22ce4dcfc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.0.6
+  title: "'Update to latest jellyfish-worker@30.0.11'"
+  date: 2022-06-13T21:24:22.357Z
+- commits:
     - subject: Set data.integration_source on synced contracts
       hash: 57918fd881ca1d7f3da6ffc7d39faecce48e2360
       body: ""

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.6 - 2022-06-13
+
+* Update to latest jellyfish-worker@30.0.11 [Lucian Buzzo]
+
 ## 6.0.5 - 2022-06-09
 
 * Set data.integration_source on synced contracts [Josh Bowling]
