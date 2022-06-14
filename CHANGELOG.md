@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.7 - 2022-06-14
+
+* Use official Postgres 14 image [Josh Bowling]
+
 ## 6.0.6 - 2022-06-13
 
 * Update to latest jellyfish-worker@30.0.11 [Lucian Buzzo]
