@@ -1,4 +1,18 @@
 - commits:
+    - subject: Use standard redis image
+      hash: f4bdffa42e2fd90850099ef35c6e91b0e668b0f3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 6.0.10
+  title: "'Use standard redis image'"
+  date: 2022-06-16T02:56:17.205Z
+- commits:
     - subject: Update internal packages
       hash: 8405d0e102505c6a0c3ef0fe7fbe6a38e1177054
       body: ""

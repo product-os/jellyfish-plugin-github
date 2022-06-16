@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.10 - 2022-06-16
+
+* Use standard redis image [Josh Bowling]
+
 ## 6.0.9 - 2022-06-16
 
 * Update internal packages [Josh Bowling]
