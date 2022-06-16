@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-plugin-default from 27.7.1 to 27.8.6
+      hash: a3b0fae4a99b172caecc8a94a6e7d9db80e11b60
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 6.0.8
+  title: "'Update @balena/jellyfish-plugin-default from 27.7.1 to 27.8.6'"
+  date: 2022-06-15T23:51:55.546Z
+- commits:
     - subject: Use official Postgres 14 image
       hash: 72ad4be8d843fc55e2400fb42b0fc3e45c662efd
       body: ""

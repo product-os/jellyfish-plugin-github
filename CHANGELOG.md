@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.8 - 2022-06-15
+
+* Update @balena/jellyfish-plugin-default from 27.7.1 to 27.8.6 [Renovate Bot]
+
 ## 6.0.7 - 2022-06-14
 
 * Use official Postgres 14 image [Josh Bowling]
