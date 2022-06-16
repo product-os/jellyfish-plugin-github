@@ -43,7 +43,7 @@ npm run compose
 export INTEGRATION_GITHUB_APP_ID=$(cat .balena/secrets/integration_github_app_id)
 export INTEGRATION_GITHUB_PRIVATE_KEY=$(cat .balena/secrets/integration_github_private_key)
 export INTEGRATION_GITHUB_TOKEN=$(cat .balena/secrets/integration_github_token)
-REDIS_HOST=localhost POSTGRES_HOST=localhost npx jest test/integration/cards/contrib/triggered-action-github-issue-link.spec.ts
+REDIS_HOST=localhost POSTGRES_HOST=localhost npm run test:integration
 ```
 
 You can also access these Postgres and Redis instances:
