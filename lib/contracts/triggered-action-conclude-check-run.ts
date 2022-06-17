@@ -9,7 +9,7 @@ export const triggeredActionConcludeCheckRun: ContractDefinition = {
 		schedule: 'sync',
 		filter: {
 			$$links: {
-				'has attached check run': {
+				'has attached': {
 					type: 'object',
 					required: ['active', 'type'],
 					properties: {
@@ -66,7 +66,7 @@ export const triggeredActionConcludeCheckRun: ContractDefinition = {
 		action: 'action-update-card@1.0.0',
 		target: {
 			$map: {
-				$eval: "source.links['has attached check run']",
+				$eval: "source.links['has attached']",
 			},
 			'each(link)': {
 				$eval: 'link.id',
