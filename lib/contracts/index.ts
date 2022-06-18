@@ -8,6 +8,7 @@ import { push } from './push';
 import { relationshipBrainstormTopicHasAttachedIssue } from './relationship-brainstorm-topic-has-attached-issue';
 import { relationshipCommitHasAttachedCheckRun } from './relationship-commit-has-attached-check-run';
 import { relationshipCommitIsAttachedToPullRequest } from './relationship-commit-is-attached-to-pull-request';
+import { relationshipCommitWasBuiltIntoError } from './relationship-commit-was-built-into-error';
 import { relationshipImprovementIsAttachedToIssue } from './relationship-improvement-is-attached-to-issue';
 import { relationshipImprovementIsAttachedToPullRequest } from './relationship-improvement-is-attached-to-pull-request';
 import { relationshipIssueHasAttachedPattern } from './relationship-issue-has-attached-pattern';
@@ -49,6 +50,7 @@ export const contracts: ContractDefinition[] = [
 	relationshipBrainstormTopicHasAttachedIssue,
 	relationshipCommitHasAttachedCheckRun,
 	relationshipCommitIsAttachedToPullRequest,
+	relationshipCommitWasBuiltIntoError,
 	relationshipImprovementIsAttachedToIssue,
 	relationshipImprovementIsAttachedToPullRequest,
 	relationshipIssueHasAttachedPattern,
