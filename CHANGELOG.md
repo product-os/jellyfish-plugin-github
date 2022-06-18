@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.11 - 2022-06-18
+
+* Export relationship-commit-was-built-into-error [Josh Bowling]
+
 ## 6.0.10 - 2022-06-16
 
 * Use standard redis image [Josh Bowling]

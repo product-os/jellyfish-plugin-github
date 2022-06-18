@@ -1,4 +1,18 @@
 - commits:
+    - subject: Export relationship-commit-was-built-into-error
+      hash: 9f031c660d836172677b421c8517eabe5077f229
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 6.0.11
+  title: "'Export relationship-commit-was-built-into-error'"
+  date: 2022-06-18T00:22:33.590Z
+- commits:
     - subject: Use standard redis image
       hash: f4bdffa42e2fd90850099ef35c6e91b0e668b0f3
       body: ""
