@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update triggers that use link 'has attached check run' to 'has attached'
+      hash: 06c514a7707259c9238bbc582a3dd6403f814a37
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Thomas Manning
+      nested: []
+  version: 6.0.13
+  title: "'Update triggers that use link 'has attached check run' to 'has attached''"
+  date: 2022-06-18T02:15:28.547Z
+- commits:
     - subject: Update typescript from 4.7.3 to 4.7.4
       hash: acf2e7b3e778bf3d3ddd5b738ec4ca60b793a837
       body: ""
