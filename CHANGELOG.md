@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.14 - 2022-06-18
+
+* Update dependencies [Josh Bowling]
+
 ## 6.0.13 - 2022-06-18
 
 * Update triggers that use link 'has attached check run' to 'has attached' [Thomas Manning]

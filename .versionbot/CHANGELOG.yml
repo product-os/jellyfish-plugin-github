@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update dependencies
+      hash: 6b7a8e6f47a086d84317d599bcd46990a0c3cf5d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 6.0.14
+  title: "'Update dependencies'"
+  date: 2022-06-18T08:24:06.871Z
+- commits:
     - subject: Update triggers that use link 'has attached check run' to 'has attached'
       hash: 06c514a7707259c9238bbc582a3dd6403f814a37
       body: ""
