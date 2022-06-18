@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.12 - 2022-06-18
+
+* Update typescript from 4.7.3 to 4.7.4 [Josh Bowling]
+
 ## 6.0.11 - 2022-06-18
 
 * Export relationship-commit-was-built-into-error [Josh Bowling]
