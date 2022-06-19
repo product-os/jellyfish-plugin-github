@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.16 - 2022-06-19
+
+* Drop @balena/jellyfish-config [Josh Bowling]
+
 ## 6.0.15 - 2022-06-18
 
 * Update redis image from 6 to 7 [Josh Bowling]
