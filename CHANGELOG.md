@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.19 - 2022-06-21
+
+* Bump dependencies [Josh Bowling]
+
 ## 6.0.18 - 2022-06-20
 
 * Improve CI script [Josh Bowling]
