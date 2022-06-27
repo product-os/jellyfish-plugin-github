@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.20 - 2022-06-27
+
+* Update dependencies (external v0 minor bumps) [renovate[bot]]
+* Update typedoc from 0.22.17 to 0.22.18 [renovate[bot]]
+
 ## 6.0.19 - 2022-06-21
 
 * Bump dependencies [Josh Bowling]
