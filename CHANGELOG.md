@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.0.22 - 2022-06-28
+
+* Update @balena/jellyfish-worker from 30.0.25 to 30.1.0 [renovate[bot]]
+* Update: update typedoc from 0.23.1 to 0.23.2 [renovate[bot]]
+
 ## 6.0.21 - 2022-06-27
 
 * Update: update internal-patch (internal patch bumps) [renovate[bot]]
