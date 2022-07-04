@@ -198,10 +198,10 @@ const handler: ActionDefinition['handler'] = async (
 	};
 };
 
-export const actionIntegrationGitHubMirrorEvent: ActionDefinition = {
+export const actionIntegrationGitHubSyncOrgFromRepo: ActionDefinition = {
 	handler,
 	contract: {
-		slug: 'action-integration-github-mirror-event',
+		slug: 'action-integration-github-sync-org-from-repo',
 		version: '1.0.0',
 		type: 'action@1.0.0',
 		data: {
