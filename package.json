@@ -1,7 +1,7 @@
 {
   "name": "@balena/jellyfish-plugin-github",
   "description": "GitHub Jellyfish Plugin",
-  "version": "6.0.25",
+  "version": "6.0.19",
   "repository": {
     "type": "git",
     "url": "https://github.com/product-os/jellyfish-plugin-github"
@@ -46,22 +46,22 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-assert": "^1.2.39",
-    "@balena/jellyfish-worker": "^30.1.0",
+    "@balena/jellyfish-assert": "^1.2.38",
+    "@balena/jellyfish-environment": "^12.0.11",
+    "@balena/jellyfish-worker": "^30.0.21",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.6.2",
     "@octokit/rest": "^18.12.0",
-    "autumndb": "^20.2.1",
+    "autumndb": "^20.1.21",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
-    "@balena/jellyfish-config": "^2.0.7",
-    "@balena/jellyfish-environment": "^12.1.0",
-    "@balena/jellyfish-plugin-default": "^27.8.19",
-    "@balena/jellyfish-plugin-product-os": "^7.0.29",
+    "@balena/jellyfish-config": "^2.0.6",
+    "@balena/jellyfish-plugin-default": "^27.8.13",
+    "@balena/jellyfish-plugin-product-os": "^7.0.27",
     "@balena/jellyfish-types": "^2.0.5",
     "@balena/lint": "^6.2.0",
     "@types/jest": "^28.1.2",
@@ -75,13 +75,13 @@
     "rimraf": "^3.0.2",
     "simple-git-hooks": "^2.8.0",
     "ts-jest": "^28.0.5",
-    "typedoc": "^0.23.5",
+    "typedoc": "^0.22.17",
     "typescript": "4.7.4"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
   },
   "versionist": {
-    "publishedAt": "2022-07-02T20:09:19.776Z"
+    "publishedAt": "2022-06-21T03:50:08.258Z"
   }
 }

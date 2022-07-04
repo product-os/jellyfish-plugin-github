@@ -15,9 +15,21 @@ export const githubOrg: ContractDefinition = {
 				data: {
 					type: 'object',
 					properties: {
+						github_id: {
+							type: 'string',
+						},
 						description: {
 							type: 'string',
 							format: 'markdown',
+						},
+						login: {
+							type: 'string',
+						},
+						avatar_url: {
+							type: 'string',
+						},
+						url: {
+							type: 'string',
 						},
 					},
 				},
