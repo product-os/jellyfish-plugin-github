@@ -53,7 +53,6 @@ export const issue: ContractDefinition = workerContractMixins.mixin(
 			},
 			required: ['data'],
 		},
-		slices: ['properties.data.properties.status'],
 		uiSchema: {
 			fields: {
 				data: {
