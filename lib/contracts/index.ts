@@ -23,6 +23,7 @@ import { relationshipPullRequestHasAttachedPattern } from './relationship-pull-r
 import { relationshipPullRequestHasBaseAtRepository } from './relationship-pull-request-has-base-at-repository';
 import { relationshipPullRequestHasHeadAtRepository } from './relationship-pull-request-has-head-at-repository';
 import { relationshipPushRefersToRepository } from './relationship-push-refers-to-repository';
+import { relationshipRepositoryBelongsToGitHubOrg } from './relationship-repository-belongs-to-github-org';
 import { relationshipRepositoryHasThread } from './relationship-repository-has-thread';
 import { relationshipRepositoryUsesRepository } from './relationship-repository-uses-repository';
 import { relationshipSalesThreadIsAttachedToIssue } from './relationship-sales-thread-is-attached-to-issue';
@@ -35,6 +36,7 @@ import { triggeredActionGitHubIssueLink } from './triggered-action-github-issue-
 import { triggeredActionInProgressCheckRun } from './triggered-action-in-progress-check-run';
 import { triggeredActionIntegrationGitHubMirrorEntities } from './triggered-action-integration-github-mirror-entities';
 import { triggeredActionIntegrationGitHubMirrorEvent } from './triggered-action-integration-github-mirror-event';
+import { triggeredActionIntegrationGitHubSyncOrgFromRepo } from './triggered-action-integration-github-sync-org-from-repo';
 import { triggeredActionSupportClosedIssueReopen } from './triggered-action-support-closed-issue-reopen';
 import { triggeredActionSupportClosedPullRequestReopen } from './triggered-action-support-closed-pull-request-reopen';
 import { viewAllIssues } from './view-all-issues';
@@ -65,6 +67,7 @@ export const contracts: ContractDefinition[] = [
 	relationshipPullRequestHasBaseAtRepository,
 	relationshipPullRequestHasHeadAtRepository,
 	relationshipPushRefersToRepository,
+	relationshipRepositoryBelongsToGitHubOrg,
 	relationshipRepositoryHasThread,
 	relationshipRepositoryUsesRepository,
 	relationshipSalesThreadIsAttachedToIssue,
@@ -77,6 +80,7 @@ export const contracts: ContractDefinition[] = [
 	triggeredActionInProgressCheckRun,
 	triggeredActionIntegrationGitHubMirrorEntities,
 	triggeredActionIntegrationGitHubMirrorEvent,
+	triggeredActionIntegrationGitHubSyncOrgFromRepo,
 	triggeredActionSupportClosedIssueReopen,
 	triggeredActionSupportClosedPullRequestReopen,
 	viewAllIssues,
