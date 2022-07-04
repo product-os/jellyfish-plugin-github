@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.2.0 - 2022-07-04
+
+* Create a relationship between GitHub orgs and loops [Lucian Buzzo]
+
 ## 6.1.1 - 2022-07-04
 
 * Correctly load org sync action [Lucian Buzzo]

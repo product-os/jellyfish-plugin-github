@@ -1,4 +1,20 @@
 - commits:
+    - subject: Create a relationship between GitHub orgs and loops
+      hash: 33a5cd6ff138efe586a0dfc326e85124695f06da
+      body: ""
+      footer:
+        Connects-to: https://github.com/product-os/jellyfish/issues/8783
+        connects-to: https://github.com/product-os/jellyfish/issues/8783
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.2.0
+  title: "'Create a relationship between GitHub orgs and loops'"
+  date: 2022-07-04T14:42:48.728Z
+- commits:
     - subject: Correctly load org sync action
       hash: 5464a0d8c03fbdca2f29cb0c59498ab0a938aec5
       body: ""
