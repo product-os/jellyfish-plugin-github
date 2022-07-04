@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.1.1 - 2022-07-04
+
+* Correctly load org sync action [Lucian Buzzo]
+
 ## 6.1.0 - 2022-07-04
 
 * Add action and trigger for syncing GitHub orgs [Lucian Buzzo]
