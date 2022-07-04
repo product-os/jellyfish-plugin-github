@@ -3,6 +3,7 @@ import { actions } from './actions';
 import { contracts } from './contracts';
 import { integrations } from './integrations';
 export * as testUtils from './test-utils';
+export * from './types';
 
 // tslint:disable-next-line: no-var-requires
 const { version } = require('../package.json');
