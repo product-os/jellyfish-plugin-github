@@ -1,4 +1,28 @@
 - commits:
+    - subject: Add action and trigger for syncing GitHub orgs
+      hash: 081d940ecd723fc1db34a235bd6085374bc68617
+      body: |
+        This approach aims to reduce complexity by using a triggered action
+        specifically for syncing github orgs when a repo is updated/inserted.
+
+        I've re-used the Octokit setup from the integration class, as it has
+        some complicated logic for determining which app installation to use
+        when making requests. In the future I would hope to install apps into
+        loops and skip this step, but for now it made sense to re-use the code
+        instead of duplicating it.
+
+        Resolves https://github.com/product-os/jellyfish/issues/8784
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.1.0
+  title: "'Add action and trigger for syncing GitHub orgs'"
+  date: 2022-07-04T10:29:58.890Z
+- commits:
     - subject: Update typedoc from 0.23.3 to 0.23.5
       hash: ec18edbd88f92702276a58f405bd6b54d7453a5c
       body: ""

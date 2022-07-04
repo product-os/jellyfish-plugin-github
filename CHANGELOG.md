@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.1.0 - 2022-07-04
+
+* Add action and trigger for syncing GitHub orgs [Lucian Buzzo]
+
 ## 6.0.25 - 2022-07-02
 
 * Update typedoc from 0.23.3 to 0.23.5 [renovate[bot]]
