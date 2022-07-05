@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.2.4 - 2022-07-05
+
+* Update autumndb from 20.1.21 to 20.3.0 [renovate[bot]]
+
 ## 6.2.3 - 2022-07-05
 
 * Update dependencies (external major bumps) [renovate[bot]]
