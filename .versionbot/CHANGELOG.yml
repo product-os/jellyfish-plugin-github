@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 12.0.11 to 12.1.2
+      hash: 9902a765c66c928507008968ad58f60f399b2657
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 6.2.1
+  title: "'Update @balena/jellyfish-environment from 12.0.11 to 12.1.2'"
+  date: 2022-07-04T14:56:56.231Z
+- commits:
     - subject: Create a relationship between GitHub orgs and loops
       hash: 33a5cd6ff138efe586a0dfc326e85124695f06da
       body: ""
