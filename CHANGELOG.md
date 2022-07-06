@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.3.2 - 2022-07-06
+
+* Fix incorrect type for github_id property on github-org contract schema [Lucian Buzzo]
+
 ## 6.3.1 - 2022-07-06
 
 * Drop jellyfish-types [Josh Bowling]
