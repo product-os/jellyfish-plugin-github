@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.2.5 - 2022-07-06
+
+* Update @balena/jellyfish-worker from 30.1.3 to 30.2.0 [renovate[bot]]
+
 ## 6.2.4 - 2022-07-05
 
 * Update autumndb from 20.1.21 to 20.3.0 [renovate[bot]]
