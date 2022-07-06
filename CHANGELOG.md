@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.3.1 - 2022-07-06
+
+* Drop jellyfish-types [Josh Bowling]
+
 ## 6.3.0 - 2022-07-06
 
 * Add contract type interface definitions [Josh Bowling]
