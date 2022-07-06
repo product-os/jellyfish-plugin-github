@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.3.0 - 2022-07-06
+
+* Add contract type interface definitions [Josh Bowling]
+
 ## 6.2.5 - 2022-07-06
 
 * Update @balena/jellyfish-worker from 30.1.3 to 30.2.0 [renovate[bot]]
