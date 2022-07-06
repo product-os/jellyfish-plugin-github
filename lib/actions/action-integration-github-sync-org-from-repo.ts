@@ -1,7 +1,7 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import type { TypeContract } from '@balena/jellyfish-types/build/core';
 import type { ActionDefinition } from '@balena/jellyfish-worker';
 import { getLogger, LogContext } from '@balena/jellyfish-logger';
+import type { TypeContract } from 'autumndb';
 import * as _ from 'lodash';
 import { GithubIntegration } from '../integrations/github';
 
