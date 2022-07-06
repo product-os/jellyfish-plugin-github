@@ -1,10 +1,9 @@
-import { testUtils as coreTestUtils } from 'autumndb';
 import { testUtils as pluginDefaultTestUtils } from '@balena/jellyfish-plugin-default';
-import type { Contract } from '@balena/jellyfish-types/build/core';
 import type {
 	ActionDefinition,
 	PluginDefinition,
 } from '@balena/jellyfish-worker';
+import { Contract, testUtils as coreTestUtils } from 'autumndb';
 
 /**
  * Context that can be used in tests using plugin-github.

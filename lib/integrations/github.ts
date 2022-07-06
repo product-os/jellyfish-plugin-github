@@ -1,9 +1,4 @@
 import * as assert from '@balena/jellyfish-assert';
-import type {
-	Contract,
-	ContractDefinition,
-	EventContract,
-} from '@balena/jellyfish-types/build/core';
 import {
 	Integration,
 	IntegrationDefinition,
@@ -18,6 +13,7 @@ import {
 	Octokit as OctokitInstance,
 } from '@octokit/rest';
 import type { OctokitResponse } from '@octokit/types';
+import type { Contract, ContractDefinition, EventContract } from 'autumndb';
 import crypto from 'crypto';
 import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';

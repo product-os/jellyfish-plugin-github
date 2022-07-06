@@ -1,6 +1,8 @@
-import type { ContractDefinition } from '@balena/jellyfish-types/build/core';
 import { contractMixins as workerContractMixins } from '@balena/jellyfish-worker';
-import { contractMixins as autumndbContractMixins } from 'autumndb';
+import {
+	ContractDefinition,
+	contractMixins as autumndbContractMixins,
+} from 'autumndb';
 
 const slug = 'pull-request';
 const type = 'type@1.0.0';

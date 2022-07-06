@@ -20,22 +20,22 @@ export type {
 	CommitData,
 } from './commit';
 export type {
-	GithubOrgContract,
-	GithubOrgContractDefinition,
-	GithubOrgData,
-} from './github-org';
-export type {
 	IssueContract,
 	IssueContractDefinition,
 	IssueData,
 } from './issue';
 export type {
-	RepositoryContract,
-	RepositoryContractDefinition,
-	RepositoryData,
-} from './repository';
+	GithubOrgContract,
+	GithubOrgContractDefinition,
+	GithubOrgData,
+} from './github-org';
 export type {
 	PullRequestContract,
 	PullRequestContractDefinition,
 	PullRequestData,
 } from './pull-request';
+export type {
+	RepositoryContract,
+	RepositoryContractDefinition,
+	RepositoryData,
+} from './repository';
