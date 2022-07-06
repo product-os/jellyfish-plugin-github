@@ -16,7 +16,7 @@ export const githubOrg: ContractDefinition = {
 					type: 'object',
 					properties: {
 						github_id: {
-							type: 'string',
+							type: 'number',
 						},
 						description: {
 							type: 'string',

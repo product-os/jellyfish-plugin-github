@@ -9,7 +9,7 @@
 import type { Contract, ContractDefinition } from 'autumndb';
 
 export interface GithubOrgData {
-	github_id?: string;
+	github_id?: number;
 	description?: string;
 	login?: string;
 	avatar_url?: string;

@@ -10,25 +10,25 @@ export type {
 	CheckRunData,
 } from './check-run';
 export type {
-	GhPushContract,
-	GhPushContractDefinition,
-	GhPushData,
-} from './gh-push';
-export type {
 	CommitContract,
 	CommitContractDefinition,
 	CommitData,
 } from './commit';
 export type {
-	IssueContract,
-	IssueContractDefinition,
-	IssueData,
-} from './issue';
+	GhPushContract,
+	GhPushContractDefinition,
+	GhPushData,
+} from './gh-push';
 export type {
 	GithubOrgContract,
 	GithubOrgContractDefinition,
 	GithubOrgData,
 } from './github-org';
+export type {
+	IssueContract,
+	IssueContractDefinition,
+	IssueData,
+} from './issue';
 export type {
 	PullRequestContract,
 	PullRequestContractDefinition,
