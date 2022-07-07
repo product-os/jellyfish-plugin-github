@@ -43,6 +43,7 @@ const handler: ActionDefinition['handler'] = async (
 	request,
 ) => {
 	const ghOrgSlug = card.data.owner as string;
+	const mirrorUrl = `https://github.com/${ghOrgSlug}`;
 	// Check to see if the org exists
 	let [org] = await context.query(
 		session,
@@ -50,16 +51,17 @@ const handler: ActionDefinition['handler'] = async (
 			type: 'object',
 			properties: {
 				type: {
-					const: 'github-org',
+					const: 'github-org@1.0.0',
 				},
 				data: {
 					type: 'object',
+					required: ['mirrors'],
 					properties: {
 						mirrors: {
 							type: 'array',
 							contains: {
 								type: 'string',
-								const: `https://github.com/${ghOrgSlug}`,
+								const: mirrorUrl,
 							},
 						},
 					},
@@ -150,6 +152,7 @@ const handler: ActionDefinition['handler'] = async (
 					login: result.data.login,
 					avatar_url: result.data.avatar_url,
 					url: result.data.url,
+					mirrors: [mirrorUrl],
 				},
 			},
 		);
