@@ -46,6 +46,7 @@ export INTEGRATION_GITHUB_TOKEN=$(cat .balena/secrets/integration_github_token)
 REDIS_HOST=localhost POSTGRES_HOST=localhost npm run test:integration
 ```
 
+
 You can also access these Postgres and Redis instances:
 ```
 PGPASSWORD=docker psql -hlocalhost -Udocker
