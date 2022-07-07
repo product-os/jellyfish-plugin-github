@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.3.3 - 2022-07-07
+
+* Update to latest version of worker that fixes bug in relationships [Lucian Buzzo]
+
 ## 6.3.2 - 2022-07-06
 
 * Fix incorrect type for github_id property on github-org contract schema [Lucian Buzzo]

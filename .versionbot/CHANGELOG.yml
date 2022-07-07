@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update to latest version of worker that fixes bug in relationships
+      hash: bdaad624884cb11812a053c8a12bfe3eaf24e145
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.3.3
+  title: "'Update to latest version of worker that fixes bug in relationships'"
+  date: 2022-07-07T15:01:40.339Z
+- commits:
     - subject: Fix incorrect type for github_id property on github-org contract schema
       hash: fbd27a6f7ec06496c0297a773c62899753d67014
       body: ""
