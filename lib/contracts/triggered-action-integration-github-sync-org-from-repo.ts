@@ -10,6 +10,9 @@ export const triggeredActionIntegrationGitHubSyncOrgFromRepo: ContractDefinition
 			filter: {
 				type: 'object',
 				properties: {
+					tags: {
+						type: 'array',
+					},
 					type: {
 						type: 'string',
 						const: 'repository@1.0.0',
