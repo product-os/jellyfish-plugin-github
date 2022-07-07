@@ -5,6 +5,12 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.4.0 - 2022-07-07
+
+* Make GitHub org sync trigger run when tags change [Lucian Buzzo]
+* Fix incorrect query when syncing GitHub orgs [Lucian Buzzo]
+* Add flowzone workflow [Lucian Buzzo]
+
 ## 6.3.3 - 2022-07-07
 
 * Update to latest version of worker that fixes bug in relationships [Lucian Buzzo]

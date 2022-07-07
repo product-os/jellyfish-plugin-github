@@ -1,4 +1,38 @@
 - commits:
+    - subject: Make GitHub org sync trigger run when tags change
+      hash: 5bea045f23c7645327212f1949cecc65ffc7c5b5
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+    - subject: Fix incorrect query when syncing GitHub orgs
+      hash: 0b2ef4fe323af03ae340197a2c3824e9296523e8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+    - subject: Add flowzone workflow
+      hash: 7f76c31e9c4ef6aaa0826f7e6dd95efde12115ee
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 6.4.0
+  title: "'Lucianbuzzo/GitHub org sync query'"
+  date: 2022-07-07T16:59:21.260Z
+- commits:
     - subject: Update to latest version of worker that fixes bug in relationships
       hash: bdaad624884cb11812a053c8a12bfe3eaf24e145
       body: ""
