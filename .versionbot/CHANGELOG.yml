@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 12.1.2 to 12.2.0
+      hash: 597827372a8e68af57e4ea09a08eeff72cd928ed
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 6.4.1
+  title: "'Update @balena/jellyfish-environment from 12.1.2 to 12.2.0'"
+  date: 2022-07-08T05:38:22.470Z
+- commits:
     - subject: Make GitHub org sync trigger run when tags change
       hash: 5bea045f23c7645327212f1949cecc65ffc7c5b5
       body: ""

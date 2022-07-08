@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.4.1 - 2022-07-08
+
+* Update @balena/jellyfish-environment from 12.1.2 to 12.2.0 [renovate[bot]]
+
 ## 6.4.0 - 2022-07-07
 
 * Make GitHub org sync trigger run when tags change [Lucian Buzzo]
