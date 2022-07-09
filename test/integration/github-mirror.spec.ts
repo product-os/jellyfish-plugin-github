@@ -1,6 +1,5 @@
 import { strict as assert } from 'assert';
 import { testUtils as coreTestUtils } from 'autumndb';
-import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { retry } from '@octokit/plugin-retry';
@@ -8,6 +7,7 @@ import { Octokit as OctokitRest } from '@octokit/rest';
 import _ from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { githubPlugin, testUtils } from '../../lib';
+import { environment } from '../../lib/environment';
 
 let ctx: testUtils.TestContext;
 let user: any = {};
@@ -15,8 +15,7 @@ let session: any = {};
 let github: any = {};
 let username: string = '';
 
-const [owner, repo] =
-	defaultEnvironment.test.integration.github.repo.split('/');
+const [owner, repo] = environment.test.repo.split('/');
 const repository = {
 	owner: owner.trim(),
 	repo: repo.trim(),
@@ -37,7 +36,7 @@ beforeAll(async () => {
 			retries: 5,
 		},
 		userAgent: `github-mirror-test-agent (${__dirname})`,
-		auth: defaultEnvironment.integration.github.api,
+		auth: environment.api,
 	});
 });
 

@@ -1,4 +1,3 @@
-import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { testUtils as workerTestUtils } from '@balena/jellyfish-worker';
@@ -7,9 +6,9 @@ import _ from 'lodash';
 import nock from 'nock';
 import path from 'path';
 import { githubPlugin } from '../../lib';
+import { environment } from '../../lib/environment';
 import webhooks from './webhooks';
 
-const TOKEN = defaultEnvironment.integration.github;
 let ctx: workerTestUtils.TestContext;
 
 beforeAll(async () => {
@@ -64,16 +63,15 @@ afterAll(() => {
 });
 
 const accessTokenNock = () => {
-	if (TOKEN.api && TOKEN.key) {
+	if (environment.api && environment.key) {
 		nock('https://api.github.com')
 			.persist()
 			.post(/^\/app\/installations\/\d+\/access_tokens$/)
 			.reply(function (_uri: string, _request: any, callback: any) {
 				const token = this.req.headers.authorization[0].split(' ')[1];
-				const privateKey = Buffer.from(TOKEN.key, 'base64').toString();
 				jwt.verify(
 					token,
-					privateKey,
+					environment.key,
 					{
 						algorithms: ['RS256'],
 					},
@@ -85,7 +83,7 @@ const accessTokenNock = () => {
 						return callback(null, [
 							201,
 							{
-								token: TOKEN.api,
+								token: environment.api,
 								expires_at: '2056-07-11T22:14:10Z',
 								permissions: {
 									issues: 'write',
@@ -139,7 +137,7 @@ describe('github-translate', () => {
 						isAuthorized: (request: any) => {
 							return (
 								request.headers.authorization &&
-								request.headers.authorization[0] === `token ${TOKEN.api}`
+								request.headers.authorization[0] === `token ${environment.api}`
 							);
 						},
 						head: {

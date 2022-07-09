@@ -19,6 +19,7 @@ import _ from 'lodash';
 import { v4 as uuidv4 } from 'uuid';
 import YAML from 'yaml';
 import * as utils from './utils';
+import { environment } from '../environment';
 
 // tslint:disable-next-line: no-var-requires
 const packageJSON = require('../../package.json');
@@ -260,14 +261,14 @@ export class GithubIntegration implements Integration {
 			},
 		};
 
-		if (installationId && this.options.token.key && this.options.token.appId) {
+		if (installationId) {
 			context.log.info('Using GitHub App based authentication', {
 				installationId,
 			});
 			octokitOptions.authStrategy = createAppAuth;
 			octokitOptions.auth = {
-				appId: _.parseInt(this.options.token.appId),
-				privateKey: Buffer.from(this.options.token.key, 'base64').toString(),
+				appId: environment.appId,
+				privateKey: environment.key,
 			};
 
 			const github = new Octokit(octokitOptions);
@@ -297,7 +298,7 @@ export class GithubIntegration implements Integration {
 
 		if (this.options.token.api) {
 			context.log.info('Using token based authentication');
-			octokitOptions.auth = this.options.token.api;
+			octokitOptions.auth = environment.api;
 			return new Octokit(octokitOptions);
 		}
 
@@ -333,12 +334,12 @@ export class GithubIntegration implements Integration {
 		card: Contract,
 		options: { actor: string },
 	): Promise<SequenceItem[]> {
-		if (!this.options.token.api) {
+		if (!environment.api) {
 			this.context.log.warn('No token set for github integration');
 			return [];
 		}
 
-		if (!this.options.token.key) {
+		if (!environment.key) {
 			this.context.log.warn('No private key set for github integration');
 			return [];
 		}
@@ -1479,7 +1480,7 @@ export class GithubIntegration implements Integration {
 	}
 
 	public async translate(event: Contract): Promise<SequenceItem[]> {
-		if (!this.options.token.api) {
+		if (!environment.api) {
 			this.context.log.warn('No token set for github integration');
 			return [];
 		}
@@ -1961,16 +1962,17 @@ export const githubIntegrationDefinition: IntegrationDefinition = {
 	slug: SLUG,
 
 	initialize: async (options) => new GithubIntegration(options),
-	isEventValid: (_logContext, token, rawEvent, headers): boolean => {
+	isEventValid: (_logContext, _token, rawEvent, headers): boolean => {
 		const signature = headers['x-hub-signature'];
-		if (!signature || !token || !token.signature) {
+		if (!signature || !environment.signature) {
 			return false;
 		}
 
 		const hash = crypto
-			.createHmac('sha1', token.signature)
+			.createHmac('sha1', environment.signature)
 			.update(rawEvent)
 			.digest('hex');
+		console.log('hash:', hash);
 		return signature === `sha1=${hash}`;
 	},
 };

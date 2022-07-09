@@ -9,10 +9,7 @@ describe('isEventValid()', () => {
 	test('should return false given no signature header', async () => {
 		const result = githubIntegrationDefinition.isEventValid(
 			logContext,
-			{
-				api: 'xxxxx',
-				signature: 'secret',
-			},
+			null,
 			'....',
 			{},
 		);
@@ -32,10 +29,7 @@ describe('isEventValid()', () => {
 	test('should return false given a signature mismatch', async () => {
 		const result = githubIntegrationDefinition.isEventValid(
 			logContext,
-			{
-				api: 'xxxxx',
-				signature: 'secret',
-			},
+			null,
 			'{"foo":"bar"}',
 			{ 'x-hub-signature': 'sha1=foobarbaz' },
 		);
@@ -45,12 +39,9 @@ describe('isEventValid()', () => {
 	test('should return true given a signature match', async () => {
 		const result = githubIntegrationDefinition.isEventValid(
 			logContext,
-			{
-				api: 'xxxxx',
-				signature: 'secret',
-			},
+			null,
 			'{"foo":"bar"}',
-			{ 'x-hub-signature': 'sha1=52b582138706ac0c597c315cfc1a1bf177408a4d' },
+			{ 'x-hub-signature': 'sha1=1a20b3c676d16f4a74243d96e9712b1219fc7553' },
 		);
 		expect(result).toBe(true);
 	});
