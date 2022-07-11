@@ -5,3 +5,4 @@ on: pull_request
 jobs:
   flowzone:
     uses: product-os/flowzone/.github/workflows/flowzone.yml@master
+    secrets: inherit

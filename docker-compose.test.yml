@@ -11,17 +11,8 @@ services:
       - redis
     environment:
       - LOGLEVEL=error
-    secrets:
-      - integration_github_app_id
-      - integration_github_private_key
-      - integration_github_token
+      - INTEGRATION_GITHUB_APP_ID
+      - INTEGRATION_GITHUB_PRIVATE_KEY
+      - INTEGRATION_GITHUB_TOKEN
     networks:
       - internal
-
-secrets:
-  integration_github_app_id:
-    file: ./.balena/secrets/integration_github_app_id
-  integration_github_private_key:
-    file: ./.balena/secrets/integration_github_private_key
-  integration_github_token:
-    file: ./.balena/secrets/integration_github_token
