@@ -53,12 +53,12 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.38",
     "@balena/jellyfish-environment": "^12.2.0",
-    "@balena/jellyfish-worker": "^31.0.2",
+    "@balena/jellyfish-worker": "31.0.0-lucianbuzzo-use-actor-session-c25d9e98eb6dfe39a27df826130837ea7657ba9b",
     "@octokit/auth-app": "^3.6.1",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^3.6.2",
     "@octokit/rest": "^18.12.0",
-    "autumndb": "^20.3.2",
+    "autumndb": "21.0.0-lucianbuzzo-remove-session-contract-handling-db1c50c541c8571688ff2d5646aa0d01b23fc61d",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^2.1.1"
