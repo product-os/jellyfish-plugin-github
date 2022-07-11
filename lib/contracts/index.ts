@@ -10,6 +10,7 @@ import { relationshipCommitHasAttachedCheckRun } from './relationship-commit-has
 import { relationshipCommitIsAttachedToPullRequest } from './relationship-commit-is-attached-to-pull-request';
 import { relationshipCommitWasBuiltIntoError } from './relationship-commit-was-built-into-error';
 import { relationshipGitHubOrgBelongsToLoop } from './relationship-github-org-belongs-to-loop';
+import { relationshipGitHubOrgHasThread } from './relationship-github-org-has-thread';
 import { relationshipImprovementIsAttachedToIssue } from './relationship-improvement-is-attached-to-issue';
 import { relationshipImprovementIsAttachedToPullRequest } from './relationship-improvement-is-attached-to-pull-request';
 import { relationshipIssueHasAttachedPattern } from './relationship-issue-has-attached-pattern';
@@ -55,6 +56,7 @@ export const contracts: ContractDefinition[] = [
 	relationshipCommitIsAttachedToPullRequest,
 	relationshipCommitWasBuiltIntoError,
 	relationshipGitHubOrgBelongsToLoop,
+	relationshipGitHubOrgHasThread,
 	relationshipImprovementIsAttachedToIssue,
 	relationshipImprovementIsAttachedToPullRequest,
 	relationshipIssueHasAttachedPattern,
