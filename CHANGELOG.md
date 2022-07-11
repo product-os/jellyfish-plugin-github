@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 6.5.0 - 2022-07-11
+
+* Add a relationship between GitHub orgs and threads [Lucian Buzzo]
+
 ## 6.4.1 - 2022-07-08
 
 * Update @balena/jellyfish-environment from 12.1.2 to 12.2.0 [renovate[bot]]
