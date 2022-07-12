@@ -22,7 +22,7 @@ export const githubPlugin = (): PluginDefinition => {
 		requires: [
 			{
 				slug: 'plugin-default',
-				version: '>=23.x',
+				version: '>=27.9.6',
 			},
 		],
 	};
