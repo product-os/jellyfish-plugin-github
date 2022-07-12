@@ -1,4 +1,19 @@
 - commits:
+    - subject: Remove message relationships
+      hash: 5e2dc3da980dd755d5f17802d38d3e72c98d8627
+      body: |
+        Now using the wildcard message relationship defined in plugin-default
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 7.0.0
+  title: "'Remove message relationships'"
+  date: 2022-07-12T00:39:13.196Z
+- commits:
     - subject: Add a relationship between GitHub orgs and threads
       hash: ae265f0e89c22c7a0291570ba60c068573e2afd1
       body: ""

@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.0.0 - 2022-07-12
+
+* Remove message relationships [Josh Bowling]
+
 ## 6.5.0 - 2022-07-11
 
 * Add a relationship between GitHub orgs and threads [Lucian Buzzo]
