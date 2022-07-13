@@ -1,12 +1,12 @@
 import type { RelationshipContractDefinition } from 'autumndb';
 
-export const relationshipCommitWasBuiltIntoError: RelationshipContractDefinition =
+export const relationshipCommitWasTransformedToError: RelationshipContractDefinition =
 	{
-		slug: 'relationship-commit-was-built-into-error',
+		slug: 'relationship-commit-was-transformed-to-error',
 		type: 'relationship@1.0.0',
-		name: 'was built into',
+		name: 'was transformed to',
 		data: {
-			inverseName: 'was built from',
+			inverseName: 'was transformed from',
 			title: 'Error',
 			inverseTitle: 'Commit',
 			from: {

@@ -24,11 +24,11 @@ beforeAll(async () => {
 			attachEvents: false,
 		},
 		{
-			slug: 'relationship-commit-was-built-into-card',
+			slug: 'relationship-commit-was-trasformed-to-card',
 			type: 'relationship@1.0.0',
-			name: 'was built into',
+			name: 'was transformed to',
 			data: {
-				inverseName: 'was built from',
+				inverseName: 'was transformed from',
 				title: 'Commit',
 				inverseTitle: 'Card',
 				from: {
@@ -105,8 +105,8 @@ describe('triggered-action-failed-check-run', () => {
 			session.id,
 			commit,
 			card,
-			'was built into',
-			'was built from',
+			'was transformed to',
+			'was transformed from',
 		);
 
 		await ctx.flushAll(session.id);
@@ -152,8 +152,8 @@ describe('triggered-action-failed-check-run', () => {
 			session.id,
 			commit,
 			card,
-			'was built into',
-			'was built from',
+			'was transformed to',
+			'was transformed from',
 		);
 
 		await ctx.flushAll(session.id);
@@ -199,8 +199,8 @@ describe('triggered-action-failed-check-run', () => {
 			session.id,
 			commit,
 			card,
-			'was built into',
-			'was built from',
+			'was transformed to',
+			'was transformed from',
 		);
 
 		await ctx.flushAll(session.id);
@@ -246,8 +246,8 @@ describe('triggered-action-failed-check-run', () => {
 			session.id,
 			commit,
 			card,
-			'was built into',
-			'was built from',
+			'was transformed to',
+			'was transformed from',
 		);
 
 		await ctx.flushAll(session.id);
@@ -293,8 +293,8 @@ describe('triggered-action-failed-check-run', () => {
 			session.id,
 			commit,
 			card,
-			'was built into',
-			'was built from',
+			'was transformed to',
+			'was transformed from',
 		);
 
 		await ctx.flushAll(session.id);
