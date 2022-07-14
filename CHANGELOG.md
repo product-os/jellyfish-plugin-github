@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.0.1 - 2022-07-14
+
+* Update translate tests [Josh Bowling]
+
 ## 7.0.0 - 2022-07-12
 
 * Remove message relationships [Josh Bowling]

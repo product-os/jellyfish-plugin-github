@@ -1,4 +1,20 @@
 - commits:
+    - subject: Update translate tests
+      hash: 70cf3178d3cde57719990edef699692d87998844
+      body: |
+        Update translate test expected datasets to include the new
+        data.payload.reactions set on message contracts.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 7.0.1
+  title: "'Update translate tests'"
+  date: 2022-07-14T23:27:28.904Z
+- commits:
     - subject: Remove message relationships
       hash: 5e2dc3da980dd755d5f17802d38d3e72c98d8627
       body: |
