@@ -45,7 +45,7 @@ afterAll(() => {
 	return testUtils.destroyContext(ctx);
 });
 
-describe('github-mirror', () => {
+describe('mirror', () => {
 	test('should be able to create an issue with a comment and update the comment after remote deletion', async () => {
 		const title = `Test Issue ${username}`;
 		const issue = await ctx.createIssue(user.id, session.id, title, {
