@@ -80,7 +80,8 @@
           "alertsUser": [],
           "mentionsGroup": [],
           "alertsGroup": [],
-          "message": "First comment"
+          "message": "First comment",
+          "reactions": {}
         },
         "integration_source": "github"
       }
@@ -107,7 +108,8 @@
           "alertsUser": [],
           "mentionsGroup": [],
           "alertsGroup": [],
-          "message": "Second comment"
+          "message": "Second comment",
+          "reactions": {}
         },
         "integration_source": "github"
       }

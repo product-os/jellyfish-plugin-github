@@ -81,7 +81,8 @@
           "alertsUser": [],
           "mentionsGroup": [],
           "alertsGroup": [],
-          "message": "Closed with comment"
+          "message": "Closed with comment",
+          "reactions": {}
         },
         "integration_source": "github"
       }
