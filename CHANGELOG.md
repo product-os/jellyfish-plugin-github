@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.0.2 - 2022-07-15
+
+* Drop plugin-product-os [Josh Bowling]
+
 ## 7.0.1 - 2022-07-14
 
 * Update translate tests [Josh Bowling]
