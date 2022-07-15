@@ -1,7 +1,6 @@
 import { testUtils as coreTestUtils } from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { defaultPlugin } from '@balena/jellyfish-plugin-default';
-import { productOsPlugin } from '@balena/jellyfish-plugin-product-os';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
@@ -18,7 +17,7 @@ const repository = {
 
 beforeAll(async () => {
 	ctx = await testUtils.newContext({
-		plugins: [productOsPlugin(), defaultPlugin(), githubPlugin()],
+		plugins: [defaultPlugin(), githubPlugin()],
 	});
 
 	username = coreTestUtils.generateRandomId();
