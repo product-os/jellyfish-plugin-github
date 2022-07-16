@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.0.3 - 2022-07-15
+
+* Update @balena/jellyfish-worker from 31.2.0 to 31.4.0 [renovate[bot]]
+
 ## 7.0.2 - 2022-07-15
 
 * Drop plugin-product-os [Josh Bowling]
