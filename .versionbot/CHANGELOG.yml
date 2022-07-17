@@ -1,4 +1,20 @@
 - commits:
+    - subject: Rename 'commit was built into error' relationship.
+      hash: e599cb3913f17bcd590058d2400f7c80cf725dc0
+      body: |
+        The relationship is now 'commit was transformed to error'.
+        This is to better align the terminology with transformers.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+        signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+      author: Carlo Miguel F. Cruz
+      nested: []
+  version: 7.0.4
+  title: "'Rename 'commit was built into error' relationship.'"
+  date: 2022-07-17T00:44:56.213Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 31.2.0 to 31.4.0
       hash: b3c373ab5b14a370031af69c0e6bcf24e8cf564d
       body: ""

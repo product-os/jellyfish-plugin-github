@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.0.4 - 2022-07-17
+
+* Rename 'commit was built into error' relationship. [Carlo Miguel F. Cruz]
+
 ## 7.0.3 - 2022-07-15
 
 * Update @balena/jellyfish-worker from 31.2.0 to 31.4.0 [renovate[bot]]
