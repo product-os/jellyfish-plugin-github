@@ -47,10 +47,10 @@ export const commit: ContractDefinition = contractMixins.mixin(
 								mergeable: {
 									description: 'all downstream contracts are mergeable',
 									type: 'string',
-									$$formula: `contract.links["was built into"].length <= 0 ? "pending" :
-											![true, false].includes(contract.links["was built into"][0].data.$transformer.mergeable) ?
-											contract.links["was built into"][0].data.$transformer.mergeable :
-											contract.links["was built into"][0].data.$transformer.mergeable === true ? "mergeable" : "pending"`,
+									$$formula: `contract.links["was transformed to"].length <= 0 ? "pending" :
+											![true, false].includes(contract.links["was transformed to"][0].data.$transformer.mergeable) ?
+											contract.links["was transformed to"][0].data.$transformer.mergeable :
+											contract.links["was transformed to"][0].data.$transformer.mergeable === true ? "mergeable" : "pending"`,
 									readOnly: true,
 									default: false,
 								},
