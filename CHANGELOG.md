@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.1.0 - 2022-07-18
+
+* Materialize linked loop contract on repository [Lucian Buzzo]
+
 ## 7.0.4 - 2022-07-17
 
 * Rename 'commit was built into error' relationship. [Carlo Miguel F. Cruz]

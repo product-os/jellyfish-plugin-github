@@ -1,4 +1,21 @@
 - commits:
+    - subject: Materialize linked loop contract on repository
+      hash: 1afb56b9aab918b5fa65a1bf22cddb8d375b049a
+      body: >
+        This is a workaround for
+        https://github.com/product-os/autumndb/issues/1396 that will allow
+        clients to traverse relationships.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 7.1.0
+  title: "'Materialize linked loop contract on repository'"
+  date: 2022-07-18T10:02:07.322Z
+- commits:
     - subject: Rename 'commit was built into error' relationship.
       hash: e599cb3913f17bcd590058d2400f7c80cf725dc0
       body: |
