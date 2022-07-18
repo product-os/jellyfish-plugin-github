@@ -1,4 +1,18 @@
 - commits:
+    - subject: Use flowzone for SUT testing
+      hash: b76845fa482e545fce7807e61c3ff8eebdee5f4f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 7.1.2
+  title: "'Use flowzone for SUT testing'"
+  date: 2022-07-18T11:03:32.593Z
+- commits:
     - subject: Don't prefix the org name on repository names
       hash: 186205c89344e6b13800415789111252988cb3e7
       body: ""
