@@ -714,7 +714,7 @@ export class GithubIntegration implements Integration {
 		const name = repo.name;
 		const repoSlug = slugify(`repository-${owner}-${name}`);
 		const repoCard: ContractDefinition = {
-			name: `${owner}/${name}`,
+			name,
 			slug: repoSlug,
 			type: 'repository@1.0.0',
 			tags: [],

@@ -1,6 +1,6 @@
 {
   "head": {
-    "name":  "resin-io/jellyfish",
+    "name":  "jellyfish",
     "type":  "repository@1.0.0",
     "slug":  "repository-resin-io-jellyfish",
     "active": true,
@@ -35,7 +35,7 @@
         },
         "timestamp": "2018-02-26T15:58:55.000Z",
         "payload": {
-          "name":  "resin-io/jellyfish",
+          "name":  "jellyfish",
           "type":  "repository@1.0.0",
           "active": true,
           "capabilities": [ ],
