@@ -15,7 +15,8 @@
       "html_url": "https://github.com/loop-os/renamed",
       "mirrors": [
         "https://api.github.com/repos/loop-os/renamed"
-      ]
+      ],
+      "is_used_by": ""
     }
   },
   "tail": [

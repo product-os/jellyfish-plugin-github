@@ -13,6 +13,10 @@ export interface RepositoryData {
 	name?: string;
 	git_url?: string;
 	html_url?: string;
+	/**
+	 * The id of the loop that uses this repository
+	 */
+	is_used_by?: string;
 	[k: string]: unknown;
 }
 

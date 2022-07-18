@@ -16,7 +16,8 @@
       "mirrors": [
         "https://api.github.com/repos/loop-os-staging/users-repo-to-be-moved"
       ],
-      "integration_source": "github"
+      "integration_source": "github",
+      "is_used_by": ""
     }
   },
   "tail": [
