@@ -1,5 +1,4 @@
 import { testUtils as coreTestUtils } from 'autumndb';
-import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
@@ -8,7 +7,7 @@ let session: any = {};
 
 beforeAll(async () => {
 	ctx = await testUtils.newContext({
-		plugins: [defaultPlugin(), githubPlugin()],
+		plugins: [githubPlugin()],
 	});
 
 	// Prepare test user and session

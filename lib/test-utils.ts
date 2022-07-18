@@ -1,14 +1,14 @@
-import { testUtils as pluginDefaultTestUtils } from '@balena/jellyfish-plugin-default';
-import type {
+import {
 	ActionDefinition,
 	PluginDefinition,
+	testUtils as workerTestUtils,
 } from '@balena/jellyfish-worker';
 import { Contract, testUtils as coreTestUtils } from 'autumndb';
 
 /**
  * Context that can be used in tests using plugin-github.
  */
-export interface TestContext extends pluginDefaultTestUtils.TestContext {
+export interface TestContext extends workerTestUtils.TestContext {
 	createIssue: (
 		actor: string,
 		session: string,
@@ -35,9 +35,7 @@ export interface NewContextOptions extends coreTestUtils.NewContextOptions {
 export const newContext = async (
 	options: NewContextOptions = {},
 ): Promise<TestContext> => {
-	const pluginDefaultTestContext = await pluginDefaultTestUtils.newContext(
-		options,
-	);
+	const pluginDefaultTestContext = await workerTestUtils.newContext(options);
 
 	const createIssue = async (
 		actor: string,
@@ -66,5 +64,5 @@ export const newContext = async (
  * Deinitialize the worker.
  */
 export const destroyContext = async (context: TestContext) => {
-	await pluginDefaultTestUtils.destroyContext(context);
+	await workerTestUtils.destroyContext(context);
 };
