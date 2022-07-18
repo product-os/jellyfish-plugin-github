@@ -11,7 +11,8 @@
       "html_url": "https://github.com/resin-io/jellyfish",
       "name":  "jellyfish",
       "owner":  "resin-io",
-      "integration_source": "github"
+      "integration_source": "github",
+      "is_used_by": ""
     },
     "requires": [ ],
     "tags": [ ],

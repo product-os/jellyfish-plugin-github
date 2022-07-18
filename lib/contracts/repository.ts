@@ -29,6 +29,12 @@ export const repository: ContractDefinition = {
 						html_url: {
 							type: 'string',
 						},
+						is_used_by: {
+							description: 'The id of the loop that uses this repository',
+							type: 'string',
+							$$formula:
+								'contract.links["is used by"] && contract.links["is used by"].length && FILTER(contract.links["is used by"], { type: "loop@1.0.0" }).length ? FILTER(contract.links["is used by"], { type: "loop@1.0.0" })[0].id : ""',
+						},
 					},
 				},
 			},
