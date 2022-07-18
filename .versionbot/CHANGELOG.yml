@@ -1,4 +1,18 @@
 - commits:
+    - subject: Don't prefix the org name on repository names
+      hash: 186205c89344e6b13800415789111252988cb3e7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 7.1.1
+  title: "'Don't prefix the org name on repository names'"
+  date: 2022-07-18T10:34:46.229Z
+- commits:
     - subject: Materialize linked loop contract on repository
       hash: 1afb56b9aab918b5fa65a1bf22cddb8d375b049a
       body: >

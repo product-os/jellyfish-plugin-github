@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.1.1 - 2022-07-18
+
+* Don't prefix the org name on repository names [Lucian Buzzo]
+
 ## 7.1.0 - 2022-07-18
 
 * Materialize linked loop contract on repository [Lucian Buzzo]
