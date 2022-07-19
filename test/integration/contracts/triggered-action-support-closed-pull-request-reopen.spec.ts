@@ -1,9 +1,13 @@
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
 let username: string = '';
 
 beforeAll(async () => {
@@ -13,7 +17,7 @@ beforeAll(async () => {
 
 	username = coreTestUtils.generateRandomId();
 	user = await ctx.createUser(username);
-	session = await ctx.createSession(user);
+	session = { actor: user };
 });
 
 afterAll(() => {
@@ -25,7 +29,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 		const title = `Test Issue ${username}`;
 		const pullRequest = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'pull-request@1.0.0',
 			title,
 			{
@@ -35,7 +39,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 
 		const supportThread = await ctx.createSupportThread(
 			user.id,
-			session.id,
+			session,
 			'test subject',
 			{
 				status: 'closed',
@@ -44,7 +48,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			supportThread,
 			pullRequest,
 			'is attached to',
@@ -54,7 +58,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 		// Update issue status to closed
 		await ctx.worker.patchCard(
 			ctx.logContext,
-			session.id,
+			session,
 			ctx.worker.typeContracts[pullRequest.type],
 			{
 				attachEvents: true,
@@ -69,7 +73,7 @@ describe('triggered-action-support-closed-pull-request-reopen', () => {
 				},
 			],
 		);
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		// Wait for the support thread to be re-opened
 		await ctx.waitForMatch({

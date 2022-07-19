@@ -3,7 +3,11 @@ import {
 	PluginDefinition,
 	testUtils as workerTestUtils,
 } from '@balena/jellyfish-worker';
-import { Contract, testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	Contract,
+	testUtils as coreTestUtils,
+} from 'autumndb';
 
 /**
  * Context that can be used in tests using plugin-github.
@@ -11,7 +15,7 @@ import { Contract, testUtils as coreTestUtils } from 'autumndb';
 export interface TestContext extends workerTestUtils.TestContext {
 	createIssue: (
 		actor: string,
-		session: string,
+		session: AutumnDBSession,
 		name: string | null,
 		data: any,
 		markers?: any,
@@ -39,7 +43,7 @@ export const newContext = async (
 
 	const createIssue = async (
 		actor: string,
-		session: string,
+		session: AutumnDBSession,
 		name: string | null,
 		data: any,
 		markers = [],

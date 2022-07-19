@@ -1,5 +1,9 @@
 import { strict as assert } from 'assert';
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { retry } from '@octokit/plugin-retry';
 import { Octokit as OctokitRest } from '@octokit/rest';
@@ -8,9 +12,9 @@ import { v4 as uuid } from 'uuid';
 import { githubPlugin, testUtils } from '../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
-let github: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
+let github: any;
 let username: string = '';
 
 const [owner, repo] =
@@ -27,7 +31,7 @@ beforeAll(async () => {
 
 	username = coreTestUtils.generateRandomId();
 	user = await ctx.createUser(username);
-	session = await ctx.createSession(user);
+	session = { actor: user };
 
 	const Octokit = OctokitRest.plugin(retry);
 	github = new Octokit({
@@ -46,7 +50,7 @@ afterAll(() => {
 describe('mirror', () => {
 	test('should be able to create an issue with a comment and update the comment after remote deletion', async () => {
 		const title = `Test Issue ${username}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			repository: `${repository.owner}/${repository.repo}`,
 			description: 'Issue body',
 			status: 'open',
@@ -55,7 +59,7 @@ describe('mirror', () => {
 
 		const message: any = await ctx.createMessage(
 			user.id,
-			session.id,
+			session,
 			issue,
 			'First comment',
 		);
@@ -70,7 +74,7 @@ describe('mirror', () => {
 		const updatedMessage = 'Edited message';
 		await ctx.worker.patchCard(
 			ctx.logContext,
-			session.id,
+			session,
 			ctx.worker.typeContracts[message.type],
 			{
 				attachEvents: true,
@@ -85,7 +89,7 @@ describe('mirror', () => {
 				},
 			],
 		);
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		// Confirm that the contract was updated
 		const updated = await ctx.kernel.getContractById(
@@ -117,7 +121,7 @@ describe('mirror', () => {
 
 	test('should be able to create an issue without comments', async () => {
 		const title = `Test Issue: ${coreTestUtils.generateRandomId()}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			repository: `${repository.owner}/${repository.repo}`,
 			description: 'Issue body',
 			status: 'open',
@@ -146,7 +150,7 @@ describe('mirror', () => {
 
 	test('should sync issues given the mirror url if the repository changes', async () => {
 		const title = `Test Issue ${uuid()}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			repository: `${repository.owner}/${repository.repo}`,
 			description: 'Issue body',
 			status: 'open',
@@ -155,7 +159,7 @@ describe('mirror', () => {
 
 		await ctx.worker.patchCard(
 			ctx.logContext,
-			session.id,
+			session,
 			ctx.worker.typeContracts[issue.type],
 			{
 				attachEvents: true,
@@ -170,9 +174,9 @@ describe('mirror', () => {
 				},
 			],
 		);
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
-		await ctx.createMessage(user.id, session.id, issue, 'First comment');
+		await ctx.createMessage(user.id, session, issue, 'First comment');
 		// TS-TODO: Stop casting
 		const mirror = (issue.data.mirrors as string[])[0];
 		const external: any = await github.issues.get({
@@ -192,14 +196,14 @@ describe('mirror', () => {
 
 	test('should be able to create an issue with a comment', async () => {
 		const title = `Test Issue ${coreTestUtils.generateRandomId()}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			repository: `${repository.owner}/${repository.repo}`,
 			description: 'Issue body',
 			status: 'open',
 			archived: false,
 		});
 
-		await ctx.createMessage(user.id, session.id, issue, 'First comment');
+		await ctx.createMessage(user.id, session, issue, 'First comment');
 		// TS-TODO: Stop casting
 		const mirror = (issue.data.mirrors as string[])[0];
 		const externalIssue: any = await github.issues.get({
