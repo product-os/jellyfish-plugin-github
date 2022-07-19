@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.0 - 2022-07-19
+
+* Upgrade to worker v32.x and AutumnDB v21.x This brings in a major change to how AutumnDB handles sessions. [Lucian Buzzo]
+
 ## 7.1.2 - 2022-07-19
 
 * Drop plugin-default [Josh Bowling]

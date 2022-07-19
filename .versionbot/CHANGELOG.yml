@@ -1,4 +1,20 @@
 - commits:
+    - subject: Upgrade to worker v32.x and AutumnDB v21.x This brings in a major
+        change to how AutumnDB handles sessions.
+      hash: 468bf1d49c0d879e26f865ad89a1108907102166
+      body: |
+        See product-os/autumndb#1363
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 8.0.0
+  title: "'Upgrade to worker v32.x and AutumnDB v21.x'"
+  date: 2022-07-19T19:44:01.120Z
+- commits:
     - subject: Drop plugin-default
       hash: 06eb0f9006dafa1a5c512fdafc6d7d0e8ffd0f75
       body: ""
