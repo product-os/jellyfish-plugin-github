@@ -1,5 +1,4 @@
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { testUtils as workerTestUtils } from '@balena/jellyfish-worker';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
@@ -13,7 +12,7 @@ let ctx: workerTestUtils.TestContext;
 
 beforeAll(async () => {
 	ctx = await workerTestUtils.newContext({
-		plugins: [defaultPlugin(), githubPlugin()],
+		plugins: [githubPlugin()],
 	});
 
 	// TODO: Improve translate test suite/protocol to avoid this

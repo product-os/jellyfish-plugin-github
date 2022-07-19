@@ -1,8 +1,7 @@
-import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { PluginManager } from '@balena/jellyfish-worker';
 import { githubPlugin } from '../../lib';
 
-const pluginManager = new PluginManager([defaultPlugin(), githubPlugin()]);
+const pluginManager = new PluginManager([githubPlugin()]);
 
 test('Expected contracts are loaded', () => {
 	const contracts = pluginManager.getCards();

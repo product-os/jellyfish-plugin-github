@@ -19,11 +19,5 @@ export const githubPlugin = (): PluginDefinition => {
 		actions,
 		contracts,
 		integrationMap: integrations,
-		requires: [
-			{
-				slug: 'plugin-default',
-				version: '>=27.9.6',
-			},
-		],
 	};
 };

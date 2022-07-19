@@ -1,7 +1,6 @@
 import { strict as assert } from 'assert';
 import { testUtils as coreTestUtils } from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import { defaultPlugin } from '@balena/jellyfish-plugin-default';
 import { retry } from '@octokit/plugin-retry';
 import { Octokit as OctokitRest } from '@octokit/rest';
 import _ from 'lodash';
@@ -23,7 +22,7 @@ const repository = {
 
 beforeAll(async () => {
 	ctx = await testUtils.newContext({
-		plugins: [defaultPlugin(), githubPlugin()],
+		plugins: [githubPlugin()],
 	});
 
 	username = coreTestUtils.generateRandomId();
