@@ -1,4 +1,18 @@
 - commits:
+    - subject: Drop plugin-default
+      hash: 06eb0f9006dafa1a5c512fdafc6d7d0e8ffd0f75
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@balena.io>
+        signed-off-by: Josh Bowling <josh@balena.io>
+      author: Josh Bowling
+      nested: []
+  version: 7.1.2
+  title: "'Drop plugin-default'"
+  date: 2022-07-19T01:01:06.680Z
+- commits:
     - subject: Don't prefix the org name on repository names
       hash: 186205c89344e6b13800415789111252988cb3e7
       body: ""

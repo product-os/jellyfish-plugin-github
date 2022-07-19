@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 7.1.2 - 2022-07-19
+
+* Drop plugin-default [Josh Bowling]
+
 ## 7.1.1 - 2022-07-18
 
 * Don't prefix the org name on repository names [Lucian Buzzo]
