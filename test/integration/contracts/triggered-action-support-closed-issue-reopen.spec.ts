@@ -1,10 +1,14 @@
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
 const username: string = '';
 
 const [owner, repo] =
@@ -20,7 +24,7 @@ beforeAll(async () => {
 	});
 
 	user = await ctx.createUser(coreTestUtils.generateRandomId());
-	session = await ctx.createSession(user);
+	session = { actor: user };
 });
 
 afterAll(() => {
@@ -30,7 +34,7 @@ afterAll(() => {
 describe('triggered-action-support-closed-issue-reopen', () => {
 	test('should re-open a closed support thread if an attached issue is closed', async () => {
 		const title = `Test Issue ${username}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			status: 'open',
 			description: 'Foo bar',
 			repository: `${repository.owner}/${repository.repo}`,
@@ -38,7 +42,7 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 
 		const supportThread = await ctx.createSupportThread(
 			user.id,
-			session.id,
+			session,
 			'test subject',
 			{
 				product: 'test-product',
@@ -49,7 +53,7 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			supportThread,
 			issue,
 			'is attached to',
@@ -59,7 +63,7 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 		// Update issue status to closed
 		await ctx.worker.patchCard(
 			ctx.logContext,
-			session.id,
+			session,
 			ctx.worker.typeContracts[issue.type],
 			{
 				attachEvents: true,
@@ -74,7 +78,7 @@ describe('triggered-action-support-closed-issue-reopen', () => {
 				},
 			],
 		);
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		// Wait for the support thread to be re-opened
 		await ctx.waitForMatch({

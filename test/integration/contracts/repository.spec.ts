@@ -1,10 +1,14 @@
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import _ from 'lodash';
 import { githubPlugin, RepositoryContract, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
 
 beforeAll(async () => {
 	ctx = await testUtils.newContext({
@@ -13,7 +17,7 @@ beforeAll(async () => {
 
 	// Prepare test user and session
 	user = await ctx.createUser(coreTestUtils.generateRandomId());
-	session = await ctx.createSession(user);
+	session = { actor: user };
 });
 
 afterAll(() => {
@@ -23,7 +27,7 @@ afterAll(() => {
 test('Should materialize the linked loop', async () => {
 	const repository = await ctx.createContract(
 		user.id,
-		session.id,
+		session,
 		'repository@1.0.0',
 		'test repo',
 		{},
@@ -37,7 +41,7 @@ test('Should materialize the linked loop', async () => {
 
 	await ctx.createLinkThroughWorker(
 		user.id,
-		session.id,
+		session,
 		repository,
 		loop!,
 		'is used by',

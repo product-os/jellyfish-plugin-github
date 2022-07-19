@@ -1,9 +1,13 @@
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
 
 beforeAll(async () => {
 	ctx = await testUtils.newContext({
@@ -12,7 +16,7 @@ beforeAll(async () => {
 
 	// Prepare test user and session
 	user = await ctx.createUser(coreTestUtils.generateRandomId());
-	session = await ctx.createSession(user);
+	session = { actor: user };
 
 	// Add relationship for tests
 	await ctx.worker.insertCard(
@@ -49,7 +53,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to pending when it has no linked contracts', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -61,7 +65,7 @@ describe('triggered-action-failed-check-run', () => {
 				repo: '',
 			},
 		);
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,
@@ -74,7 +78,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to pending when linked contract has mergeable pending', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -89,7 +93,7 @@ describe('triggered-action-failed-check-run', () => {
 
 		const card = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'card@1.0.0',
 			'Card contract',
 			{
@@ -101,14 +105,14 @@ describe('triggered-action-failed-check-run', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			commit,
 			card,
 			'was transformed to',
 			'was transformed from',
 		);
 
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,
@@ -121,7 +125,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to mergeable when linked contract has mergeable mergeable', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -136,7 +140,7 @@ describe('triggered-action-failed-check-run', () => {
 
 		const card = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'card@1.0.0',
 			'Card contract',
 			{
@@ -148,14 +152,14 @@ describe('triggered-action-failed-check-run', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			commit,
 			card,
 			'was transformed to',
 			'was transformed from',
 		);
 
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,
@@ -168,7 +172,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to never when linked contract has mergeable never', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -183,7 +187,7 @@ describe('triggered-action-failed-check-run', () => {
 
 		const card = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'card@1.0.0',
 			'Card contract',
 			{
@@ -195,14 +199,14 @@ describe('triggered-action-failed-check-run', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			commit,
 			card,
 			'was transformed to',
 			'was transformed from',
 		);
 
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,
@@ -215,7 +219,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to mergeable when linked contract has mergeable true', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -230,7 +234,7 @@ describe('triggered-action-failed-check-run', () => {
 
 		const card = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'card@1.0.0',
 			'Card contract',
 			{
@@ -242,14 +246,14 @@ describe('triggered-action-failed-check-run', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			commit,
 			card,
 			'was transformed to',
 			'was transformed from',
 		);
 
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,
@@ -262,7 +266,7 @@ describe('triggered-action-failed-check-run', () => {
 	test('commit contract mergeable evaluates to pending when linked contract has mergeable false', async () => {
 		const commit = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'commit@1.0.0',
 			'Test Commit',
 			{
@@ -277,7 +281,7 @@ describe('triggered-action-failed-check-run', () => {
 
 		const card = await ctx.createContract(
 			user.id,
-			session.id,
+			session,
 			'card@1.0.0',
 			'Card contract',
 			{
@@ -289,14 +293,14 @@ describe('triggered-action-failed-check-run', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			commit,
 			card,
 			'was transformed to',
 			'was transformed from',
 		);
 
-		await ctx.flushAll(session.id);
+		await ctx.flushAll(session);
 
 		const contract = await ctx.kernel.getContractById(
 			ctx.logContext,

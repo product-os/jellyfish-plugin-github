@@ -1,10 +1,14 @@
-import { testUtils as coreTestUtils } from 'autumndb';
+import {
+	AutumnDBSession,
+	testUtils as coreTestUtils,
+	UserContract,
+} from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { githubPlugin, testUtils } from '../../../lib';
 
 let ctx: testUtils.TestContext;
-let user: any = {};
-let session: any = {};
+let user: UserContract;
+let session: AutumnDBSession;
 let username = '';
 
 const [owner, repo] =
@@ -21,7 +25,7 @@ beforeAll(async () => {
 
 	username = coreTestUtils.generateRandomId();
 	user = await ctx.createUser(username);
-	session = await ctx.createSession(user);
+	session = { actor: user };
 });
 
 afterAll(() => {
@@ -31,7 +35,7 @@ afterAll(() => {
 describe('triggered-action-github-issue-link', () => {
 	test('linking a support thread to an issue results in a message on that issues timeline', async () => {
 		const title = `Test Issue ${username}`;
-		const issue = await ctx.createIssue(user.id, session.id, title, {
+		const issue = await ctx.createIssue(user.id, session, title, {
 			body: 'Issue body',
 			status: 'open',
 			archived: false,
@@ -41,7 +45,7 @@ describe('triggered-action-github-issue-link', () => {
 
 		const supportThread = await ctx.createSupportThread(
 			user.id,
-			session.id,
+			session,
 			'test subject',
 			{
 				product: 'test-product',
@@ -52,7 +56,7 @@ describe('triggered-action-github-issue-link', () => {
 
 		await ctx.createLinkThroughWorker(
 			user.id,
-			session.id,
+			session,
 			supportThread,
 			issue,
 			'is attached to',
