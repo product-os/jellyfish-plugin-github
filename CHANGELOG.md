@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.1 - 2022-07-21
+
+* Update autumndb from 21.0.0 to 21.1.3 [renovate[bot]]
+
 ## 8.0.0 - 2022-07-19
 
 * Upgrade to worker v32.x and AutumnDB v21.x This brings in a major change to how AutumnDB handles sessions. [Lucian Buzzo]
