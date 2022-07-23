@@ -1,4 +1,20 @@
 - commits:
+    - subject: Speed up tests by not saving redis store to disk
+      hash: 6541f4edd3d968343f814a8d80b887cd618f7f67
+      body: |
+        Since the redis instance is only used for tests and development, its
+        fine to skip writing to disk in favour of more speed.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+        signed-off-by: Lucian Buzzo <lucian.buzzo@gmail.com>
+      author: Lucian Buzzo
+      nested: []
+  version: 8.0.3
+  title: "'Speed up tests by not saving redis store to disk'"
+  date: 2022-07-23T06:01:33.741Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 12.2.0 to 12.3.0
       hash: c384bde03ee85edacf3b7478cda8817ea629f0ca
       body: ""

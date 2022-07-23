@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.3 - 2022-07-23
+
+* Speed up tests by not saving redis store to disk [Lucian Buzzo]
+
 ## 8.0.2 - 2022-07-22
 
 * Update @balena/jellyfish-environment from 12.2.0 to 12.3.0 [renovate[bot]]
