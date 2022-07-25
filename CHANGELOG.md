@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.4 - 2022-07-24
+
+* Update repo.yml [Josh Bowling]
+
 ## 8.0.3 - 2022-07-23
 
 * Speed up tests by not saving redis store to disk [Lucian Buzzo]

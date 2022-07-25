@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update repo.yml
+      hash: 3bf132f8d132ef9be525f4a0c052fd65de2baf5d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.4
+  title: "'Update repo.yml'"
+  date: 2022-07-24T03:11:38.890Z
+- commits:
     - subject: Speed up tests by not saving redis store to disk
       hash: 6541f4edd3d968343f814a8d80b887cd618f7f67
       body: |
