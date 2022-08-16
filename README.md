@@ -6,15 +6,14 @@ Provides a sync integration for GitHub.
 
 Below is an example how to use this library:
 
-```js
-import { defaultPlugin } from '@balena/jellyfish-plugin-default';
+```typescript
 import { githubPlugin } from '@balena/jellyfish-plugin-github';
 import { PluginManager } from '@balena/jellyfish-worker';
 
-// Load cards from this plugin
-const pluginManager = new PluginManager([defaultPlugin(), githubPlugin()]);
-const cards = pluginManager.getCards();
-console.dir(cards);
+// Load contracts from this plugin
+const pluginManager = new PluginManager([githubPlugin()]);
+const contracts = pluginManager.getCards();
+console.dir(contracts);
 ```
 
 # Documentation
