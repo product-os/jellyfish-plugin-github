@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.11 - 2022-08-17
+
+* Update worker to 33.0.10 [Josh Bowling]
+* CI: Temporarily remove flowzone workflow [Josh Bowling]
+
 ## 8.0.10 - 2022-07-31
 
 * Update @balena/jellyfish-environment from 12.3.0 to 12.3.5 [renovate[bot]]

@@ -1,4 +1,31 @@
 - commits:
+    - subject: Update worker to 33.0.10
+      hash: 3030891bce530a20030517958354d84825b13ac9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+    - subject: "CI: Temporarily remove flowzone workflow"
+      hash: 3701d830db097993f4bdfb9c22899ffe457c1341
+      body: |
+        Flowzone apparently isn't working for this repo
+        at the moment and is blocking all PRs. Will bring
+        back once flowzone is a working option.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.11
+  title: "'CI: Temporarily remove flowzone workflow'"
+  date: 2022-08-17T08:07:08.332Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 12.3.0 to 12.3.5
       hash: 3a56898f131604b6f2b7677d804f77ff98c64c85
       body: ""
