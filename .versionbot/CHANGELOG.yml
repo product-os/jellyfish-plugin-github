@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-assert from 1.2.49 to 1.2.51
+      hash: 634c50646ff803a4ee0ae4bd3db3d5cbe0458117
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.13
+  title: "'Update @balena/jellyfish-assert from 1.2.49 to 1.2.51'"
+  date: 2022-08-17T12:18:22.587Z
+- commits:
     - subject: "Renovate: Increase concurrent PR limit"
       hash: e2e94335fb8fd8e5c24afba684df00d820bd5a27
       body: ""

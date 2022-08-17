@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.13 - 2022-08-17
+
+* Update @balena/jellyfish-assert from 1.2.49 to 1.2.51 [renovate[bot]]
+
 ## 8.0.12 - 2022-08-17
 
 * Renovate: Increase concurrent PR limit [Josh Bowling]
