@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Renovate: Increase concurrent PR limit"
+      hash: e2e94335fb8fd8e5c24afba684df00d820bd5a27
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.12
+  title: "'Renovate: Increase concurrent PR limit'"
+  date: 2022-08-17T08:49:56.411Z
+- commits:
     - subject: Update worker to 33.0.10
       hash: 3030891bce530a20030517958354d84825b13ac9
       body: ""

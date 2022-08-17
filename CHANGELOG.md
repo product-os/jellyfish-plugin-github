@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.12 - 2022-08-17
+
+* Renovate: Increase concurrent PR limit [Josh Bowling]
+
 ## 8.0.11 - 2022-08-17
 
 * Update worker to 33.0.10 [Josh Bowling]
