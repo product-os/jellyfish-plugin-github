@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update external-major (external major bumps)
+      hash: 74ada05457d9a4523ab6046a075986ab67cdc350
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.14
+  title: "'Update external-major (external major bumps) (major)'"
+  date: 2022-08-17T12:35:46.147Z
+- commits:
     - subject: Update @balena/jellyfish-assert from 1.2.49 to 1.2.51
       hash: 634c50646ff803a4ee0ae4bd3db3d5cbe0458117
       body: ""

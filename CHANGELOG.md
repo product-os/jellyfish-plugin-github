@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.14 - 2022-08-17
+
+* Update external-major (external major bumps) [renovate[bot]]
+
 ## 8.0.13 - 2022-08-17
 
 * Update @balena/jellyfish-assert from 1.2.49 to 1.2.51 [renovate[bot]]
