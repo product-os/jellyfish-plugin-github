@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Renovate: Reduce concurrency to 1"
+      hash: 82ed98680a031c55f973b67d47775764c88d6882
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.18
+  title: "'Renovate: Reduce concurrency to 1'"
+  date: 2022-08-18T01:31:53.791Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 12.3.6 to 13.0.1
       hash: 3da23fc27768e469e5ec5a97bc7d48be96779893
       body: ""
