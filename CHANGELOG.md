@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.19 - 2022-08-18
+
+* Update autumndb from 21.2.0 to 21.3.15 [renovate[bot]]
+
 ## 8.0.18 - 2022-08-18
 
 * Renovate: Reduce concurrency to 1 [Josh Bowling]
