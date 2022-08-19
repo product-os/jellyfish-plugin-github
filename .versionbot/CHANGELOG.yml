@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add more pull-request partial indices
+      hash: 8b9001bb8a4dfe3c07bee3d66fb80eaed22d7274
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.22
+  title: "'Add more pull-request partial indices'"
+  date: 2022-08-19T05:34:39.805Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 33.0.15 to 33.0.17
       hash: 9d92785d041c420e24847e1faf01568d7b4b52fa
       body: ""

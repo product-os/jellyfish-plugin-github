@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.22 - 2022-08-19
+
+* Add more pull-request partial indices [Josh Bowling]
+
 ## 8.0.21 - 2022-08-18
 
 * Update @balena/jellyfish-worker from 33.0.15 to 33.0.17 [renovate[bot]]
