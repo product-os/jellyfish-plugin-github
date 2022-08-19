@@ -137,6 +137,11 @@ export const pullRequest: ContractDefinition = workerContractMixins.mixin(
 			},
 		},
 		slices: ['properties.data.properties.status'],
-		indexed_fields: [['data.status'], ['data.mirrors']],
+		indexed_fields: [
+			['data.status'],
+			['data.mirrors'],
+			['data.repository'],
+			['data.merged_at'],
+		],
 	},
 });
