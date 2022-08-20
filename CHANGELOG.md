@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.23 - 2022-08-20
+
+* Update @balena/jellyfish-assert from 1.2.51 to 1.2.53 [renovate[bot]]
+
 ## 8.0.22 - 2022-08-19
 
 * Add more pull-request partial indices [Josh Bowling]
