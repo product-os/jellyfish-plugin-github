@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 13.0.3 to 13.0.4
+      hash: 19ff331af8dbf3b6067adda9e21c3378b28bd550
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.28
+  title: "'Update @balena/jellyfish-environment from 13.0.3 to 13.0.4'"
+  date: 2022-08-20T11:30:10.481Z
+- commits:
     - subject: Update lint-staged from 13.0.2 to 13.0.3
       hash: 589de18af39cde045ede47e49679cc48b9bccbed
       body: ""
