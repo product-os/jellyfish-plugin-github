@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.33 - 2022-08-20
+
+* Update date-fns from 2.28.0 to 2.29.2 [renovate[bot]]
+
 ## 8.0.32 - 2022-08-20
 
 * Update ts-jest from 28.0.5 to 28.0.8 [renovate[bot]]

@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update date-fns from 2.28.0 to 2.29.2
+      hash: 0317097a8d8ab9de37cd06cbc8a203041b22478b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.33
+  title: "'Update date-fns from 2.28.0 to 2.29.2'"
+  date: 2022-08-20T16:49:37.979Z
+- commits:
     - subject: Update ts-jest from 28.0.5 to 28.0.8
       hash: e7cb5345b8a671d67007183dabdc7c79373ce5f3
       body: ""
