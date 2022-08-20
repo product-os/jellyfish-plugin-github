@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update jest monorepo
+      hash: 08867920bc414694d6c89355fe6bf4e49fd98f91
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.24
+  title: "'Update jest monorepo'"
+  date: 2022-08-20T01:26:03.603Z
+- commits:
     - subject: Update @balena/jellyfish-assert from 1.2.51 to 1.2.53
       hash: 34082f1d0d271366074d9c576b3de5971c96f6b5
       body: ""
