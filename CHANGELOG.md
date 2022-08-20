@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.31 - 2022-08-20
+
+* Update nock from 13.2.7 to 13.2.9 [renovate[bot]]
+
 ## 8.0.30 - 2022-08-20
 
 * Update autumndb from 22.1.14 to 22.1.24 [renovate[bot]]

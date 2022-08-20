@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update nock from 13.2.7 to 13.2.9
+      hash: 05303688ff0d305bafede011628baaa1f727d667
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.31
+  title: "'Update nock from 13.2.7 to 13.2.9'"
+  date: 2022-08-20T14:24:32.575Z
+- commits:
     - subject: Update autumndb from 22.1.14 to 22.1.24
       hash: cdd29dc68c5b37e4e8b6c3bd776059227369f1ff
       body: ""
