@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.32 - 2022-08-20
+
+* Update ts-jest from 28.0.5 to 28.0.8 [renovate[bot]]
+
 ## 8.0.31 - 2022-08-20
 
 * Update nock from 13.2.7 to 13.2.9 [renovate[bot]]
