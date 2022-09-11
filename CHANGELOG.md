@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.52 - 2022-09-11
+
+* Update @balena/jellyfish-assert from 1.2.54 to 1.2.61 [renovate[bot]]
+
 ## 8.0.51 - 2022-09-11
 
 * Update secrets submodule [Josh Bowling]
