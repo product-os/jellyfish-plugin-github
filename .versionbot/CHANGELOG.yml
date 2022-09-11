@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update autumndb from 22.1.28 to 22.2.24
+      hash: 92e7587ccef84ffc61aed957dccf7aa9c9fe2bc5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.58
+  title: "'Update autumndb from 22.1.28 to 22.2.24'"
+  date: 2022-09-11T03:23:05.159Z
+- commits:
     - subject: Update @octokit/plugin-throttling from 4.2.0 to 4.3.0
       hash: 900d387edf243897008b203ed4f64f70acdbf248
       body: ""

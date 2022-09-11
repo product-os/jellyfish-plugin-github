@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.58 - 2022-09-11
+
+* Update autumndb from 22.1.28 to 22.2.24 [renovate[bot]]
+
 ## 8.0.57 - 2022-09-11
 
 * Update @octokit/plugin-throttling from 4.2.0 to 4.3.0 [renovate[bot]]
