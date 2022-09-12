@@ -58,7 +58,7 @@
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^4.3.0",
     "@octokit/rest": "^19.0.4",
-    "autumndb": "^22.2.31",
+    "autumndb": "^22.2.34",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^2.1.1"
