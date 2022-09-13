@@ -1,4 +1,4 @@
-version: '2.1'
+version: '3'
 
 services:
   sut:
@@ -9,19 +9,9 @@ services:
     depends_on:
       - postgres
       - redis
+    env_file:
+      - .env
     environment:
       - LOGLEVEL=error
-    secrets:
-      - integration_github_app_id
-      - integration_github_private_key
-      - integration_github_token
     networks:
       - internal
-
-secrets:
-  integration_github_app_id:
-    file: ./.balena/secrets/integration_github_app_id
-  integration_github_private_key:
-    file: ./.balena/secrets/integration_github_private_key
-  integration_github_token:
-    file: ./.balena/secrets/integration_github_token
