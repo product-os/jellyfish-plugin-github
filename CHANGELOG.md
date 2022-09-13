@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.74 - 2022-09-13
+
+* CI: Move to Flowzone [Josh Bowling]
+
 ## 8.0.73 - 2022-09-12
 
 * Update @balena/jellyfish-worker from 33.4.26 to 33.4.29 [renovate[bot]]
