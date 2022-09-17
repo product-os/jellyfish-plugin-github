@@ -65,7 +65,7 @@
   },
   "devDependencies": {
     "@balena/lint": "^6.2.0",
-    "@types/jest": "^29.0.1",
+    "@types/jest": "^29.0.3",
     "@types/uuid": "^8.3.4",
     "date-fns": "^2.29.2",
     "deplint": "^1.1.3",
