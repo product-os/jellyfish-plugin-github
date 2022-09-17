@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.91 - 2022-09-17
+
+* Update date-fns from 2.29.2 to 2.29.3 [renovate[bot]]
+
 ## 8.0.90 - 2022-09-17
 
 * Update autumndb from 22.2.45 to 22.2.49 [renovate[bot]]
