@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.84 - 2022-09-17
+
+* Update @balena/jellyfish-assert from 1.2.67 to 1.2.69 [renovate[bot]]
+
 ## 8.0.83 - 2022-09-17
 
 * Update autumndb from 22.2.44 to 22.2.45 [renovate[bot]]
