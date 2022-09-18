@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.98 - 2022-09-18
+
+* Update docker-compose version to 3.9 [Josh Bowling]
+
 ## 8.0.97 - 2022-09-18
 
 * Update secrets submodule [Josh Bowling]
