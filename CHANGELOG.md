@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.99 - 2022-09-18
+
+* Update @balena/jellyfish-worker from 33.4.53 to 33.4.54 [renovate[bot]]
+
 ## 8.0.98 - 2022-09-18
 
 * Update docker-compose version to 3.9 [Josh Bowling]

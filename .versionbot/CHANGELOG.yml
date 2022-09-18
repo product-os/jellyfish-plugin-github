@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-worker from 33.4.53 to 33.4.54
+      hash: 343407d7ffb45ce4aef82131034ade818093b9fb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.99
+  title: ""
+  date: 2022-09-18T15:14:16.495Z
+- commits:
     - subject: Update docker-compose version to 3.9
       hash: 339d51d79613c7bf3ac017f7be4b20ce55437eba
       body: ""
