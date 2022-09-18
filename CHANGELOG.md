@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.97 - 2022-09-18
+
+* Update secrets submodule [Josh Bowling]
+
 ## 8.0.96 - 2022-09-18
 
 * Update @balena/jellyfish-worker from 33.4.49 to 33.4.53 [renovate[bot]]

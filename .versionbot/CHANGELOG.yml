@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update secrets submodule
+      hash: af8700eddc3ecb8db7e20417622dc3fb488dbfb7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.97
+  title: ""
+  date: 2022-09-18T10:15:09.559Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 33.4.49 to 33.4.53
       hash: 10276b766cfaa8ab54d7eb02107a162f7e40a710
       body: ""
