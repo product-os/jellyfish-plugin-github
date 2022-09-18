@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.103 - 2022-09-18
+
+* Update @balena/jellyfish-environment from 14.0.5 to 14.0.6 [renovate[bot]]
+
 ## 8.0.102 - 2022-09-18
 
 * Update @balena/jellyfish-assert from 1.2.69 to 1.2.70 [renovate[bot]]
