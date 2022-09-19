@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.122 - 2022-09-19
+
+* Dev: Remove unenforceable .editorconfig [Josh Bowling]
+
 ## 8.0.121 - 2022-09-19
 
 * Update autumndb from 22.2.59 to 22.2.69 [renovate[bot]]
