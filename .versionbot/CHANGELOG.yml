@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-worker from 33.4.69 to 33.4.70
+      hash: 8cb2caa6513442a7994eed670d6513627fca4e6f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.123
+  title: ""
+  date: 2022-09-19T10:24:48.578Z
+- commits:
     - subject: "Dev: Remove unenforceable .editorconfig"
       hash: 0fdaa834e6af65a6c716031217fcb7d30ee225d0
       body: ""
