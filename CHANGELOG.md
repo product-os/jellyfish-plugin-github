@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.115 - 2022-09-19
+
+* Update @balena/jellyfish-assert from 1.2.71 to 1.2.72 [renovate[bot]]
+
 ## 8.0.114 - 2022-09-19
 
 * Add CodeQL workflow [Josh Bowling]

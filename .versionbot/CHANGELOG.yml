@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-assert from 1.2.71 to 1.2.72
+      hash: 3020cb7ccf491ccb76363892473500ac25de5af7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.115
+  title: ""
+  date: 2022-09-19T07:39:34.494Z
+- commits:
     - subject: Add CodeQL workflow
       hash: c065e035106418e9d9630637390d85502824f65e
       body: ""
