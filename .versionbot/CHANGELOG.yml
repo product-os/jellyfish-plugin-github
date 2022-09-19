@@ -1,4 +1,18 @@
 - commits:
+    - subject: Drop test:compose script
+      hash: fde117c8a7f4eda6d06ac40c2442afea3da46c1d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.106
+  title: ""
+  date: 2022-09-19T03:00:23.132Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 33.4.60 to 33.4.61
       hash: 0a5ea788df0e7732e10addf04dbd21ce5354a332
       body: ""
