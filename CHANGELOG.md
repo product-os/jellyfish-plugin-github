@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.114 - 2022-09-19
+
+* Add CodeQL workflow [Josh Bowling]
+
 ## 8.0.113 - 2022-09-19
 
 * Update @balena/jellyfish-worker from 33.4.64 to 33.4.65 [renovate[bot]]
