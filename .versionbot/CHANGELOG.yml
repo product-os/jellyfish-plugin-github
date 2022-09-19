@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Dev: Add .nvmrc"
+      hash: 3047841ad3cf022bb7ce67be4ebcc733efe7a743
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.110
+  title: ""
+  date: 2022-09-19T04:57:00.558Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 33.4.63 to 33.4.64
       hash: 234b963554ea2a38ddceae3922fb096877abfaa9
       body: ""

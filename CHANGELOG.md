@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.110 - 2022-09-19
+
+* Dev: Add .nvmrc [Josh Bowling]
+
 ## 8.0.109 - 2022-09-19
 
 * Update @balena/jellyfish-worker from 33.4.63 to 33.4.64 [renovate[bot]]
