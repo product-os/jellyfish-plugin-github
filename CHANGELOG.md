@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.107 - 2022-09-19
+
+* Update @balena/jellyfish-worker from 33.4.61 to 33.4.63 [renovate[bot]]
+
 ## 8.0.106 - 2022-09-19
 
 * Drop test:compose script [Josh Bowling]
