@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.156 - 2022-09-27
+
+* Rely on flowzone for docs publishing [Page-]
+
 ## 8.0.155 - 2022-09-27
 
 * Update @balena/jellyfish-assert from 1.2.75 to 1.2.76 [renovate[bot]]
