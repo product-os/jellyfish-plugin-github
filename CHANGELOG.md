@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.166 - 2022-09-28
+
+* Change engines to >=16 to enable node 18 tests/usage [Page-]
+
 ## 8.0.165 - 2022-09-28
 
 * Update @balena/jellyfish-worker from 34.1.33 to 34.1.36 [renovate[bot]]
