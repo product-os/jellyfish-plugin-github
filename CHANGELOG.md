@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.167 - 2022-09-28
+
+* Update autumndb from 22.2.95 to 22.2.98 [renovate[bot]]
+
 ## 8.0.166 - 2022-09-28
 
 * Change engines to >=16 to enable node 18 tests/usage [Page-]

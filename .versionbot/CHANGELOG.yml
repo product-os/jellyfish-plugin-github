@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update autumndb from 22.2.95 to 22.2.98
+      hash: 8b5e2db2eaeb7f7d1f95a40f3d58f3bf22ea243a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.167
+  title: ""
+  date: 2022-09-28T12:10:14.844Z
+- commits:
     - subject: Change engines to >=16 to enable node 18 tests/usage
       hash: d89d6b2f1e206421a9930b841f7f85729aa54c56
       body: ""
