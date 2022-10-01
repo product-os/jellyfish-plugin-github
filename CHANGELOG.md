@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.181 - 2022-10-01
+
+* Update @balena/jellyfish-worker from 34.1.48 to 34.1.51 [renovate[bot]]
+
 ## 8.0.180 - 2022-10-01
 
 * Update jest monorepo [renovate[bot]]
