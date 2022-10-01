@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.178 - 2022-10-01
+
+* Update autumndb from 22.2.106 to 22.2.108 [renovate[bot]]
+
 ## 8.0.177 - 2022-10-01
 
 * Update ts-jest from 29.0.2 to 29.0.3 [renovate[bot]]
