@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.179 - 2022-10-01
+
+* Update typescript from 4.8.3 to 4.8.4 [renovate[bot]]
+
 ## 8.0.178 - 2022-10-01
 
 * Update autumndb from 22.2.106 to 22.2.108 [renovate[bot]]
