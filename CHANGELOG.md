@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.180 - 2022-10-01
+
+* Update jest monorepo [renovate[bot]]
+
 ## 8.0.179 - 2022-10-01
 
 * Update typescript from 4.8.3 to 4.8.4 [renovate[bot]]
