@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.174 - 2022-10-01
+
+* Update @balena/jellyfish-environment from 14.0.19 to 14.0.21 [renovate[bot]]
+
 ## 8.0.173 - 2022-10-01
 
 * Update @octokit/auth-app from 4.0.5 to 4.0.6 [renovate[bot]]
