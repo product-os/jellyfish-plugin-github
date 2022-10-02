@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update yaml from 2.1.1 to 2.1.2
+      hash: 717ec859bffea389e27b0ad47a2f3a4edabdc3bb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.188
+  title: ""
+  date: 2022-10-02T17:48:48.086Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 34.1.57 to 34.1.58
       hash: 19466dde3eb1bf092b90f79827b243857619c274
       body: ""

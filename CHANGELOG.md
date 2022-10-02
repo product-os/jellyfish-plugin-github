@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.188 - 2022-10-02
+
+* Update yaml from 2.1.1 to 2.1.2 [renovate[bot]]
+
 ## 8.0.187 - 2022-10-02
 
 * Update @balena/jellyfish-worker from 34.1.57 to 34.1.58 [renovate[bot]]
