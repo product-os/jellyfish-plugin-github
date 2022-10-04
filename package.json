@@ -52,7 +52,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.80",
     "@balena/jellyfish-environment": "^14.1.1",
-    "@balena/jellyfish-worker": "^34.1.67",
+    "@balena/jellyfish-worker": "35.0.0-joshbwlng-drop-execute-contract-11946f42b9da269a94fdc1b3c2da0f62d8de830e",
     "@octokit/auth-app": "^4.0.6",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^4.3.0",
