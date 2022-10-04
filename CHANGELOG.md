@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.198 - 2022-10-04
+
+* Update @balena/jellyfish-worker from 35.0.4 to 35.0.5 [renovate[bot]]
+
 ## 8.0.197 - 2022-10-04
 
 * Update @balena/jellyfish-worker from 35.0.1 to 35.0.4 [renovate[bot]]
