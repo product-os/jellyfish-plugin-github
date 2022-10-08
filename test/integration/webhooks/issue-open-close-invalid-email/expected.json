@@ -10,9 +10,7 @@
     "capabilities": [],
     "data": {
       "repository": "resin-io/jellyfish",
-      "mirrors": [
-        "https://github.com/resin-io/jellyfish/issues/705"
-      ],
+      "mirrors": ["https://github.com/resin-io/jellyfish/issues/705"],
       "mentionsUser": [],
       "alertsUser": [],
       "description": "Foo Bar",
@@ -45,9 +43,7 @@
           "capabilities": [],
           "data": {
             "repository": "resin-io/jellyfish",
-            "mirrors": [
-              "https://github.com/resin-io/jellyfish/issues/705"
-            ],
+            "mirrors": ["https://github.com/resin-io/jellyfish/issues/705"],
             "mentionsUser": [],
             "alertsUser": [],
             "description": "Foo Bar",

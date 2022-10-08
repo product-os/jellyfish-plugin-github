@@ -177,9 +177,7 @@
         },
         "added": [],
         "removed": [],
-        "modified": [
-          "test.txt"
-        ]
+        "modified": ["test.txt"]
       }
     ],
     "head_commit": {
@@ -201,9 +199,7 @@
       },
       "added": [],
       "removed": [],
-      "modified": [
-        "test.txt"
-      ]
+      "modified": ["test.txt"]
     }
   }
 }

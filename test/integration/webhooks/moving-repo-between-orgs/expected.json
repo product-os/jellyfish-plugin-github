@@ -13,9 +13,7 @@
       "name": "to-be-moved",
       "git_url": "git://github.com/loop-os-staging/to-be-moved.git",
       "html_url": "https://github.com/loop-os-staging/to-be-moved",
-      "mirrors": [
-        "https://api.github.com/repos/loop-os-staging/to-be-moved"
-      ],
+      "mirrors": ["https://api.github.com/repos/loop-os-staging/to-be-moved"],
       "integration_source": "github",
       "is_used_by": ""
     }

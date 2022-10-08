@@ -18,9 +18,7 @@
         "branch": "master",
         "sha": "5010ab1bb94c923f3f589cc8d8d2de237976a245"
       },
-      "mirrors": [
-        "https://api.github.com/repos/loop-os/test/pulls/4"
-      ],
+      "mirrors": ["https://api.github.com/repos/loop-os/test/pulls/4"],
       "statusChecks": {
         "A whateverCi": "success",
         "B whateverCi": "failure"
@@ -63,9 +61,7 @@
               "sha": "5010ab1bb94c923f3f589cc8d8d2de237976a245"
             },
             "statusChecks": {},
-            "mirrors": [
-              "https://api.github.com/repos/loop-os/test/pulls/4"
-            ],
+            "mirrors": ["https://api.github.com/repos/loop-os/test/pulls/4"],
             "mentionsUser": [],
             "alertsUser": [],
             "description": "",

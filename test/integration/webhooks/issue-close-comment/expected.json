@@ -10,9 +10,7 @@
     "capabilities": [],
     "data": {
       "repository": "resin-io/jellyfish",
-      "mirrors": [
-        "https://github.com/resin-io/jellyfish/issues/722"
-      ],
+      "mirrors": ["https://github.com/resin-io/jellyfish/issues/722"],
       "mentionsUser": [],
       "alertsUser": [],
       "description": "",
@@ -46,9 +44,7 @@
           "capabilities": [],
           "data": {
             "repository": "resin-io/jellyfish",
-            "mirrors": [
-              "https://github.com/resin-io/jellyfish/issues/722"
-            ],
+            "mirrors": ["https://github.com/resin-io/jellyfish/issues/722"],
             "mentionsUser": [],
             "alertsUser": [],
             "description": "",

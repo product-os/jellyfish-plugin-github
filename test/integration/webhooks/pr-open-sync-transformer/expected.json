@@ -20,9 +20,7 @@
         "branch": "master",
         "sha": "c12f93d67ca958801cf9e1cf5ff670bb7623c614"
       },
-      "mirrors": [
-        "https://github.com/resin-io/jellyfish/pull/772"
-      ],
+      "mirrors": ["https://github.com/resin-io/jellyfish/pull/772"],
       "gh_number": 772,
       "mentionsUser": [],
       "alertsUser": [],
@@ -70,9 +68,7 @@
               "branch": "master",
               "sha": "c12f93d67ca958801cf9e1cf5ff670bb7623c614"
             },
-            "mirrors": [
-              "https://github.com/resin-io/jellyfish/pull/772"
-            ],
+            "mirrors": ["https://github.com/resin-io/jellyfish/pull/772"],
             "gh_number": 772,
             "mentionsUser": [],
             "alertsUser": [],
@@ -114,7 +110,8 @@
       },
       "id": "bbea47b7-c334-4804-a6f3-1980fe3a3bb4",
       "name": null
-    }, {
+    },
+    {
       "active": true,
       "capabilities": [],
       "data": {

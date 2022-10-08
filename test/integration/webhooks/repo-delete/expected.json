@@ -13,9 +13,7 @@
       "name": "delete-this",
       "git_url": "git://github.com/loop-os/delete-this.git",
       "html_url": "https://github.com/loop-os/delete-this",
-      "mirrors": [
-        "https://api.github.com/repos/loop-os/delete-this"
-      ]
+      "mirrors": ["https://api.github.com/repos/loop-os/delete-this"]
     }
   },
   "tail": [
@@ -46,9 +44,7 @@
             "name": "delete-this",
             "git_url": "git://github.com/loop-os/delete-this.git",
             "html_url": "https://github.com/loop-os/delete-this",
-            "mirrors": [
-              "https://api.github.com/repos/loop-os/delete-this"
-            ]
+            "mirrors": ["https://api.github.com/repos/loop-os/delete-this"]
           }
         }
       }

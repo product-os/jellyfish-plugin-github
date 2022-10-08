@@ -41,9 +41,7 @@
           "email": "nazrhom@gmail.com",
           "username": "nazrhom"
         },
-        "added": [
-          ".gitignore"
-        ],
+        "added": [".gitignore"],
         "removed": [],
         "modified": []
       },
@@ -64,13 +62,9 @@
           "email": "nazrhom@gmail.com",
           "username": "nazrhom"
         },
-        "added": [
-          "test"
-        ],
+        "added": ["test"],
         "removed": [],
-        "modified": [
-          "README.md"
-        ]
+        "modified": ["README.md"]
       }
     ],
     "head_commit": {
@@ -90,13 +84,9 @@
         "email": "nazrhom@gmail.com",
         "username": "nazrhom"
       },
-      "added": [
-        "test"
-      ],
+      "added": ["test"],
       "removed": [],
-      "modified": [
-        "README.md"
-      ]
+      "modified": ["README.md"]
     },
     "repository": {
       "id": 141188987,
