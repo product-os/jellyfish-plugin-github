@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update yaml from 2.1.2 to 2.1.3
+      hash: dd724786c3bc196372b134063a2cbdc00e9e0633
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.213
+  title: ""
+  date: 2022-10-08T15:32:58.613Z
+- commits:
     - subject: Update autumndb from 22.2.123 to 22.2.124
       hash: 2d829b466767b95fe45ca9d901ff37610df22e05
       body: ""

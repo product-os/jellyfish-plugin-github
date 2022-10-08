@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.213 - 2022-10-08
+
+* Update yaml from 2.1.2 to 2.1.3 [renovate[bot]]
+
 ## 8.0.212 - 2022-10-08
 
 * Update autumndb from 22.2.123 to 22.2.124 [renovate[bot]]
