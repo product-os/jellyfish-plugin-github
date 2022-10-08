@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.211 - 2022-10-08
+
+* Update @types/jest from 29.1.1 to 29.1.2 [renovate[bot]]
+
 ## 8.0.210 - 2022-10-08
 
 * Dev: Use prettier for json/yml [Josh Bowling]

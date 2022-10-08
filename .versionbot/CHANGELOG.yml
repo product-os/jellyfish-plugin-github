@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @types/jest from 29.1.1 to 29.1.2
+      hash: 9bf3f533664f5eb667e3d9b862be14f40b41bde2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.211
+  title: ""
+  date: 2022-10-08T15:03:58.130Z
+- commits:
     - subject: "Dev: Use prettier for json/yml"
       hash: ab9ac92adef5d3573839b9f0930a64a4ffc08927
       body: ""
