@@ -51,7 +51,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.80",
-    "@balena/jellyfish-environment": "^14.2.0",
+    "@balena/jellyfish-environment": "^14.3.8",
     "@balena/jellyfish-worker": "^35.0.12",
     "@octokit/auth-app": "^4.0.6",
     "@octokit/plugin-retry": "^3.0.9",
