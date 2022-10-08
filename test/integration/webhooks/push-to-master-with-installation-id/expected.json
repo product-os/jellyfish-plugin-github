@@ -31,9 +31,7 @@
             "email": "nazrhom@gmail.com",
             "username": "nazrhom"
           },
-          "added": [
-            ".gitignore"
-          ],
+          "added": [".gitignore"],
           "removed": [],
           "modified": []
         },
@@ -54,13 +52,9 @@
             "email": "nazrhom@gmail.com",
             "username": "nazrhom"
           },
-          "added": [
-            "test"
-          ],
+          "added": ["test"],
           "removed": [],
-          "modified": [
-            "README.md"
-          ]
+          "modified": ["README.md"]
         }
       ],
       "integration_source": "github"
@@ -112,9 +106,7 @@
                   "email": "nazrhom@gmail.com",
                   "username": "nazrhom"
                 },
-                "added": [
-                  ".gitignore"
-                ],
+                "added": [".gitignore"],
                 "removed": [],
                 "modified": []
               },
@@ -135,13 +127,9 @@
                   "email": "nazrhom@gmail.com",
                   "username": "nazrhom"
                 },
-                "added": [
-                  "test"
-                ],
+                "added": ["test"],
                 "removed": [],
-                "modified": [
-                  "README.md"
-                ]
+                "modified": ["README.md"]
               }
             ],
             "integration_source": "github"

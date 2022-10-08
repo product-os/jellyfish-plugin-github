@@ -85,18 +85,10 @@
       "merged_at": null,
       "merge_commit_sha": "151d9f17d05942144e26d06cfb93c62fa5ea286a",
       "assignee": null,
-      "assignees": [
-
-      ],
-      "requested_reviewers": [
-
-      ],
-      "requested_teams": [
-
-      ],
-      "labels": [
-
-      ],
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
       "milestone": null,
       "commits_url": "https://api.github.com/repos/resin-io/jellyfish/pulls/774/commits",
       "review_comments_url": "https://api.github.com/repos/resin-io/jellyfish/pulls/774/comments",

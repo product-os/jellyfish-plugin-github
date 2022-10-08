@@ -13,9 +13,7 @@
       "name": "repo-create",
       "git_url": "git://github.com/loop-os/repo-create.git",
       "html_url": "https://github.com/loop-os/repo-create",
-      "mirrors": [
-        "https://api.github.com/repos/loop-os/repo-create"
-      ],
+      "mirrors": ["https://api.github.com/repos/loop-os/repo-create"],
       "is_used_by": ""
     }
   },
@@ -47,9 +45,7 @@
             "name": "repo-create",
             "git_url": "git://github.com/loop-os/repo-create.git",
             "html_url": "https://github.com/loop-os/repo-create",
-            "mirrors": [
-              "https://api.github.com/repos/loop-os/repo-create"
-            ]
+            "mirrors": ["https://api.github.com/repos/loop-os/repo-create"]
           }
         }
       }

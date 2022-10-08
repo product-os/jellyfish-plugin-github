@@ -18,9 +18,7 @@
         "branch": "master",
         "sha": "0f3ad1d6c51d14757f37f15bd1734475faeb3be9"
       },
-      "mirrors": [
-        "https://api.github.com/repos/loop-os/test/pulls/2"
-      ],
+      "mirrors": ["https://api.github.com/repos/loop-os/test/pulls/2"],
       "gh_number": 2,
       "mentionsUser": [],
       "alertsUser": [],
@@ -58,9 +56,7 @@
               "branch": "master",
               "sha": "0f3ad1d6c51d14757f37f15bd1734475faeb3be9"
             },
-            "mirrors": [
-              "https://api.github.com/repos/loop-os/test/pulls/2"
-            ],
+            "mirrors": ["https://api.github.com/repos/loop-os/test/pulls/2"],
             "gh_number": 2,
             "mentionsUser": [],
             "alertsUser": [],

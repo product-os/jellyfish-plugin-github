@@ -31,9 +31,7 @@
             "email": "nazrhom@gmail.com",
             "username": "nazrhom"
           },
-          "added": [
-            ".gitignore"
-          ],
+          "added": [".gitignore"],
           "removed": [],
           "modified": []
         }
@@ -87,9 +85,7 @@
                   "email": "nazrhom@gmail.com",
                   "username": "nazrhom"
                 },
-                "added": [
-                  ".gitignore"
-                ],
+                "added": [".gitignore"],
                 "removed": [],
                 "modified": []
               }

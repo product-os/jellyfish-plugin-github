@@ -5,17 +5,12 @@
     "version": "1.0.0",
     "active": true,
     "loop": null,
-    "tags": [
-      "core",
-      "good first issue"
-    ],
+    "tags": ["core", "good first issue"],
     "requires": [],
     "capabilities": [],
     "data": {
       "repository": "resin-io/jellyfish",
-      "mirrors": [
-        "https://github.com/resin-io/jellyfish/issues/706"
-      ],
+      "mirrors": ["https://github.com/resin-io/jellyfish/issues/706"],
       "mentionsUser": [],
       "alertsUser": [],
       "description": "Foo Bar",
@@ -43,17 +38,12 @@
           "name": "Issue with labels",
           "active": true,
           "version": "1.0.0",
-          "tags": [
-            "core",
-            "good first issue"
-          ],
+          "tags": ["core", "good first issue"],
           "requires": [],
           "capabilities": [],
           "data": {
             "repository": "resin-io/jellyfish",
-            "mirrors": [
-              "https://github.com/resin-io/jellyfish/issues/706"
-            ],
+            "mirrors": ["https://github.com/resin-io/jellyfish/issues/706"],
             "mentionsUser": [],
             "alertsUser": [],
             "description": "Foo Bar",

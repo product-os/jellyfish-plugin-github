@@ -47,9 +47,7 @@
       "merged_at": null,
       "merge_commit_sha": "40edb5a506fbc29f42c9954722eae9856f112d41",
       "assignee": null,
-      "assignees": [
-
-      ],
+      "assignees": [],
       "requested_reviewers": [
         {
           "login": "LucianBuzzo",
@@ -72,12 +70,8 @@
           "site_admin": false
         }
       ],
-      "requested_teams": [
-
-      ],
-      "labels": [
-
-      ],
+      "requested_teams": [],
+      "labels": [],
       "milestone": null,
       "commits_url": "https://api.github.com/repos/resin-io/jellyfish/pulls/777/commits",
       "review_comments_url": "https://api.github.com/repos/resin-io/jellyfish/pulls/777/comments",

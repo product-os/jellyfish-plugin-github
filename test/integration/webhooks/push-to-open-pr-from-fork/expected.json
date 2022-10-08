@@ -20,9 +20,7 @@
         "branch": "master",
         "sha": "070b3a25f36f470921cf1d7975cebc1a335ad5f2"
       },
-      "mirrors": [
-        "https://github.com/balena-io/vb-test/pull/47"
-      ],
+      "mirrors": ["https://github.com/balena-io/vb-test/pull/47"],
       "gh_number": 47,
       "mentionsUser": [],
       "alertsUser": [],
@@ -70,9 +68,7 @@
               "branch": "master",
               "sha": "070b3a25f36f470921cf1d7975cebc1a335ad5f2"
             },
-            "mirrors": [
-              "https://github.com/balena-io/vb-test/pull/47"
-            ],
+            "mirrors": ["https://github.com/balena-io/vb-test/pull/47"],
             "gh_number": 47,
             "mentionsUser": [],
             "alertsUser": [],
