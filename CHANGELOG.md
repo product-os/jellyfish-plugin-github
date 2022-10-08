@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.210 - 2022-10-08
+
+* Dev: Use prettier for json/yml [Josh Bowling]
+
 ## 8.0.209 - 2022-10-08
 
 * Update @balena/jellyfish-worker from 35.0.12 to 35.0.13 [renovate[bot]]
