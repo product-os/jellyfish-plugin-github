@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.218 - 2022-10-09
+
+* Update autumndb from 22.2.130 to 22.2.132 [renovate[bot]]
+
 ## 8.0.217 - 2022-10-09
 
 * Update autumndb from 22.2.128 to 22.2.130 [renovate[bot]]
