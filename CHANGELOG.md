@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.233 - 2022-10-10
+
+* Update typedoc from 0.23.15 to 0.23.16 [renovate[bot]]
+
 ## 8.0.232 - 2022-10-10
 
 * Update @balena/jellyfish-environment from 14.3.11 to 14.3.12 [renovate[bot]]
