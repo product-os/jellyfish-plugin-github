@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.234 - 2022-10-10
+
+* Update autumndb from 22.2.139 to 22.2.140 [renovate[bot]]
+
 ## 8.0.233 - 2022-10-10
 
 * Update typedoc from 0.23.15 to 0.23.16 [renovate[bot]]
