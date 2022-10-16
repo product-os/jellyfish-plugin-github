@@ -1,77 +1,122 @@
 import { strict as assert } from 'assert';
-import {
-	AutumnDBSession,
-	testUtils as coreTestUtils,
-	UserContract,
-} from 'autumndb';
+import { testUtils as aTestUtils } from 'autumndb';
 import { defaultEnvironment } from '@balena/jellyfish-environment';
-import { retry } from '@octokit/plugin-retry';
-import { Octokit as OctokitRest } from '@octokit/rest';
 import _ from 'lodash';
+import nock from 'nock';
 import { v4 as uuid } from 'uuid';
 import { githubPlugin, testUtils } from '../../lib';
 
 let ctx: testUtils.TestContext;
-let user: UserContract;
-let session: AutumnDBSession;
-let github: any;
-let username: string = '';
-
 const [owner, repo] =
 	defaultEnvironment.test.integration.github.repo.split('/');
-const repository = {
-	owner: owner.trim(),
-	repo: repo.trim(),
-};
 
 beforeAll(async () => {
+	nock.cleanAll();
 	ctx = await testUtils.newContext({
 		plugins: [githubPlugin()],
 	});
+});
 
-	username = coreTestUtils.generateRandomId();
-	user = await ctx.createUser(username);
-	session = { actor: user };
-
-	const Octokit = OctokitRest.plugin(retry);
-	github = new Octokit({
-		request: {
-			retries: 5,
-		},
-		userAgent: `github-mirror-test-agent (${__dirname})`,
-		auth: defaultEnvironment.integration.github.api,
-	});
+afterEach(() => {
+	nock.cleanAll();
 });
 
 afterAll(() => {
 	return testUtils.destroyContext(ctx);
 });
 
-describe('mirror', () => {
-	test('should be able to create an issue with a comment and update the comment after remote deletion', async () => {
-		const title = `Test Issue ${username}`;
-		const issue = await ctx.createIssue(user.id, session, title, {
-			repository: `${repository.owner}/${repository.repo}`,
-			description: 'Issue body',
-			status: 'open',
-			archived: false,
-		});
+function getIssue() {
+	return {
+		url: `https://api.github.com/repos/${owner}/${repo}/issues/3992`,
+		html_url: `https://github.com/${owner}/${repo}/issues/3992`,
+		id: 1410479065,
+		node_id: 'I_kwDOHNb-VM5UEjPZ',
+		number: 3992,
+		title: 'Test Issue 87a810d2-4b69-4667-a305-70766dbbc596',
+		labels: [],
+		state: 'open',
+		locked: false,
+		comments: 0,
+		created_at: '2022-10-16T12:49:20Z',
+		updated_at: '2022-10-16T12:49:20Z',
+		closed_at: null,
+		body: '[87a810d2-4b69-4667-a305-70766dbbc596] Issue body',
+	};
+}
 
+function getComment(id = 1279965737) {
+	return {
+		url: `https://api.github.com/repos/${owner}/${repo}/issues/comments/${id}`,
+		html_url: `https://github.com/${owner}/${repo}/issues/3992#issuecomment-${id}`,
+		id,
+		created_at: '2022-10-16T13:04:43Z',
+		updated_at: '2022-10-16T13:04:43Z',
+		body: `[ccea04d2-d3a5-4925-9528-4f20cd033d83] ${uuid()}`,
+	};
+}
+
+describe('mirror', () => {
+	test.only('should sync issues and their comments', async () => {
+		const user = await ctx.createUser(
+			aTestUtils.generateRandomId().split('-')[0],
+		);
+		const session = { actor: user };
+		nock('https://api.github.com')
+			.persist()
+			.get('/app/installations')
+			.reply(200, [])
+			.post(`/repos/${owner}/${repo}/issues`)
+			.reply(200, getIssue())
+			.get(`/repos/${owner}/${repo}/issues`)
+			.reply(200, getIssue())
+			.post(`/repos/${owner}/${repo}/issues/3992/comments`)
+			.reply(200, getComment())
+			.get(`/repos/${owner}/${repo}/issues/3992`)
+			.reply(200, getIssue())
+			.patch(`/repos/${owner}/${repo}/issues/3992`)
+			.reply(200, getIssue())
+			.get(`/repos/${owner}/${repo}/issues/comments/1279965737`)
+			.reply(200, getComment())
+			.patch(`/repos/${owner}/${repo}/issues/comments/1279965737`)
+			.reply(200, getComment());
+
+		// Create issue contract, should sync with GitHub
+		const issue = await ctx.createIssue(
+			user.id,
+			session,
+			aTestUtils.generateRandomId(),
+			{
+				repository: `${owner}/${repo}`,
+				description: 'Issue body',
+				status: 'open',
+				archived: false,
+			},
+		);
+		expect(issue.data.mirrors).toEqual([
+			`https://github.com/${owner}/${repo}/issues/3992`,
+		]);
+
+		// Create message on issue, should sync with GitHub
 		const message: any = await ctx.createMessage(
 			user.id,
 			session,
 			issue,
 			'First comment',
 		);
-		const mirror = message.data.mirrors[0];
+		expect(message.data.mirrors).toEqual([
+			`https://github.com/${owner}/${repo}/issues/3992#issuecomment-1279965737`,
+		]);
 
-		await github.issues.deleteComment({
-			owner: repository.owner,
-			repo: repository.repo,
-			comment_id: _.last(_.split(mirror, '-')),
-		});
-
+		// Update message
 		const updatedMessage = 'Edited message';
+		const updatedComment = getComment();
+		updatedComment.body = updatedMessage;
+		nock('https://api.github.com')
+			.persist()
+			.patch(`/repos/${owner}/${repo}/issues/3992/comments`)
+			.reply(200, updatedComment)
+			.get(`/repos/${owner}/${repo}/issues/3992/comments`)
+			.reply(200, updatedComment);
 		await ctx.worker.patchCard(
 			ctx.logContext,
 			session,
@@ -100,63 +145,14 @@ describe('mirror', () => {
 		assert(updated);
 		expect((updated.data.payload as any).message).toEqual(updatedMessage);
 
-		// Check that the remote comment is still deleted
-		await ctx.retry(
-			() => {
-				// TS-TODO: Stop casting
-				return github.issues.get({
-					owner: repository.owner,
-					repo: repository.repo,
-					issue_number: _.last((issue.data.mirrors as string[])[0].split('/')),
-				});
-			},
-			(externalIssue: any) => {
-				return (
-					_.isEqual(externalIssue.data.body, `[${username}] Issue body`) &&
-					_.isEqual(externalIssue.data.comments, 0)
-				);
-			},
-		);
-	});
-
-	test('should be able to create an issue without comments', async () => {
-		const title = `Test Issue: ${coreTestUtils.generateRandomId()}`;
-		const issue = await ctx.createIssue(user.id, session, title, {
-			repository: `${repository.owner}/${repository.repo}`,
-			description: 'Issue body',
-			status: 'open',
-			archived: false,
-		});
-		// TS-TODO: Stop casting
-		const mirror = (issue.data.mirrors as string[])[0];
-		await new Promise((resolve) => {
-			setTimeout(resolve, 2000);
-		});
-
-		const external: any = await github.issues.get({
-			owner: repository.owner,
-			repo: repository.repo,
-			issue_number: _.last(mirror.split('/')),
-		});
-
-		const currentUser: any = await github.users.getAuthenticated();
-		expect(external.data.user.login).toEqual(currentUser.data.login);
-		expect(external.data.state).toEqual('open');
-		expect(external.data.title).toEqual(title);
-		expect(external.data.body).toEqual(`[${username}] Issue body`);
-		expect(external.data.comments).toEqual(0);
-		expect(external.data.labels).toEqual([]);
-	});
-
-	test('should sync issues given the mirror url if the repository changes', async () => {
-		const title = `Test Issue ${uuid()}`;
-		const issue = await ctx.createIssue(user.id, session, title, {
-			repository: `${repository.owner}/${repository.repo}`,
-			description: 'Issue body',
-			status: 'open',
-			archived: false,
-		});
-
+		// Update issue's data.repository value
+		const newRepo = `${repo}-${uuid()}`;
+		nock('https://api.github.com')
+			.persist()
+			.get(`/repos/${owner}/${newRepo}/issues/3992`)
+			.reply(404)
+			.get(`/repos/${owner}/${newRepo}/issues/3992/comments`)
+			.reply(404);
 		await ctx.worker.patchCard(
 			ctx.logContext,
 			session,
@@ -170,60 +166,33 @@ describe('mirror', () => {
 				{
 					op: 'replace',
 					path: '/data/repository',
-					value: `${repository.owner}/${repository.repo}-${uuid()}`,
+					value: `${owner}/${newRepo}`,
 				},
 			],
 		);
 		await ctx.flushAll(session);
 
-		await ctx.createMessage(user.id, session, issue, 'First comment');
-		// TS-TODO: Stop casting
-		const mirror = (issue.data.mirrors as string[])[0];
-		const external: any = await github.issues.get({
-			owner: repository.owner,
-			repo: repository.repo,
-			issue_number: _.last(mirror.split('/')),
-		});
-
-		const currentUser: any = await github.users.getAuthenticated();
-		expect(external.data.user.login).toEqual(currentUser.data.login);
-		expect(external.data.state).toEqual('open');
-		expect(external.data.title).toEqual(title);
-		expect(external.data.body).toEqual(`[${username}] Issue body`);
-		expect(external.data.comments).toEqual(1);
-		expect(external.data.labels).toEqual([]);
-	});
-
-	test('should be able to create an issue with a comment', async () => {
-		const title = `Test Issue ${coreTestUtils.generateRandomId()}`;
-		const issue = await ctx.createIssue(user.id, session, title, {
-			repository: `${repository.owner}/${repository.repo}`,
-			description: 'Issue body',
-			status: 'open',
-			archived: false,
-		});
-
-		await ctx.createMessage(user.id, session, issue, 'First comment');
-		// TS-TODO: Stop casting
-		const mirror = (issue.data.mirrors as string[])[0];
-		const externalIssue: any = await github.issues.get({
-			owner: repository.owner,
-			repo: repository.repo,
-			issue_number: _.last(mirror.split('/')),
-		});
-		expect(externalIssue.data.body).toEqual(`[${username}] Issue body`);
-		expect(externalIssue.data.comments).toEqual(1);
-
-		const externalMessages: any = await github.issues.listComments({
-			owner: repository.owner,
-			repo: repository.repo,
-			issue_number: externalIssue.data.number,
-		});
-		const currentUser: any = await github.users.getAuthenticated();
-		expect(externalMessages.data.length).toEqual(1);
-		expect(externalMessages.data[0].body).toEqual(
-			`[${username}] First comment`,
+		// Create new message on issue
+		const newComment = getComment(1279965738);
+		nock.cleanAll();
+		nock('https://api.github.com')
+			.persist()
+			.get('/app/installations')
+			.reply(200, [])
+			.post(`/repos/${owner}/${repo}/issues/3992/comments`)
+			.reply(200, newComment)
+			.get(`/repos/${owner}/${repo}/issues/comments/${newComment.id}`)
+			.reply(200, newComment)
+			.patch(`/repos/${owner}/${repo}/issues/comments/${newComment.id}`)
+			.reply(200, newComment);
+		const newMessage = await ctx.createMessage(
+			user.id,
+			session,
+			issue,
+			'Another comment',
 		);
-		expect(externalMessages.data[0].user.login).toEqual(currentUser.data.login);
+		expect(newMessage.data.mirrors).toEqual([
+			'https://github.com/product-os-test/jellyfish-test-github/issues/3992#issuecomment-1279965738',
+		]);
 	});
 });
