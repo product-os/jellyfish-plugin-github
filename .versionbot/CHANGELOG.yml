@@ -1,4 +1,17 @@
 - commits:
+    - subject: "CI: Mock mirror tests"
+      hash: 7bf857fa19d50646f39994534801f1d08ff41084
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.244
+  date: 2022-10-17T01:49:33.276Z
+- commits:
     - subject: Update autumndb from 22.2.145 to 22.2.146
       hash: cf909492c9bb290ebcb8d7a3407ea9a59c89f798
       body: ""
