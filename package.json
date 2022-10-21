@@ -53,14 +53,14 @@
   "author": "Balena.io. <hello@balena.io>",
   "license": "AGPL-3.0",
   "dependencies": {
-    "@balena/jellyfish-assert": "^1.2.86",
-    "@balena/jellyfish-environment": "^14.3.12",
-    "@balena/jellyfish-worker": "^35.0.39",
+    "@balena/jellyfish-assert": "^1.2.88",
+    "@balena/jellyfish-environment": "^14.4.1",
+    "@balena/jellyfish-worker": "^36.0.0",
     "@octokit/auth-app": "^4.0.6",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^4.3.0",
     "@octokit/rest": "^19.0.4",
-    "autumndb": "^22.2.146",
+    "autumndb": "^22.2.154",
     "lodash": "^4.17.21",
     "uuid": "^8.3.2",
     "yaml": "^2.1.3"
