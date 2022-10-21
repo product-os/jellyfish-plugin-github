@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.246 - 2022-10-21
+
+* Update typedoc from 0.23.16 to 0.23.17 [renovate[bot]]
+
 ## 8.0.245 - 2022-10-21
 
 * Update @octokit/auth-app from 4.0.6 to 4.0.7 [renovate[bot]]

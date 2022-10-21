@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update typedoc from 0.23.16 to 0.23.17
+      hash: 48b58c6ec9c0116de7a38d80a42e2a07a486f582
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.246
+  title: ""
+  date: 2022-10-21T03:16:55.038Z
+- commits:
     - subject: Update @octokit/auth-app from 4.0.6 to 4.0.7
       hash: 5088fa9bef82aa567d4d75bcbb3aa1fe4773d70b
       body: ""
