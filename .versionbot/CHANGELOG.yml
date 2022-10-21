@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update internal packages
+      hash: 7d782f5b765411abc40ee3faaa66a23df9342ff6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.244
+  title: ""
+  date: 2022-10-21T02:55:22.471Z
+- commits:
     - subject: Update autumndb from 22.2.145 to 22.2.146
       hash: cf909492c9bb290ebcb8d7a3407ea9a59c89f798
       body: ""
@@ -10444,9 +10458,9 @@
     - subject: Set repo loop field from github-org if possible
       hash: 2fb31cb69c8c0e7c10f50da8ee6d5dbb9a298aed
       body: >
-        The corresponding github-org contract is fetched based on the repo
-        'owner' value. The repo then inherits the loop value from the
-        github-org. If the github-org is not found, we just log a warning.
+        The corresponding github-org contract is fetched based on the repo 'owner'
+        value. The repo then inherits the loop value from the github-org. If the
+        github-org is not found, we just log a warning.
       footer:
         Change-type: minor
         change-type: minor
@@ -10553,8 +10567,8 @@
     - subject: Add new github-org contract type
       hash: 7fff97f26993f0fafa1b0d141a995a276dc5690c
       body: >
-        In due course this type will be used to sync GitHub orgs with JF. But
-        for now we just need this type to be defined and we can manually create
+        In due course this type will be used to sync GitHub orgs with JF. But for
+        now we just need this type to be defined and we can manually create
         instances of this type.
       footer:
         Change-type: minor
@@ -10651,8 +10665,8 @@
     - subject: simplify pull-request code
       hash: 9450b66e4c05c9f47a2e9638a099f826fd3817bd
       body: >
-        unify edit and synchronize handling and allow all status to
-        create/update a PR
+        unify edit and synchronize handling and allow all status to create/update
+        a PR
       footer:
         Change-type: patch
         change-type: patch
