@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.255 - 2022-10-22
+
+* Update simple-git-hooks from 2.8.0 to 2.8.1 [renovate[bot]]
+
 ## 8.0.254 - 2022-10-22
 
 * Update autumndb from 22.2.154 to 22.2.158 [renovate[bot]]
