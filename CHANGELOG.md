@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.251 - 2022-10-22
+
+* Update @octokit/plugin-throttling from 4.3.0 to 4.3.1 [renovate[bot]]
+
 ## 8.0.250 - 2022-10-22
 
 * Update @balena/jellyfish-worker from 36.0.5 to 36.0.6 [renovate[bot]]

@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @octokit/plugin-throttling from 4.3.0 to 4.3.1
+      hash: e704ec121836140c465264a9ea7f8cb03387772f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.251
+  title: ""
+  date: 2022-10-22T07:15:16.021Z
+- commits:
     - subject: Update @balena/jellyfish-worker from 36.0.5 to 36.0.6
       hash: 711cee45aa07c6477ee3527a70b6fc540af726e9
       body: ""
