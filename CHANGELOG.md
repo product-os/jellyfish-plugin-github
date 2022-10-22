@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.252 - 2022-10-22
+
+* Update @octokit/rest from 19.0.4 to 19.0.5 [renovate[bot]]
+
 ## 8.0.251 - 2022-10-22
 
 * Update @octokit/plugin-throttling from 4.3.0 to 4.3.1 [renovate[bot]]
