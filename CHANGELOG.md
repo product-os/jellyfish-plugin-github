@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.253 - 2022-10-22
+
+* Update @balena/jellyfish-worker from 36.0.6 to 36.0.7 [renovate[bot]]
+
 ## 8.0.252 - 2022-10-22
 
 * Update @octokit/rest from 19.0.4 to 19.0.5 [renovate[bot]]

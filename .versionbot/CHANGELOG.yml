@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-worker from 36.0.6 to 36.0.7
+      hash: 0f4e7f7da9890d2a5fd1ede7c72f3e089e06d159
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 8.0.253
+  title: ""
+  date: 2022-10-22T10:18:47.836Z
+- commits:
     - subject: Update @octokit/rest from 19.0.4 to 19.0.5
       hash: a525d41efd89c17f07d097086d651f27c1090153
       body: ""
