@@ -30,7 +30,6 @@
       "merged_at": null,
       "closed_at": null,
       "contract": null,
-      "$transformer": {},
       "integration_source": "github"
     }
   },
@@ -79,7 +78,6 @@
             "merged_at": null,
             "closed_at": null,
             "contract": null,
-            "$transformer": {},
             "integration_source": "github"
           }
         }

@@ -22,12 +22,7 @@ export const actionIntegrationGitHubMirrorEvent: ActionDefinition = {
 				properties: {
 					type: {
 						type: 'string',
-						enum: [
-							'issue@1.0.0',
-							'pull-request@1.0.0',
-							'message@1.0.0',
-							'check-run@1.0.0',
-						],
+						enum: ['issue@1.0.0', 'pull-request@1.0.0', 'message@1.0.0'],
 					},
 				},
 			},

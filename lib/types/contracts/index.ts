@@ -5,21 +5,6 @@
  */
 
 export type {
-	CheckRunContract,
-	CheckRunContractDefinition,
-	CheckRunData,
-} from './check-run';
-export type {
-	CommitContract,
-	CommitContractDefinition,
-	CommitData,
-} from './commit';
-export type {
-	GhPushContract,
-	GhPushContractDefinition,
-	GhPushData,
-} from './gh-push';
-export type {
 	GithubOrgContract,
 	GithubOrgContractDefinition,
 	GithubOrgData,

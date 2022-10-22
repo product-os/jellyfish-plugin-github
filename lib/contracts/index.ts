@@ -1,14 +1,8 @@
 import type { ContractDefinition } from 'autumndb';
-import { checkRun } from './check-run';
-import { commit } from './commit';
 import { githubOrg } from './github-org';
 import { issue } from './issue';
 import { pullRequest } from './pull-request';
-import { push } from './push';
 import { relationshipBrainstormTopicHasAttachedIssue } from './relationship-brainstorm-topic-has-attached-issue';
-import { relationshipCommitHasAttachedCheckRun } from './relationship-commit-has-attached-check-run';
-import { relationshipCommitIsAttachedToPullRequest } from './relationship-commit-is-attached-to-pull-request';
-import { relationshipCommitWasTransformedToError } from './relationship-commit-was-transformed-to-error';
 import { relationshipGitHubOrgBelongsToLoop } from './relationship-github-org-belongs-to-loop';
 import { relationshipGitHubOrgHasThread } from './relationship-github-org-has-thread';
 import { relationshipImprovementIsAttachedToIssue } from './relationship-improvement-is-attached-to-issue';
@@ -22,7 +16,6 @@ import { relationshipMilestoneIsAttachedToPullRequest } from './relationship-mil
 import { relationshipPullRequestHasAttachedPattern } from './relationship-pull-request-has-attached-pattern';
 import { relationshipPullRequestHasBaseAtRepository } from './relationship-pull-request-has-base-at-repository';
 import { relationshipPullRequestHasHeadAtRepository } from './relationship-pull-request-has-head-at-repository';
-import { relationshipPushRefersToRepository } from './relationship-push-refers-to-repository';
 import { relationshipRepositoryBelongsToGitHubOrg } from './relationship-repository-belongs-to-github-org';
 import { relationshipRepositoryHasThread } from './relationship-repository-has-thread';
 import { relationshipRepositoryUsesRepository } from './relationship-repository-uses-repository';
@@ -30,10 +23,7 @@ import { relationshipSalesThreadIsAttachedToIssue } from './relationship-sales-t
 import { relationshipSupportThreadIsAttachedToIssue } from './relationship-support-thread-is-attached-to-issue';
 import { relationshipSupportThreadIsAttachedToPullRequest } from './relationship-support-thread-is-attached-to-pull-request';
 import { repository } from './repository';
-import { triggeredActionConcludeCheckRun } from './triggered-action-conclude-check-run';
-import { triggeredActionFailedCheckRun } from './triggered-action-failed-check-run';
 import { triggeredActionGitHubIssueLink } from './triggered-action-github-issue-link';
-import { triggeredActionInProgressCheckRun } from './triggered-action-in-progress-check-run';
 import { triggeredActionIntegrationGitHubMirrorEntities } from './triggered-action-integration-github-mirror-entities';
 import { triggeredActionIntegrationGitHubMirrorEvent } from './triggered-action-integration-github-mirror-event';
 import { triggeredActionIntegrationGitHubSyncOrgFromRepo } from './triggered-action-integration-github-sync-org-from-repo';
@@ -43,16 +33,10 @@ import { viewAllIssues } from './view-all-issues';
 import { viewAllRepositories } from './view-all-repositories';
 
 export const contracts: ContractDefinition[] = [
-	checkRun,
-	commit,
 	githubOrg,
 	issue,
 	pullRequest,
-	push,
 	relationshipBrainstormTopicHasAttachedIssue,
-	relationshipCommitHasAttachedCheckRun,
-	relationshipCommitIsAttachedToPullRequest,
-	relationshipCommitWasTransformedToError,
 	relationshipGitHubOrgBelongsToLoop,
 	relationshipGitHubOrgHasThread,
 	relationshipImprovementIsAttachedToIssue,
@@ -66,7 +50,6 @@ export const contracts: ContractDefinition[] = [
 	relationshipPullRequestHasAttachedPattern,
 	relationshipPullRequestHasBaseAtRepository,
 	relationshipPullRequestHasHeadAtRepository,
-	relationshipPushRefersToRepository,
 	relationshipRepositoryBelongsToGitHubOrg,
 	relationshipRepositoryHasThread,
 	relationshipRepositoryUsesRepository,
@@ -74,10 +57,7 @@ export const contracts: ContractDefinition[] = [
 	relationshipSupportThreadIsAttachedToIssue,
 	relationshipSupportThreadIsAttachedToPullRequest,
 	repository,
-	triggeredActionConcludeCheckRun,
-	triggeredActionFailedCheckRun,
 	triggeredActionGitHubIssueLink,
-	triggeredActionInProgressCheckRun,
 	triggeredActionIntegrationGitHubMirrorEntities,
 	triggeredActionIntegrationGitHubMirrorEvent,
 	triggeredActionIntegrationGitHubSyncOrgFromRepo,

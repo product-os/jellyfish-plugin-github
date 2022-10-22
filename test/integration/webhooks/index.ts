@@ -1,38 +1,4 @@
 export default {
-	'check-run': {
-		expected: require('./check-run/expected.json'),
-		steps: [
-			require('./check-run/01.json'),
-			require('./check-run/02.json'),
-			require('./check-run/03.json'),
-		],
-	},
-	'push-to-master-with-installation-id': {
-		expected: require('./push-to-master-with-installation-id/expected.json'),
-		steps: [require('./push-to-master-with-installation-id/01.json')],
-	},
-	'push-to-master': {
-		expected: require('./push-to-master/expected.json'),
-		steps: [require('./push-to-master/01.json')],
-	},
-	'push-to-new-branch': {
-		expected: require('./push-to-new-branch/expected.json'),
-		steps: [require('./push-to-new-branch/01.json')],
-	},
-	'push-to-open-pr': {
-		expected: require('./push-to-open-pr/expected.json'),
-		steps: [
-			require('./push-to-open-pr/01.json'),
-			require('./push-to-open-pr/02.json'),
-		],
-	},
-	'push-to-open-pr-from-fork': {
-		expected: require('./push-to-open-pr-from-fork/expected.json'),
-		steps: [
-			require('./push-to-open-pr-from-fork/01.json'),
-			require('./push-to-open-pr-from-fork/02.json'),
-		],
-	},
 	'open-pr-and-create-repos': {
 		expected: require('./open-pr-and-create-repos/expected.json'),
 		headIndex: 1,
@@ -90,13 +56,6 @@ export default {
 			require('./pr-open-edit-close/03-pr-closed.json'),
 		],
 	},
-	// 'pr-open-sync-transformer': {
-	// 	expected: require('./pr-open-sync-transformer/expected.json'),
-	// 	steps: [
-	// 		require('./pr-open-sync-transformer/01-pr-opened.json'),
-	// 		require('./pr-open-sync-transformer/02-pr-closed.json'),
-	// 	],
-	// },
 	'pr-review-request': {
 		expected: require('./pr-review-request/expected.json'),
 		steps: [
