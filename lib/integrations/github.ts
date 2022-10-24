@@ -23,17 +23,13 @@ import * as utils from './utils';
 // tslint:disable-next-line: no-var-requires
 const packageJSON = require('../../package.json');
 
-// const octokit = Octokit.plugin(retry, throttling);
 const GITHUB_API_REQUEST_LOG_TITLE = 'GitHub API Request';
 const GITHUB_API_RETRY_COUNT = 5;
 const SLUG = 'github';
-// GH uses the check name as an identifier to decide which checks are required
-const JF_CHECK_NAME = 'Transformer Run';
 const Octokit = OctokitRest.plugin(retry, throttling);
 
 // Matches the prefix used when posting to GitHub on behalf of a user
 const PREFIX_RE = /^\[.*\] /;
-const JF_GH_EXTERNAL_ID_PREFIX = 'jellyfish-';
 
 interface Eval {
 	$eval: string;
@@ -383,70 +379,6 @@ export class GithubIntegration implements Integration {
 		const prefix = `[${username}]`;
 		const baseType = card.type.split('@')[0];
 
-		// TS-TODO: Stop casting
-		if (baseType === 'check-run') {
-			const externalId = `${JF_GH_EXTERNAL_ID_PREFIX}${card.id}`;
-			switch (card.data.status) {
-				case 'created': {
-					if (
-						card.data.check_run_id &&
-						card.data.mirrors &&
-						(card.data.mirrors as string[]).length > 0
-					) {
-						break;
-					}
-					// Create check run, store id from github back in card
-					card.data.status = 'queued';
-					const results = await githubRequest(github.checks.create, {
-						owner: card.data.owner,
-						repo: card.data.repo,
-						name: JF_CHECK_NAME,
-						head_sha: card.data.head_sha,
-						status: card.data.status,
-						started_at: card.data.started_at,
-						details_url: card.data.details_url,
-						external_id: externalId,
-					});
-					this.context.log.debug('Check-run created on GH', results);
-					card.data.check_run_id = results.data.id;
-					card.data.check_run_id = results.data.id;
-					card.data.mirrors = [results.data.html_url];
-					return [makeCard(card, options.actor)];
-				}
-
-				case 'in_progress': {
-					// Update check run
-					await githubRequest(github.checks.update, {
-						owner: card.data.owner,
-						repo: card.data.repo,
-						check_run_id: card.data.check_run_id,
-						status: card.data.status,
-						details_url: card.data.details_url,
-						external_id: externalId,
-					});
-					break;
-				}
-
-				case 'completed': {
-					// Update check run
-					await githubRequest(github.checks.update, {
-						owner: card.data.owner,
-						repo: card.data.repo,
-						check_run_id: card.data.check_run_id,
-						status: card.data.status,
-						details_url: card.data.details_url,
-						completed_at: card.data.completed_at,
-						conclusion: card.data.conclusion,
-						external_id: externalId,
-					});
-					break;
-				}
-
-				default:
-					break;
-			}
-		}
-
 		if (
 			(baseType === 'issue' || baseType === 'pull-request') &&
 			card.data.repository
@@ -781,7 +713,6 @@ export class GithubIntegration implements Integration {
 					closed_at: pullRequest.closed_at,
 					merged_at: pullRequest.merged_at,
 					contract: contractData,
-					$transformer: {},
 				},
 				prData,
 			),
@@ -1249,73 +1180,6 @@ export class GithubIntegration implements Integration {
 		return sequence;
 	}
 
-	async createPush(event: any, actor: string) {
-		const beforeSHA = event.data.payload.before;
-		const afterSHA = event.data.payload.after;
-
-		const pushSlug = slugify(`gh-push-from-${beforeSHA}-to-${afterSHA}`);
-		const push = await this.context.getElementBySlug(`${pushSlug}@latest`);
-
-		if (push) {
-			return [];
-		}
-
-		const result = [
-			makeCard(
-				{
-					slug: pushSlug,
-					type: 'gh-push@1.0.0',
-					name: 'Push Event',
-					data: {
-						branch: event.data.payload.ref.replace(/^refs\/heads\//, ''),
-						before: beforeSHA,
-						after: afterSHA,
-						author: event.data.payload.pusher.name,
-						commits: event.data.payload.commits,
-					},
-				},
-				actor,
-				event.data.payload.repository.updated_at,
-			),
-		];
-
-		const targetRepo = event.data.payload.repository;
-
-		const repo = await this.getRepoCard(targetRepo, {
-			actor,
-			index: 1,
-		});
-
-		// If we created a repository add it to the result
-		if (repo.card) {
-			result.push(repo.card);
-		}
-
-		// Link the push to the repository
-		return result.concat([
-			makeCard(
-				{
-					name: 'refers to',
-					slug: slugify(`link-gh-push-${afterSHA}-to-${repo.repoInfo.slug}`),
-					type: 'link@1.0.0',
-					data: {
-						inverseName: 'is referenced by',
-						from: {
-							id: {
-								$eval: 'cards[0].id',
-							},
-							type: {
-								$eval: 'cards[0].type',
-							},
-						},
-						to: repo.repoInfo.target,
-					},
-				},
-				actor,
-			),
-		]);
-	}
-
 	async closeIssue(github: OctokitInstance, event: any, actor: string) {
 		const contractMirrorId = getEventMirrorId(event);
 		const existingContract = await this.getCardByMirrorId(
@@ -1514,66 +1378,6 @@ export class GithubIntegration implements Integration {
 		});
 
 		switch (type) {
-			case 'check_run': {
-				// TS-TODO: Stop casting
-				const { repository } = event.data.payload as any;
-				const checkRun = (event.data.payload as any).check_run;
-
-				// check runs whose source of truth is in JF, should not be translated to prevent concurrency issues
-				if (checkRun.external_id.startsWith(JF_GH_EXTERNAL_ID_PREFIX)) {
-					return [];
-				}
-				const checkSuite = checkRun.check_suite;
-
-				// If the check_suite has just been created, the updated_at and created_at fields are the same
-				const timestamp = checkSuite.updated_at;
-
-				let card: any = {};
-
-				const currentContract = await this.getCardByMirrorId(
-					mirrorId,
-					'check-run@1.0.0',
-				);
-				if (currentContract) {
-					const oldUpdate =
-						currentContract.data.updated_at &&
-						new Date(timestamp) < new Date(currentContract.data.updated_at);
-
-					const isOwnedByJF =
-						currentContract.data.sourceOfTruth === 'jellyfish';
-
-					if (oldUpdate || isOwnedByJF) {
-						return [];
-					}
-					card.id = currentContract.id;
-					card.slug = currentContract.slug;
-				} else {
-					// ensure we merge and not re-create the contract
-					card.slug = `check-run-gh-${checkRun.id}`;
-				}
-
-				const [owner, repo] = repository.full_name.split('/');
-				card = {
-					...card,
-					name: currentContract?.name || checkRun.app.name,
-					type: 'check-run@1.0.0',
-					data: {
-						mirrors: [mirrorId],
-						owner,
-						repo,
-						head_sha: checkRun.head_sha,
-						details_url: checkRun.details_url,
-						status: checkRun.status,
-						started_at: checkRun.started_at,
-						conclusion: checkRun.conclusion,
-						completed_at: checkRun.completed_at,
-						check_run_id: checkRun.id,
-						updated_at: timestamp,
-					},
-				};
-				return [makeCard(card, actor, timestamp)];
-			}
-
 			case 'pull_request': {
 				// TS-TODO: Stop casting
 				const prMirrorID: string = (event.data.payload as any).pull_request
@@ -1588,34 +1392,10 @@ export class GithubIntegration implements Integration {
 					case 'synchronize':
 					case 'closed':
 					case 'assigned': {
-						if (existingPR) {
-							const sequence = await this.updatePR(
-								existingPR,
-								github,
-								event,
-								actor,
-							);
-							// check-run and commits for transformers must only be created when the PR was fresh
-							// or being pushed to. Otherwise we overwrite existing data
-							if (
-								existingPR.data?.head?.sha !== sequence[0].card.data?.head?.sha
-							) {
-								this.createTransformerCommitAndCheckRunForOpenPR(
-									sequence[0].card,
-									sequence,
-									actor,
-								);
-							}
-							return sequence;
-						} else {
-							const sequence = await this.createPR(github, event, actor);
-							this.createTransformerCommitAndCheckRunForOpenPR(
-								sequence[0].card,
-								sequence,
-								actor,
-							);
-							return sequence;
-						}
+						const sequence = existingPR
+							? await this.updatePR(existingPR, github, event, actor)
+							: await this.createPR(github, event, actor);
+						return sequence;
 					}
 					case 'labeled':
 					case 'unlabeled':
@@ -1666,154 +1446,9 @@ export class GithubIntegration implements Integration {
 						return [];
 				}
 
-			case 'push':
-				return this.createPush(event, actor);
-
 			default:
 				return [];
 		}
-	}
-
-	private createTransformerCommitAndCheckRunForOpenPR(
-		pullRequestContract: any,
-		sequence: Array<{ time: Date; card: any; actor: string }>,
-		actor: any,
-	) {
-		// No need to handle closed PRs or PRs that don't want to be transformed
-		if (
-			pullRequestContract.data.status !== 'open' ||
-			!pullRequestContract.data.contract?.data?.$transformer
-		) {
-			this.context.log.info(
-				'Not creating commit/check-run for closed and non transformer-aware PRs',
-				{ prId: pullRequestContract.id },
-			);
-			return;
-		}
-		// replace this with a call to GH once we don't need the data in the PR itself anymore
-		const sourceContract = pullRequestContract.data.contract;
-		const headSha = pullRequestContract.data.head.sha;
-		const headShaShort = headSha.substring(0, 8);
-		const [org, repo] = pullRequestContract.data.repository.split('/');
-
-		const commitCardIdx =
-			sequence.push(
-				makeCard(
-					{
-						slug: {
-							$eval: `'commit-${slugify(headSha)}-' + cards[0].slug`,
-						},
-						name: `Commit ${headShaShort} for PR ${pullRequestContract.name}`,
-						type: 'commit@1.0.0',
-						data: {
-							org,
-							repo,
-							head: pullRequestContract.data.head,
-							ssh_url: pullRequestContract.data.ssh_url,
-							pr_number: pullRequestContract.data.gh_number,
-							contract: sourceContract,
-							$transformer: {},
-						},
-					},
-					actor,
-					undefined,
-					true,
-				),
-			) - 1;
-
-		sequence.push(
-			makeCard(
-				{
-					slug: slugify(`link-commit-pr-${headSha}-${sequence[0].card.slug}`),
-					type: 'link@1.0.0',
-					name: 'is attached to',
-					data: {
-						inverseName: 'has attached',
-						from: {
-							id: {
-								$eval: `cards[${commitCardIdx}].id`,
-							},
-							type: {
-								$eval: `cards[${commitCardIdx}].type`,
-							},
-						},
-						to: {
-							id: {
-								$eval: 'cards[0].id',
-							},
-							type: {
-								$eval: 'cards[0].type',
-							},
-						},
-					},
-				},
-				actor,
-				undefined,
-				true,
-			),
-		);
-
-		// Create a check run for the commit
-		const checkRunSlug = slugify(`check-run-${headSha}`);
-		const checkRunCardIdx =
-			sequence.push(
-				makeCard(
-					{
-						name: `Transformers Check-Run for ${headShaShort}`,
-						type: 'check-run@1.0.0',
-						slug: checkRunSlug,
-						data: {
-							owner: org,
-							org,
-							repo,
-							head_sha: headSha,
-							details_url: `https://jel.ly.fish/${checkRunSlug}`,
-							started_at: new Date().toISOString(),
-							status: 'created',
-							sourceOfTruth: 'jellyfish', // this prevents overwriting by web-hooks
-						},
-					},
-					actor,
-					undefined,
-					true,
-				),
-			) - 1;
-
-		sequence.push(
-			makeCard(
-				{
-					slug: {
-						$eval: `'link-commit-check-run-${slugify(
-							headSha,
-						)}-' + cards[${commitCardIdx}].id`,
-					},
-					type: 'link@1.0.0',
-					name: 'has attached',
-					data: {
-						inverseName: 'is attached to',
-						from: {
-							id: {
-								$eval: `cards[${commitCardIdx}].id`,
-							},
-							type: {
-								$eval: `cards[${commitCardIdx}].type`,
-							},
-						},
-						to: {
-							id: {
-								$eval: `cards[${checkRunCardIdx}].id`,
-							},
-							type: {
-								$eval: `cards[${checkRunCardIdx}].type`,
-							},
-						},
-					},
-				},
-				actor,
-				undefined,
-				true,
-			),
-		);
 	}
 
 	async getCardByMirrorId(id: string, type: string) {
