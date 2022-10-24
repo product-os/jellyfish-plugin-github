@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.263 - 2022-10-24
+
+* Update @balena/jellyfish-assert from 1.2.91 to 1.2.92 [renovate[bot]]
+
 ## 8.0.262 - 2022-10-24
 
 * Docs: Remove badge from readme [Josh Bowling]
