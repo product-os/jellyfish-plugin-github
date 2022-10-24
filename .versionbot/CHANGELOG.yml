@@ -1,4 +1,18 @@
 - commits:
+    - subject: Remove commit, push, and check-run
+      hash: 0f9a0162eb443118c7d3cab25bfb4a506139cf10
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 9.0.0
+  title: ""
+  date: 2022-10-24T23:14:25.739Z
+- commits:
     - subject: Update autumndb from 22.2.158 to 22.2.165
       hash: 12f2e5ec134595223962da43aa4e788d30b71531
       body: ""

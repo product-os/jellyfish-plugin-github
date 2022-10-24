@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.0 - 2022-10-24
+
+* Remove commit, push, and check-run [Josh Bowling]
+
 ## 8.0.269 - 2022-10-24
 
 * Update autumndb from 22.2.158 to 22.2.165 [renovate[bot]]
