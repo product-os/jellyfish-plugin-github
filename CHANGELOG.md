@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 8.0.262 - 2022-10-24
+
+* Docs: Remove badge from readme [Josh Bowling]
+
 ## 8.0.261 - 2022-10-24
 
 * Update @balena/jellyfish-environment from 14.4.4 to 14.4.5 [renovate[bot]]

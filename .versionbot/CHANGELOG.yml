@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Docs: Remove badge from readme"
+      hash: 243d1bbfbba86cac965117c39477e040b14fa954
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Josh Bowling <josh@monarci.com>
+        signed-off-by: Josh Bowling <josh@monarci.com>
+      author: Josh Bowling
+      nested: []
+  version: 8.0.262
+  title: ""
+  date: 2022-10-24T02:10:33.311Z
+- commits:
     - subject: Update @balena/jellyfish-environment from 14.4.4 to 14.4.5
       hash: d9dc84b07ff843a8c9b44ce547dbd1a214adbdda
       body: ""
