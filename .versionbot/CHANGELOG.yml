@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-worker from 36.0.18 to 37.0.0
+      hash: f82ed22a9c5a0e2345b7e90339ab19caabd883ff
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 9.0.1
+  title: ""
+  date: 2022-10-25T06:07:15.386Z
+- commits:
     - subject: Remove commit, push, and check-run
       hash: 0f9a0162eb443118c7d3cab25bfb4a506139cf10
       body: ""

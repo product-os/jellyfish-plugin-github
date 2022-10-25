@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.1 - 2022-10-25
+
+* Update @balena/jellyfish-worker from 36.0.18 to 37.0.0 [renovate[bot]]
+
 ## 9.0.0 - 2022-10-24
 
 * Remove commit, push, and check-run [Josh Bowling]
