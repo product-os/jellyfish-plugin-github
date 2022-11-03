@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.16 - 2022-11-03
+
+* Update @balena/jellyfish-environment from 14.6.1 to 14.6.3 [renovate[bot]]
+
 ## 9.0.15 - 2022-10-29
 
 * Update jest from 29.2.1 to 29.2.2 [renovate[bot]]
