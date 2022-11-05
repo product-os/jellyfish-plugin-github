@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.26 - 2022-11-05
+
+* Update @types/jest from 29.2.0 to 29.2.2 [renovate[bot]]
+
 ## 9.0.25 - 2022-11-05
 
 * Update @balena/jellyfish-worker from 37.0.25 to 37.0.30 [renovate[bot]]
