@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.27 - 2022-11-07
+
+* Update @balena/jellyfish-assert from 1.2.97 to 1.2.98 [renovate[bot]]
+
 ## 9.0.26 - 2022-11-05
 
 * Update @types/jest from 29.2.0 to 29.2.2 [renovate[bot]]
