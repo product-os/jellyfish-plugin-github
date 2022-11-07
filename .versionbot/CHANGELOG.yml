@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/lint from 6.2.0 to 6.2.1
+      hash: f1d09b845aef9b1b85db909ee4d07135c0b9b032
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 9.0.28
+  title: ""
+  date: 2022-11-07T16:25:44.232Z
+- commits:
     - subject: Update @balena/jellyfish-assert from 1.2.97 to 1.2.98
       hash: 2d510e4c22da0100e007b08ea315854359411dd6
       body: ""
