@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-environment from 14.6.5 to 14.6.6
+      hash: 282c0e2d066cc4d0da9085e5ee58bd6a0ec725b9
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 9.0.29
+  title: ""
+  date: 2022-11-07T21:34:52.293Z
+- commits:
     - subject: Update @balena/lint from 6.2.0 to 6.2.1
       hash: f1d09b845aef9b1b85db909ee4d07135c0b9b032
       body: ""
