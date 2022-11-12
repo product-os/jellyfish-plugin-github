@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update @balena/jellyfish-assert from 1.2.98 to 1.2.99
+      hash: 56fe9e1df707ebac90d83519f6a42f994317c119
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: renovate[bot]
+      nested: []
+  version: 9.0.33
+  title: ""
+  date: 2022-11-12T03:35:21.622Z
+- commits:
     - subject: Update jest from 29.2.2 to 29.3.1
       hash: b3258d7e9e6361a06e47efa948903ae9fba25142
       body: ""
