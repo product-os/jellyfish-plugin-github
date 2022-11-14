@@ -55,7 +55,7 @@
   "dependencies": {
     "@balena/jellyfish-assert": "^1.2.100",
     "@balena/jellyfish-environment": "^14.6.8",
-    "@balena/jellyfish-worker": "^37.0.42",
+    "@balena/jellyfish-worker": "^37.0.45",
     "@octokit/auth-app": "^4.0.7",
     "@octokit/plugin-retry": "^3.0.9",
     "@octokit/plugin-throttling": "^4.3.2",
