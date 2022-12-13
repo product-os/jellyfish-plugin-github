@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update Node.js to 16.18.1
+      hash: 00c24385a331c6b90fc7091a11e4194c42647b10
+      body: |
+        Update node to 16.18.1
+
+        Update node from 16.17.1 to 16.18.1
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.1.0
+  title: ""
+  date: 2022-12-13T06:50:36.951Z
+- commits:
     - subject: Update dependency typescript to 4.9.4
       hash: 478e28c04231656931a93dc65dafc808df07b187
       body: |

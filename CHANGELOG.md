@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.1.0 - 2022-12-13
+
+* Update Node.js to 16.18.1 [Renovate Bot]
+
 ## 9.0.42 - 2022-12-13
 
 * Update dependency typescript to 4.9.4 [Renovate Bot]
