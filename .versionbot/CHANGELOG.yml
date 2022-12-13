@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency typescript to 4.9.4
+      hash: 478e28c04231656931a93dc65dafc808df07b187
+      body: |
+        Update typescript to 4.9.4
+
+        Update typescript from 4.8.4 to 4.9.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 9.0.42
+  title: ""
+  date: 2022-12-13T04:51:59.628Z
+- commits:
     - subject: "CI: Stop extending renovate config"
       hash: 80f832209750a8a11a606ac6ebe79368145c2c32
       body: ""
