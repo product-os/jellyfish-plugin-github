@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.0.41 - 2022-12-13
+
+* CI: Stop extending renovate config [Josh Bowling]
+
 ## 9.0.40 - 2022-11-14
 
 * Update @balena/jellyfish-worker from 37.0.42 to 37.0.45 [renovate[bot]]
