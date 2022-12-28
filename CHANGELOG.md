@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.2.0 - 2022-12-28
+
+* Pin dependencies [Renovate Bot]
+
 ## 9.1.1 - 2022-12-28
 
 * Dev: Update .nvmrc from 16.18 to 18.12 [Josh Bowling]

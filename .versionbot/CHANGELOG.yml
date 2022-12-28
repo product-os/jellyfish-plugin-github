@@ -1,4 +1,19 @@
 - commits:
+    - subject: Pin dependencies
+      hash: 9e4f29c9e9e4ec166972999e40258ba0f57122bb
+      body: |
+        Update actions/checkout to
+
+        Update actions/checkout from 3 to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.2.0
+  title: ""
+  date: 2022-12-28T11:32:15.205Z
+- commits:
     - subject: "Dev: Update .nvmrc from 16.18 to 18.12"
       hash: 03f6a7715856aced6a7c741bb63dac5c68e871ca
       body: ""
