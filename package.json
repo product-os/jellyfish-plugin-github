@@ -57,7 +57,7 @@
     "@balena/jellyfish-environment": "^14.6.8",
     "@balena/jellyfish-worker": "^37.0.45",
     "@octokit/auth-app": "^4.0.7",
-    "@octokit/plugin-retry": "^3.0.9",
+    "@octokit/plugin-retry": "^4.0.0",
     "@octokit/plugin-throttling": "^4.3.2",
     "@octokit/rest": "^19.0.5",
     "autumndb": "^22.2.167",
