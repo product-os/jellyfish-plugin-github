@@ -1,4 +1,16 @@
 - commits:
+    - subject: "Dev: Update .nvmrc from 16.18 to 18.12"
+      hash: 03f6a7715856aced6a7c741bb63dac5c68e871ca
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.1.1
+  title: ""
+  date: 2022-12-28T06:59:36.957Z
+- commits:
     - subject: Update Node.js to 16.18.1
       hash: 00c24385a331c6b90fc7091a11e4194c42647b10
       body: |
