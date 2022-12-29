@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency @octokit/plugin-retry to 4.0.3
+      hash: 9a0fe194eac1eb50aebec6644a7e64763c137bd4
+      body: |
+        Update @octokit/plugin-retry to 4.0.3
+
+        Update @octokit/plugin-retry from 3.0.9 to 4.0.3
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.3.0
+  title: ""
+  date: 2022-12-29T14:19:13.819Z
+- commits:
     - subject: Pin dependencies
       hash: 9e4f29c9e9e4ec166972999e40258ba0f57122bb
       body: |

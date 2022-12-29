@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.3.0 - 2022-12-29
+
+* Update dependency @octokit/plugin-retry to 4.0.3 [Renovate Bot]
+
 ## 9.2.0 - 2022-12-28
 
 * Pin dependencies [Renovate Bot]
