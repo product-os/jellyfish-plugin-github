@@ -1,8 +1,8 @@
+import { randomUUID } from 'node:crypto';
 import { githubIntegrationDefinition } from '../../../lib/integrations/github';
-import { v4 as uuidv4 } from 'uuid';
 
 const logContext = {
-	id: `test-${uuidv4()}`,
+	id: `test-${randomUUID()}`,
 };
 
 describe('isEventValid()', () => {

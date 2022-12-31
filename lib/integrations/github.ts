@@ -16,7 +16,7 @@ import type { OctokitResponse } from '@octokit/types';
 import type { Contract, ContractDefinition, EventContract } from 'autumndb';
 import crypto from 'crypto';
 import _ from 'lodash';
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import YAML from 'yaml';
 import * as utils from './utils';
 
@@ -180,7 +180,7 @@ async function getCommentFromEvent(_context: any, event: any, options: any) {
 		},
 	};
 
-	const id = uuidv4();
+	const id = randomUUID();
 	const slug = `message-${id}`;
 
 	return [
@@ -1547,7 +1547,7 @@ export class GithubIntegration implements Integration {
 						},
 					};
 
-					const newId = uuidv4();
+					const newId = randomUUID();
 					const commentContract = {
 						id: existingContract?.id ?? newId,
 						slug: existingContract?.slug ?? `message-${newId}`,
