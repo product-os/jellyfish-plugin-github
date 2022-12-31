@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency jsonwebtoken to 9.0.0
+      hash: 2cff072f2b38d6d70576f8ffca26f5c3e5edfcdb
+      body: |
+        Update jsonwebtoken to 9.0.0
+
+        Update jsonwebtoken from 8.5.1 to 9.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+  version: 9.3.2
+  title: ""
+  date: 2022-12-31T14:50:19.207Z
+- commits:
     - subject: Drop uuid
       hash: c7f2b1514aba2b8f59bc13365d2e1289b1916c34
       body: ""

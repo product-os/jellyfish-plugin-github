@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.3.2 - 2022-12-31
+
+* Update dependency jsonwebtoken to 9.0.0 [Renovate Bot]
+
 ## 9.3.1 - 2022-12-31
 
 * Drop uuid [Josh Bowling]
