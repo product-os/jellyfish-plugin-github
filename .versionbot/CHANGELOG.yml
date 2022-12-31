@@ -1,4 +1,16 @@
 - commits:
+    - subject: Drop uuid
+      hash: c7f2b1514aba2b8f59bc13365d2e1289b1916c34
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.3.1
+  title: ""
+  date: 2022-12-31T13:23:29.423Z
+- commits:
     - subject: Update dependency @octokit/plugin-retry to 4.0.3
       hash: 9a0fe194eac1eb50aebec6644a7e64763c137bd4
       body: |

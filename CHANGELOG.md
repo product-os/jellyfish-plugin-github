@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.3.1 - 2022-12-31
+
+* Drop uuid [Josh Bowling]
+
 ## 9.3.0 - 2022-12-29
 
 * Update dependency @octokit/plugin-retry to 4.0.3 [Renovate Bot]
