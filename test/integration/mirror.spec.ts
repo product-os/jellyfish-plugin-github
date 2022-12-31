@@ -8,7 +8,7 @@ import { defaultEnvironment } from '@balena/jellyfish-environment';
 import { retry } from '@octokit/plugin-retry';
 import { Octokit as OctokitRest } from '@octokit/rest';
 import _ from 'lodash';
-import { v4 as uuid } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import { githubPlugin, testUtils } from '../../lib';
 
 let ctx: testUtils.TestContext;
@@ -149,7 +149,7 @@ describe('mirror', () => {
 	});
 
 	test('should sync issues given the mirror url if the repository changes', async () => {
-		const title = `Test Issue ${uuid()}`;
+		const title = `Test Issue ${randomUUID()}`;
 		const issue = await ctx.createIssue(user.id, session, title, {
 			repository: `${repository.owner}/${repository.repo}`,
 			description: 'Issue body',
@@ -170,7 +170,7 @@ describe('mirror', () => {
 				{
 					op: 'replace',
 					path: '/data/repository',
-					value: `${repository.owner}/${repository.repo}-${uuid()}`,
+					value: `${repository.owner}/${repository.repo}-${randomUUID()}`,
 				},
 			],
 		);
