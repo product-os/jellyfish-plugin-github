@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.4.0 - 2023-01-01
+
+* Update postgres Docker tag to v15 [Renovate Bot]
+
 ## 9.3.2 - 2022-12-31
 
 * Update dependency jsonwebtoken to 9.0.0 [Renovate Bot]

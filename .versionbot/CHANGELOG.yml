@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update postgres Docker tag to v15
+      hash: 5244ebf0e6a503d5e400ba0aef320e2933b15086
+      body: |
+        Update postgres to 15
+
+        Update postgres from 14 to 15
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.4.0
+  title: ""
+  date: 2023-01-01T07:13:50.347Z
+- commits:
     - subject: Update dependency jsonwebtoken to 9.0.0
       hash: 2cff072f2b38d6d70576f8ffca26f5c3e5edfcdb
       body: |
