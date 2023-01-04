@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update dependency @balena/jellyfish-environment to 15.0.1
+      hash: dddbb1a4546bf3dd85cd99575c42d9d1661415f6
+      body: |
+        Update @balena/jellyfish-environment to 15.0.1
+
+        Update @balena/jellyfish-environment from 14.9.1 to 15.0.1
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.5.0
+  title: ""
+  date: 2023-01-04T08:52:14.672Z
+- commits:
     - subject: Update postgres Docker tag to v15
       hash: 5244ebf0e6a503d5e400ba0aef320e2933b15086
       body: |

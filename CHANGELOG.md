@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.5.0 - 2023-01-04
+
+* Update dependency @balena/jellyfish-environment to 15.0.1 [Renovate Bot]
+
 ## 9.4.0 - 2023-01-01
 
 * Update postgres Docker tag to v15 [Renovate Bot]
