@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.7.0 - 2023-01-06
+
+* Update Node.js to 18.13.0 [Renovate Bot]
+
 ## 9.6.0 - 2023-01-05
 
 * Update actions/checkout digest to ac59398 [Renovate Bot]
