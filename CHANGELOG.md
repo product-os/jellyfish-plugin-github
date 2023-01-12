@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.0 - 2023-01-12
+
+* Update github/codeql-action digest to 515828d [Renovate Bot]
+
 ## 9.7.0 - 2023-01-06
 
 * Update Node.js to 18.13.0 [Renovate Bot]

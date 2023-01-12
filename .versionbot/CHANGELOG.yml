@@ -1,4 +1,19 @@
 - commits:
+    - subject: Update github/codeql-action digest to 515828d
+      hash: f5a359269ac8757617e7c0d44928714d4e6f7bc8
+      body: |
+        Update github/codeql-action to
+
+        Update github/codeql-action from 2 to
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+  version: 9.8.0
+  title: ""
+  date: 2023-01-12T10:52:15.652Z
+- commits:
     - subject: Update Node.js to 18.13.0
       hash: fd1aba36553a48cc314d0fcd3a0714e52d4927f0
       body: |
