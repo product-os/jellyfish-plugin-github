@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.1 - 2023-01-18
+
+* Update dependency rimraf to 4.1.1 [Renovate Bot]
+
 ## 9.8.0 - 2023-01-18
 
 * Update github/codeql-action digest to a34ca99 [Renovate Bot]
