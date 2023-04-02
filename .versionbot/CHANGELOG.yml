@@ -1,4 +1,16 @@
 - commits:
+    - subject: Bump deps
+      hash: 965a5b5accbde32b520547d264ceddb23f15bdaa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.2
+  title: ""
+  date: 2023-04-02T07:47:27.924Z
+- commits:
     - subject: Update dependency rimraf to 4.1.1
       hash: f66a8fada191d884ee772515df409646a2b407d7
       body: |
