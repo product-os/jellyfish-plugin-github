@@ -1,4 +1,16 @@
 - commits:
+    - subject: Bump octokit deps
+      hash: e476d9bd20e852150bf4940f0cad651458e07daf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.3
+  title: ""
+  date: 2023-04-04T11:41:17.598Z
+- commits:
     - subject: Bump deps
       hash: 965a5b5accbde32b520547d264ceddb23f15bdaa
       body: ""

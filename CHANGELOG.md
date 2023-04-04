@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.3 - 2023-04-04
+
+* Bump octokit deps [Josh Bowling]
+
 ## 9.8.2 - 2023-04-02
 
 * Bump deps [Josh Bowling]
