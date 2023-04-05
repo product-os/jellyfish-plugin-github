@@ -1,4 +1,16 @@
 - commits:
+    - subject: Fix mirror host check security issue
+      hash: eb0c1db2266217d47f449dc7ea4e5c85e45ef54b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.5
+  title: ""
+  date: 2023-04-05T01:40:14.421Z
+- commits:
     - subject: Generate keys for unit tests
       hash: 99b8d516f9de03e7da58b8ec0c6b13e28ebdd029
       body: ""
