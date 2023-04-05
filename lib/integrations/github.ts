@@ -17,6 +17,7 @@ import type { Contract, ContractDefinition, EventContract } from 'autumndb';
 import crypto from 'crypto';
 import _ from 'lodash';
 import { randomUUID } from 'node:crypto';
+import * as url from 'node:url';
 import YAML from 'yaml';
 import * as utils from './utils';
 
@@ -362,7 +363,7 @@ export class GithubIntegration implements Integration {
 		const githubUrl = _.find(
 			card.data.mirrors as string[],
 			(mirror: string) => {
-				return _.startsWith(mirror, 'https://github.com');
+				return url.parse(mirror).host === 'github.com';
 			},
 		) as string;
 
@@ -523,7 +524,7 @@ export class GithubIntegration implements Integration {
 			}
 
 			const issueGithubUrl = _.find(issue.data.mirrors, (mirror: string) => {
-				return _.startsWith(mirror, 'https://github.com');
+				return url.parse(mirror).host === 'github.com';
 			});
 
 			const repoDetails = issueGithubUrl
@@ -1141,8 +1142,8 @@ export class GithubIntegration implements Integration {
 		);
 
 		for (const item of result) {
-			const githubUrl = _.find(item.card.data.mirrors, (mirror) => {
-				return _.startsWith(mirror, 'https://github.com');
+			const githubUrl = _.find(item.card.data.mirrors, (mirror: string) => {
+				return url.parse(mirror).host === 'github.com';
 			});
 
 			if (!githubUrl) {
