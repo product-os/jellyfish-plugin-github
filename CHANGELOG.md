@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.4 - 2023-04-05
+
+* Generate keys for unit tests [Josh Bowling]
+
 ## 9.8.3 - 2023-04-04
 
 * Bump octokit deps [Josh Bowling]

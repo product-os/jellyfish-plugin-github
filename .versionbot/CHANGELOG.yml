@@ -1,4 +1,16 @@
 - commits:
+    - subject: Generate keys for unit tests
+      hash: 99b8d516f9de03e7da58b8ec0c6b13e28ebdd029
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.4
+  title: ""
+  date: 2023-04-05T00:47:35.962Z
+- commits:
     - subject: Bump octokit deps
       hash: e476d9bd20e852150bf4940f0cad651458e07daf
       body: ""
