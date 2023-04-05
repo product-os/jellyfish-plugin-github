@@ -1,8 +1,8 @@
-import { randomUUID } from 'node:crypto';
+import * as crypto from 'node:crypto';
 import { githubIntegrationDefinition } from '../../../lib/integrations/github';
 
 const logContext = {
-	id: `test-${randomUUID()}`,
+	id: `test-${crypto.randomUUID()}`,
 };
 
 describe('isEventValid()', () => {
@@ -11,7 +11,7 @@ describe('isEventValid()', () => {
 			logContext,
 			{
 				api: 'xxxxx',
-				signature: 'secret',
+				signature: crypto.randomUUID(),
 			},
 			'....',
 			{},
@@ -34,7 +34,7 @@ describe('isEventValid()', () => {
 			logContext,
 			{
 				api: 'xxxxx',
-				signature: 'secret',
+				signature: crypto.randomUUID(),
 			},
 			'{"foo":"bar"}',
 			{ 'x-hub-signature': 'sha1=foobarbaz' },
@@ -43,14 +43,21 @@ describe('isEventValid()', () => {
 	});
 
 	test('should return true given a signature match', async () => {
+		const payload = '{"foo":"bar"}';
+		const signature = crypto.randomUUID();
+		const hash = crypto
+			.createHmac('sha1', signature)
+			.update(payload)
+			.digest('hex');
+
 		const result = githubIntegrationDefinition.isEventValid(
 			logContext,
 			{
 				api: 'xxxxx',
-				signature: 'secret',
+				signature,
 			},
-			'{"foo":"bar"}',
-			{ 'x-hub-signature': 'sha1=52b582138706ac0c597c315cfc1a1bf177408a4d' },
+			payload,
+			{ 'x-hub-signature': `sha1=${hash}` },
 		);
 		expect(result).toBe(true);
 	});
