@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update worker and autumndb
+      hash: 431d1fa6eafa2d8e65130a79d8cbd9659539254c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.6
+  title: ""
+  date: 2023-04-06T02:36:22.498Z
+- commits:
     - subject: Fix mirror host check security issue
       hash: eb0c1db2266217d47f449dc7ea4e5c85e45ef54b
       body: ""

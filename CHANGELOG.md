@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.6 - 2023-04-06
+
+* Update worker and autumndb [Josh Bowling]
+
 ## 9.8.5 - 2023-04-05
 
 * Fix mirror host check security issue [Josh Bowling]
