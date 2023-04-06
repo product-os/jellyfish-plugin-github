@@ -77,8 +77,7 @@
           "alertsUser": [],
           "mentionsGroup": [],
           "alertsGroup": [],
-          "message": "First comment",
-          "reactions": {}
+          "message": "First comment"
         },
         "integration_source": "github"
       }
@@ -105,8 +104,7 @@
           "alertsUser": [],
           "mentionsGroup": [],
           "alertsGroup": [],
-          "message": "Edited second comment",
-          "reactions": {}
+          "message": "Edited second comment"
         },
         "integration_source": "github"
       }
