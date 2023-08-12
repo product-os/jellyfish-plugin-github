@@ -1,4 +1,24 @@
 - commits:
+    - subject: Update for GitHub typing changes
+      hash: 73dfb05f3be593670b00a01db136966b2eb28ccd
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+    - subject: Bump internal dependencies
+      hash: 6b15b1a347630347d30999c15113ad09432324dc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 9.8.7
+  title: ""
+  date: 2023-08-12T08:42:33.750Z
+- commits:
     - subject: Update worker and autumndb
       hash: 431d1fa6eafa2d8e65130a79d8cbd9659539254c
       body: ""
@@ -11517,9 +11537,9 @@
     - subject: Set repo loop field from github-org if possible
       hash: 2fb31cb69c8c0e7c10f50da8ee6d5dbb9a298aed
       body: >
-        The corresponding github-org contract is fetched based on the repo 'owner'
-        value. The repo then inherits the loop value from the github-org. If the
-        github-org is not found, we just log a warning.
+        The corresponding github-org contract is fetched based on the repo
+        'owner' value. The repo then inherits the loop value from the
+        github-org. If the github-org is not found, we just log a warning.
       footer:
         Change-type: minor
         change-type: minor
@@ -11626,8 +11646,8 @@
     - subject: Add new github-org contract type
       hash: 7fff97f26993f0fafa1b0d141a995a276dc5690c
       body: >
-        In due course this type will be used to sync GitHub orgs with JF. But for
-        now we just need this type to be defined and we can manually create
+        In due course this type will be used to sync GitHub orgs with JF. But
+        for now we just need this type to be defined and we can manually create
         instances of this type.
       footer:
         Change-type: minor
@@ -11724,8 +11744,8 @@
     - subject: simplify pull-request code
       hash: 9450b66e4c05c9f47a2e9638a099f826fd3817bd
       body: >
-        unify edit and synchronize handling and allow all status to create/update
-        a PR
+        unify edit and synchronize handling and allow all status to
+        create/update a PR
       footer:
         Change-type: patch
         change-type: patch

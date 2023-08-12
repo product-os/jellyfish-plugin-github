@@ -5,6 +5,11 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 9.8.7 - 2023-08-12
+
+* Update for GitHub typing changes [Josh Bowling]
+* Bump internal dependencies [Josh Bowling]
+
 ## 9.8.6 - 2023-04-06
 
 * Update worker and autumndb [Josh Bowling]
