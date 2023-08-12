@@ -312,13 +312,16 @@ export class GithubIntegration implements Integration {
 				return;
 			}
 
-			this.installations = installs.data.reduce(
-				(map, i) => ({
+			this.installations = installs.data.reduce((map, i) => {
+				let accountName = 'missing';
+				if (i.account != null) {
+					accountName = 'login' in i.account ? i.account.login : i.account.name;
+				}
+				return {
 					...map,
-					[i.account?.login || i.account?.name || 'missing']: i.id,
-				}),
-				{},
-			);
+					[accountName]: i.id,
+				};
+			}, {});
 			context.log.info('GH installations updated', {
 				installations: this.installations,
 			});
@@ -473,7 +476,7 @@ export class GithubIntegration implements Integration {
 						owner,
 						repo,
 						issue_number: _.parseInt(_.last(githubUrl.split('/')) || ''),
-						title: card.name,
+						title: card.name ?? card.slug,
 						body,
 						state: card.data.status as 'open' | 'closed',
 						labels: card.tags,
