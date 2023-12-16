@@ -1,7 +1,5 @@
 import type { PluginDefinition } from '@balena/jellyfish-worker';
-import { actions } from './actions';
 import { contracts } from './contracts';
-import { integrations } from './integrations';
 export * as testUtils from './test-utils';
 export * from './types';
 
@@ -16,8 +14,6 @@ export const githubPlugin = (): PluginDefinition => {
 		slug: 'plugin-github',
 		name: 'GitHub Plugin',
 		version,
-		actions,
 		contracts,
-		integrationMap: integrations,
 	};
 };

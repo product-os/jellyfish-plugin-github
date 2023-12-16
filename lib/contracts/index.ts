@@ -24,9 +24,6 @@ import { relationshipSupportThreadIsAttachedToIssue } from './relationship-suppo
 import { relationshipSupportThreadIsAttachedToPullRequest } from './relationship-support-thread-is-attached-to-pull-request';
 import { repository } from './repository';
 import { triggeredActionGitHubIssueLink } from './triggered-action-github-issue-link';
-import { triggeredActionIntegrationGitHubMirrorEntities } from './triggered-action-integration-github-mirror-entities';
-import { triggeredActionIntegrationGitHubMirrorEvent } from './triggered-action-integration-github-mirror-event';
-import { triggeredActionIntegrationGitHubSyncOrgFromRepo } from './triggered-action-integration-github-sync-org-from-repo';
 import { triggeredActionSupportClosedIssueReopen } from './triggered-action-support-closed-issue-reopen';
 import { triggeredActionSupportClosedPullRequestReopen } from './triggered-action-support-closed-pull-request-reopen';
 import { viewAllIssues } from './view-all-issues';
@@ -58,9 +55,6 @@ export const contracts: ContractDefinition[] = [
 	relationshipSupportThreadIsAttachedToPullRequest,
 	repository,
 	triggeredActionGitHubIssueLink,
-	triggeredActionIntegrationGitHubMirrorEntities,
-	triggeredActionIntegrationGitHubMirrorEvent,
-	triggeredActionIntegrationGitHubSyncOrgFromRepo,
 	triggeredActionSupportClosedIssueReopen,
 	triggeredActionSupportClosedPullRequestReopen,
 	viewAllIssues,
