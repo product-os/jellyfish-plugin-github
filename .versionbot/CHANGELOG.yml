@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove codeql
+      hash: 947c4b6f6eaa50c5534090e3fc497ac3bf0a09c2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Josh Bowling
+      nested: []
+  version: 10.0.1
+  title: ""
+  date: 2023-12-16T04:57:21.691Z
+- commits:
     - subject: Remove sync integration
       hash: a65f5d0288c60864b98a64351471f3d9a980fb06
       body: ""
