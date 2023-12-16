@@ -5,6 +5,10 @@
 * Bring back beforeEach [Josh Bowling]
 * Make requested changes [Josh Bowling]
 
+## 10.0.0 - 2023-12-16
+
+* Remove sync integration [Josh Bowling]
+
 ## 9.8.7 - 2023-08-12
 
 * Update for GitHub typing changes [Josh Bowling]

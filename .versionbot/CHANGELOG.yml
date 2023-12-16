@@ -1,4 +1,16 @@
 - commits:
+    - subject: Remove sync integration
+      hash: a65f5d0288c60864b98a64351471f3d9a980fb06
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+      author: Josh Bowling
+      nested: []
+  version: 10.0.0
+  title: ""
+  date: 2023-12-16T03:53:17.182Z
+- commits:
     - subject: Update for GitHub typing changes
       hash: 73dfb05f3be593670b00a01db136966b2eb28ccd
       body: ""
